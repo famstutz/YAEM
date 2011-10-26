@@ -1,0 +1,70 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YAEM.Server", "YAEM.Server\YAEM.Server.csproj", "{96EEA044-5467-4F47-8CF8-026AA06BD20E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YAEM.Contracts", "YAEM.Contracts\YAEM.Contracts.csproj", "{58711D0F-99B7-4461-857F-96880DA462FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YAEM.Domain", "YAEM.Domain\YAEM.Domain.csproj", "{E30F4730-2370-4961-A9EC-5FA3F459D549}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YAEM.DesktopClient", "YAEM.DesktopClient\YAEM.DesktopClient.csproj", "{8AE3293E-01B5-4317-8994-0A5880D4C442}"
+	ProjectSection(ProjectDependencies) = postProject
+		{96EEA044-5467-4F47-8CF8-026AA06BD20E} = {96EEA044-5467-4F47-8CF8-026AA06BD20E}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YAEM.Server.Tests", "YAEM.Server.Tests\YAEM.Server.Tests.csproj", "{057F8614-06F2-40C6-B47C-ED5BAC214D0B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B3E7F52E-CD67-42BD-A203-84D4FCBBF7E3}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+		YAEM.Server.vsmdi = YAEM.Server.vsmdi
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01_ServiceModel", "01_ServiceModel", "{25D36DAA-6B84-414D-BA64-0528CB49E2F4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02_Server", "02_Server", "{083FEE64-8E5F-41EB-B6A7-8CD0D684CCA9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03_Client", "03_Client", "{24375255-3303-4EE3-97E4-40F9CC6D4D80}"
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = YAEM.Server.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96EEA044-5467-4F47-8CF8-026AA06BD20E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96EEA044-5467-4F47-8CF8-026AA06BD20E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96EEA044-5467-4F47-8CF8-026AA06BD20E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96EEA044-5467-4F47-8CF8-026AA06BD20E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58711D0F-99B7-4461-857F-96880DA462FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58711D0F-99B7-4461-857F-96880DA462FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58711D0F-99B7-4461-857F-96880DA462FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58711D0F-99B7-4461-857F-96880DA462FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E30F4730-2370-4961-A9EC-5FA3F459D549}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E30F4730-2370-4961-A9EC-5FA3F459D549}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E30F4730-2370-4961-A9EC-5FA3F459D549}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E30F4730-2370-4961-A9EC-5FA3F459D549}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AE3293E-01B5-4317-8994-0A5880D4C442}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AE3293E-01B5-4317-8994-0A5880D4C442}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AE3293E-01B5-4317-8994-0A5880D4C442}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AE3293E-01B5-4317-8994-0A5880D4C442}.Release|Any CPU.Build.0 = Release|Any CPU
+		{057F8614-06F2-40C6-B47C-ED5BAC214D0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{057F8614-06F2-40C6-B47C-ED5BAC214D0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{057F8614-06F2-40C6-B47C-ED5BAC214D0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{057F8614-06F2-40C6-B47C-ED5BAC214D0B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E30F4730-2370-4961-A9EC-5FA3F459D549} = {25D36DAA-6B84-414D-BA64-0528CB49E2F4}
+		{58711D0F-99B7-4461-857F-96880DA462FC} = {25D36DAA-6B84-414D-BA64-0528CB49E2F4}
+		{057F8614-06F2-40C6-B47C-ED5BAC214D0B} = {083FEE64-8E5F-41EB-B6A7-8CD0D684CCA9}
+		{96EEA044-5467-4F47-8CF8-026AA06BD20E} = {083FEE64-8E5F-41EB-B6A7-8CD0D684CCA9}
+		{8AE3293E-01B5-4317-8994-0A5880D4C442} = {24375255-3303-4EE3-97E4-40F9CC6D4D80}
+	EndGlobalSection
+EndGlobal
