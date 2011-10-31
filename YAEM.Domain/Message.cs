@@ -10,5 +10,6 @@ namespace YAEM.Domain
     [DataContract]
     public class Message
     {
+
     }
 }

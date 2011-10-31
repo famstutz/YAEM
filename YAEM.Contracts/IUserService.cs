@@ -10,5 +10,7 @@ namespace YAEM.Contracts
         Session Register(User u);
         [OperationContract]
         void UnRegister(Session s);
+        [OperationContract]
+        bool IsRegistered(Session s);
     }
 }
