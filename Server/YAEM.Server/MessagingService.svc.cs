@@ -9,14 +9,21 @@ using YAEM.Domain;
 
 namespace YAEM.Server
 {
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     public class MessagingService : IMessagingService
     {
-        private IList<Message> _messageQueue = new List<Message>();
+        private List<Message> messageQueue;
+
+        public MessagingService()
+        {
+            this.messageQueue = new List<Message>();
+        }
+
 
         public void Send(Domain.Message m, Domain.Session sender)
         {
             m.Sender = sender.User;
-            _messageQueue.Add(m);
+            messageQueue.Add(m);
         }
     }
 }
