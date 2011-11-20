@@ -7,9 +7,29 @@ using System.Runtime.Serialization;
 namespace YAEM.Domain
 {
     [DataContract]
-    public class User
+    public class User : ObjectBase
     {
+        private string name;
+
         [DataMember]
-        public String Name { get; set; }
+        public string Name
+        {
+            get { return this.name; }
+            set
+            {
+                this.name = value;
+                this.NotifyPropertyChanged("Name");
+            }
+        }
+
+        public User() : base()
+        {
+
+        }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }
