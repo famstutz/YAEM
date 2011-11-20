@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using Microsoft.Practices.Unity;
-using YAEM.Contracts;
 
 namespace YAEM.TestClient
 {
@@ -15,7 +14,7 @@ namespace YAEM.TestClient
         [STAThread]
         static void Main()
         {
-            UnityContainer container = new UnityContainer().RegisterInstance<IUserService>(new )
+            //UnityContainer container = new UnityContainer().RegisterInstance<IUserService>(new )
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
