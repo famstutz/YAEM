@@ -5,10 +5,18 @@ using System.ServiceModel;
 
 namespace YAEM.Contracts
 {
-    [ServiceContract]
+    [ServiceContract(
+        SessionMode = SessionMode.Required,
+        CallbackContract = typeof(IMessagingServiceCallback))]
     public interface IMessagingService
     {
-        [OperationContract]
-        void Send(Message m, Session sender);
+        [OperationContract(IsOneWay = true)]
+        void Send(Message message, Session sender);
+    }
+
+    [ServiceContract]
+    public interface IMessagingServiceCallback
+    {
+
     }
 }
