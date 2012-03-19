@@ -20,8 +20,7 @@ namespace YAEM.Domain.Utilities
         /// <returns>The byte array.</returns>
         public static byte[] StringToByteArray(string str)
         {
-            var enc = new ASCIIEncoding();
-            return enc.GetBytes(str);
+            return (new UnicodeEncoding()).GetBytes(str);
         }
 
         /// <summary>
@@ -31,8 +30,7 @@ namespace YAEM.Domain.Utilities
         /// <returns>The string.</returns>
         public static string ByteArrayToString(byte[] arr)
         {
-            var enc = new ASCIIEncoding();
-            return enc.GetString(arr);
+            return (new UnicodeEncoding()).GetString(arr, 0, arr.Length);
         }
     }
 }

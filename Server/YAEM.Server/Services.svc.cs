@@ -4,6 +4,8 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
+using YAEM.Domain.Utilities;
+
 namespace YAEM.Server
 {
     using System;
@@ -55,7 +57,7 @@ namespace YAEM.Server
         /// </returns>
         public Session Join(User user)
         {
-            Logger.Instance.Info("Register called");
+            Logger.Instance.Info(string.Format("User <{0}> joined", user.Name));
 
             var sessions = from rs in this.registeredSessions
                            where rs.User == user
@@ -83,7 +85,7 @@ namespace YAEM.Server
         /// <param name="session">The session.</param>
         public void Leave(Session session)
         {
-            Logger.Instance.Info("UnRegister called");
+            Logger.Instance.Info(string.Format("User <{0}> left", session.User.Name));
 
             var sessions = from rs in this.registeredSessions
                            where rs.Key.Equals(session.Key)
@@ -108,12 +110,7 @@ namespace YAEM.Server
         /// </returns>
         public bool IsJoined(Session s)
         {
-            Logger.Instance.Info("IsRegistered called");
-
-            if (s == null)
-            {
-                return false;
-            }
+            Logger.Instance.Info(string.Format("Called IsJoined with session key <{0}> for user <{1}>", s.Key, s.User.Name));
 
             var sessions = from rs in this.registeredSessions
                            where rs.Key.Equals(s.Key)
@@ -132,7 +129,7 @@ namespace YAEM.Server
         /// <returns>A list with alle registered users.</returns>
         public IEnumerable<User> GetJoinedUsers()
         {
-            Logger.Instance.Info("GetRegisteredUsers called");
+            Logger.Instance.Info("Asked for all joined users");
 
             return (from s in this.registeredSessions.Select(s => s.User)
                     select s).AsEnumerable<User>();
@@ -145,6 +142,8 @@ namespace YAEM.Server
         /// <param name="sender">The sender.</param>
         public void Send(Message message, Session sender)
         {
+            Logger.Instance.Info(string.Format("User <{0}> sent message <{1}>", sender.User.Name, StringUtilities.ByteArrayToString(message.Payload)));
+
             message.Sender = sender.User;
             this.messageQueue.Add(message);
 
@@ -156,6 +155,8 @@ namespace YAEM.Server
         /// </summary>
         public void Subscribe()
         {
+            Logger.Instance.Info("Client subscribed");
+
             try
             {
                 var callback = OperationContext.Current.GetCallbackChannel<IServiceCallback>();
@@ -178,6 +179,8 @@ namespace YAEM.Server
         /// </summary>
         public void Unsubscribe()
         {
+            Logger.Instance.Info("Client unsubscribed");
+
             try
             {
                 var callback = OperationContext.Current.GetCallbackChannel<IServiceCallback>();

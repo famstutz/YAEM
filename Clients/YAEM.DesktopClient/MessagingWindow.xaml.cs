@@ -1,28 +1,19 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="MainForm.cs" company="Florian Amstutz">
-// Copyright (c) Florian Amstutz. All rights reserved.
-// </copyright>
-// -----------------------------------------------------------------------
+﻿using System;
+using System.Linq;
+using System.ServiceModel;
+using System.Threading;
+using System.Windows;
+using YAEM.DesktopClient.Services;
+using YAEM.Domain;
+using System.Collections.ObjectModel;
+using YAEM.Domain.Utilities;
 
-namespace YAEM.TestClient
+namespace YAEM.DesktopClient
 {
-    using System;
-    using System.ComponentModel;
-    using System.Linq;
-    using System.ServiceModel;
-    using System.Threading;
-    using System.Windows.Forms;
-    using Domain;
-    using Domain.Utilities;
-    using Services;
-
     /// <summary>
-    /// Contains the logic for the <see cref="MainForm"/>.
+    /// Interaction logic for MessagingWindow.xaml
     /// </summary>
-    [CallbackBehavior(
-       ConcurrencyMode = ConcurrencyMode.Single,
-       UseSynchronizationContext = false)]
-    public partial class MainForm : Form, IUserServiceCallback, IMessagingServiceCallback
+    public partial class MessagingWindow : IUserServiceCallback, IMessagingServiceCallback
     {
         /// <summary>
         /// The ui sync context.
@@ -33,7 +24,7 @@ namespace YAEM.TestClient
         /// The current session.
         /// </summary>
         private Session currentSession;
-        
+
         /// <summary>
         /// The <see cref="UserServiceClient"/> proxy.
         /// </summary>
@@ -45,21 +36,22 @@ namespace YAEM.TestClient
         private MessagingServiceClient messagingProxy;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MainForm"/> class.
+        /// Initializes a new instance of the <see cref="MessagingWindow"/> class.
         /// </summary>
-        public MainForm()
+        /// <param name="name">The name.</param>
+        public MessagingWindow(string name)
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
-            this.JoinedUsers = new BindingList<User>();
+            this.JoinedUsers = new ObservableCollection<User>();
 
-            this.ConnectedUsersDataGridView.DataSource = this.JoinedUsers;
             this.userProxy = new UserServiceClient(new InstanceContext(this));
             this.userProxy.Open();
             this.messagingProxy = new MessagingServiceClient(new InstanceContext(this));
             this.messagingProxy.Open();
 
             this.userProxy.Subscribe();
+            this.JoinUser(name);
             foreach (var u in this.userProxy.GetJoinedUsers())
             {
                 this.JoinedUsers.Add(u);
@@ -74,7 +66,7 @@ namespace YAEM.TestClient
         /// <value>
         /// The joined users.
         /// </value>
-        private BindingList<User> JoinedUsers { get; set; }
+        private ObservableCollection<User> JoinedUsers { get; set; }
 
         /// <summary>
         /// Notifies the user joined.
@@ -102,13 +94,12 @@ namespace YAEM.TestClient
         /// Notifies the new message.
         /// </summary>
         /// <param name="message">The message.</param>
-        public void NotifyNewMessage(Domain.Message message)
+        public void NotifyNewMessage(Message message)
         {
             SendOrPostCallback callback = state => this.AddHistoryMessage(message);
 
             this.uiSyncContext.Post(callback, message);
         }
-
         /// <summary>
         /// Joins the user.
         /// </summary>
@@ -133,34 +124,6 @@ namespace YAEM.TestClient
         }
 
         /// <summary>
-        /// Handles the Click event of the JoinButton control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-        private void JoinButtonClick(object sender, EventArgs e)
-        {
-            this.JoinUser(this.UsernameTextBox.Text);
-
-            this.UsernameTextBox.Enabled = false;
-            this.JoinButton.Enabled = false;
-            this.LeaveButton.Enabled = true;
-        }
-
-        /// <summary>
-        /// Handles the Click event of the LeaveButton control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-        private void LeaveButtonClick(object sender, EventArgs e)
-        {
-            this.LeaveUser();
-
-            this.LeaveButton.Enabled = false;
-            this.UsernameTextBox.Enabled = true;
-            this.JoinButton.Enabled = true;
-        }
-
-        /// <summary>
         /// Adds the user.
         /// </summary>
         /// <param name="u">The u.</param>
@@ -181,12 +144,22 @@ namespace YAEM.TestClient
         }
 
         /// <summary>
-        /// Handles the FormClosing event of the MainForm control.
+        /// Adds the history message.
         /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="System.Windows.Forms.FormClosingEventArgs"/> instance containing the event data.</param>
-        private void MainFormFormClosing(object sender, FormClosingEventArgs e)
+        /// <param name="message">The message.</param>
+        private void AddHistoryMessage(Message message)
         {
+            this.MessageHistoryTextBox.Text += string.Format("{0}\t{1}\t{2}\r\n", DateTime.Now, message.Sender.Name, message.GetPayload());
+        }
+
+        /// <summary>
+        /// Windows the closing.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="System.ComponentModel.CancelEventArgs"/> instance containing the event data.</param>
+        private void WindowClosing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            this.LeaveUser();
             this.userProxy.Unsubscribe();
 
             this.messagingProxy.Close();
@@ -196,23 +169,14 @@ namespace YAEM.TestClient
         }
 
         /// <summary>
-        /// Handles the Click event of the SendButton control.
+        /// Sends the button click.
         /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-        private void SendButtonClick(object sender, EventArgs e)
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+        private void SendButtonClick(object sender, RoutedEventArgs e)
         {
-            this.messagingProxy.Send(new Domain.Message { Payload = StringUtilities.StringToByteArray(this.MessageTextBox.Text) }, this.currentSession);
+            this.messagingProxy.Send(new Message { Payload = StringUtilities.StringToByteArray(this.MessageTextBox.Text) }, this.currentSession);
             this.MessageTextBox.Text = string.Empty;
-        }
-
-        /// <summary>
-        /// Adds the history message.
-        /// </summary>
-        /// <param name="message">The message.</param>
-        private void AddHistoryMessage(Domain.Message message)
-        {
-            this.MessageHistoryTextBox.Text += string.Format("{0}\t{1}\t{2}\r\n", DateTime.Now, message.Sender.Name, message.GetPayload());
         }
     }
 }

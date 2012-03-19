@@ -1,0 +1,10 @@
+﻿<Window x:Class="YAEM.DesktopClient.ConnectWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Connect..." Height="141" Width="247">
+    <Grid>
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="24,24,0,0" Name="textBlock1" Text="Name" VerticalAlignment="Top" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="78,21,0,0" Name="NameTextBox" VerticalAlignment="Top" Width="120" Text="" />
+        <Button Content="Join" Height="23" HorizontalAlignment="Left" Margin="78,50,0,0" Name="JoinButton" VerticalAlignment="Top" Width="75" Click="JoinButtonClick" />
+    </Grid>
+</Window>
