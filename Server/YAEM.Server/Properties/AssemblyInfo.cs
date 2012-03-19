@@ -1,4 +1,9 @@
-﻿using System.Reflection;
+﻿// -----------------------------------------------------------------------
+// <copyright file="AssemblyInfo.cs" company="Florian Amstutz">
+// Copyright (c) Florian Amstutz. All rights reserved.
+// </copyright>
+// -----------------------------------------------------------------------
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
@@ -10,10 +15,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("ERNI Consulting AG")]
 [assembly: AssemblyProduct("YAEM.Server")]
-[assembly: AssemblyCopyright("Copyright © ERNI Consulting AG 2011")]
+[assembly: AssemblyCopyright("Copyright © ERNI Consulting AG 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
-[assembly: log4net.Config.XmlConfigurator()]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
 // to COM components.  If you need to access a type in this assembly from 
@@ -21,7 +25,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("ecef15f4-79c3-473c-a970-dabf304b465c")]
+[assembly: Guid("f9d19e3f-5f75-4236-bc7c-e81b54bfa37f")]
 
 // Version information for an assembly consists of the following four values:
 //

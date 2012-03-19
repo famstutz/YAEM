@@ -1,21 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Forms;
-using Microsoft.Practices.Unity;
+﻿// -----------------------------------------------------------------------
+// <copyright file="Program.cs" company="Florian Amstutz">
+// Copyright (c) Florian Amstutz. All rights reserved.
+// </copyright>
+// -----------------------------------------------------------------------
 
 namespace YAEM.TestClient
 {
-    static class Program
+    using System;
+    using System.Windows.Forms;
+
+    /// <summary>
+    /// The program.
+    /// </summary>
+    public static class Program
     {
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        public static void Main()
         {
-            //UnityContainer container = new UnityContainer().RegisterInstance<IUserService>(new )
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());

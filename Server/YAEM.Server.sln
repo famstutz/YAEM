@@ -8,22 +8,18 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YAEM.Server.Tests", "YAEM.Server.Tests\YAEM.Server.Tests.csproj", "{057F8614-06F2-40C6-B47C-ED5BAC214D0B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B3E7F52E-CD67-42BD-A203-84D4FCBBF7E3}"
-	ProjectSection(SolutionItems) = preProject
-		Local.testsettings = Local.testsettings
-		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
-		YAEM.Server.vsmdi = YAEM.Server.vsmdi
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ServiceModel", "ServiceModel", "{25D36DAA-6B84-414D-BA64-0528CB49E2F4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{083FEE64-8E5F-41EB-B6A7-8CD0D684CCA9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YAEM.Server", "YAEM.Server\YAEM.Server.csproj", "{88905EAD-8465-4130-B8C9-6EF67F731000}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clients", "Clients", "{06EDF403-21A2-41B6-AA5B-40516B412273}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YAEM.TestClient", "..\Clients\YAEM.TestClient\YAEM.TestClient.csproj", "{92CAB138-FA78-42F0-AE2C-B0E085675859}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YAEM.Server", "YAEM.Server\YAEM.Server.csproj", "{16C3A4EC-07BB-407D-A8C0-AE50BE8BD9DD}"
 EndProject
 Global
-	GlobalSection(TestCaseManagementSettings) = postSolution
-		CategoryFile = YAEM.Server.vsmdi
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -63,25 +59,36 @@ Global
 		{057F8614-06F2-40C6-B47C-ED5BAC214D0B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{057F8614-06F2-40C6-B47C-ED5BAC214D0B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{057F8614-06F2-40C6-B47C-ED5BAC214D0B}.Release|x86.ActiveCfg = Release|Any CPU
-		{88905EAD-8465-4130-B8C9-6EF67F731000}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{88905EAD-8465-4130-B8C9-6EF67F731000}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{88905EAD-8465-4130-B8C9-6EF67F731000}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{88905EAD-8465-4130-B8C9-6EF67F731000}.Debug|x86.ActiveCfg = Debug|x86
-		{88905EAD-8465-4130-B8C9-6EF67F731000}.Debug|x86.Build.0 = Debug|x86
-		{88905EAD-8465-4130-B8C9-6EF67F731000}.Release|Any CPU.ActiveCfg = Release|x86
-		{88905EAD-8465-4130-B8C9-6EF67F731000}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{88905EAD-8465-4130-B8C9-6EF67F731000}.Release|Mixed Platforms.Build.0 = Release|x86
-		{88905EAD-8465-4130-B8C9-6EF67F731000}.Release|x86.ActiveCfg = Release|x86
-		{88905EAD-8465-4130-B8C9-6EF67F731000}.Release|x86.Build.0 = Release|x86
+		{92CAB138-FA78-42F0-AE2C-B0E085675859}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{92CAB138-FA78-42F0-AE2C-B0E085675859}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{92CAB138-FA78-42F0-AE2C-B0E085675859}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{92CAB138-FA78-42F0-AE2C-B0E085675859}.Debug|x86.ActiveCfg = Debug|x86
+		{92CAB138-FA78-42F0-AE2C-B0E085675859}.Debug|x86.Build.0 = Debug|x86
+		{92CAB138-FA78-42F0-AE2C-B0E085675859}.Release|Any CPU.ActiveCfg = Release|x86
+		{92CAB138-FA78-42F0-AE2C-B0E085675859}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{92CAB138-FA78-42F0-AE2C-B0E085675859}.Release|Mixed Platforms.Build.0 = Release|x86
+		{92CAB138-FA78-42F0-AE2C-B0E085675859}.Release|x86.ActiveCfg = Release|x86
+		{92CAB138-FA78-42F0-AE2C-B0E085675859}.Release|x86.Build.0 = Release|x86
+		{16C3A4EC-07BB-407D-A8C0-AE50BE8BD9DD}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{16C3A4EC-07BB-407D-A8C0-AE50BE8BD9DD}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{16C3A4EC-07BB-407D-A8C0-AE50BE8BD9DD}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{16C3A4EC-07BB-407D-A8C0-AE50BE8BD9DD}.Debug|x86.ActiveCfg = Debug|x86
+		{16C3A4EC-07BB-407D-A8C0-AE50BE8BD9DD}.Debug|x86.Build.0 = Debug|x86
+		{16C3A4EC-07BB-407D-A8C0-AE50BE8BD9DD}.Release|Any CPU.ActiveCfg = Release|x86
+		{16C3A4EC-07BB-407D-A8C0-AE50BE8BD9DD}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{16C3A4EC-07BB-407D-A8C0-AE50BE8BD9DD}.Release|Mixed Platforms.Build.0 = Release|x86
+		{16C3A4EC-07BB-407D-A8C0-AE50BE8BD9DD}.Release|x86.ActiveCfg = Release|x86
+		{16C3A4EC-07BB-407D-A8C0-AE50BE8BD9DD}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{057F8614-06F2-40C6-B47C-ED5BAC214D0B} = {083FEE64-8E5F-41EB-B6A7-8CD0D684CCA9}
-		{88905EAD-8465-4130-B8C9-6EF67F731000} = {083FEE64-8E5F-41EB-B6A7-8CD0D684CCA9}
 		{E30F4730-2370-4961-A9EC-5FA3F459D549} = {25D36DAA-6B84-414D-BA64-0528CB49E2F4}
 		{58711D0F-99B7-4461-857F-96880DA462FC} = {25D36DAA-6B84-414D-BA64-0528CB49E2F4}
+		{057F8614-06F2-40C6-B47C-ED5BAC214D0B} = {083FEE64-8E5F-41EB-B6A7-8CD0D684CCA9}
+		{16C3A4EC-07BB-407D-A8C0-AE50BE8BD9DD} = {083FEE64-8E5F-41EB-B6A7-8CD0D684CCA9}
+		{92CAB138-FA78-42F0-AE2C-B0E085675859} = {06EDF403-21A2-41B6-AA5B-40516B412273}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35;packages\Unity.Interception.2.1.505.0\lib\NET35;packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.ExceptionHandling.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Logging.5.0.505.1\lib\NET35;packages\EnterpriseLibrary.ExceptionHandling.Logging.5.0.505.0\lib\NET35

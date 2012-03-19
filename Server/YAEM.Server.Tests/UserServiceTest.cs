@@ -74,8 +74,8 @@ namespace YAEM.Server.Tests
         }
 
         [TestMethod()]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void Register_UserNameIsNull_ArgumentOutOfRangeException()
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void Register_UserNameIsNull_ArgumentNullException()
         {
             UserService target = new UserService(container);
             User u = new User() { Name = null };
@@ -85,8 +85,8 @@ namespace YAEM.Server.Tests
         }
 
         [TestMethod()]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void Register_UserNameIsEmpty_ArgumentOutOfRangeException()
+        [ExpectedException(typeof(ArgumentException))]
+        public void Register_UserNameIsEmpty_ArgumentException()
         {
             UserService target = new UserService(container);
             User u = new User() { Name = String.Empty };
@@ -113,6 +113,8 @@ namespace YAEM.Server.Tests
             UserService target = new UserService(container);
             User u = new User() { Name = "Florian" };
             Session s = target.Register(u);
+
+            target.UnRegister(s);
 
             Assert.IsFalse(target.IsRegistered(s));
         }
@@ -142,8 +144,8 @@ namespace YAEM.Server.Tests
         }
 
         [TestMethod()]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void UnRegister_SessionExpiryDateNull_ArgumentOutOfRangeException()
+        [ExpectedException(typeof(ArgumentException))]
+        public void UnRegister_SessionExpiryDateNull_ArgumentException()
         {
             UserService target = new UserService(container);
             Session s = new Session()
@@ -158,8 +160,8 @@ namespace YAEM.Server.Tests
         }
 
         [TestMethod()]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void UnRegister_SessionUserNull_ArgumentOutOfRangeException()
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void UnRegister_SessionUserNull_ArgumentNullException()
         {
             UserService target = new UserService(container);
             Session s = new Session()

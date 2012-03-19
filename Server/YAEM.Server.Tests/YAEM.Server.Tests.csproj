@@ -87,7 +87,7 @@
       <Name>YAEM.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\YAEM.Server\YAEM.Server.csproj">
-      <Project>{88905EAD-8465-4130-B8C9-6EF67F731000}</Project>
+      <Project>{947A20BC-2ED6-4EF0-ACA6-8F5E091FC32E}</Project>
       <Name>YAEM.Server</Name>
     </ProjectReference>
   </ItemGroup>

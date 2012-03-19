@@ -1,43 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.ServiceModel;
-using YAEM.Contracts;
-using log4net;
-using Microsoft.Practices.Unity;
+﻿// -----------------------------------------------------------------------
+// <copyright file="Program.cs" company="Florian Amstutz">
+// Copyright (c) Florian Amstutz. All rights reserved.
+// </copyright>
+// -----------------------------------------------------------------------
 
 namespace YAEM.Server
 {
-    class Program
+    using System;
+    using System.Globalization;
+    using System.ServiceModel;
+
+    /// <summary>
+    /// The program.
+    /// </summary>
+    public static class Program
     {
-        static void Main(string[] args)
-        {           
-            UnityContainer container = new UnityContainer();
+        /// <summary>
+        /// Mains the specified args.
+        /// </summary>
+        /// <param name="args">The args.</param>
+// ReSharper disable UnusedParameter.Local
+        public static void Main(string[] args)
+// ReSharper restore UnusedParameter.Local
+        {
+            var services = new ServiceHost(typeof(Services));
+            services.Open();
 
-            container.RegisterInstance<ILog>(LogManager.GetLogger("YAEM.Server"));
+            Logger.Instance.Info("Service is host at " + DateTime.Now.ToString(CultureInfo.InvariantCulture));
+            Logger.Instance.Info("Host is running... Press <Enter> key to stop");
+            Console.ReadLine();
 
-            container.Resolve<ILog>().Info("Initializing Service...");
-
-            try
-            {
-                // The service configuration is loaded from app.config
-                IUserService userService = new UserService(container);
-                using (ServiceHost host = new ServiceHost(userService))
-                {
-                    host.Open();
-
-                    container.Resolve<ILog>().Info("Service is ready for requests. Press any key to close service.");
-                    Console.Read();
-
-                    container.Resolve<ILog>().Info("Closing service...");
-                }
-            }
-            catch (Exception ex)
-            {
-                container.Resolve<ILog>().Error(ex);
-            }
-            
+            services.Close();
         }
     }
 }
