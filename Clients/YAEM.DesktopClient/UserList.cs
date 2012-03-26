@@ -1,6 +1,6 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="UserList.cs" company="ERNI Consulting AG">
-// TODO: Update copyright text.
+// <copyright file="Services.svc.cs" company="Florian Amstutz">
+// Copyright (c) Florian Amstutz. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
@@ -9,13 +9,8 @@ using YAEM.Domain;
 
 namespace YAEM.DesktopClient
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-
     /// <summary>
-    /// TODO: Update summary.
+    /// Contains a list of <see cref="User"/>.
     /// </summary>
     public class UserList : ObservableCollection<User>
     {
