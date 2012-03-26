@@ -65,6 +65,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="UserList.cs" />
     <Page Include="ConnectWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -100,7 +101,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\DataSources\YAEM.Domain.Session.datasource" />
     <None Include="Properties\DataSources\YAEM.Domain.User.datasource" />
     <None Include="Properties\Settings.settings">
@@ -108,16 +111,16 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="Service References\Services\item.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Services\item1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Services\item2.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\Services\Services.wsdl" />
+    <None Include="Service References\Services\Services.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Services\Services1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Services\Services2.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -130,9 +133,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\Services\item.disco" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\Services\configuration91.svcinfo" />

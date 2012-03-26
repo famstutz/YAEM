@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/YAEM.Domain" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/YAEM.Domain" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:5009/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:16020/Services.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
   <xs:complexType name="User">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:ObjectBase">
@@ -39,7 +39,6 @@
       <xs:extension base="tns:ObjectBase">
         <xs:sequence>
           <xs:element minOccurs="0" name="Payload" nillable="true" type="xs:base64Binary" />
-          <xs:element minOccurs="0" name="Recievers" nillable="true" type="tns:ArrayOfUser" />
           <xs:element minOccurs="0" name="Sender" nillable="true" type="tns:User" />
         </xs:sequence>
       </xs:extension>

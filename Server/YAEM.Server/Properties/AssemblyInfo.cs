@@ -1,9 +1,4 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="AssemblyInfo.cs" company="Florian Amstutz">
-// Copyright (c) Florian Amstutz. All rights reserved.
-// </copyright>
-// -----------------------------------------------------------------------
-using System.Reflection;
+﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
@@ -25,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("f9d19e3f-5f75-4236-bc7c-e81b54bfa37f")]
+[assembly: Guid("9733e3a9-ed91-4272-881a-60b9536ebeb4")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -34,7 +29,7 @@ using System.Runtime.InteropServices;
 //      Build Number
 //      Revision
 //
-// You can specify all the values or you can default the Build and Revision Numbers 
+// You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]

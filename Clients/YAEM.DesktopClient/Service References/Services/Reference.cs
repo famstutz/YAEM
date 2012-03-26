@@ -25,7 +25,7 @@ namespace YAEM.DesktopClient.Services {
         bool IsJoined(YAEM.Domain.Session session);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetJoinedUsers", ReplyAction="http://tempuri.org/IUserService/GetJoinedUsersResponse")]
-        System.Collections.Generic.List<YAEM.Domain.User> GetJoinedUsers();
+        YAEM.Domain.User[] GetJoinedUsers();
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IUserService/Subscribe")]
         void Subscribe();
@@ -87,7 +87,7 @@ namespace YAEM.DesktopClient.Services {
             return base.Channel.IsJoined(session);
         }
         
-        public System.Collections.Generic.List<YAEM.Domain.User> GetJoinedUsers() {
+        public YAEM.Domain.User[] GetJoinedUsers() {
             return base.Channel.GetJoinedUsers();
         }
         

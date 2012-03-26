@@ -88,16 +88,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Service References\Services\item.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Services\item1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Services\item2.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\Services\Services.wsdl" />
+    <None Include="Service References\Services\Services.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Services\Services1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Services\Services2.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -110,9 +110,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\Services\item.disco" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\Services\configuration91.svcinfo" />

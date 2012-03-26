@@ -1,11 +1,11 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Linq;
 using System.ServiceModel;
 using System.Threading;
 using System.Windows;
 using YAEM.DesktopClient.Services;
 using YAEM.Domain;
-using System.Collections.ObjectModel;
 using YAEM.Domain.Utilities;
 
 namespace YAEM.DesktopClient
@@ -13,7 +13,10 @@ namespace YAEM.DesktopClient
     /// <summary>
     /// Interaction logic for MessagingWindow.xaml
     /// </summary>
-    public partial class MessagingWindow : IUserServiceCallback, IMessagingServiceCallback
+    [CallbackBehavior(
+       ConcurrencyMode = ConcurrencyMode.Single,
+       UseSynchronizationContext = false)]
+    public partial class MessagingWindow : INotifyPropertyChanged, IUserServiceCallback, IMessagingServiceCallback
     {
         /// <summary>
         /// The ui sync context.
@@ -43,30 +46,21 @@ namespace YAEM.DesktopClient
         {
             InitializeComponent();
 
-            this.JoinedUsers = new ObservableCollection<User>();
-
             this.userProxy = new UserServiceClient(new InstanceContext(this));
             this.userProxy.Open();
             this.messagingProxy = new MessagingServiceClient(new InstanceContext(this));
             this.messagingProxy.Open();
 
             this.userProxy.Subscribe();
-            this.JoinUser(name);
             foreach (var u in this.userProxy.GetJoinedUsers())
             {
-                this.JoinedUsers.Add(u);
+                this.AddUser(u);
             }
 
             this.uiSyncContext = SynchronizationContext.Current;
+            
+            this.JoinUser(name);
         }
-
-        /// <summary>
-        /// Gets or sets the joined users.
-        /// </summary>
-        /// <value>
-        /// The joined users.
-        /// </value>
-        private ObservableCollection<User> JoinedUsers { get; set; }
 
         /// <summary>
         /// Notifies the user joined.
@@ -129,7 +123,7 @@ namespace YAEM.DesktopClient
         /// <param name="u">The u.</param>
         private void AddUser(User u)
         {
-            this.JoinedUsers.Add(u);
+            ((UserList)this.Resources["JoinedUsers"]).Add(u);
             this.MessageHistoryTextBox.Text += string.Format("{0}\t{1} joined the conversation\r\n", DateTime.Now, u.Name);
         }
 
@@ -139,7 +133,8 @@ namespace YAEM.DesktopClient
         /// <param name="u">The u.</param>
         private void RemoveUser(User u)
         {
-            this.JoinedUsers.Remove(this.JoinedUsers.Single(ru => ru.Equals(u)));
+            var joinedUsers = ((UserList) this.Resources["JoinedUsers"]);
+            joinedUsers.Remove(joinedUsers.Single(ru => ru.Equals(u)));
             this.MessageHistoryTextBox.Text += string.Format("{0}\t{1} left the conversation\r\n", DateTime.Now, u.Name);
         }
 
@@ -177,6 +172,22 @@ namespace YAEM.DesktopClient
         {
             this.messagingProxy.Send(new Message { Payload = StringUtilities.StringToByteArray(this.MessageTextBox.Text) }, this.currentSession);
             this.MessageTextBox.Text = string.Empty;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Called when [property changed].
+        /// </summary>
+        /// <param name="propertyName">Name of the property.</param>
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(propertyName));
+            }
         }
     }
 }

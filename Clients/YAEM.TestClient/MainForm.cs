@@ -62,7 +62,7 @@ namespace YAEM.TestClient
             this.userProxy.Subscribe();
             foreach (var u in this.userProxy.GetJoinedUsers())
             {
-                this.JoinedUsers.Add(u);
+                this.AddUser(u);
             }
 
             this.uiSyncContext = SynchronizationContext.Current;
