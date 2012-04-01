@@ -121,7 +121,7 @@
     <Content Include="SplashScreenImage.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Server\YAEM.Domain.SL\YAEM.Domain.SL.csproj">
+    <ProjectReference Include="..\..\Domain\YAEM.Domain.SL\YAEM.Domain.SL.csproj">
       <Project>{779A1D0F-AB67-45D4-B61E-24ED41E20266}</Project>
       <Name>YAEM.Domain.SL</Name>
     </ProjectReference>

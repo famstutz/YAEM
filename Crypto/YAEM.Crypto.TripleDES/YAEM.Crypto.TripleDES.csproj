@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{58711D0F-99B7-4461-857F-96880DA462FC}</ProjectGuid>
+    <ProjectGuid>{830D4E46-E0F7-4104-9287-5D352BF59E3F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>YAEM.Contracts</RootNamespace>
-    <AssemblyName>YAEM.Contracts</AssemblyName>
+    <RootNamespace>YAEM.Crypto.TripleDES</RootNamespace>
+    <AssemblyName>YAEM.Crypto.TripleDES</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -17,23 +17,25 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\bin\Debug\Crypto</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\bin\Debug\Crypto\YAEM.Crypto.TripleDES.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\..\bin\Release\Crypto</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\bin\Release\Crypto\YAEM.Crypto.TripleDES.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
-    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,15 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IMessagingService.cs" />
-    <Compile Include="IServiceCallback.cs" />
-    <Compile Include="IUserService.cs" />
+    <Compile Include="TripleDESCryptoProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\YAEM.Domain\YAEM.Domain.csproj">
-      <Project>{E30F4730-2370-4961-A9EC-5FA3F459D549}</Project>
-      <Name>YAEM.Domain</Name>
+    <ProjectReference Include="..\YAEM.Crypto\YAEM.Crypto.csproj">
+      <Project>{BFD598EC-AF7A-4691-95D0-60302218CDF6}</Project>
+      <Name>YAEM.Crypto</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

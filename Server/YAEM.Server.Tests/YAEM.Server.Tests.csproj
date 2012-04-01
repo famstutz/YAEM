@@ -78,11 +78,11 @@
     <Compile Include="UserServiceTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\YAEM.Contracts\YAEM.Contracts.csproj">
+    <ProjectReference Include="..\..\ServiceModel\YAEM.Contracts\YAEM.Contracts.csproj">
       <Project>{58711D0F-99B7-4461-857F-96880DA462FC}</Project>
       <Name>YAEM.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\YAEM.Domain\YAEM.Domain.csproj">
+    <ProjectReference Include="..\..\Domain\YAEM.Domain\YAEM.Domain.csproj">
       <Project>{E30F4730-2370-4961-A9EC-5FA3F459D549}</Project>
       <Name>YAEM.Domain</Name>
     </ProjectReference>

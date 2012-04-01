@@ -21,22 +21,25 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\bin\Debug\Clients\DesktopClient</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\bin\Debug\Clients\DesktopClient\YAEM.DesktopClient.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\..\bin\Release\Clients\TestClient</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\bin\Release\Clients\TestClient\YAEM.DesktopClient.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
@@ -126,7 +129,11 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Server\YAEM.Domain\YAEM.Domain.csproj">
+    <ProjectReference Include="..\..\Crypto\YAEM.Crypto\YAEM.Crypto.csproj">
+      <Project>{BFD598EC-AF7A-4691-95D0-60302218CDF6}</Project>
+      <Name>YAEM.Crypto</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\YAEM.Domain\YAEM.Domain.csproj">
       <Project>{E30F4730-2370-4961-A9EC-5FA3F459D549}</Project>
       <Name>YAEM.Domain</Name>
     </ProjectReference>

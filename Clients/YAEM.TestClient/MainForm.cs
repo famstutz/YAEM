@@ -4,6 +4,11 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
+using System.Collections.Generic;
+using System.ComponentModel.Composition;
+using System.ComponentModel.Composition.Hosting;
+using YAEM.Crypto;
+
 namespace YAEM.TestClient
 {
     using System;
@@ -45,11 +50,39 @@ namespace YAEM.TestClient
         private MessagingServiceClient messagingProxy;
 
         /// <summary>
+        /// The <see cref="CompositionContainer"/>.
+        /// </summary>
+        private CompositionContainer compositionContainer;
+
+        /// <summary>
+        /// The <see cref="ICryptoProvider"/> crypto providers.
+        /// </summary>
+        [ImportMany]
+        IEnumerable<Lazy<ICryptoProvider, ICryptoData>> cryptoProviders;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="MainForm"/> class.
         /// </summary>
         public MainForm()
         {
             this.InitializeComponent();
+            
+            //An aggregate catalog that combines multiple catalogs
+            var catalog = new AggregateCatalog();
+            catalog.Catalogs.Add(new DirectoryCatalog("..\\..\\Crypto"));
+
+            //Create the CompositionContainer with the parts in the catalog
+            this.compositionContainer = new CompositionContainer(catalog);
+
+            //Fill the imports of this object
+            try
+            {
+                this.compositionContainer.ComposeParts(this);
+            }
+            catch (CompositionException compositionException)
+            {
+                MessageBox.Show(compositionException.ToString());
+            }
 
             this.JoinedUsers = new BindingList<User>();
 

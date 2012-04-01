@@ -19,22 +19,24 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\</OutputPath>
+    <OutputPath>..\..\bin\Debug\Server</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\bin\Debug\Server\YAEM.Server.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\</OutputPath>
+    <OutputPath>..\..\bin\Release\Server</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\bin\Release\Server\YAEM.Server.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="log4net">
-      <HintPath>..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
+      <HintPath>..\..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
@@ -76,11 +78,11 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\YAEM.Contracts\YAEM.Contracts.csproj">
+    <ProjectReference Include="..\..\ServiceModel\YAEM.Contracts\YAEM.Contracts.csproj">
       <Project>{58711D0F-99B7-4461-857F-96880DA462FC}</Project>
       <Name>YAEM.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\YAEM.Domain\YAEM.Domain.csproj">
+    <ProjectReference Include="..\..\Domain\YAEM.Domain\YAEM.Domain.csproj">
       <Project>{E30F4730-2370-4961-A9EC-5FA3F459D549}</Project>
       <Name>YAEM.Domain</Name>
     </ProjectReference>

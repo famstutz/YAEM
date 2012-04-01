@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.Composition;
+using System.ComponentModel.Composition.Hosting;
 using System.Linq;
 using System.ServiceModel;
 using System.Threading;
 using System.Windows;
+using YAEM.Crypto;
 using YAEM.DesktopClient.Services;
 using YAEM.Domain;
 using YAEM.Domain.Utilities;
