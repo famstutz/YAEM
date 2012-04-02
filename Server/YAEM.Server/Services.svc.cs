@@ -4,6 +4,8 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
+using System.ServiceModel.Channels;
+using YAEM.Crypto;
 using YAEM.Domain.Utilities;
 
 namespace YAEM.Server
@@ -18,7 +20,7 @@ namespace YAEM.Server
     /// <summary>
     /// The services implementation class.
     /// </summary>
-    [ServiceBehavior(
+    [ServiceBehavior(Namespace = "YAEM.Server.Services",
         ConcurrencyMode = ConcurrencyMode.Single,
         InstanceContextMode = InstanceContextMode.Single)]
     public class Services : ServiceHost, IUserService, IMessagingService
@@ -148,6 +150,30 @@ namespace YAEM.Server
             this.messageQueue.Add(message);
 
             this.subscribers.ForEach(callback => callback.NotifyNewMessage(message));
+        }
+
+        /// <summary>
+        /// Negotiates the initialization vector.
+        /// </summary>
+        /// <param name="initializationVector">The initializatino vector.</param>
+        /// <param name="algorithm">The algorithm.</param>
+        public void NegotiateInitializationVector(byte[] initializationVector, CryptoAlgorithm algorithm)
+        {
+            Logger.Instance.Info(string.Format("Initialization vector for crypto algorithm <{0}> sent", algorithm));
+
+            this.subscribers.ForEach(callback => callback.NotifyNegotiateInitializationVector(initializationVector, algorithm));
+        }
+
+        /// <summary>
+        /// Negotiates the key.
+        /// </summary>
+        /// <param name="key">The key.</param>
+        /// <param name="algorithm">The algorithm.</param>
+        public void NegotiateKey(byte[] key, CryptoAlgorithm algorithm)
+        {
+            Logger.Instance.Info(string.Format("Key for crypto algorithm <{0}> sent", algorithm));
+
+            this.subscribers.ForEach(callback => callback.NotifyNegotiateKey(key, algorithm));
         }
 
         /// <summary>

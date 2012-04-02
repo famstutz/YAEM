@@ -7,6 +7,8 @@
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
+using System.Security.Cryptography;
+using System.Text;
 using YAEM.Crypto;
 
 namespace YAEM.TestClient
@@ -49,45 +51,36 @@ namespace YAEM.TestClient
         /// </summary>
         private MessagingServiceClient messagingProxy;
 
-        /// <summary>
-        /// The <see cref="CompositionContainer"/>.
-        /// </summary>
         private CompositionContainer compositionContainer;
 
         /// <summary>
         /// The <see cref="ICryptoProvider"/> crypto providers.
         /// </summary>
         [ImportMany]
-        IEnumerable<Lazy<ICryptoProvider, ICryptoData>> cryptoProviders;
-
+        private IEnumerable<Lazy<ICryptoProvider, ICryptoAlgorithmType>> CryptoProviders { get; set; }
+        
         /// <summary>
         /// Initializes a new instance of the <see cref="MainForm"/> class.
         /// </summary>
         public MainForm()
         {
             this.InitializeComponent();
-            
-            //An aggregate catalog that combines multiple catalogs
+
             var catalog = new AggregateCatalog();
-            catalog.Catalogs.Add(new DirectoryCatalog("..\\..\\Crypto"));
-
-            //Create the CompositionContainer with the parts in the catalog
+            catalog.Catalogs.Add(new DirectoryCatalog("..\\..\\Crypto", "*.dll"));
+            var batch = new CompositionBatch();
+            batch.AddPart(this);
             this.compositionContainer = new CompositionContainer(catalog);
+            //get all the exports and load them into the appropriate list tagged with the importmany
+            this.compositionContainer.Compose(batch);
 
-            //Fill the imports of this object
-            try
-            {
-                this.compositionContainer.ComposeParts(this);
-            }
-            catch (CompositionException compositionException)
-            {
-                MessageBox.Show(compositionException.ToString());
-            }
+            this.CryptoAlgorithmComboBox.DataSource = Enum.GetValues(typeof(CryptoAlgorithm));
 
             this.JoinedUsers = new BindingList<User>();
 
             this.ConnectedUsersDataGridView.DataSource = this.JoinedUsers;
             this.userProxy = new UserServiceClient(new InstanceContext(this));
+            
             this.userProxy.Open();
             this.messagingProxy = new MessagingServiceClient(new InstanceContext(this));
             this.messagingProxy.Open();
@@ -108,6 +101,25 @@ namespace YAEM.TestClient
         /// The joined users.
         /// </value>
         private BindingList<User> JoinedUsers { get; set; }
+
+        /// <summary>
+        /// Gets the bindable crypto providers.
+        /// </summary>
+        private BindingList<ICryptoProvider> BindableCryptoProviders
+        {
+            get
+            {
+                var bl = new BindingList<ICryptoProvider>();
+                if (this.CryptoProviders != null)
+                {
+                    foreach (var i in this.CryptoProviders)
+                    {
+                        bl.Add(i.Value);
+                    }
+                }
+                return bl;
+            }
+        }
 
         /// <summary>
         /// Notifies the user joined.
@@ -140,6 +152,33 @@ namespace YAEM.TestClient
             SendOrPostCallback callback = state => this.AddHistoryMessage(message);
 
             this.uiSyncContext.Post(callback, message);
+        }
+
+        /// <summary>
+        /// Notifies the negotiate initialization vector.
+        /// </summary>
+        /// <param name="initializationVector">The initialization vector.</param>
+        /// <param name="algorithm">The algorithm.</param>
+        public void NotifyNegotiateInitializationVector(byte[] initializationVector, CryptoAlgorithm algorithm)
+        {
+            var cp = this.GetCryptoProvider(algorithm);
+            cp.InitalizationVector = initializationVector;
+        }
+
+        /// <summary>
+        /// Notifies the negotiate key.
+        /// </summary>
+        /// <param name="key">The key.</param>
+        /// <param name="algorithm">The algorithm.</param>
+        public void NotifyNegotiateKey(byte[] key, CryptoAlgorithm algorithm)
+        {
+            var cp = this.GetCryptoProvider(algorithm);
+            cp.Key = key;
+        }
+
+        private ICryptoProvider GetCryptoProvider(CryptoAlgorithm algorithm)
+        {
+            return (from c in this.CryptoProviders where c.Metadata.Algorithm == algorithm select c.Value).FirstOrDefault();
         }
 
         /// <summary>
@@ -235,7 +274,13 @@ namespace YAEM.TestClient
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void SendButtonClick(object sender, EventArgs e)
         {
-            this.messagingProxy.Send(new Domain.Message { Payload = StringUtilities.StringToByteArray(this.MessageTextBox.Text) }, this.currentSession);
+            var cp = this.GetCryptoProvider((CryptoAlgorithm) this.CryptoAlgorithmComboBox.SelectedValue);
+            
+
+            this.messagingProxy.Send(new Domain.Message {
+                Payload = cp.Encrypt(StringUtilities.StringToByteArray(this.MessageTextBox.Text)),
+                Algorithm = (CryptoAlgorithm)this.CryptoAlgorithmComboBox.SelectedValue
+            }, this.currentSession);
             this.MessageTextBox.Text = string.Empty;
         }
 
@@ -245,7 +290,29 @@ namespace YAEM.TestClient
         /// <param name="message">The message.</param>
         private void AddHistoryMessage(Domain.Message message)
         {
-            this.MessageHistoryTextBox.Text += string.Format("{0}\t{1}\t{2}\r\n", DateTime.Now, message.Sender.Name, message.GetPayload());
+            var cp = this.GetCryptoProvider(message.Algorithm);
+            this.MessageHistoryTextBox.Text += string.Format("{0}\t{1}\t{2}\r\n", DateTime.Now, message.Sender.Name, StringUtilities.ByteArrayToString(cp.Decrypt(message.Payload)));
+        }
+
+        private void SetInitializationVectorButton_Click(object sender, EventArgs e)
+        {
+
+            // TODO: Randomize!
+            var aes = new AesCryptoServiceProvider();
+            aes.GenerateIV();
+            var iv = aes.IV;
+
+            this.messagingProxy.NegotiateInitializationVector(iv, (CryptoAlgorithm)this.CryptoAlgorithmComboBox.SelectedValue);
+        }
+
+        private void SetKeyButton_Click(object sender, EventArgs e)
+        {
+            // TODO: User speicifc!
+            var aes = new AesCryptoServiceProvider();
+            aes.GenerateKey();
+            var key = aes.Key;
+
+            this.messagingProxy.NegotiateKey(key, (CryptoAlgorithm)this.CryptoAlgorithmComboBox.SelectedValue);
         }
     }
 }

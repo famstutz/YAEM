@@ -3,6 +3,7 @@ using System.ComponentModel.Composition;
 using System.IO;
 using System.Text;
 using System.Security.Cryptography;
+using YAEM.Domain;
 
 namespace YAEM.Crypto.Aes
 {
@@ -10,29 +11,38 @@ namespace YAEM.Crypto.Aes
     /// Implementation of a <see cref="ICryptoProvider"/> that uses the AES algorithm.
     /// </summary>
     [Export(typeof(ICryptoProvider))] 
+    [CryptoAlgorithm(Algorithm = CryptoAlgorithm.Aes)]
     public class AesCryptoProvider : ICryptoProvider
     {
         private readonly AesCryptoServiceProvider aes;
         private readonly UTF8Encoding utf8;
 
         /// <summary>
-        /// Gets or sets the crypto data.
+        /// Gets or sets the initalization vector.
         /// </summary>
         /// <value>
-        /// The crypto data.
+        /// The initalization vector.
         /// </value>
-        private ICryptoData CryptoData { get; set; }
+        public byte[] InitalizationVector { get; set; }
+
+        /// <summary>
+        /// Gets or sets the key.
+        /// </summary>
+        /// <value>
+        /// The key.
+        /// </value>
+        public byte[] Key { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AesCryptoProvider"/> class.
         /// </summary>
-        /// <param name="cryptoData">The crypto data.</param>
-        public AesCryptoProvider(ICryptoData cryptoData)
+        [ImportingConstructor]
+        public AesCryptoProvider()
         {
             this.aes = new AesCryptoServiceProvider();
             this.utf8 = new UTF8Encoding();
 
-            this.CryptoData = cryptoData;
+            aes.Padding = PaddingMode.Zeros;
         }
 
         /// <summary>
@@ -42,7 +52,7 @@ namespace YAEM.Crypto.Aes
         /// <returns></returns>
         public byte[] Encrypt(byte[] cryptoText)
         {
-            return this.Transform(cryptoText, this.aes.CreateEncryptor(this.CryptoData.Key, this.CryptoData.InitalizationVector));
+            return this.Transform(cryptoText, this.aes.CreateEncryptor(this.Key, this.InitalizationVector));
         }
 
         /// <summary>
@@ -64,7 +74,7 @@ namespace YAEM.Crypto.Aes
         /// <returns></returns>
         public byte[] Decrypt(byte[] cryptoText)
         {
-            return this.Transform(cryptoText, this.aes.CreateDecryptor(this.CryptoData.Key, this.CryptoData.InitalizationVector));
+            return this.Transform(cryptoText, this.aes.CreateDecryptor(this.Key, this.InitalizationVector));
         }
 
         /// <summary>

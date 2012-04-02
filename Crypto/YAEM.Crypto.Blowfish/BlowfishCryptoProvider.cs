@@ -6,6 +6,7 @@
 
 using System.ComponentModel.Composition;
 using BlowFishCS;
+using YAEM.Domain;
 
 namespace YAEM.Crypto.Blowfish
 {
@@ -17,51 +18,69 @@ namespace YAEM.Crypto.Blowfish
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    [Export(typeof(ICryptoProvider))] 
+    [Export(typeof(ICryptoProvider))]
+    [CryptoAlgorithm(Algorithm = CryptoAlgorithm.Blowfish)]
     public class BlowfishCryptoProvider : ICryptoProvider
     {
-        private readonly BlowFish blowFish;
+        private BlowFish blowFish;
 
         /// <summary>
-        /// Gets or sets the crypto data.
+        /// Gets or sets the initalization vector.
         /// </summary>
         /// <value>
-        /// The crypto data.
+        /// The initalization vector.
         /// </value>
-        private ICryptoData CryptoData { get; set; }
+        public byte[] InitalizationVector { get; set; }
 
+        /// <summary>
+        /// Gets or sets the key.
+        /// </summary>
+        /// <value>
+        /// The key.
+        /// </value>
+        public byte[] Key { get; set; }
+
+        private BlowFish BlowFish
+        {
+            get
+            {
+                if (this.blowFish == null)
+                {
+                    this.blowFish = new BlowFish(this.Key)
+                                        {
+                                            IV = this.InitalizationVector
+                                        };
+                }
+                return this.blowFish;
+            }
+        }
         /// <summary>
         /// Initializes a new instance of the <see cref="BlowfishCryptoProvider"/> class.
         /// </summary>
-        /// <param name="cryptoData">The crypto data.</param>
-        public BlowfishCryptoProvider(ICryptoData cryptoData)
+        [ImportingConstructor]
+        public BlowfishCryptoProvider()
         {
-            this.CryptoData = cryptoData;
-
-            this.blowFish = new BlowFish(this.CryptoData.Key)
-                                {
-                                    IV = this.CryptoData.InitalizationVector
-                                };
+            
         }
 
         public byte[] Encrypt(byte[] clearText)
         {
-            return this.blowFish.Encrypt_CBC(clearText);
+            return this.BlowFish.Encrypt_CBC(clearText);
         }
 
         public string Encrypt(string clearText)
         {
-            return this.blowFish.Encrypt_CBC(clearText);
+            return this.BlowFish.Encrypt_CBC(clearText);
         }
 
         public byte[] Decrypt(byte[] cryptoText)
         {
-            return this.blowFish.Decrypt_CBC(cryptoText);
+            return this.BlowFish.Decrypt_CBC(cryptoText);
         }
 
         public string Decrypt(string cryptText)
         {
-            return this.blowFish.Decrypt_CBC(cryptText);
+            return this.BlowFish.Decrypt_CBC(cryptText);
         }
     }
 }

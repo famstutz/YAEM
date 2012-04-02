@@ -25,6 +25,8 @@ namespace YAEM.Domain
         /// </summary>
         private byte[] payload;
 
+        private CryptoAlgorithm algorithm;
+
         /// <summary>
         /// Gets or sets the sender.
         /// </summary>
@@ -64,6 +66,20 @@ namespace YAEM.Domain
             {
                 this.payload = value;
                 this.NotifyPropertyChanged("Payload");
+            }
+        }
+
+        [DataMember]
+        public CryptoAlgorithm Algorithm
+        {
+            get
+            {
+                return this.algorithm;
+            }
+            set
+            {
+                this.algorithm = value;
+                this.NotifyPropertyChanged("Algorithm");
             }
         }
 

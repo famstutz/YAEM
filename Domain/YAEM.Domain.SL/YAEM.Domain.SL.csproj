@@ -52,6 +52,9 @@
     <Reference Include="mscorlib.extensions" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\YAEM.Domain\CryptoAlgorithm.cs">
+      <Link>CryptoAlgorithm.cs</Link>
+    </Compile>
     <Compile Include="..\YAEM.Domain\Message.cs">
       <Link>Message.cs</Link>
     </Compile>

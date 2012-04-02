@@ -3,36 +3,45 @@ using System.ComponentModel.Composition;
 using System.IO;
 using System.Text;
 using System.Security.Cryptography;
+using YAEM.Domain;
 
 namespace YAEM.Crypto.TripleDES
 {
     /// <summary>
     /// Implementation of a <see cref="ICryptoProvider"/> that uses the Triple DES algorithm.
     /// </summary>
-    [Export(typeof(ICryptoProvider))] 
+    [Export(typeof(ICryptoProvider))]
+    [CryptoAlgorithm(Algorithm = CryptoAlgorithm.TripleDES)]
     public class TripleDESCryptoProvider : ICryptoProvider
     {
         private readonly TripleDESCryptoServiceProvider csp;
         private readonly UTF8Encoding utf8;
 
+
         /// <summary>
-        /// Gets or sets the crypto data.
+        /// Gets or sets the initalization vector.
         /// </summary>
         /// <value>
-        /// The crypto data.
+        /// The initalization vector.
         /// </value>
-        private ICryptoData CryptoData { get; set; }
+        public byte[] InitalizationVector { get; set; }
+
+        /// <summary>
+        /// Gets or sets the key.
+        /// </summary>
+        /// <value>
+        /// The key.
+        /// </value>
+        public byte[] Key { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TripleDESCryptoProvider"/> class.
         /// </summary>
-        /// <param name="cryptoData">The crypto data.</param>
-        public TripleDESCryptoProvider(ICryptoData cryptoData)
+        [ImportingConstructor]
+        public TripleDESCryptoProvider()
         {
             this.csp = new TripleDESCryptoServiceProvider();
             this.utf8 = new UTF8Encoding();
-
-            this.CryptoData = cryptoData;
         }
 
         /// <summary>
@@ -42,7 +51,7 @@ namespace YAEM.Crypto.TripleDES
         /// <returns></returns>
         public byte[] Encrypt(byte[] cryptoText)
         {
-            return this.Transform(cryptoText, this.csp.CreateEncryptor(this.CryptoData.Key, this.CryptoData.InitalizationVector));
+            return this.Transform(cryptoText, this.csp.CreateEncryptor(this.Key, this.InitalizationVector));
         }
 
         /// <summary>
@@ -64,7 +73,7 @@ namespace YAEM.Crypto.TripleDES
         /// <returns></returns>
         public byte[] Decrypt(byte[] cryptoText)
         {
-            return this.Transform(cryptoText, this.csp.CreateDecryptor(this.CryptoData.Key, this.CryptoData.InitalizationVector));
+            return this.Transform(cryptoText, this.csp.CreateDecryptor(this.Key, this.InitalizationVector));
         }
 
         /// <summary>

@@ -91,16 +91,14 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Service References\Services\Services.wsdl" />
-    <None Include="Service References\Services\Services.xsd">
+    <None Include="Service References\Services\item.wsdl" />
+    <None Include="Service References\Services\item2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\Services\Services1.xsd">
+    <None Include="Service References\Services\item3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\Services\Services2.xsd">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="Service References\Services\Services1.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -125,6 +123,9 @@
     <None Include="Service References\Services\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\Services\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\Services\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

@@ -6,6 +6,22 @@
     public interface ICryptoProvider
     {
         /// <summary>
+        /// Gets or sets the initalization vector.
+        /// </summary>
+        /// <value>
+        /// The initalization vector.
+        /// </value>
+        byte[] InitalizationVector { get; set; }
+
+        /// <summary>
+        /// Gets or sets the key.
+        /// </summary>
+        /// <value>
+        /// The key.
+        /// </value>
+        byte[] Key { get; set; }
+
+        /// <summary>
         /// Encrypts the specified clear text.
         /// </summary>
         /// <param name="clearText">The clear text.</param>
