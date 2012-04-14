@@ -1,15 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.ServiceModel;
-using System.Text;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="Program.cs" company="Florian Amstutz">
+//   Copyright (c) Florian Amstutz. All rights reserved.
+// </copyright>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace YAEM.Server
 {
-    class Program
+    using System;
+    using System.Globalization;
+    using System.ServiceModel;
+
+    /// <summary>
+    /// The program.
+    /// </summary>
+    public static class Program
     {
-        static void Main(string[] args)
+        /// <summary>
+        /// Mains the specified args.
+        /// </summary>
+        /// <param name="args">The args.</param>
+        public static void Main(string[] args)
         {
             var services = new ServiceHost(typeof(Services));
             services.Open();

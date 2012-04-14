@@ -231,7 +231,7 @@ namespace YAEM.TestClient
             this.SetKeyButton.TabIndex = 2;
             this.SetKeyButton.Text = "Set Key";
             this.SetKeyButton.UseVisualStyleBackColor = true;
-            this.SetKeyButton.Click += new System.EventHandler(this.SetKeyButton_Click);
+            this.SetKeyButton.Click += new System.EventHandler(this.SetKeyButtonClick);
             // 
             // SetInitializationVectorButton
             // 
@@ -241,7 +241,7 @@ namespace YAEM.TestClient
             this.SetInitializationVectorButton.TabIndex = 1;
             this.SetInitializationVectorButton.Text = "Set Initialization Vector";
             this.SetInitializationVectorButton.UseVisualStyleBackColor = true;
-            this.SetInitializationVectorButton.Click += new System.EventHandler(this.SetInitializationVectorButton_Click);
+            this.SetInitializationVectorButton.Click += new System.EventHandler(this.SetInitializationVectorButtonClick);
             // 
             // CryptoAlgorithmComboBox
             // 
@@ -250,6 +250,7 @@ namespace YAEM.TestClient
             this.CryptoAlgorithmComboBox.Name = "CryptoAlgorithmComboBox";
             this.CryptoAlgorithmComboBox.Size = new System.Drawing.Size(315, 21);
             this.CryptoAlgorithmComboBox.TabIndex = 0;
+            this.CryptoAlgorithmComboBox.SelectedIndexChanged += new System.EventHandler(this.CryptoAlgorithmComboBoxSelectedIndexChanged);
             // 
             // splitContainer2
             // 
@@ -267,7 +268,7 @@ namespace YAEM.TestClient
             // 
             this.splitContainer2.Panel2.Controls.Add(this.splitContainer3);
             this.splitContainer2.Size = new System.Drawing.Size(743, 390);
-            this.splitContainer2.SplitterDistance = 356;
+            this.splitContainer2.SplitterDistance = 361;
             this.splitContainer2.TabIndex = 0;
             // 
             // MessageHistoryTextBox
@@ -277,7 +278,7 @@ namespace YAEM.TestClient
             this.MessageHistoryTextBox.Multiline = true;
             this.MessageHistoryTextBox.Name = "MessageHistoryTextBox";
             this.MessageHistoryTextBox.ReadOnly = true;
-            this.MessageHistoryTextBox.Size = new System.Drawing.Size(743, 356);
+            this.MessageHistoryTextBox.Size = new System.Drawing.Size(743, 361);
             this.MessageHistoryTextBox.TabIndex = 0;
             // 
             // splitContainer3
@@ -294,8 +295,8 @@ namespace YAEM.TestClient
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.SendButton);
-            this.splitContainer3.Size = new System.Drawing.Size(743, 30);
-            this.splitContainer3.SplitterDistance = 714;
+            this.splitContainer3.Size = new System.Drawing.Size(743, 25);
+            this.splitContainer3.SplitterDistance = 680;
             this.splitContainer3.TabIndex = 0;
             // 
             // MessageTextBox
@@ -303,7 +304,7 @@ namespace YAEM.TestClient
             this.MessageTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MessageTextBox.Location = new System.Drawing.Point(0, 0);
             this.MessageTextBox.Name = "MessageTextBox";
-            this.MessageTextBox.Size = new System.Drawing.Size(714, 20);
+            this.MessageTextBox.Size = new System.Drawing.Size(680, 20);
             this.MessageTextBox.TabIndex = 0;
             // 
             // SendButton
@@ -311,7 +312,7 @@ namespace YAEM.TestClient
             this.SendButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SendButton.Location = new System.Drawing.Point(0, 0);
             this.SendButton.Name = "SendButton";
-            this.SendButton.Size = new System.Drawing.Size(25, 30);
+            this.SendButton.Size = new System.Drawing.Size(59, 25);
             this.SendButton.TabIndex = 0;
             this.SendButton.Text = "Send";
             this.SendButton.UseVisualStyleBackColor = true;

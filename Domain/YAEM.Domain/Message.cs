@@ -25,6 +25,9 @@ namespace YAEM.Domain
         /// </summary>
         private byte[] payload;
 
+        /// <summary>
+        /// The crypto algorithm.
+        /// </summary>
         private CryptoAlgorithm algorithm;
 
         /// <summary>
@@ -68,7 +71,13 @@ namespace YAEM.Domain
                 this.NotifyPropertyChanged("Payload");
             }
         }
-
+        
+        /// <summary>
+        /// Gets or sets the crypto algorithm.
+        /// </summary>
+        /// <value>
+        /// The crypto algorithm.
+        /// </value>
         [DataMember]
         public CryptoAlgorithm Algorithm
         {
@@ -76,6 +85,7 @@ namespace YAEM.Domain
             {
                 return this.algorithm;
             }
+
             set
             {
                 this.algorithm = value;
@@ -86,10 +96,19 @@ namespace YAEM.Domain
         /// <summary>
         /// Gets the payload.
         /// </summary>
-        /// <returns>The payload as a string.</returns>
+        /// <returns>The payload.</returns>
         public string GetPayload()
         {
             return StringUtilities.ByteArrayToString(this.Payload);
         }
-    }
+
+        /// <summary>
+        /// Sets the payload.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        public void SetPayload(string value)
+        {
+            this.Payload = StringUtilities.StringToByteArray(value);
+        }
+     }
 }

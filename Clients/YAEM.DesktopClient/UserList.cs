@@ -1,14 +1,15 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="Services.svc.cs" company="Florian Amstutz">
-// Copyright (c) Florian Amstutz. All rights reserved.
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="UserList.cs" company="Florian Amstutz">
+//   Copyright (c) Florian Amstutz. All rights reserved.
 // </copyright>
-// -----------------------------------------------------------------------
-
-using System.Collections.ObjectModel;
-using YAEM.Domain;
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace YAEM.DesktopClient
 {
+    using System.Collections.ObjectModel;
+
+    using YAEM.Domain;
+
     /// <summary>
     /// Contains a list of <see cref="User"/>.
     /// </summary>

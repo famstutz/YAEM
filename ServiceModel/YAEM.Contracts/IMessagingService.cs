@@ -4,8 +4,6 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-using YAEM.Crypto;
-
 namespace YAEM.Contracts
 {
     using System.ServiceModel;

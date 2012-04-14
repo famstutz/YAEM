@@ -1,10 +1,8 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="IServiceCallback.cs" company="ERNI Consulting AG">
+// <copyright file="IServiceCallback.cs" company="Florian Amstutz">
 // Copyright (c) Florian Amstutz. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
-
-using YAEM.Crypto;
 
 namespace YAEM.Contracts
 {

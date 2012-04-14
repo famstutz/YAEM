@@ -1,19 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.Composition;
-using System.ComponentModel.Composition.Hosting;
-using System.Linq;
-using System.ServiceModel;
-using System.Threading;
-using System.Windows;
-using YAEM.Crypto;
-using YAEM.DesktopClient.Services;
-using YAEM.Domain;
-using YAEM.Domain.Utilities;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="MessagingWindow.xaml.cs" company="Florian Amstutz">
+//   Copyright (c) Florian Amstutz. All rights reserved.
+// </copyright>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace YAEM.DesktopClient
 {
+    using System;
+    using System.ComponentModel;
+    using System.Linq;
+    using System.ServiceModel;
+    using System.Threading;
+    using System.Windows;
+
+    using YAEM.DesktopClient.Services;
+    using YAEM.Domain;
+    using YAEM.Domain.Utilities;
+
     /// <summary>
     /// Interaction logic for MessagingWindow.xaml
     /// </summary>
@@ -43,7 +46,7 @@ namespace YAEM.DesktopClient
         private MessagingServiceClient messagingProxy;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MessagingWindow"/> class.
+        /// Initialises a new instance of the <see cref="MessagingWindow"/> class.
         /// </summary>
         /// <param name="name">The name.</param>
         public MessagingWindow(string name)
@@ -65,6 +68,11 @@ namespace YAEM.DesktopClient
             
             this.JoinUser(name);
         }
+        
+        /// <summary>
+        /// Occurs when a property value changes.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Notifies the user joined.
@@ -98,6 +106,61 @@ namespace YAEM.DesktopClient
 
             this.uiSyncContext.Post(callback, message);
         }
+
+        /// <summary>
+        /// Notifies the negotiate initialization vector.
+        /// </summary>
+        /// <param name="initializationVector">The initialization vector.</param>
+        /// <param name="algorithm">The algorithm.</param>
+        void IMessagingServiceCallback.NotifyNegotiateInitializationVector(byte[] initializationVector, CryptoAlgorithm algorithm)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Notifies the negotiate key.
+        /// </summary>
+        /// <param name="key">The key.</param>
+        /// <param name="algorithm">The algorithm.</param>
+        void IMessagingServiceCallback.NotifyNegotiateKey(byte[] key, CryptoAlgorithm algorithm)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Notifies the negotiate initialization vector.
+        /// </summary>
+        /// <param name="initializationVector">The initialization vector.</param>
+        /// <param name="algorithm">The algorithm.</param>
+        void IUserServiceCallback.NotifyNegotiateInitializationVector(byte[] initializationVector, CryptoAlgorithm algorithm)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Notifies the negotiate key.
+        /// </summary>
+        /// <param name="key">The key.</param>
+        /// <param name="algorithm">The algorithm.</param>
+        void IUserServiceCallback.NotifyNegotiateKey(byte[] key, CryptoAlgorithm algorithm)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Called when [property changed].
+        /// </summary>
+        /// <param name="propertyName">Name of the property.</param>
+        protected void OnPropertyChanged(string propertyName)
+        {
+            var handler = this.PropertyChanged;
+
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
         /// <summary>
         /// Joins the user.
         /// </summary>
@@ -137,7 +200,7 @@ namespace YAEM.DesktopClient
         /// <param name="u">The u.</param>
         private void RemoveUser(User u)
         {
-            var joinedUsers = ((UserList) this.Resources["JoinedUsers"]);
+            var joinedUsers = (UserList)this.Resources["JoinedUsers"];
             joinedUsers.Remove(joinedUsers.Single(ru => ru.Equals(u)));
             this.MessageHistoryTextBox.Text += string.Format("{0}\t{1} left the conversation\r\n", DateTime.Now, u.Name);
         }
@@ -148,7 +211,11 @@ namespace YAEM.DesktopClient
         /// <param name="message">The message.</param>
         private void AddHistoryMessage(Message message)
         {
-            this.MessageHistoryTextBox.Text += string.Format("{0}\t{1}\t{2}\r\n", DateTime.Now, message.Sender.Name, message.GetPayload());
+            this.MessageHistoryTextBox.Text += string.Format(
+                "{0}\t{1}\t{2}\r\n",
+                DateTime.Now,
+                message.Sender.Name,
+                StringUtilities.ByteArrayToString(message.Payload));
         }
 
         /// <summary>
@@ -156,7 +223,7 @@ namespace YAEM.DesktopClient
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="System.ComponentModel.CancelEventArgs"/> instance containing the event data.</param>
-        private void WindowClosing(object sender, System.ComponentModel.CancelEventArgs e)
+        private void WindowClosing(object sender, CancelEventArgs e)
         {
             this.LeaveUser();
             this.userProxy.Unsubscribe();
@@ -174,24 +241,10 @@ namespace YAEM.DesktopClient
         /// <param name="e">The <see cref="System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
         private void SendButtonClick(object sender, RoutedEventArgs e)
         {
-            this.messagingProxy.Send(new Message { Payload = StringUtilities.StringToByteArray(this.MessageTextBox.Text) }, this.currentSession);
+            var m = new Message();
+            m.SetPayload(this.MessageTextBox.Text);
+            this.messagingProxy.Send(m, this.currentSession);
             this.MessageTextBox.Text = string.Empty;
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        /// <summary>
-        /// Called when [property changed].
-        /// </summary>
-        /// <param name="propertyName">Name of the property.</param>
-        protected void OnPropertyChanged(string propertyName)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(propertyName));
-            }
         }
     }
 }

@@ -8,8 +8,8 @@
     <ProjectGuid>{53846CDC-A3AE-4F7C-AB8C-F5FFF915DAC7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>YAEM.Crypto.Blowfish</RootNamespace>
-    <AssemblyName>YAEM.Crypto.Blowfish</AssemblyName>
+    <RootNamespace>YAEM.Crypto.Rijndael</RootNamespace>
+    <AssemblyName>YAEM.Crypto.Rijndael</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -21,7 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\..\bin\Debug\Crypto\YAEM.Crypto.Blowfish.XML</DocumentationFile>
+    <DocumentationFile>..\..\bin\Debug\Crypto\YAEM.Crypto.Rijndael.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,7 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\..\bin\Release\Crypto\YAEM.Crypto.Blowfish.XML</DocumentationFile>
+    <DocumentationFile>..\..\bin\Release\Crypto\YAEM.Crypto.Rijndael.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -43,9 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BlowfishCS.cs" />
-    <Compile Include="BlowfishCryptoProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RijndaelCryptoProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Domain\YAEM.Domain\YAEM.Domain.csproj">

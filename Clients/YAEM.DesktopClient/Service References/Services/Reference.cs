@@ -45,6 +45,12 @@ namespace YAEM.DesktopClient.Services {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IUserService/NotifyNewMessage")]
         void NotifyNewMessage(YAEM.Domain.Message message);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IUserService/NotifyNegotiateInitializationVector")]
+        void NotifyNegotiateInitializationVector(byte[] initializationVector, YAEM.Domain.CryptoAlgorithm algorithm);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IUserService/NotifyNegotiateKey")]
+        void NotifyNegotiateKey(byte[] key, YAEM.Domain.CryptoAlgorithm algorithm);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -106,6 +112,12 @@ namespace YAEM.DesktopClient.Services {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMessagingService/Send")]
         void Send(YAEM.Domain.Message message, YAEM.Domain.Session sender);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMessagingService/NegotiateInitializationVector")]
+        void NegotiateInitializationVector(byte[] initializationVector, YAEM.Domain.CryptoAlgorithm algorithm);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMessagingService/NegotiateKey")]
+        void NegotiateKey(byte[] key, YAEM.Domain.CryptoAlgorithm algorithm);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -119,6 +131,12 @@ namespace YAEM.DesktopClient.Services {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMessagingService/NotifyNewMessage")]
         void NotifyNewMessage(YAEM.Domain.Message message);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMessagingService/NotifyNegotiateInitializationVector")]
+        void NotifyNegotiateInitializationVector(byte[] initializationVector, YAEM.Domain.CryptoAlgorithm algorithm);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMessagingService/NotifyNegotiateKey")]
+        void NotifyNegotiateKey(byte[] key, YAEM.Domain.CryptoAlgorithm algorithm);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -151,6 +169,14 @@ namespace YAEM.DesktopClient.Services {
         
         public void Send(YAEM.Domain.Message message, YAEM.Domain.Session sender) {
             base.Channel.Send(message, sender);
+        }
+        
+        public void NegotiateInitializationVector(byte[] initializationVector, YAEM.Domain.CryptoAlgorithm algorithm) {
+            base.Channel.NegotiateInitializationVector(initializationVector, algorithm);
+        }
+        
+        public void NegotiateKey(byte[] key, YAEM.Domain.CryptoAlgorithm algorithm) {
+            base.Channel.NegotiateKey(key, algorithm);
         }
     }
 }

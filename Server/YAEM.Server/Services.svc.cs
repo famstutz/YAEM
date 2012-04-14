@@ -4,10 +4,6 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-using System.ServiceModel.Channels;
-using YAEM.Crypto;
-using YAEM.Domain.Utilities;
-
 namespace YAEM.Server
 {
     using System;
@@ -41,7 +37,7 @@ namespace YAEM.Server
         private readonly List<Message> messageQueue;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Services"/> class.
+        /// Initialises a new instance of the <see cref="Services"/> class.
         /// </summary>
         public Services()
         {
@@ -144,7 +140,7 @@ namespace YAEM.Server
         /// <param name="sender">The sender.</param>
         public void Send(Message message, Session sender)
         {
-            Logger.Instance.Info(string.Format("User <{0}> sent message <{1}>", sender.User.Name, StringUtilities.ByteArrayToString(message.Payload)));
+            Logger.Instance.Info(string.Format("User <{0}> sent message <{1}>", sender.User.Name, message.Payload));
 
             message.Sender = sender.User;
             this.messageQueue.Add(message);

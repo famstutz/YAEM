@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:16020/Services.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/YAEM.Domain" />
+  <xs:import schemaLocation="http://localhost:5009/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/YAEM.Domain" />
   <xs:element name="Join">
     <xs:complexType>
       <xs:sequence>
@@ -79,11 +79,43 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="NotifyNegotiateInitializationVector">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="initializationVector" nillable="true" type="xs:base64Binary" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/YAEM.Domain" minOccurs="0" name="algorithm" type="q9:CryptoAlgorithm" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NotifyNegotiateKey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:base64Binary" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/YAEM.Domain" minOccurs="0" name="algorithm" type="q10:CryptoAlgorithm" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="Send">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/YAEM.Domain" minOccurs="0" name="message" nillable="true" type="q9:Message" />
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/YAEM.Domain" minOccurs="0" name="sender" nillable="true" type="q10:Session" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/YAEM.Domain" minOccurs="0" name="message" nillable="true" type="q11:Message" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/YAEM.Domain" minOccurs="0" name="sender" nillable="true" type="q12:Session" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NegotiateInitializationVector">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="initializationVector" nillable="true" type="xs:base64Binary" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/YAEM.Domain" minOccurs="0" name="algorithm" type="q13:CryptoAlgorithm" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NegotiateKey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:base64Binary" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/YAEM.Domain" minOccurs="0" name="algorithm" type="q14:CryptoAlgorithm" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

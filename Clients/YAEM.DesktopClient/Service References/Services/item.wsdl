@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Services" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsp:Policy wsu:Id="IUserService_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -379,6 +379,52 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="IUserService_NotifyNegotiateInitializationVector_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="IUserService_NotifyNegotiateKey_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsp:Policy wsu:Id="IMessagingService_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -505,6 +551,52 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="IMessagingService_NegotiateInitializationVector_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="IMessagingService_NegotiateKey_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsp:Policy wsu:Id="IMessagingService_NotifyUserJoined_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -574,11 +666,57 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="IMessagingService_NotifyNegotiateInitializationVector_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="IMessagingService_NotifyNegotiateKey_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://localhost:16020/Services.svc?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://localhost:16020/Services.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:16020/Services.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/YAEM.Domain" />
+      <xsd:import schemaLocation="http://localhost:5009/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:5009/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:5009/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/YAEM.Domain" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IUserService_Join_InputMessage">
@@ -617,8 +755,20 @@
   <wsdl:message name="IUserService_NotifyNewMessage_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:NotifyNewMessage" />
   </wsdl:message>
+  <wsdl:message name="IUserService_NotifyNegotiateInitializationVector_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotifyNegotiateInitializationVector" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_NotifyNegotiateKey_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotifyNegotiateKey" />
+  </wsdl:message>
   <wsdl:message name="IMessagingService_Send_InputMessage">
     <wsdl:part name="parameters" element="tns:Send" />
+  </wsdl:message>
+  <wsdl:message name="IMessagingService_NegotiateInitializationVector_InputMessage">
+    <wsdl:part name="parameters" element="tns:NegotiateInitializationVector" />
+  </wsdl:message>
+  <wsdl:message name="IMessagingService_NegotiateKey_InputMessage">
+    <wsdl:part name="parameters" element="tns:NegotiateKey" />
   </wsdl:message>
   <wsdl:message name="IMessagingService_NotifyUserJoined_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:NotifyUserJoined" />
@@ -628,6 +778,12 @@
   </wsdl:message>
   <wsdl:message name="IMessagingService_NotifyNewMessage_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:NotifyNewMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessagingService_NotifyNegotiateInitializationVector_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotifyNegotiateInitializationVector" />
+  </wsdl:message>
+  <wsdl:message name="IMessagingService_NotifyNegotiateKey_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotifyNegotiateKey" />
   </wsdl:message>
   <wsdl:portType msc:usingSession="true" name="IUserService">
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Join">
@@ -660,10 +816,22 @@
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="NotifyNewMessage">
       <wsdl:output wsaw:Action="http://tempuri.org/IUserService/NotifyNewMessage" message="tns:IUserService_NotifyNewMessage_OutputCallbackMessage" />
     </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="NotifyNegotiateInitializationVector">
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/NotifyNegotiateInitializationVector" message="tns:IUserService_NotifyNegotiateInitializationVector_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="NotifyNegotiateKey">
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/NotifyNegotiateKey" message="tns:IUserService_NotifyNegotiateKey_OutputCallbackMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType msc:usingSession="true" name="IMessagingService">
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Send">
       <wsdl:input wsaw:Action="http://tempuri.org/IMessagingService/Send" message="tns:IMessagingService_Send_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="NegotiateInitializationVector">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessagingService/NegotiateInitializationVector" message="tns:IMessagingService_NegotiateInitializationVector_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="NegotiateKey">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessagingService/NegotiateKey" message="tns:IMessagingService_NegotiateKey_InputMessage" />
     </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="NotifyUserJoined">
       <wsdl:output wsaw:Action="http://tempuri.org/IMessagingService/NotifyUserJoined" message="tns:IMessagingService_NotifyUserJoined_OutputCallbackMessage" />
@@ -673,6 +841,12 @@
     </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="NotifyNewMessage">
       <wsdl:output wsaw:Action="http://tempuri.org/IMessagingService/NotifyNewMessage" message="tns:IMessagingService_NotifyNewMessage_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="NotifyNegotiateInitializationVector">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessagingService/NotifyNegotiateInitializationVector" message="tns:IMessagingService_NotifyNegotiateInitializationVector_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="NotifyNegotiateKey">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessagingService/NotifyNegotiateKey" message="tns:IMessagingService_NotifyNegotiateKey_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="IUserService" type="tns:IUserService">
@@ -753,6 +927,20 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="NotifyNegotiateInitializationVector">
+      <soap12:operation soapAction="http://tempuri.org/IUserService/NotifyNegotiateInitializationVector" style="document" />
+      <wsdl:output>
+        <wsp:PolicyReference URI="#IUserService_NotifyNegotiateInitializationVector_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyNegotiateKey">
+      <soap12:operation soapAction="http://tempuri.org/IUserService/NotifyNegotiateKey" style="document" />
+      <wsdl:output>
+        <wsp:PolicyReference URI="#IUserService_NotifyNegotiateKey_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="IMessagingService" type="tns:IMessagingService">
     <wsp:PolicyReference URI="#IMessagingService_policy" />
@@ -761,6 +949,20 @@
       <soap12:operation soapAction="http://tempuri.org/IMessagingService/Send" style="document" />
       <wsdl:input>
         <wsp:PolicyReference URI="#IMessagingService_Send_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="NegotiateInitializationVector">
+      <soap12:operation soapAction="http://tempuri.org/IMessagingService/NegotiateInitializationVector" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#IMessagingService_NegotiateInitializationVector_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="NegotiateKey">
+      <soap12:operation soapAction="http://tempuri.org/IMessagingService/NegotiateKey" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#IMessagingService_NegotiateKey_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
@@ -785,25 +987,19 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="NotifyNegotiateInitializationVector">
+      <soap12:operation soapAction="http://tempuri.org/IMessagingService/NotifyNegotiateInitializationVector" style="document" />
+      <wsdl:output>
+        <wsp:PolicyReference URI="#IMessagingService_NotifyNegotiateInitializationVector_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyNegotiateKey">
+      <soap12:operation soapAction="http://tempuri.org/IMessagingService/NotifyNegotiateKey" style="document" />
+      <wsdl:output>
+        <wsp:PolicyReference URI="#IMessagingService_NotifyNegotiateKey_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
-  <wsdl:service name="Services">
-    <wsdl:port name="IUserService" binding="tns:IUserService">
-      <soap12:address location="http://localhost:16020/Services.svc" />
-      <wsa10:EndpointReference>
-        <wsa10:Address>http://localhost:16020/Services.svc</wsa10:Address>
-        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>ERNI\amf</Upn>
-        </Identity>
-      </wsa10:EndpointReference>
-    </wsdl:port>
-    <wsdl:port name="IMessagingService" binding="tns:IMessagingService">
-      <soap12:address location="http://localhost:16020/Services.svc" />
-      <wsa10:EndpointReference>
-        <wsa10:Address>http://localhost:16020/Services.svc</wsa10:Address>
-        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>ERNI\amf</Upn>
-        </Identity>
-      </wsa10:EndpointReference>
-    </wsdl:port>
-  </wsdl:service>
 </wsdl:definitions>

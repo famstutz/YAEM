@@ -114,19 +114,17 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Service References\Services\item.wsdl" />
+    <None Include="Service References\Services\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Services\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Services\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\Services\Services.wsdl" />
-    <None Include="Service References\Services\Services.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Services\Services1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Services\Services2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Crypto\YAEM.Crypto\YAEM.Crypto.csproj">
@@ -137,6 +135,9 @@
       <Project>{E30F4730-2370-4961-A9EC-5FA3F459D549}</Project>
       <Name>YAEM.Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\Services\" />

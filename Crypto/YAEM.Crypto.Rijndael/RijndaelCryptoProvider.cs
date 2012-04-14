@@ -1,10 +1,10 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="TripleDESCryptoProvider.cs" company="Florian Amstutz">
+// <copyright file="RijndaelCryptoProvider.cs" company="Florian Amstutz">
 //   Copyright (c) Florian Amstutz. All rights reserved.
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace YAEM.Crypto.TripleDES
+namespace YAEM.Crypto.Rijndael
 {
     using System.ComponentModel.Composition;
     using System.IO;
@@ -16,8 +16,8 @@ namespace YAEM.Crypto.TripleDES
     /// Implementation of a <see cref="ICryptoProvider"/> that uses the Triple DES algorithm.
     /// </summary>
     [Export(typeof(ICryptoProvider))]
-    [CryptoAlgorithm(Algorithm = CryptoAlgorithm.TripleDES)]
-    public class TripleDESCryptoProvider : ICryptoProvider
+    [CryptoAlgorithm(Algorithm = CryptoAlgorithm.Rijndael)]
+    public class RijndaelCryptoProvider : ICryptoProvider
     {
         /// <summary>
         /// Gets or sets the initalization vector.
@@ -39,15 +39,17 @@ namespace YAEM.Crypto.TripleDES
         /// Encrypts the specified clear text.
         /// </summary>
         /// <param name="clearText">The clear text.</param>
-        /// <returns>The encrypted crypto text.</returns>
+        /// <returns>
+        /// The encrypted crypto text.
+        /// </returns>
         public byte[] Encrypt(string clearText)
         {
-            using (var tripleDes = new TripleDESCryptoServiceProvider())
+            using (var rijndael = new RijndaelManaged())
             {
-                tripleDes.Key = this.Key;
-                tripleDes.IV = this.InitalizationVector;
+                rijndael.Key = this.Key;
+                rijndael.IV = this.InitalizationVector;
 
-                var encryptor = tripleDes.CreateEncryptor(tripleDes.Key, tripleDes.IV);
+                var encryptor = rijndael.CreateEncryptor(rijndael.Key, rijndael.IV);
 
                 using (var memoryStream = new MemoryStream())
                 {
@@ -73,12 +75,12 @@ namespace YAEM.Crypto.TripleDES
         {
             string clearText;
 
-            using (var tripleDes = new TripleDESCryptoServiceProvider())
+            using (var rijndael = new RijndaelManaged())
             {
-                tripleDes.Key = this.Key;
-                tripleDes.IV = this.InitalizationVector;
+                rijndael.Key = this.Key;
+                rijndael.IV = this.InitalizationVector;
 
-                var decryptor = tripleDes.CreateDecryptor(tripleDes.Key, tripleDes.IV);
+                var decryptor = rijndael.CreateDecryptor(rijndael.Key, rijndael.IV);
 
                 using (var memoryStream = new MemoryStream(cryptoText))
                 {
@@ -103,9 +105,9 @@ namespace YAEM.Crypto.TripleDES
         /// </returns>
         public byte[] GetInitializationVector()
         {
-            var tripleDes = new TripleDESCryptoServiceProvider();
-            tripleDes.GenerateIV();
-            return tripleDes.IV;
+            var rijndael = new RijndaelManaged();
+            rijndael.GenerateIV();
+            return rijndael.IV;
         }
     }
 }

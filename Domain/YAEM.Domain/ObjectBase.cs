@@ -22,7 +22,7 @@ namespace YAEM.Domain
         private Guid key;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ObjectBase"/> class.
+        /// Initialises a new instance of the <see cref="ObjectBase"/> class.
         /// </summary>
         protected ObjectBase()
         {

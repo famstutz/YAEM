@@ -15,7 +15,7 @@ namespace YAEM.Server
     public static class Logger
     {
         /// <summary>
-        /// Initializes static members of the <see cref="Logger"/> class.
+        /// Initialises static members of the <see cref="Logger"/> class.
         /// </summary>
         static Logger()
         {
