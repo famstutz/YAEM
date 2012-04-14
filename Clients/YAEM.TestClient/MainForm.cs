@@ -304,7 +304,15 @@ namespace YAEM.TestClient
             else
             {
                 var cp = this.GetCryptoProvider(message.Algorithm);
-                payload = cp.Decrypt(message.Payload);
+
+                if (cp.InitalizationVector != null && cp.Key != null)
+                {
+                    payload = cp.Decrypt(message.Payload);
+                }
+                else
+                {
+                    payload = message.GetPayload();
+                }
             }
 
             this.MessageHistoryTextBox.Text += string.Format("{0}\t{1}\t{2}\r\n", DateTime.Now, message.Sender.Name, payload);

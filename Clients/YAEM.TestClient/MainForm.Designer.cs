@@ -131,7 +131,7 @@ namespace YAEM.TestClient
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(334, 231);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(334, 271);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // ConnectedUsersDataGridView
@@ -145,7 +145,7 @@ namespace YAEM.TestClient
             this.ConnectedUsersDataGridView.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
             this.ConnectedUsersDataGridView.Name = "ConnectedUsersDataGridView";
             this.ConnectedUsersDataGridView.ReadOnly = true;
-            this.ConnectedUsersDataGridView.Size = new System.Drawing.Size(318, 173);
+            this.ConnectedUsersDataGridView.Size = new System.Drawing.Size(318, 213);
             this.ConnectedUsersDataGridView.TabIndex = 2;
             // 
             // UserNameLabel
@@ -167,7 +167,7 @@ namespace YAEM.TestClient
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(340, 250);
+            this.groupBox1.Size = new System.Drawing.Size(340, 290);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Connected Users";
@@ -207,7 +207,7 @@ namespace YAEM.TestClient
             this.splitContainer4.Panel2.Controls.Add(this.groupBox2);
             this.splitContainer4.Panel2.Padding = new System.Windows.Forms.Padding(5);
             this.splitContainer4.Size = new System.Drawing.Size(340, 380);
-            this.splitContainer4.SplitterDistance = 250;
+            this.splitContainer4.SplitterDistance = 290;
             this.splitContainer4.TabIndex = 6;
             // 
             // groupBox2
@@ -218,14 +218,14 @@ namespace YAEM.TestClient
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(5, 5);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(330, 116);
+            this.groupBox2.Size = new System.Drawing.Size(330, 76);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Encryption Algorithm";
             // 
             // SetKeyButton
             // 
-            this.SetKeyButton.Location = new System.Drawing.Point(179, 69);
+            this.SetKeyButton.Location = new System.Drawing.Point(161, 46);
             this.SetKeyButton.Name = "SetKeyButton";
             this.SetKeyButton.Size = new System.Drawing.Size(75, 23);
             this.SetKeyButton.TabIndex = 2;
@@ -235,7 +235,7 @@ namespace YAEM.TestClient
             // 
             // SetInitializationVectorButton
             // 
-            this.SetInitializationVectorButton.Location = new System.Drawing.Point(26, 69);
+            this.SetInitializationVectorButton.Location = new System.Drawing.Point(9, 46);
             this.SetInitializationVectorButton.Name = "SetInitializationVectorButton";
             this.SetInitializationVectorButton.Size = new System.Drawing.Size(146, 23);
             this.SetInitializationVectorButton.TabIndex = 1;
