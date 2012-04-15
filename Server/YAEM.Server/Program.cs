@@ -28,7 +28,7 @@ namespace YAEM.Server
             Logger.Instance.Info("Host is running... Press <Enter> key to stop");
             Console.ReadLine();
 
-            services.Close(new TimeSpan(0, 0, 5));
+            services.Close();
         }
     }
 }
