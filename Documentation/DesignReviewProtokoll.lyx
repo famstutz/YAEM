@@ -1,0 +1,183 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass scrartcl
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+YAEM Design Review Protokoll
+\end_layout
+
+\begin_layout Subtitle
+13.
+ April 2012, 18:30 Uhr, HSZ-T
+\end_layout
+
+\begin_layout Section*
+Anwesende
+\end_layout
+
+\begin_layout Itemize
+Basil Moser (Betreuer)
+\end_layout
+
+\begin_layout Itemize
+Florian Amstutz (Student)
+\end_layout
+
+\begin_layout Section*
+Protokoll
+\end_layout
+
+\begin_layout Subsection*
+Demonstration
+\end_layout
+
+\begin_layout Itemize
+Demo der bisher entwickelten Teile
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Server
+\end_layout
+
+\begin_layout Itemize
+WPF Client (ohne Krypto-Funktionen)
+\end_layout
+
+\begin_layout Itemize
+WinForms Client
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Aufzeigen der Struktur der Dokumentation
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Basierend auf Arc42
+\end_layout
+
+\end_deeper
+\begin_layout Subsection*
+Dokumentation
+\end_layout
+
+\begin_layout Itemize
+Vorgeschlagene Inhalte:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Vergleich der WCF Bindings (Features und eventuell Performance)
+\end_layout
+
+\begin_layout Itemize
+Vergleich Prism/MEF/...
+\end_layout
+
+\begin_layout Itemize
+Vergleich der Kryptoalgorithmen (welchen Algorithmus nimmt man für was,
+ welchen Algorithmus setzt man (nicht) mehr ein)
+\end_layout
+
+\begin_layout Itemize
+Delta zwischen Aufgabenstellung und effektiver Umsetzung beschreiben, wenn
+ etwas nicht gemacht wurde, dokumentieren wieso es nicht gemacht wurde bzw.
+ wie man das (hätte) lösen können
+\end_layout
+
+\begin_layout Itemize
+Aufwand beschreiben, es muss ersichtlich sein, wo wieviel Aufwand investiert
+ wurde
+\end_layout
+
+\begin_layout Itemize
+Fazit erstellen (Was hat gut geklappt, Zeitplan Soll/Ist, Unterschätzte
+ Task in Sachen Aufwand)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Es muss klar ersichtlich sein, welches Requirement welche Implementation
+ zur Folge hat.
+ Ein Integrationstest pro Requirement prüft dessen Funktionstüchtigkeit.
+\end_layout
+
+\begin_layout Subsection*
+Nächste Schritte
+\end_layout
+
+\begin_layout Itemize
+Baldmöglichst Termin für Schlusspräsentation planen, der möglichst nahe
+ am finalen Endtermin liegt
+\end_layout
+
+\begin_layout Itemize
+Doku zum reviewen an Basil senden
+\end_layout
+
+\begin_layout Itemize
+Arbeit zwei Wochen vor Präsentation abgeben
+\end_layout
+
+\end_body
+\end_document
