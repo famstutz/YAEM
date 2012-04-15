@@ -69,7 +69,8 @@ namespace YAEM.TestClient
             ////get all the exports and load them into the appropriate list tagged with the importmany
             this.compositionContainer.Compose(batch);
 
-            this.CryptoAlgorithmComboBox.DataSource = Enum.GetValues(typeof(CryptoAlgorithm));
+            this.CryptoAlgorithmComboBox.DataSource = (new List<CryptoAlgorithm> { CryptoAlgorithm.None }).Union(
+                this.CryptoProviders.Select(c => c.Metadata.Algorithm).Distinct()).ToList();
 
             this.JoinedUsers = new BindingList<User>();
 
@@ -90,7 +91,7 @@ namespace YAEM.TestClient
         }
 
         /// <summary>
-        /// Gets the <see cref="ICryptoProvider"/> crypto providers.
+        /// Gets or sets the <see cref="ICryptoProvider"/> crypto providers.
         /// </summary>
         /// <value>
         /// The crypto providers.
@@ -319,31 +320,6 @@ namespace YAEM.TestClient
         }
 
         /// <summary>
-        /// Sets the initialization vector button click.
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-        private void SetInitializationVectorButtonClick(object sender, EventArgs e)
-        {
-            var algo = (CryptoAlgorithm)this.CryptoAlgorithmComboBox.SelectedValue;
-            var cp = this.GetCryptoProvider(algo);
-
-            this.messagingProxy.NegotiateInitializationVector(cp.GetInitializationVector(), (CryptoAlgorithm)this.CryptoAlgorithmComboBox.SelectedValue);
-        }
-
-        /// <summary>
-        /// Sets the key button click.
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-        private void SetKeyButtonClick(object sender, EventArgs e)
-        {
-            var k = new GenerateKeyForm();
-            k.ShowDialog();
-            this.messagingProxy.NegotiateKey(StringUtilities.StringToByteArray(k.Key), (CryptoAlgorithm)this.CryptoAlgorithmComboBox.SelectedValue);
-        }
-
-        /// <summary>
         /// Cryptoes the algorithm combo box selected index changed.
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -351,15 +327,20 @@ namespace YAEM.TestClient
         private void CryptoAlgorithmComboBoxSelectedIndexChanged(object sender, EventArgs e)
         {
             var algo = (CryptoAlgorithm)this.CryptoAlgorithmComboBox.SelectedValue;
-            if (algo != CryptoAlgorithm.None)
+            if (algo != CryptoAlgorithm.None && this.messagingProxy != null)
             {
-                this.SetKeyButton.Enabled = true;
-                this.SetInitializationVectorButton.Enabled = true;
-            }
-            else
-            {
-                this.SetKeyButton.Enabled = false;
-                this.SetInitializationVectorButton.Enabled = false;
+                var cp = this.GetCryptoProvider(algo);
+                if (cp.InitalizationVector == null)
+                {
+                    this.messagingProxy.NegotiateInitializationVector(cp.GetInitializationVector(), (CryptoAlgorithm)this.CryptoAlgorithmComboBox.SelectedValue);
+                }
+
+                if (cp.Key == null)
+                {
+                    var k = new GenerateKeyForm();
+                    k.ShowDialog();
+                    this.messagingProxy.NegotiateKey(StringUtilities.StringToByteArray(k.Key), (CryptoAlgorithm)this.CryptoAlgorithmComboBox.SelectedValue);
+                }
             }
         }
     }

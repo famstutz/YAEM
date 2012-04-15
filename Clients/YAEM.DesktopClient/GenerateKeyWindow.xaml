@@ -1,0 +1,10 @@
+﻿<Window x:Class="YAEM.DesktopClient.GenerateKeyWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="GenerateKeyWindow" Height="118" Width="252" Loaded="WindowLoaded">
+    <Grid>
+        <Button Content="Use Key" Height="23" HorizontalAlignment="Left" Margin="102,43,0,0" Name="UseKeyButton" VerticalAlignment="Top" Width="75" Click="UseKeyButtonClick" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="102,14,0,0" Name="KeyTextBox" VerticalAlignment="Top" Width="120" TextChanged="KeyTextBoxTextChanged" />
+        <Label Content="Random Key" Height="28" HorizontalAlignment="Left" Margin="12,12,0,0" Name="label1" VerticalAlignment="Top" />
+    </Grid>
+</Window>

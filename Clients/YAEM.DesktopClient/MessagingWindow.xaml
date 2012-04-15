@@ -1,29 +1,29 @@
 ﻿<Window x:Class="YAEM.DesktopClient.MessagingWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:DesktopClient="clr-namespace:YAEM.DesktopClient"
-        Title="MessagingWindow" Height="364" Width="362" Closing="WindowClosing">
+        Title="MessagingWindow" Height="632" Width="569" Closed="WindowClosed">
     <Window.Resources>
         <DesktopClient:UserList x:Key="JoinedUsers"/>
     </Window.Resources>
     <Grid>
-        <Grid Name="grid1" Height="88" VerticalAlignment="Top">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="65*"/>
+            <RowDefinition Height="25"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="105" />
                 <ColumnDefinition Width="235*" />
             </Grid.ColumnDefinitions>
-            <ListBox Grid.Column="1" Name="listBox1" ItemsSource="{Binding Source={StaticResource JoinedUsers}}" DisplayMemberPath="Name"/>
+            <ListBox Grid.Column="1" Name="listBox1" ItemsSource="{Binding Source={StaticResource JoinedUsers}}" DisplayMemberPath="Name" />
             <TextBlock Height="23" HorizontalAlignment="Left" Margin="6,6,0,0" Name="textBlock1" Text="Joined Users" VerticalAlignment="Top" />
         </Grid>
-        <Grid Margin="0,94,0,0" Name="grid2">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="196" />
-                <RowDefinition Height="35*" />
-            </Grid.RowDefinitions>
-            <StackPanel Grid.Row="2" Orientation="Horizontal">
-                <TextBox Height="23" Name="MessageTextBox" Width="264" />
-                <Button Content="Send" Height="23" Name="SendButton" Width="75" Click="SendButtonClick" />
-            </StackPanel>
-            <TextBox Name="MessageHistoryTextBox" />
-        </Grid>
+        <TextBox Name="MessageHistoryTextBox" Grid.Row="1" FontFamily="Consolas" />
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <TextBox Height="26" Name="MessageTextBox" Width="351" />
+            <ComboBox Name="CryptoAlgorithmComboBox" SelectedIndex="0" SelectionChanged="CryptoAlgorithmComboBoxSelectionChanged" Width="119" />
+            <Button Content="Send" Height="23" Name="SendButton" Width="75" Click="SendButtonClick" />
+        </StackPanel>
     </Grid>
 </Window>

@@ -32,17 +32,11 @@ namespace YAEM.Server
         private readonly List<IServiceCallback> subscribers;
 
         /// <summary>
-        /// Contains all messages during life time.
-        /// </summary>
-        private readonly List<Message> messageQueue;
-
-        /// <summary>
         /// Initialises a new instance of the <see cref="Services"/> class.
         /// </summary>
         public Services()
         {
             this.registeredSessions = new List<Session>();
-            this.messageQueue = new List<Message>();
             this.subscribers = new List<IServiceCallback>();
         }
 
@@ -143,7 +137,6 @@ namespace YAEM.Server
             Logger.Instance.Info(string.Format("User <{0}> sent message <{1}>", sender.User.Name, message.Payload));
 
             message.Sender = sender.User;
-            this.messageQueue.Add(message);
 
             this.subscribers.ForEach(callback => callback.NotifyNewMessage(message));
         }

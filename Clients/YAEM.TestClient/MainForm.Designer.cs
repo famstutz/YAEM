@@ -45,16 +45,12 @@ namespace YAEM.TestClient
             this.UserNameLabel = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.SetKeyButton = new System.Windows.Forms.Button();
-            this.SetInitializationVectorButton = new System.Windows.Forms.Button();
-            this.CryptoAlgorithmComboBox = new System.Windows.Forms.ComboBox();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.MessageHistoryTextBox = new System.Windows.Forms.TextBox();
-            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
-            this.MessageTextBox = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.CryptoAlgorithmComboBox = new System.Windows.Forms.ComboBox();
             this.SendButton = new System.Windows.Forms.Button();
+            this.MessageTextBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ConnectedUsersDataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -62,19 +58,11 @@ namespace YAEM.TestClient
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
-            this.splitContainer4.Panel1.SuspendLayout();
-            this.splitContainer4.Panel2.SuspendLayout();
-            this.splitContainer4.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
-            this.splitContainer3.Panel1.SuspendLayout();
-            this.splitContainer3.Panel2.SuspendLayout();
-            this.splitContainer3.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // JoinButton
@@ -131,7 +119,7 @@ namespace YAEM.TestClient
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(334, 271);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(334, 361);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // ConnectedUsersDataGridView
@@ -145,7 +133,7 @@ namespace YAEM.TestClient
             this.ConnectedUsersDataGridView.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
             this.ConnectedUsersDataGridView.Name = "ConnectedUsersDataGridView";
             this.ConnectedUsersDataGridView.ReadOnly = true;
-            this.ConnectedUsersDataGridView.Size = new System.Drawing.Size(318, 213);
+            this.ConnectedUsersDataGridView.Size = new System.Drawing.Size(318, 303);
             this.ConnectedUsersDataGridView.TabIndex = 2;
             // 
             // UserNameLabel
@@ -165,9 +153,9 @@ namespace YAEM.TestClient
             // 
             this.groupBox1.Controls.Add(this.tableLayoutPanel1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Location = new System.Drawing.Point(5, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(340, 290);
+            this.groupBox1.Size = new System.Drawing.Size(340, 380);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Connected Users";
@@ -181,7 +169,7 @@ namespace YAEM.TestClient
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.splitContainer4);
+            this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
             this.splitContainer1.Panel1.Padding = new System.Windows.Forms.Padding(5);
             // 
             // splitContainer1.Panel2
@@ -190,67 +178,6 @@ namespace YAEM.TestClient
             this.splitContainer1.Size = new System.Drawing.Size(1097, 390);
             this.splitContainer1.SplitterDistance = 350;
             this.splitContainer1.TabIndex = 6;
-            // 
-            // splitContainer4
-            // 
-            this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer4.Location = new System.Drawing.Point(5, 5);
-            this.splitContainer4.Name = "splitContainer4";
-            this.splitContainer4.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer4.Panel1
-            // 
-            this.splitContainer4.Panel1.Controls.Add(this.groupBox1);
-            // 
-            // splitContainer4.Panel2
-            // 
-            this.splitContainer4.Panel2.Controls.Add(this.groupBox2);
-            this.splitContainer4.Panel2.Padding = new System.Windows.Forms.Padding(5);
-            this.splitContainer4.Size = new System.Drawing.Size(340, 380);
-            this.splitContainer4.SplitterDistance = 290;
-            this.splitContainer4.TabIndex = 6;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.SetKeyButton);
-            this.groupBox2.Controls.Add(this.SetInitializationVectorButton);
-            this.groupBox2.Controls.Add(this.CryptoAlgorithmComboBox);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(5, 5);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(330, 76);
-            this.groupBox2.TabIndex = 0;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Encryption Algorithm";
-            // 
-            // SetKeyButton
-            // 
-            this.SetKeyButton.Location = new System.Drawing.Point(161, 46);
-            this.SetKeyButton.Name = "SetKeyButton";
-            this.SetKeyButton.Size = new System.Drawing.Size(75, 23);
-            this.SetKeyButton.TabIndex = 2;
-            this.SetKeyButton.Text = "Set Key";
-            this.SetKeyButton.UseVisualStyleBackColor = true;
-            this.SetKeyButton.Click += new System.EventHandler(this.SetKeyButtonClick);
-            // 
-            // SetInitializationVectorButton
-            // 
-            this.SetInitializationVectorButton.Location = new System.Drawing.Point(9, 46);
-            this.SetInitializationVectorButton.Name = "SetInitializationVectorButton";
-            this.SetInitializationVectorButton.Size = new System.Drawing.Size(146, 23);
-            this.SetInitializationVectorButton.TabIndex = 1;
-            this.SetInitializationVectorButton.Text = "Set Initialization Vector";
-            this.SetInitializationVectorButton.UseVisualStyleBackColor = true;
-            this.SetInitializationVectorButton.Click += new System.EventHandler(this.SetInitializationVectorButtonClick);
-            // 
-            // CryptoAlgorithmComboBox
-            // 
-            this.CryptoAlgorithmComboBox.FormattingEnabled = true;
-            this.CryptoAlgorithmComboBox.Location = new System.Drawing.Point(9, 19);
-            this.CryptoAlgorithmComboBox.Name = "CryptoAlgorithmComboBox";
-            this.CryptoAlgorithmComboBox.Size = new System.Drawing.Size(315, 21);
-            this.CryptoAlgorithmComboBox.TabIndex = 0;
-            this.CryptoAlgorithmComboBox.SelectedIndexChanged += new System.EventHandler(this.CryptoAlgorithmComboBoxSelectedIndexChanged);
             // 
             // splitContainer2
             // 
@@ -266,57 +193,68 @@ namespace YAEM.TestClient
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.splitContainer3);
+            this.splitContainer2.Panel2.Controls.Add(this.tableLayoutPanel2);
             this.splitContainer2.Size = new System.Drawing.Size(743, 390);
-            this.splitContainer2.SplitterDistance = 361;
+            this.splitContainer2.SplitterDistance = 357;
             this.splitContainer2.TabIndex = 0;
             // 
             // MessageHistoryTextBox
             // 
             this.MessageHistoryTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MessageHistoryTextBox.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MessageHistoryTextBox.Location = new System.Drawing.Point(0, 0);
             this.MessageHistoryTextBox.Multiline = true;
             this.MessageHistoryTextBox.Name = "MessageHistoryTextBox";
             this.MessageHistoryTextBox.ReadOnly = true;
-            this.MessageHistoryTextBox.Size = new System.Drawing.Size(743, 361);
+            this.MessageHistoryTextBox.Size = new System.Drawing.Size(743, 357);
             this.MessageHistoryTextBox.TabIndex = 0;
             // 
-            // splitContainer3
+            // tableLayoutPanel2
             // 
-            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer3.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
-            this.splitContainer3.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer3.Name = "splitContainer3";
+            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel2.Controls.Add(this.CryptoAlgorithmComboBox, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.SendButton, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.MessageTextBox, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(743, 29);
+            this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // splitContainer3.Panel1
+            // CryptoAlgorithmComboBox
             // 
-            this.splitContainer3.Panel1.Controls.Add(this.MessageTextBox);
-            // 
-            // splitContainer3.Panel2
-            // 
-            this.splitContainer3.Panel2.Controls.Add(this.SendButton);
-            this.splitContainer3.Size = new System.Drawing.Size(743, 25);
-            this.splitContainer3.SplitterDistance = 680;
-            this.splitContainer3.TabIndex = 0;
-            // 
-            // MessageTextBox
-            // 
-            this.MessageTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MessageTextBox.Location = new System.Drawing.Point(0, 0);
-            this.MessageTextBox.Name = "MessageTextBox";
-            this.MessageTextBox.Size = new System.Drawing.Size(680, 20);
-            this.MessageTextBox.TabIndex = 0;
+            this.CryptoAlgorithmComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CryptoAlgorithmComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CryptoAlgorithmComboBox.FormattingEnabled = true;
+            this.CryptoAlgorithmComboBox.Location = new System.Drawing.Point(485, 3);
+            this.CryptoAlgorithmComboBox.Name = "CryptoAlgorithmComboBox";
+            this.CryptoAlgorithmComboBox.Size = new System.Drawing.Size(179, 21);
+            this.CryptoAlgorithmComboBox.TabIndex = 0;
+            this.CryptoAlgorithmComboBox.SelectedIndexChanged += new System.EventHandler(this.CryptoAlgorithmComboBoxSelectedIndexChanged);
             // 
             // SendButton
             // 
             this.SendButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SendButton.Location = new System.Drawing.Point(0, 0);
+            this.SendButton.Location = new System.Drawing.Point(670, 3);
             this.SendButton.Name = "SendButton";
-            this.SendButton.Size = new System.Drawing.Size(59, 25);
+            this.SendButton.Size = new System.Drawing.Size(70, 23);
             this.SendButton.TabIndex = 0;
             this.SendButton.Text = "Send";
             this.SendButton.UseVisualStyleBackColor = true;
             this.SendButton.Click += new System.EventHandler(this.SendButtonClick);
+            // 
+            // MessageTextBox
+            // 
+            this.MessageTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MessageTextBox.Location = new System.Drawing.Point(3, 3);
+            this.MessageTextBox.Name = "MessageTextBox";
+            this.MessageTextBox.Size = new System.Drawing.Size(476, 20);
+            this.MessageTextBox.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -335,21 +273,13 @@ namespace YAEM.TestClient
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.splitContainer4.Panel1.ResumeLayout(false);
-            this.splitContainer4.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
-            this.splitContainer4.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel1.PerformLayout();
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
-            this.splitContainer3.Panel1.ResumeLayout(false);
-            this.splitContainer3.Panel1.PerformLayout();
-            this.splitContainer3.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
-            this.splitContainer3.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -365,14 +295,10 @@ namespace YAEM.TestClient
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.TextBox MessageHistoryTextBox;
-        private System.Windows.Forms.SplitContainer splitContainer3;
         private System.Windows.Forms.TextBox MessageTextBox;
         private System.Windows.Forms.Button SendButton;
         private System.Windows.Forms.DataGridView ConnectedUsersDataGridView;
-        private System.Windows.Forms.SplitContainer splitContainer4;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button SetKeyButton;
-        private System.Windows.Forms.Button SetInitializationVectorButton;
         private System.Windows.Forms.ComboBox CryptoAlgorithmComboBox;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
     }
 }
