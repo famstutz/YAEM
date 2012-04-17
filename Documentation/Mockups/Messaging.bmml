@@ -1,0 +1,47 @@
+<mockup version="1.0" skin="sketch" measuredW="938" measuredH="384" mockupW="690" mockupH="384">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::TitleWindow" x="248" y="0" w="690" h="374" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bottomheight>25</bottomheight>
+        <close>true</close>
+        <dragger>false</dragger>
+        <maximizeRestore>true</maximizeRestore>
+        <minimize>true</minimize>
+        <text>Messaging%20Window</text>
+        <topheight>26</topheight>
+      </controlProperties>
+    </control>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::List" x="813" y="78" w="100" h="219" measuredW="100" measuredH="126" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Alice%0ABob</text>
+        <value>7</value>
+        <verticalScrollbar>false</verticalScrollbar>
+      </controlProperties>
+    </control>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::TextArea" x="273" y="44" w="525" h="253" measuredW="200" measuredH="140" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>04/17/2012%2022%3A37%09%09%5C%5BBob%5D%09Bob%20joined%20the%20discussion%0A04/17/2012%2022%3A39%09%09%5C%5BYou%5D%09You%20sent%20an%20initalization%20vector%20for%20crypto-algorithm%20AES%0A04/17/2012%2022%3A40%09%09%5C%5BYou%5D%09You%20sent%20a%20key%20for%20crypto-algorithm%20AES%0A04/17/2012%2022%3A42%09%09%5C%5BYou%5D%20%09Dear%20Bob%2C%20have%20you%20recieved%20my%20plan%20for%20%0A%09%09%09%09%09%09%09throwing%20over%20the%20world%20order%3F%0A04/17/2012%2022%3A43%09%09%5C%5BBob%5D%09Indeed%2C%20I%20read%20it%20with%20great%20interest%21%20Alice%2C%20please%20tell%20%0A%09%09%09%09%09%09%09Pinky%20%26%20the%20Brain.%0A04/17/2012%2022%3A45%09%09%5C%5BAlice%5D%09With%20pleasure%21</text>
+      </controlProperties>
+    </control>
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::Label" x="813" y="51" w="-1" h="-1" measuredW="95" measuredH="21" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Available%20Users</text>
+      </controlProperties>
+    </control>
+    <control controlID="6" controlTypeID="com.balsamiq.mockups::TextInput" x="273" y="306" w="438" h="-1" measuredW="79" measuredH="27" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="7" controlTypeID="com.balsamiq.mockups::ComboBox" x="720" y="306" w="-1" h="-1" measuredW="78" measuredH="78" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%3CNone%3E%0AAES%0ARijndael%0ATripleDES</text>
+      </controlProperties>
+    </control>
+    <control controlID="8" controlTypeID="com.balsamiq.mockups::Button" x="813" y="305" w="100" h="27" measuredW="54" measuredH="27" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Send</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

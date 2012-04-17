@@ -61,7 +61,7 @@
 \begin_body
 
 \begin_layout Title
-YAEM - Yet Another Encrypted Messenger
+Yet Another Encrypted Messenger
 \end_layout
 
 \begin_layout Author
@@ -90,15 +90,19 @@ LatexCommand tableofcontents
 Management Summary
 \end_layout
 
+\begin_layout Standard
+YAEM - Yet Another Encrypted Messenger
+\end_layout
+
 \begin_layout Section
 Anforderungen
 \end_layout
 
 \begin_layout Standard
-Die Anforderungen an die Applikation werden in Use-Case-Diagrammen modelhaft
+Die Anforderungen an die Applikation werden in Use-Case-Diagrammen modellhaft
  dargestellt und als Use-Case-Spezifikationen ausformuliert.
  Auf eine natürlichsprachige Dokumentation der Anforderungen wird verzichtet,
- da die Anforderungen aufgrund der Use-Case-Diagrammen verständliche genug
+ da die Anforderungen aufgrund der Use-Case-Diagrammen verständlich genug
  sind und alle zusätzlich zu den Diagrammen zu beachtenden Punkte in den
  Use-Case-Spezifikationen enthalten sind.
 \end_layout
@@ -1534,6 +1538,23 @@ description "Der Geheimtext ist der Text, der durch die Verschlüsselung mittels
 
 \begin_layout Section
 Konzept
+\end_layout
+
+\begin_layout Subsection
+Laufzeitsicht
+\end_layout
+
+\begin_layout Subsubsection
+Gespräch beitreten
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ExportedDiagrams/Sequence-GespraechBeitreten.png
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
