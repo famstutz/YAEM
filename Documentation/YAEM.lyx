@@ -1536,8 +1536,137 @@ description "Der Geheimtext ist der Text, der durch die Verschlüsselung mittels
 
 \end_layout
 
+\begin_layout Subsection
+Mockups
+\end_layout
+
+\begin_layout Subsubsection
+Connect Window
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Mockups/Connect.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Messaging Window
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Mockups/Messaging.png
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Konzept
+\end_layout
+
+\begin_layout Subsection
+Bausteinsicht
+\end_layout
+
+\begin_layout Subsubsection
+Komponentendiagramm
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ExportedDiagrams/ComponentModel.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Domänenmodell
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ExportedDiagrams/DomainModel.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Service Contracts
+\end_layout
+
+\begin_layout Paragraph
+IUserService
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ExportedDiagrams/Class-IUserService.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+IMessagingService
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ExportedDiagrams/Class-IMessagingService.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+IServiceCallback
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ExportedDiagrams/Class-IServiceCallback.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Kryptoalgorithmen
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ExportedDiagrams/Class-Crypto.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Server
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ExportedDiagrams/Class-Server.png
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -1551,6 +1680,45 @@ Gespräch beitreten
 \begin_layout Standard
 \begin_inset Graphics
 	filename ExportedDiagrams/Sequence-GespraechBeitreten.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Gespräch verlassen
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ExportedDiagrams/Sequence-GespraechVerlassen.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Nachricht senden
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ExportedDiagrams/Sequence-NachrichtSenden.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Verteilungssicht
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ExportedDiagrams/Deployment-Verteilungsdiagramm.png
 
 \end_inset
 
