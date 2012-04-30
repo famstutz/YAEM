@@ -91,7 +91,123 @@ Management Summary
 \end_layout
 
 \begin_layout Standard
-YAEM - Yet Another Encrypted Messenger
+Mit dem zunehmenden Aufkommen von Attacken und gezieltem Abhorchen von Echtzeitk
+ommunikation via E-Mail oder Instant Messaging steigt der Bedarf an eine
+ sichere und einfache Übertragungsart von Nachrichten oder Daten.
+ 
+\end_layout
+
+\begin_layout Standard
+Als Nutzer eines Kommunikationskanals über das öffentliche Internet will
+ ich die Möglichkeit haben meine privaten Daten verschlüsselt und sicher
+ an einen oder mehrere Empfänger übertragen zu können.
+ Ich will dabei eine einfach zu bedienende Applikation zur Verfügung haben
+ um meine geheimen Daten übertragen zu können und so potentiellen Mithörern
+ keine Klartextinformationen zur Verfügung zu stellen.
+ 
+\end_layout
+
+\begin_layout Standard
+Diese Applikation soll im Rahmen der Semesterarbeit im dritten Studienjahr
+ an der ZHAW entwickelt werden.
+ Dabei wird der Schwerpunkt der Arbeit auf der methodischen Vorgehensweise
+ der Softwareentwicklung und weniger auf der Implementierung der kryptografische
+n Algorithmen.
+\end_layout
+
+\begin_layout Section
+Softwareentwicklungsprozess
+\end_layout
+
+\begin_layout Standard
+Software lässt sich nach einer Vielzahl von Prozessen entwickeln.
+ Von iterativen Vorgehen wie Scrum über komplexe Modelle wie RUP 
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "RUP"
+description "Der Rational Unified Process ist ein kommerzielles Vorgehensmodell zur Softwareentwicklung von IBM. "
+
+\end_inset
+
+ hin zu klassischen, linearen Vorgehen wie dem Wasserfallmodell oder dem
+ V-Modell
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "V-Modell"
+description "Das V-Modell ist ein Vorgehensmodell in der Softwareentwicklung, bei dem der Softwareentwicklungsprozess in Phasen organisiert wird. Neben diesen Entwicklungsphasen definiert das V-Modell auch das Vorgehen zur Qualitätssicherung (Testen) phasenweise."
+
+\end_inset
+
+.
+ Das Wasserfallmodell teilt die Softwareentwicklung in Phasen auf, dabei
+ kann erst mit der nächsten Phase begonnen werde wenn die Ergebnisdokumentation
+ der vorhergehenden Phase fertiggestellt und abgenommen ist.
+ Zur Entwicklung dieser Semesterarbeit wurde das Wasserfallmodell ausgewählt,
+ da die jeweiligen Phasen eindeutig abgeschlossen werden kann, da der Betreuer
+ als einziger, externer Stakeholder des Projekts zu festdefinierten Phasen
+ Einfluss auf das Projekt ausübt und danach keine Möglichkeit mehr besitzt,
+ den Projektverlauf zu beeinflussen.
+\end_layout
+
+\begin_layout Standard
+Zu Beginn des Wasserfallmodells steht das Sammeln und Dokumentieren der
+ Anforderungen (Requirements).
+ Wenn die Anforderungen umfänglich und in hohem Detaillierungsgrad niedergeschri
+eben sind, werden diese vom Auftraggeber abgenommen und die Entwicklung
+ 
+\end_layout
+
+\begin_layout Standard
+Die Struktur dieses Dokuments hält sich auch an den Wasserfallprozess nach
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Hung2007"
+
+\end_inset
+
+, so entspricht beispielsweise Kapitel 3 Anforderungen der Requirementsphase
+ und Kapitel 4 Konzept der Designphase.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Graphics/sw-process.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Wasserfallprozess nach 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Hung2007"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -1739,6 +1855,10 @@ UC Use Case
 
 \begin_layout Description
 YAEM Yet Another Encrypted Messenger
+\end_layout
+
+\begin_layout Description
+RUP Rational Unified Process
 \end_layout
 
 \begin_layout Section

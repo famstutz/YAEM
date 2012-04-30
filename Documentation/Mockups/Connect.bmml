@@ -4,8 +4,8 @@
       <controlProperties>
         <bottomheight>26</bottomheight>
         <close>true</close>
-        <maximizeRestore>true</maximizeRestore>
-        <minimize>true</minimize>
+        <maximizeRestore>false</maximizeRestore>
+        <minimize>false</minimize>
         <text>Join%20Discussion</text>
       </controlProperties>
     </control>
