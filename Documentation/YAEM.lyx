@@ -2,7 +2,7 @@
 \lyxformat 413
 \begin_document
 \begin_header
-\textclass scrartcl
+\textclass scrbook
 \use_default_options true
 \maintain_unincluded_children false
 \language german-ch
@@ -65,7 +65,7 @@ Yet Another Encrypted Messenger
 \end_layout
 
 \begin_layout Author
-Florian Amstutz
+Florian Amstutz <florian@amstutz.nu>
 \end_layout
 
 \begin_layout Date
@@ -84,6 +84,18 @@ LatexCommand tableofcontents
 \end_inset
 
 
+\end_layout
+
+\begin_layout Chapter
+Einführung
+\end_layout
+
+\begin_layout Standard
+Als einführendes Kapitel dieses Dokuments wird die Semesterarbeit als Projekt
+ kurz vorgestellt und es werden die Rahmenbedingungen der Semesterarbeit
+ zusammengefasst niedergeschrieben.
+ Weiter werden verschiedene Softwareentwicklungsprozesse vorgestellt sowie
+ die für diese Semesterarbeit verwendete Methode erklärt.
 \end_layout
 
 \begin_layout Section
@@ -108,11 +120,34 @@ Als Nutzer eines Kommunikationskanals über das öffentliche Internet will
 \end_layout
 
 \begin_layout Standard
-Diese Applikation soll im Rahmen der Semesterarbeit im dritten Studienjahr
- an der ZHAW entwickelt werden.
+Diese Applikation soll als Prototyp im Rahmen der Semesterarbeit im dritten
+ Studienjahr an der ZHAW entwickelt werden.
  Dabei wird der Schwerpunkt der Arbeit auf der methodischen Vorgehensweise
  der Softwareentwicklung und weniger auf der Implementierung der kryptografische
 n Algorithmen.
+\end_layout
+
+\begin_layout Section
+Über die Semesterarbeit
+\end_layout
+
+\begin_layout Standard
+Gemäss Reglement der ZHAW (siehe 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Stern2010"
+
+\end_inset
+
+) dient die Semesterarbeit als Vorbereitung zur Bachelorarbeit.
+ Sie besteht aus einem konzeptionellen Teil und einem Umsetzungsteil, wobei
+ der Schwerpunkt auf der Umsetzung liegen soll.
+\end_layout
+
+\begin_layout Standard
+Der Aufwand für die Fertigstellung der Semestarbeit beträgt mindestens 120
+ Stunden und schliesst mit einer Präsentation vor dem Betreuer und einer
+ Vertretung der Leitung des Studengangs Informatik ab.
 \end_layout
 
 \begin_layout Section
@@ -120,7 +155,7 @@ Softwareentwicklungsprozess
 \end_layout
 
 \begin_layout Standard
-Software lässt sich nach einer Vielzahl von Prozessen entwickeln.
+Software lässt sich nach einer Vielzahl von Prozessen und Modellen entwickeln.
  Von iterativen Vorgehen wie Scrum über komplexe Modelle wie RUP 
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
@@ -139,47 +174,68 @@ description "Das V-Modell ist ein Vorgehensmodell in der Softwareentwicklung, be
 \end_inset
 
 .
- Das Wasserfallmodell teilt die Softwareentwicklung in Phasen auf, dabei
- kann erst mit der nächsten Phase begonnen werde wenn die Ergebnisdokumentation
- der vorhergehenden Phase fertiggestellt und abgenommen ist.
- Zur Entwicklung dieser Semesterarbeit wurde das Wasserfallmodell ausgewählt,
- da die jeweiligen Phasen eindeutig abgeschlossen werden kann, da der Betreuer
- als einziger, externer Stakeholder des Projekts zu festdefinierten Phasen
- Einfluss auf das Projekt ausübt und danach keine Möglichkeit mehr besitzt,
- den Projektverlauf zu beeinflussen.
-\end_layout
-
-\begin_layout Standard
-Zu Beginn des Wasserfallmodells steht das Sammeln und Dokumentieren der
- Anforderungen (Requirements).
- Wenn die Anforderungen umfänglich und in hohem Detaillierungsgrad niedergeschri
-eben sind, werden diese vom Auftraggeber abgenommen und die Entwicklung
- 
-\end_layout
-
-\begin_layout Standard
-Die Struktur dieses Dokuments hält sich auch an den Wasserfallprozess nach
- 
+ Nach 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Hung2007"
+key "Starke2011"
 
 \end_inset
 
-, so entspricht beispielsweise Kapitel 3 Anforderungen der Requirementsphase
- und Kapitel 4 Konzept der Designphase.
- 
+ ist die Auswahl des Entwicklungsprozesses eine der schwierigsten Entscheidungen
+, die man bei einem Softwareprojekt treffen muss.
+ Häufig besitzen Unternehmungen bereits etablierte, auf sie zugeschnittene
+ Entwicklungsmodelle, die mehr oder weniger gut zur Organisation der Unternehmun
+g passen.
+ Ein ungünstig gewählter oder nicht vollständig eingeführter und gelebter
+ Entwicklungsprozess ist nach 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Starke2011"
+
+\end_inset
+
+ einer der Hauptgründe wieso Softwareprojekte mit Qualitätsmängeln, Budgetübersc
+hreitungen oder zeitlichen Verzögerungen zu kämpfen haben.
+\end_layout
+
+\begin_layout Standard
+Für dieses Projekt wurde das Wasserfallmodell als Entwicklungsprozess ausgewählt.
+ Das Wasserfallmodell teilt die Softwareentwicklung in meist fünf verschiedene
+ Phasen auf.
+ Dabei kann erst mit der nächsten Phase begonnen werde wenn die Lieferegebnisse
+ und die Ergebnisdokumentation der vorhergehenden Phase fertiggestellt und
+ abgenommen worden sind.
+ Das Wasserfallmodell wurde ausgewählt, da die jeweiligen Phasen eindeutig
+ abgeschlossen werden können, da der Betreuer als einziger, externer Stakeholder
+ des Projekts zu festdefinierten Phasen Einfluss auf das Projekt ausübt
+ und danach keine Möglichkeit mehr besitzt, den Projektverlauf zu beeinflussen.
+ Die grössten Nachteile des Wasserfallmodells sind nach 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Elmer2005"
+
+\end_inset
+
+ ein Abgrenzugsproblem zwischen den Phasen sowie die Schwierigkeit des Abschluss
+es einzelner Phasen.
+ Dadurch dass der Betreuer nur in den Phasen Requirements und Design Einfluss
+ auf das Projekt nehmen kann und Student als einziger Stakeholder den Abschluss
+ der Phasen abnimmt sowie den Ablauf der Phasen innerhalb des Projekts steuert
+ können diese Nachteile umgangen werden.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
+placement h
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename Graphics/sw-process.png
+	scale 60
 
 \end_inset
 
@@ -210,27 +266,508 @@ key "Hung2007"
 
 \end_layout
 
-\begin_layout Section
-Anforderungen
+\begin_layout Standard
+Zu Beginn des Wasserfallmodells steht das Sammeln und Dokumentieren der
+ Anforderungen (Requirements).
+ Wenn die Anforderungen umfänglich und in hohem Detaillierungsgrad niedergeschri
+eben sind, werden diese vom Auftraggeber abgenommen und das Projekt geht
+ in die Design-Phase über.
+ Die zu entwickelnde Software wird auf verschiedenen Ebenen von Softwarearchitek
+ten designed und eine Blaupause wird erstellt, nach welcher sich die Software
+ Entwickler in der Implementationsphase zu halten haben.
+ Das Design sollte einen Plan beinhalten, welcher die Implementierung der
+ Anforderungen aufzeigt.
+ Wenn das Design fertiggestellt worden ist, wird dieses von den Entwicklern
+ in Programmcode umgesetzt.
+ Gegen Ende der Implementationsphase werden die Softwarekomponenten verschiedene
+r Teams integriert.
+ Nachdem die Implementierungs- und Integrationsphasen abgeschlossen sind,
+ wird das Softwareprodukt getestet und allfällige Fehler aus früheren Phasen
+ werden zu diesem Zeitpunkt entfernt.
+ Danach wird das Softwareprodukt installiert und später in der Wartungsphase
+ (Maintenance) um weitere Funktionalitäten erweitert beziehungsweise werden
+ weitere Bugs
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Bug"
+description "Ein Programm- oder Softwarefehler wird als Bug bezeichnet und beschreibt im Allgemeinen ein fehlerhaftes Verhalten von Computerprogrammen."
+
+\end_inset
+
+ behoben.
 \end_layout
 
 \begin_layout Standard
-Die Anforderungen an die Applikation werden in Use-Case-Diagrammen modellhaft
- dargestellt und als Use-Case-Spezifikationen ausformuliert.
+Die Struktur dieses Dokuments hält sich auch an den Wasserfallprozess nach
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Hung2007"
+
+\end_inset
+
+ (siehe Tabelle 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Zuweisungstablle-der-Phasen"
+
+\end_inset
+
+).
+ Die Phase Maintenance wird dabei ausgelassen, da sich die innerhalb des
+ Projekts entwickelte Applikation nach Abschluss der Verifizierungsphase
+ noch im Protoypenstand befinden wird.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Phase
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Kapitelüberschrift
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Seite
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Requirements
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "chap:Anforderungen"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset ref
+LatexCommand pageref
+reference "chap:Anforderungen"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Design
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "chap:Konzept"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset ref
+LatexCommand pageref
+reference "chap:Konzept"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Implementation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "chap:Implementierung"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset ref
+LatexCommand pageref
+reference "chap:Implementierung"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Verification
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "chap:Test"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset ref
+LatexCommand pageref
+reference "chap:Test"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Zuweisungstabelle der Phasen zu Kapiteln in diesem Dokument
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Zuweisungstablle-der-Phasen"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Anforderungen
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Anforderungen"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Gemäss dem verwendeten Wasserfallmodell werden als erstes die Anforderungen
+ erhoben.
+ Dazu wird der Begriff 
+\begin_inset Quotes eld
+\end_inset
+
+Anforderung
+\begin_inset Quotes erd
+\end_inset
+
+ definiert und auf verschiedene Arten von Anforderungen eingegangen.
+ Anschliessend wird der Systemkontext aufgezeigt sowie die konkreten Anforderung
+en an YAEM als Use-Cases modelliert und spezifiziert.
+ Der Abschluss dieses Kapitels wie auch der Anforderungsphase bildet die
+ Erstellung und Erklärung der für den Benutzer sichtbaren Dialogfenster.
+\end_layout
+
+\begin_layout Section
+Was sind Anforderungen?
+\end_layout
+
+\begin_layout Standard
+Die erste Phase des Wasserfallmodells beschäftigt sich mit den Anforderungen
+ an das zu entwickelnde Softwareprodukt.
+ Damit das Entwicklungsprodukt zum Erfolg geführt werden kann, muss zunächst
+ bekannt sein, was die Anforderungen an das System sind und diese müssen
+ geeignet dokumentiert sein.
+ Nach 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "IEEE610.121990"
+
+\end_inset
+
+ wird eine Anforderung wie folgt definiert:
+\end_layout
+
+\begin_layout Description
+Anforderung Eine Anforderung ist:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Eine Bedingung oder Fähigkeit, die von einem Benutzer (Person oder System)
+ zur Lösung eines Problems zur Erreichung eines Ziels benötigt wird.
+\end_layout
+
+\begin_layout Enumerate
+Eine Bedingung oder Fähigkeit, die ein System oder Teilsystem erfüllen oder
+ besitzen muss, um einen Vertrag, eine Norm, eine Spezifikation oder andere,
+ formell vorgegebene Dokumente zu erfüllen.
+\end_layout
+
+\begin_layout Enumerate
+Eine dokumentierte Repräsentation einer Bedingung oder Eigenschaft gemäss
+ 1.
+ oder 2.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Die Anforderungen an das im Rahmen der Semesterarbeits zu entwickelnden
+ Systems werden in Use-Case-Diagrammen modellhaft dargestellt und als Use-Case-S
+pezifikationen ausformuliert.
  Auf eine natürlichsprachige Dokumentation der Anforderungen wird verzichtet,
  da die Anforderungen aufgrund der Use-Case-Diagrammen verständlich genug
  sind und alle zusätzlich zu den Diagrammen zu beachtenden Punkte in den
  Use-Case-Spezifikationen enthalten sind.
+ 
 \end_layout
 
 \begin_layout Subsection
+Arten von Anforderungen
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Arten-von-Anforderungen"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nach 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Pohl2011"
+
+\end_inset
+
+ unterscheidet man im Allgemeinen zwischen drei Arten von Anforderungen:
+\end_layout
+
+\begin_layout Itemize
+Funktionale Anforderungen legen die Funktionalität fest, die das geplante
+ System zur Verfügung stellen soll.
+ Sie werden typischerweise in Funktions-, Verhaltens- und Strukturanforderungen
+ unterteilt.
+\end_layout
+
+\begin_layout Description
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Funktionale Anforderung
+\end_layout
+
+\end_inset
+
+ Eine funktionale Anforderung ist eine Anforderung bezüglich des Ergebnisses
+ eines Verhaltens, das von einer Funktion des Systems bereitgestellt werden
+ soll.
+\end_layout
+
+\begin_layout Itemize
+Qualitätsanforderungen legen gewünschte Qualitäten des zu entwickelnden
+ Systems fest und beeinflussen häufig, in grösserem Umfang als die funktionalen
+ Anforderungen, die Gestalt der Systemarchitektur.
+ Typischerweise beziehen sich Qualitätsanforderungen auf die Performance,
+ die Verfügbarkeit, die Zuverlässigkeit, die Skalierbarkeit oder die Portabilitä
+t des betrachteten Systems.
+ Anforderungen dieses Typs werden häufig auch der Klasse 
+\begin_inset Quotes eld
+\end_inset
+
+nicht funktionaler Anforderungen
+\begin_inset Quotes erd
+\end_inset
+
+ zugeordnet.
+\end_layout
+
+\begin_layout Description
+Qualitätsanforderung Eine Qualitätsanforderung ist eine Anforderung, die
+ sich auf ein Qualitätsmerkmal bezieht, das nicht durch funktionale Anforderunge
+n abgedeckt ist.
+\end_layout
+
+\begin_layout Itemize
+Randbedingungen (auch: Rahmenbedingungen) können von den Projektbeteiligten
+ nicht beeinflusst werden.
+ Randbedingungen können sich sowohl auf das betrachtete System beziehen
+ (z.B.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Das System soll über Webservices mit Aussensysteme kommunizieren
+\begin_inset Quotes erd
+\end_inset
+
+) als auch auf den Entwicklungsprozess des Systems (z.B.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Das Sysemt soll bis spätestens Mitte 2013 am Markt verfügbar sein
+\begin_inset Quotes erd
+\end_inset
+
+).
+ Randbedingungen werden, im Gegensatz zu funktionalen Anforderungen und
+ Qualitätsanforderungen, nicht umgesetzt, sondern schränken die Umsetzungsmöglic
+hkeiten, d.h.
+ den Lösungsraum im Entwicklungsprozess ein.
+\end_layout
+
+\begin_layout Description
+Randbedingung Eine Randbedingung ist eine Anforderung, die den Lösungsraum
+ jenseits dessen einschränkt, was notwendig ist, um die funktionalen Anforderung
+en und die Qualitätsanforderungen zu erfüllen.
+\end_layout
+
+\begin_layout Section
 Systemkontext
 \end_layout
 
 \begin_layout Standard
-Der Systemkontext ist der Teil der Umgebung eines Systems, der für die Definitin
-o und das Verständnis der Anfoderungen des betrachteten Systems relevant
- ist (nach 
+Als erster Schritt in der Erhebung und Dokumentierung wird der Systemkontext
+ ermittelt.
+ Es wird eine Sollperspektive eingenommen, d.h., es wird eine Annahme getroffe,
+ wie das geplante System sich in die Realität integriert.
+ Hierdurch wird der Realitätsausschnitt identifiziert, der das System und
+ damit potenziell auch dessen Anforderungen beeinflusst.
+ Um die Anforderungen an das geplante System korrekt und vollständig spezifizier
+en zu können, ist es notwendig, die Beziehung zwischen den einzelnen materiellen
+ und immateriellen Aspekten im Systekontext und dem geplanten System exakt
+ zu dfinieren.
+ Der für die Anforderungen des Systems relevante Ausschnitt der Realität
+ wird als Systemkontext bezeichnet.
+\end_layout
+
+\begin_layout Description
+Systemkontext Der Systemkontext ist der Teil der Umgebung eines Systems,
+ der für die Definition und das Verständnis der Anfoderungen des betrachteten
+ Systems relevant ist (nach 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Pohl2011"
@@ -244,19 +781,56 @@ key "Pohl2011"
 Der Ursprung der Anforderungen des Systems liegt im Systemkontext des geplanten
  Systems.
  Aus diesem Grund wird der Systemkontext vor Erhebung und Dokumentierung
- der Anforderungen festgelegt 
+ der Anforderungen festgelegt.
+ Der Systemkontext YAEM wird wie folgt dargestellt.
+ Die Benutzer als Stakeholder an das System senden und empfangen Nachrichten
+ und befinden sich innerhalb des Systemkontexts da sie direkt mit dem System
+ interagieren.
+ Die Verschlüsselungsalgorithmen sind in der Fachliteratur klar geregelt
+ und normiert und geben aus diesem Grund die konkreten Implementierungsvorschrif
+ten an das System vor.
+\end_layout
+
+\begin_layout Subsection*
+Systemkontext YAEM
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename ExportedDiagrams/Systemkontext.png
+	scale 50
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Systemkontext YAEM
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 Use-Case-Spezifikationen
 \end_layout
 
@@ -289,33 +863,116 @@ description "Ein Use Case (deutsch Anwendungsfall) bündelt alle möglichen Szen
 \end_layout
 
 \begin_layout Standard
-Die verwendete Schablone für die Use-Case-Spezifikationen stammt aus 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "Pohl2011"
+Alle funktionalen Anforderungen (siehe 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:Arten-von-Anforderungen"
 
 \end_inset
 
+) werden nun als Use-Cases modelliert und spezifiziert
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Die verwendete Schablone für die Use-Case-Spezifikationen stammt aus [Pohl2011]
  und dient zur zweckmässigen Strukturierung von Typen von Informationen,
  die einen Use-Case betreffen.
  Die Abschnitte Autor, Quelle, Verantwortlicher und Qualität werden ausgelassen,
  da sie für die Semesterarbeit keine Relevant besitzen.
 \end_layout
 
-\begin_layout Subsubsection
+\end_inset
+
+.
+ Als Quellen der Anforderungen dienten der Betreuer, die Reglemente der
+ ZHAW betreffend der Semesterarbeit sowie der Student in der Rolle als Benutzer
+ des Systems.
+ Zusätzlich zu den Use-Cases und der dazugehörigen Use-Case-Spezifikation
+ wird vorgängig in Prosatext der Anwendungsfall beschrieben.
+ Aus Gründen der Übersichtlichkeit und des überschaubaren Umfangs dienen
+ diese Use-Cases primär als Anforderungen an das zu entwickelnde Softwaresystem.
+ Jedes Use-Case wird im Rahmen der Verifizerungsphase (siehe 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "chap:Test"
+
+\end_inset
+
+) als Integrationstest einzeln getestet.
+\end_layout
+
+\begin_layout Subsection
 Gespräch beitreten
 \end_layout
 
 \begin_layout Standard
+Ein Benutzer möchte Nachrichten über YAEM versenden und startet die Applikation.
+ Er wählt einen Benutzernamen, stellt eine Verbindung zum Server her und
+ nimmt am Gespräch teil.
+ Er kann nun anderen Teilnehmern des Gesprächs Nachrichten versenden.
+\end_layout
+
+\begin_layout Subsubsection*
+Use-Case
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename ExportedDiagrams/UC1-GespraechBeitreten.png
+	scale 50
 
 \end_inset
 
 
 \end_layout
 
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Use-Case 
+\begin_inset Quotes eld
+\end_inset
+
+Gepräch beitreten
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Use-Case-Spezifikation
+\end_layout
+
 \begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="14" columns="2">
 <features tabularvalignment="middle">
@@ -631,20 +1288,101 @@ Auslösendes Ereignis: Der Benutzer kann keine Verbindung zum Server herstellen.
 
 \end_layout
 
-\begin_layout Subsubsection
-Gespräch verlassen
-\end_layout
+\begin_layout Plain Layout
+\begin_inset Caption
 
-\begin_layout Standard
-\begin_inset Graphics
-	filename ExportedDiagrams/UC2-GespraechVerlassen.png
+\begin_layout Plain Layout
+Use-Case-Spezifikation 
+\begin_inset Quotes eld
+\end_inset
+
+Gespräch beitreten
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Gespräch verlassen
+\end_layout
+
 \begin_layout Standard
+Der Benutzer ist im Gespräch und möchte dieses Verlassen.
+ Er schliesst die Applikation und meldet sich am Server vom Gespräch ab.
+ Andere Teilnehmer des Gesprächs können ihm nun keine Nachrichten mehr senden.
+\end_layout
+
+\begin_layout Subsubsection*
+Use-Case
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ExportedDiagrams/UC2-GespraechVerlassen.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Use-Case 
+\begin_inset Quotes eld
+\end_inset
+
+Gespräch verlassen
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Use-Case-Spezifikation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="14" columns="2">
 <features tabularvalignment="middle">
@@ -948,20 +1686,122 @@ Keine
 
 \end_layout
 
-\begin_layout Subsubsection
-Nachricht senden
-\end_layout
+\begin_layout Plain Layout
+\begin_inset Caption
 
-\begin_layout Standard
-\begin_inset Graphics
-	filename ExportedDiagrams/UC3-NachrichtSenden.png
+\begin_layout Plain Layout
+Use-Case-Spezifikation 
+\begin_inset Quotes eld
+\end_inset
+
+Gespräch verlassen
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Nachricht senden
+\end_layout
+
 \begin_layout Standard
+Dies ist der wichtigste und meistgenutzte Anwendungsfall des Systems.
+ Der Benutzer als Sender möchte einem oder mehreren Teilnehmern des Gesprächs
+ (Empfänger) eine Nachricht senden.
+ Er kann dabei wählen, ob er diese verschlüsselt oder unverschlüsselt versenden
+ möchte.
+ Sendet der Benutzer die Nachricht verschlüsselt, so werden zuerst der Initialis
+ierungsvektor festgelegt sowie der Schlüssel gewählt.
+ Danach wird die Nachricht an den oder die Empfänger übermittelt und startet
+ den Anwendungsfall 
+\begin_inset Quotes eld
+\end_inset
+
+Nachricht empfangen
+\begin_inset Quotes erd
+\end_inset
+
+ (siehe 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:Nachricht-empfangen"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Subsubsection*
+Use-Case
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ExportedDiagrams/UC3-NachrichtSenden.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Use-Case 
+\begin_inset Quotes eld
+\end_inset
+
+Nachricht senden
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Use-Case-Spezifikation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="14" columns="2">
 <features tabularvalignment="middle">
@@ -1318,13 +2158,36 @@ Auslösendes Ereignis: Der Benutzer kann keine Verbindung zum Server herstellen.
 
 \end_layout
 
-\begin_layout Subsubsection
-Nachricht empfangen
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Use-Case-Spezifikation 
+\begin_inset Quotes eld
+\end_inset
+
+Nachricht senden
+\begin_inset Quotes erd
+\end_inset
+
+
 \end_layout
 
-\begin_layout Standard
-\begin_inset Graphics
-	filename ExportedDiagrams/UC4-NachrichtEmpfangen.png
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Nachricht empfangen
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Nachricht-empfangen"
 
 \end_inset
 
@@ -1332,6 +2195,75 @@ Nachricht empfangen
 \end_layout
 
 \begin_layout Standard
+Dieser Anwendungsfall wird nicht vom Benutzer ausgelöst, sondern vom System.
+ Sobald eine Nachricht, die an den Benutzer gerichtet ist, eintrifft, wird
+ der Anwendungsfall gestartet.
+ Ist die Nachricht verschlüsselt, versucht das System mit vorhandenem Initialisi
+erungsvektor und Schlüssel die Nachricht zu entschlüssel und dem Benutzer
+ darzustellen.
+ Ist die Nachricht unverschlüsselt, so wird diese dem Benutzer direkt angezeigt.
+\end_layout
+
+\begin_layout Subsubsection*
+Use-Case
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ExportedDiagrams/UC4-NachrichtEmpfangen.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Use-Case 
+\begin_inset Quotes eld
+\end_inset
+
+Nachricht empfangen
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Use-Case-Spezifikation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="14" columns="2">
 <features tabularvalignment="middle">
@@ -1652,34 +2584,275 @@ description "Der Geheimtext ist der Text, der durch die Verschlüsselung mittels
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Use-Case-Spezifikation 
+\begin_inset Quotes eld
+\end_inset
+
+Nachricht empfangen
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 Mockups
 \end_layout
 
-\begin_layout Subsubsection
-Connect Window
+\begin_layout Standard
+Mockups
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Mockup"
+description "Ein Mockup in der Softwareentwicklung bezeichnet einen rudimentären Wegwerfprototypen der Benutzerschnittstelle einer zu erstellenden Software. Mock-ups werden insbesondere in frühen Entwicklungsphasen eingesetzt, um Anforderungen an die Benutzeroberfläche in Zusammenarbeit mit Auftraggeber und Anwendern besser ermitteln zu können. Es handelt sich meist um ein reines Grundgerüst der Bedienelemente ohne weitere Funktionalität."
+
+\end_inset
+
+ dienen zur Visualisierung der Benutzeroberfläche des zu entwickelnden Softwarep
+rodukts und werden häufig bereits in der Anforderungsphase zusammen mit
+ den Stakeholdern entwickelt.
+ Sie liefern dem Softwareentwickler in der Implmentationsphase (siehe 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "chap:Implementierung"
+
+\end_inset
+
+) ein Grundgerüst für die einzelnen Dialogfenster
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Dialog"
+description "Als Dialog (oder Dialogfenster) bezeichnet man in der Softwareentwicklung eine grafische Benutzerschnittstelle zur Mensch-Maschine-Interaktion zwischen Computerprogramm und Benutzer."
+
+\end_inset
+
+.
+ Je nach Kundenzielgruppe und Wichtigkeit der Mensch-Maschine-Schnittstelle
+ wird mehr oder weniger Zeit in die Entwicklung der Mockups investiert.
+ Häufig werden diese mit zusammen mit Psychologen entwickelt und enthalten
+ sehr weniger Interpretationsspielraum für den Softwareentwickler.
+\end_layout
+
+\begin_layout Subsection
+Dialog Gespräch beitreten
 \end_layout
 
 \begin_layout Standard
+Startet der Benutzer die Applikation so wird ihm als erstes die Möglichkeit
+ gegeben, einen Benutzernamen zu wählen, unter welchem er im Gespräch Nachrichte
+n verschicken möchte.
+ Dabei wird der Benutzername auf eine Länge von 255 Zeichen beschränkt und
+ er darf keine Sonderzeichen enthalten.
+ Nach einem Klick auf Connect werden diese Bedingungen geprüft und eine
+ Verbindung zum Server hergestellt.
+ Bei Erfolg wird der Dialog geschlossen und dem Benutzer der Gesprächsdialog
+ (siehe 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:Gesprächsdialog"
+
+\end_inset
+
+) angezeigt.
+\end_layout
+
+\begin_layout Subsubsection*
+Mockup
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename Mockups/Connect.png
+	scale 65
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Subsubsection
-Messaging Window
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Mockup 
+\begin_inset Quotes eld
+\end_inset
+
+Dialog Gespräch beitreten
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Gesprächsdialog
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Gesprächsdialog"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
+Ist der Benutzer einem Gespräch beigetreten so verwendet er den Gesprächsdialog
+ zum Senden und Empfangen von Nachrichten.
+ Das Gesprächsprotokoll zeigt einen zeitlich geordneten Ablauf aller gesendeten
+ und empfangenen Nachrichten.
+ Weiterhin werden Aktionen wie ein Initialisierungsvektoraustausch oder
+ das Setzen des Schlüssels eines Verschlüsselungsalgorithmus angezeigt.
+ Auf der rechten Seite werden alle dem Gespräch beigetretenen Benutzer angezeigt.
+ 
+\end_layout
+
+\begin_layout Standard
+Über die Textbox unterhalb des Gesprächsprotokolls lassen sich Nachrichten
+ erfassen, die Nachricht muss dabei mindestens ein Zeichen lang sein.
+ in der Dropdownliste rechts neben der Textbox werden alle installierten
+ Kryptoalgorithmen angezeigt, zusätzlich zur Voreinstellung 
+\begin_inset Quotes eld
+\end_inset
+
+<None>
+\begin_inset Quotes erd
+\end_inset
+
+, welche die Nachricht unverschlüsselt versendet.
+ Ist kein Algorithmus angezeigt, so kann der Benutzer keine Auswahl treffen.
+ Wählt der Benutzer einen Algorithmus aus, für welchen noch kein Initialisierung
+svektor vorhanden ist, so wird eine Vektor generiert und den anderen Gesprächste
+ilnehmern zugsendet.
+ Gleichzeitig wählt der Benutzer einen Schlüssel aus.
+ Beim klicken auf den 
+\begin_inset Quotes eld
+\end_inset
+
+Send
+\begin_inset Quotes erd
+\end_inset
+
+ Button, wird die Nachricht an die anderen Gesprächsteilnehmer versendet.
+\end_layout
+
+\begin_layout Standard
+Beim Schliessen der Applikation verlässt der Benutzer das Gespräch und der
+ Gesprächsdialog schliesst sich selbst.
+\end_layout
+
+\begin_layout Subsubsection*
+Mockup
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename Mockups/Messaging.png
+	scale 65
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Mockup 
+\begin_inset Quotes eld
+\end_inset
+
+Gesprächsdialog
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Konzept
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Konzept"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die Konzeptphase
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+auch Designphase genannt
+\end_layout
+
+\end_inset
+
+ des Wasserfallmodells behandelt die Entwicklung eines vollständigen und
+ umfassenden Lösungskonzepts auf Basis der dokumentierten Anforderungen
+ (nach 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Oestereich2006"
+
+\end_inset
+
+).
+ [KAPITEL ÜBERSICHT HIER].
 \end_layout
 
 \begin_layout Section
@@ -1841,7 +3014,37 @@ Verteilungssicht
 
 \end_layout
 
+\begin_layout Chapter
+Implementierung
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Implementierung"
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
+Implementierung
+\end_layout
+
+\begin_layout Chapter
+Test
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Test"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Test
+\end_layout
+
+\begin_layout Chapter
 Anhang
 \end_layout
 
@@ -1854,11 +3057,15 @@ UC Use Case
 \end_layout
 
 \begin_layout Description
+RUP Rational Unified Process
+\end_layout
+
+\begin_layout Description
 YAEM Yet Another Encrypted Messenger
 \end_layout
 
 \begin_layout Description
-RUP Rational Unified Process
+ZHAW Zürcher Hochschule für Angewandte Wissenschaften
 \end_layout
 
 \begin_layout Section

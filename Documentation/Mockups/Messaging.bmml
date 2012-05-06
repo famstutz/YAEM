@@ -13,14 +13,14 @@
     </control>
     <control controlID="3" controlTypeID="com.balsamiq.mockups::List" x="813" y="78" w="100" h="219" measuredW="100" measuredH="126" zOrder="1" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Alice%0ABob</text>
+        <text>Randolph%20%28you%29%0AAlice%0ABob</text>
         <value>7</value>
         <verticalScrollbar>false</verticalScrollbar>
       </controlProperties>
     </control>
     <control controlID="4" controlTypeID="com.balsamiq.mockups::TextArea" x="273" y="44" w="525" h="253" measuredW="200" measuredH="140" zOrder="2" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>04/17/2012%2022%3A37%09%09%5C%5BBob%5D%09Bob%20joined%20the%20discussion%0A04/17/2012%2022%3A39%09%09%5C%5BYou%5D%09You%20sent%20an%20initalization%20vector%20for%20crypto-algorithm%20AES%0A04/17/2012%2022%3A40%09%09%5C%5BYou%5D%09You%20sent%20a%20key%20for%20crypto-algorithm%20AES%0A04/17/2012%2022%3A42%09%09%5C%5BYou%5D%20%09Dear%20Bob%2C%20have%20you%20recieved%20my%20plan%20for%20%0A%09%09%09%09%09%09%09throwing%20over%20the%20world%20order%3F%0A04/17/2012%2022%3A43%09%09%5C%5BBob%5D%09Indeed%2C%20I%20read%20it%20with%20great%20interest%21%20Alice%2C%20please%20tell%20%0A%09%09%09%09%09%09%09Pinky%20%26%20the%20Brain.%0A04/17/2012%2022%3A45%09%09%5C%5BAlice%5D%09With%20pleasure%21</text>
+        <text>04/17/2012%2022%3A37%09%09%5C%5BBob%5D%09Bob%20joined%20the%20discussion%0A04/17/2012%2022%3A39%09%09%5C%5BYou%5D%09You%20sent%20an%20initalization%20vector%20for%20crypto-algorithm%20AES%0A04/17/2012%2022%3A40%09%09%5C%5BYou%5D%09You%20set%20a%20key%20for%20crypto-algorithm%20AES%0A04/17/2012%2022%3A42%09%09%5C%5BYou%5D%20%09Dear%20Bob%2C%20have%20you%20recieved%20my%20plan%20for%20%0A%09%09%09%09%09%09%09throwing%20over%20the%20world%20order%3F%0A04/17/2012%2022%3A43%09%09%5C%5BBob%5D%09I%20have%20and%20I%20read%20it%20with%20great%20interest%21%20Alice%2C%20please%20%0A%09%09%09%09%09%09%09notify%20Pinky%20%26%20the%20Brain%20of%20our%20plans.%0A04/17/2012%2022%3A45%09%09%5C%5BAlice%5D%09With%20pleasure%21</text>
       </controlProperties>
     </control>
     <control controlID="5" controlTypeID="com.balsamiq.mockups::Label" x="813" y="51" w="-1" h="-1" measuredW="95" measuredH="21" zOrder="3" locked="false" isInGroup="-1">

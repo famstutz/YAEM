@@ -9,9 +9,9 @@
         <text>Join%20Discussion</text>
       </controlProperties>
     </control>
-    <control controlID="5" controlTypeID="com.balsamiq.mockups::Label" x="417" y="147" w="-1" h="-1" measuredW="68" measuredH="21" zOrder="1" locked="false" isInGroup="-1">
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::Label" x="417" y="147" w="-1" h="-1" measuredW="65" measuredH="21" zOrder="1" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>UserName</text>
+        <text>Username</text>
       </controlProperties>
     </control>
     <control controlID="6" controlTypeID="com.balsamiq.mockups::Button" x="510" y="183" w="-1" h="-1" measuredW="71" measuredH="27" zOrder="2" locked="false" isInGroup="-1">
@@ -19,9 +19,9 @@
         <text>Connect</text>
       </controlProperties>
     </control>
-    <control controlID="7" controlTypeID="com.balsamiq.mockups::TextInput" x="510" y="143" w="222" h="-1" measuredW="79" measuredH="27" zOrder="3" locked="false" isInGroup="-1">
+    <control controlID="7" controlTypeID="com.balsamiq.mockups::TextInput" x="510" y="143" w="222" h="-1" measuredW="64" measuredH="27" zOrder="3" locked="false" isInGroup="-1">
       <controlProperties>
-        <text/>
+        <text>Randolph</text>
       </controlProperties>
     </control>
   </controls>
