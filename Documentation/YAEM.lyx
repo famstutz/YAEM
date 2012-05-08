@@ -65,7 +65,15 @@ Yet Another Encrypted Messenger
 \end_layout
 
 \begin_layout Author
-Florian Amstutz <florian@amstutz.nu>
+Florian Amstutz <
+\begin_inset CommandInset href
+LatexCommand href
+target "florian@amstutz.nu"
+type "mailto:"
+
+\end_inset
+
+>
 \end_layout
 
 \begin_layout Date
@@ -148,6 +156,15 @@ key "Stern2010"
 Der Aufwand für die Fertigstellung der Semestarbeit beträgt mindestens 120
  Stunden und schliesst mit einer Präsentation vor dem Betreuer und einer
  Vertretung der Leitung des Studengangs Informatik ab.
+\end_layout
+
+\begin_layout Section
+Projektplanung
+\end_layout
+
+\begin_layout Standard
+EIFNGUGEN.
+ UND AUCH IN EINFèHRUNG.
 \end_layout
 
 \begin_layout Section
@@ -817,7 +834,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Systemkontext YAEM
+Systemkontext
 \end_layout
 
 \end_inset
@@ -939,15 +956,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Use-Case 
-\begin_inset Quotes eld
-\end_inset
-
-Gepräch beitreten
-\begin_inset Quotes erd
-\end_inset
-
-
+Use-Case Gepräch beitreten
 \end_layout
 
 \end_inset
@@ -1292,15 +1301,7 @@ Auslösendes Ereignis: Der Benutzer kann keine Verbindung zum Server herstellen.
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Use-Case-Spezifikation 
-\begin_inset Quotes eld
-\end_inset
-
-Gespräch beitreten
-\begin_inset Quotes erd
-\end_inset
-
-
+Use-Case-Spezifikation Gespräch beitreten
 \end_layout
 
 \end_inset
@@ -1349,15 +1350,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Use-Case 
-\begin_inset Quotes eld
-\end_inset
-
-Gespräch verlassen
-\begin_inset Quotes erd
-\end_inset
-
-
+Use-Case Gespräch verlassen
 \end_layout
 
 \end_inset
@@ -1690,15 +1683,7 @@ Keine
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Use-Case-Spezifikation 
-\begin_inset Quotes eld
-\end_inset
-
-Gespräch verlassen
-\begin_inset Quotes erd
-\end_inset
-
-
+Use-Case-Spezifikation Gespräch verlassen
 \end_layout
 
 \end_inset
@@ -1768,15 +1753,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Use-Case 
-\begin_inset Quotes eld
-\end_inset
-
-Nachricht senden
-\begin_inset Quotes erd
-\end_inset
-
-
+Use-Case Nachricht senden
 \end_layout
 
 \end_inset
@@ -2065,7 +2042,15 @@ description "Ein Kryptoalgorithmus ist im Kontext von YAEM die konkrete Implemen
 
 \begin_layout Plain Layout
 3.
- Der Benutzer generiert einen Initalisierungsvektor.
+ Der Benutzer generiert einen Initalisierungsvektor
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Initialisierungsvektor"
+description "Ein Initialisierungsvektor (kurz IV) bezeichnet in der Kryptografie ein Block von Zufallszahlen."
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Plain Layout
@@ -2162,15 +2147,7 @@ Auslösendes Ereignis: Der Benutzer kann keine Verbindung zum Server herstellen.
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Use-Case-Spezifikation 
-\begin_inset Quotes eld
-\end_inset
-
-Nachricht senden
-\begin_inset Quotes erd
-\end_inset
-
-
+Use-Case-Spezifikation Nachricht senden
 \end_layout
 
 \end_inset
@@ -2230,15 +2207,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Use-Case 
-\begin_inset Quotes eld
-\end_inset
-
-Nachricht empfangen
-\begin_inset Quotes erd
-\end_inset
-
-
+Use-Case Nachricht empfangen
 \end_layout
 
 \end_inset
@@ -2588,15 +2557,7 @@ description "Der Geheimtext ist der Text, der durch die Verschlüsselung mittels
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Use-Case-Spezifikation 
-\begin_inset Quotes eld
-\end_inset
-
-Nachricht empfangen
-\begin_inset Quotes erd
-\end_inset
-
-
+Use-Case-Spezifikation Nachricht empfangen
 \end_layout
 
 \end_inset
@@ -2696,15 +2657,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Mockup 
-\begin_inset Quotes eld
-\end_inset
-
-Dialog Gespräch beitreten
-\begin_inset Quotes erd
-\end_inset
-
-
+Mockup Dialog Gespräch beitreten
 \end_layout
 
 \end_inset
@@ -2799,15 +2752,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Mockup 
-\begin_inset Quotes eld
-\end_inset
-
-Gesprächsdialog
-\begin_inset Quotes erd
-\end_inset
-
-
+Mockup Gesprächsdialog
 \end_layout
 
 \end_inset
@@ -2856,96 +2801,946 @@ key "Oestereich2006"
 \end_layout
 
 \begin_layout Section
-Konzept
-\end_layout
-
-\begin_layout Subsection
 Bausteinsicht
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Komponentendiagramm
 \end_layout
 
 \begin_layout Standard
+Das Komponentendigramm stellt das System YAEM aus Vogelperspektive dar und
+ ist die höchstabstrahierte Ansicht der Bausteinsicht.
+ 
+\end_layout
+
+\begin_layout Standard
+Der ServiceHost stellt die Serverapplikation des Systems dar und implementiert
+ die beiden Schnittstellen
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+In diesem Zusammenhang auch Service Contracts
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Service Contract"
+description "Ein Service Contract bezeichnet eine Schnittstelle oder Klasse die zur Kommunikation für verteilte Systeme genutzt werden können."
+
+\end_inset
+
+ genannt
+\end_layout
+
+\end_inset
+
+ 
+\emph on
+IUserService
+\emph default
+ (siehe 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:IUserService"
+
+\end_inset
+
+) und 
+\emph on
+IMessagingService
+\emph default
+ (siehe 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:IMessagingService"
+
+\end_inset
+
+).
+ Er stellt die Schnittstellen als Webservice den Clientapplikationen zur
+ Verfügung.
+ Die Clientapplikationen (die in einer Vielzahl von Frameworks implementiert
+ sein können) benutzen diese Schnittstellen um mit der Serverapplikation
+ zu kommunizieren.
+ Die Clientapplikationen benutzen MEF
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Managed Extensibility Framework"
+description "Das Managed Extensibility Framework (kurz MEF) ist ein Kompositionframework zum Erstellen einer Plugininfrasktruktur innerhalb einer Applikation. Es erhöht die Flexibilität, Erweiterbarkeit und Testbarkeit von grossen Applikationen."
+
+\end_inset
+
+ um dynamisch Kryptoalgorithmen (siehe 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:Kryptoalgorithmen"
+
+\end_inset
+
+) zur Laufzeit laden zu können.
+ Dadurch wird gewährleistet, dass der Server zu keinem Zeitpunkt die verschlüsse
+lten Nachrichten, die über ihn versendet werden, im Klartext lesen kann.
+\end_layout
+
+\begin_layout Subsubsection*
+Komponentendiagramm
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename ExportedDiagrams/ComponentModel.png
+	scale 65
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Komponentendiagramm
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
 Domänenmodell
 \end_layout
 
 \begin_layout Standard
+Das Domänenmodell umfasst nur die Businessobjekte, die über die Serviceschnittst
+elle vom Client
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Client"
+description "Ein Client (oder Clientapplikation) ist eine Softwareanwendung die im Gegensatz zu einer Serverapplikation auf dem Rechner des Benutzers ausgeführt wird."
+
+\end_inset
+
+- an die Serverapplikation
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Server"
+description "Ein Server (auch Serverapplikation) ist eine serverseitige Anwendung die auf einem zentralen Computer (Server) ausgeführt wird."
+
+\end_inset
+
+ beziehungsweise umgekehrt übertragen werden.
+ 
+\end_layout
+
+\begin_layout Standard
+YAEM verwendet ein vergleichsweise simples Domänenmodell.
+ Jeder Benutzer wird als 
+\emph on
+User
+\emph default
+objekt im Repository
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Repository"
+description "Ein Repository ist ein Verzeichnis zur Speicherung einer von digitalen Objekten. In diesem Kontext ist ein Repository eine Datenbank zur Speicherung und zum Wiederfinden von Objekten."
+
+\end_inset
+
+ gespeichert.
+ Bei erfolgreichem Gesprächsbeitritt erstellt der Server ein 
+\emph on
+Ticket
+\emph default
+objekt, welches an den Client zurückgegeben wird.
+ Wird eine Nachricht versendet, so erstellt der Client ein 
+\emph on
+Message
+\emph default
+objekt, welches die Nachricht selbst als Bytearray in der Eigenschaft 
+\emph on
+Payload
+\emph default
+ speichert.
+ Will der Benutzer eine verschlüsselte Nachricht versenden, so setzt er
+ die Eigenschaft 
+\emph on
+Algorithm
+\emph default
+ des 
+\emph on
+Message
+\emph default
+objekts auf einen Wert des Enumerators 
+\emph on
+CryptAlgorithm
+\emph default
+, der ungleich 
+\emph on
+None
+\emph default
+ ist.
+ Wenn die Eigenschaft 
+\emph on
+Algorithm
+\emph default
+ gesetzt ist, so muss der Benutzer den 
+\emph on
+Payload
+\emph default
+ verschlüsselt in der 
+\emph on
+Message
+\emph default
+ ablegen.
+\end_layout
+
+\begin_layout Standard
+Sämtliche Domänenobjekte leiten von 
+\emph on
+ObjectBase
+\emph default
+ ab.
+ 
+\emph on
+ObjectBase
+\emph default
+ enthält einen Schlüssel 
+\emph on
+Key
+\emph default
+ in Form einer Globally Unique Identifier
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Globally Unique Identifier"
+description "Ein Globally Unique Identifier (auch GUID genannt) ist eine eindeutige, 128 Bit lange Zahl, die zur Identifzierung von Objekten in verteilten Systemen dienen."
+
+\end_inset
+
+ zur eindeutigen Identifizierung der Objekte in den Repositories.
+ Weiterhin implementiert 
+\emph on
+ObjectBase
+\emph default
+ das Interface 
+\emph on
+INotifyPropertyChanged
+\emph default
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Die genaue Schnittstellenbeschreibung ist in der MSDN unter 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://msdn.microsoft.com/en-us/library/system.componentmodel.inotifypropertychanged.
+aspx
+\end_layout
+
+\end_inset
+
+ zu finden.
+\end_layout
+
+\end_inset
+
+, welches in WPF
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "WPF"
+description "Windows Presentation Foundation (kurz WPF) ist ein Grafik-Framework das zusammen mit dem .NET Framework mitgeliefert wird und zur Darstellung von UI-Elementen dient."
+
+\end_inset
+
+ und Silverlight
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Silverlight"
+description "Silverlight ist eine Erweiterung für Webbrowser, welche die Ausführung von Rich Internet Applications erlaubt. Silverlight ist eine abgespeckte Version von WPF und wird für auch als Framework für Windows Phone 7 verwendet."
+
+\end_inset
+
+ dazu dient, UI-Elemente, die an Datenobjekte gebunden sind, über geänderte
+ Eigenschaften zu informieren.
+\end_layout
+
+\begin_layout Subsubsection*
+Klassendiagramm
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename ExportedDiagrams/DomainModel.png
+	scale 65
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Klassendiagramm Domänenmodell
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
 Service Contracts
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Standard
+Ein Service Contract ist das Ausstellen einer Schnittstelle zur Kommunikation
+ verschiedener Applikationen innerhalb eines verteilten Systems.
+ Häufig werden diese Contracts als Webservice
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Webservice"
+description "Ein Webservice ist eine Softwareapplikation, auf den über eine URL eindeutig idenifiziert ist und Daten als XML-Artefakt zurückgibt. Er wird über internetbasierte Protokolle angesprochen."
+
+\end_inset
+
+ angeboten, da sie dadurch plattform- und frameworkunabhängig implementiert
+ werden können.
+ 
+\end_layout
+
+\begin_layout Standard
+Typischerweise umfasst ein Service Contract mehrere Operationen, deren Rückgabew
+erte als XML-Fragmente an die konsumierende Applikation zurückgegeben werden.
+ Ausserdem ist ein Service Contract per Definition grundsätzlich zustandslos,
+ er behandelt mehrere Anfragen (auch desselben Auftraggebers) immer als
+ unabhängige Transaktionen.
+ Insbesondere werden Anfragen ohne Bezug zu früheren Anfragen behandelt
+ und keine Sitzungsinformationen ausgetauscht.
+\end_layout
+
+\begin_layout Subsubsection*
+IUserService
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:IUserService"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Das Interface 
+\emph on
+IUserService
+\emph default
+ stellt die Benutzerverwaltungsfunktionalitäten zur Verfügung.
+ Der Konsument des Service Contracts übergibt beim anmelden an den Server
+ ein 
+\emph on
+User
+\emph default
+objekt, über welches der Benutzer identifiziert werden kann.
+ Wird der Benutzer erfolgreich angemeldet, wird ein 
+\emph on
+Session
+\emph default
+objekt an den Konsumenten zurückgegeben.
+ Das Gegenstück zur Methode 
+\emph on
+Join
+\emph default
+ ist die Methode 
+\emph on
+Leave
+\emph default
+, die eine 
+\emph on
+Session
+\emph default
+ für ungültig erklärt.
+\end_layout
+
+\begin_layout Standard
+Die Methoden 
+\emph on
+Subscribe
+\emph default
+ und 
+\emph on
+Unsubscribe
+\emph default
+ werden vor dem Aufruf von 
+\emph on
+Join
+\emph default
+ bzw.
+ nach dem Aufruf von 
+\emph on
+Leave
+\emph default
+ aufgerufen und ermöglich es der Serverapplikation Callbacks
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Callback"
+description "Ein Callback (zu deutsch Rückruffunktion) bezeichnet eine Funktion, der als Parameter eine andere Funktion übergeben wird, die unter gewissen Bedingungen aufgerufen wird."
+
+\end_inset
+
+ (siehe 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:IServiceCallback"
+
+\end_inset
+
+) an den Client zu versenden.
+\end_layout
+
+\begin_layout Paragraph*
+Klassendiagramm
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ExportedDiagrams/Class-IUserService.png
+	scale 65
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Klassendiagramm 
+\emph on
 IUserService
 \end_layout
 
-\begin_layout Standard
-\begin_inset Graphics
-	filename ExportedDiagrams/Class-IUserService.png
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Subsubsection*
+IMessagingService
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:IMessagingService"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Über die Schnittstelle 
+\emph on
+IMessagingService
+\emph default
+ werden Nachrichten in Form eines 
+\emph on
+Message
+\emph default
+objekts übertragen.
+ Der Sender gibt beim Aufruf der Methode 
+\emph on
+Send
+\emph default
+ neben der 
+\emph on
+Message
+\emph default
+ auch noch seine 
+\emph on
+Session
+\emph default
+ mit, damit die Serverapplikation überprüfen kann, ob der Benutzer eine
+ gültige, nicht abgelaufene 
+\emph on
+Session
+\emph default
+ besitzt.
+ Die Methoden 
+\emph on
+NegotiateInitializationVector
+\emph default
+ und 
+\emph on
+NegotiateKey
+\emph default
+ dienen zur Übermittlung des Initialisierungsvektors bzw.
+ Schlüssels für den jeweils mitgelieferten Kryptoalgorithmus vom Typ 
+\emph on
+CryptoAlgorithm
+\emph default
+.
+\end_layout
+
+\begin_layout Paragraph*
+Klassendiagramm
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ExportedDiagrams/Class-IMessagingService.png
+	scale 65
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Klassendiagramm 
+\emph on
 IMessagingService
 \end_layout
 
-\begin_layout Standard
-\begin_inset Graphics
-	filename ExportedDiagrams/Class-IMessagingService.png
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Subsubsection*
+IServiceCallback
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:IServiceCallback"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Damit über das HTTP
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "HTTP"
+description "Das Hypertext Transfer Protocol (kurz HTTP) ist ein Protokoll zur Übertragung von Daten über ein Netzwerk. Es ist das meisteingesetzte Protokoll zur Übertragung von Webseiten im World Wide Web (WWW)."
+
+\end_inset
+
+ Callbacks (der Mechanismus wird detaillierter [HIER UND DA UND SOWIESO]
+ beschrieben) versendet werden können, müssen alle Clientapplikationen,
+ die den Webservice der Serverapplikation verwenden, die Schnittstelle 
+\emph on
+IServiceCallback
+\emph default
+ implementieren.
+ Die beiden Schnittstellen 
+\emph on
+IUserService
+\emph default
+ und 
+\emph on
+IMessagingService
+\emph default
+ werden mit 
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+[ServiceContract(CallbackContract = typeof(IServiceCallback))]
+\end_layout
+
+\end_inset
+
+ annotiert
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Details zum ServiceContractAttribute sind in der MSDN unter 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://msdn.microsoft.com/en-us/library/system.servicemodel.servicecontractattribute.aspx"
+
+\end_inset
+
+ zu finden.
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Annotation"
+description "Eine Annotation bezeichnet ein Sprachelement im Quelltext, das zur Einbindung von Metadaten im Quelltext dient."
+
+\end_inset
+
+ so dass beim Abbonnieren des Webservices der generierte Serviceclient gezwungen
+ wird die Schnittstelle 
+\emph on
+IServiceCallback
+\emph default
+ zu implementierern.
+\end_layout
+
+\begin_layout Standard
+Die Schnittstelle ist eine zusammengefasste Schnittstelle aller Callbackoperatio
+nen der beiden Serviceschnittsellen 
+\emph on
+IUserService
+\emph default
+ und 
+\emph on
+IMessagingService
+\emph default
+, die in der Tabelle 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Methoden-von-IServiceCallback"
+
+\end_inset
+
+ beschrieben sind.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top" width="8.5cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Methode
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Aufgabe
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+NotifyNegotiateIntializationVector
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Teilt dem Client mit, dass für einen bestimmten Kryptoalgorithmus ein neuer
+ Intialisierungsvektor gesetzt wurde.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+NotifyNegotiateKey
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Teilt dem Client mit, dass für einen bestimmten Kryptoalgorithmus ein neuer
+ Schlüssel gesetzt wurde.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+NotifyNewMessage
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Teilt dem Client mit, dass eine neue Nachricht an ihn gesendet wurde.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+NotifyUserJoined
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Teilt dem Client mit, dass ein neuer Benutzer dem Gespräch beigetreten ist.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+NotifyUserLeft
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Teilt dem Client mit, dass ein Benutzer das Gespräch verlassen hat.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Methoden von 
+\emph on
+IServiceCallback
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Methoden-von-IServiceCallback"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+Klassendiagramm
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ExportedDiagrams/Class-IServiceCallback.png
+	scale 65
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Klassendiagramm 
+\emph on
 IServiceCallback
 \end_layout
 
-\begin_layout Standard
-\begin_inset Graphics
-	filename ExportedDiagrams/Class-IServiceCallback.png
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Kryptoalgorithmen
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Kryptoalgorithmen"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
+
+\end_layout
+
+\begin_layout Paragraph*
+Klassendiagramm
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename ExportedDiagrams/Class-Crypto.png
+	scale 65
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Klassendiagramm Kryptoalgorithmen
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
 Server
 \end_layout
 
@@ -2958,11 +3753,11 @@ Server
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Laufzeitsicht
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Gespräch beitreten
 \end_layout
 
@@ -2975,7 +3770,7 @@ Gespräch beitreten
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Gespräch verlassen
 \end_layout
 
@@ -2988,7 +3783,7 @@ Gespräch verlassen
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Nachricht senden
 \end_layout
 
@@ -3001,7 +3796,7 @@ Nachricht senden
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Verteilungssicht
 \end_layout
 
@@ -3026,7 +3821,15 @@ name "chap:Implementierung"
 \end_layout
 
 \begin_layout Section
-Implementierung
+Verwendete Technologien
+\end_layout
+
+\begin_layout Standard
+Callback über Duplexchannel
+\end_layout
+
+\begin_layout Standard
+MEF
 \end_layout
 
 \begin_layout Chapter
@@ -3053,11 +3856,35 @@ Akronyme
 \end_layout
 
 \begin_layout Description
+HTTP Hypertext Transfer Protocol
+\end_layout
+
+\begin_layout Description
+MEF Managed Extensibility Framework
+\end_layout
+
+\begin_layout Description
+MSDN Microsoft Developer Network
+\end_layout
+
+\begin_layout Description
 UC Use Case
 \end_layout
 
 \begin_layout Description
+UI User Interface
+\end_layout
+
+\begin_layout Description
 RUP Rational Unified Process
+\end_layout
+
+\begin_layout Description
+WPF Windows Presentation Foundation
+\end_layout
+
+\begin_layout Description
+WWW World Wide Web
 \end_layout
 
 \begin_layout Description
@@ -3066,6 +3893,10 @@ YAEM Yet Another Encrypted Messenger
 
 \begin_layout Description
 ZHAW Zürcher Hochschule für Angewandte Wissenschaften
+\end_layout
+
+\begin_layout Description
+XML Extensible Markup Language
 \end_layout
 
 \begin_layout Section
