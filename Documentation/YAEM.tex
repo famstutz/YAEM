@@ -1,32 +1,1392 @@
 %% LyX 2.0.0 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
-\documentclass[english]{scrartcl}
+\documentclass[oneside,ngerman]{scrbook}
 \usepackage[T1]{fontenc}
 \usepackage[latin9]{inputenc}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
 \usepackage{babel}
+\usepackage{array}
+\usepackage{varioref}
+\usepackage{float}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{nomencl}
+% the following is useful when we have the old nomencl.sty package
+\providecommand{\printnomenclature}{\printglossary}
+\providecommand{\makenomenclature}{\makeglossary}
+\makenomenclature
+\usepackage[unicode=true]
+ {hyperref}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\newcommand{\noun}[1]{\textsc{#1}}
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\renewcommand\nomname{New Name for Nomenclature}
+
+\makeatother
+
 \begin{document}
 
-\title{YAEM - Yet Another Encrypted Messenger}
+\title{Yet Another Encrypted Messenger}
 
 
-\author{Florian Amstutz}
+\author{Florian Amstutz <\href{mailto:florian@amstutz.nu}{florian@amstutz.nu}>}
 
 
-\date{02. April 2012}
+\date{14. Mai 2012}
 
 
 \publishers{Semesterarbeit an der Zürcher Hochschule für Angewandte Wissenschaften}
 
 \maketitle
 \tableofcontents{}
-\begin{abstract}
-W0000t!!!
-\end{abstract}
-
-\part{Der TEst}
 
 
-\section{Der Test}
+\chapter{Einführung}
 
-JLDjal.
+Als einführendes Kapitel dieses Dokuments wird die Semesterarbeit
+als Projekt kurz vorgestellt und es werden die Rahmenbedingungen der
+Semesterarbeit zusammengefasst niedergeschrieben. Weiter werden verschiedene
+Softwareentwicklungsprozesse vorgestellt sowie die für diese Semesterarbeit
+verwendete Methode erklärt. Am Ende dieses Kapitels wird unter Benutzung
+der vorgestellten Softwareentwicklungsmethode eine Projektplanung
+erstellt und die wichtigsten Meilensteine definiert.
+
+
+\section{Management Summary}
+
+Mit dem zunehmenden Aufkommen von Attacken und gezieltem Abhorchen
+von Echtzeitkommunikation via E-Mail oder Instant Messaging steigt
+der Bedarf an eine sichere und einfache Übertragungsart von Nachrichten
+oder Daten. 
+
+Als Nutzer eines Kommunikationskanals über das öffentliche Internet
+will ich die Möglichkeit haben meine privaten Daten verschlüsselt
+und sicher an einen oder mehrere Empfänger übertragen zu können. Ich
+will dabei eine einfach zu bedienende Applikation zur Verfügung haben
+um meine geheimen Daten übertragen zu können und so potentiellen Mithörern
+keine Klartextinformationen zur Verfügung zu stellen. 
+
+Diese Applikation soll als Prototyp im Rahmen der Semesterarbeit im
+dritten Studienjahr an der ZHAW entwickelt werden. Dabei wird der
+Schwerpunkt der Arbeit auf der methodischen Vorgehensweise der Softwareentwicklung
+und weniger auf der Implementierung der kryptografischen Algorithmen.
+
+
+\section{Über die Semesterarbeit}
+
+Gemäss Reglement der ZHAW (siehe \cite{Stern2010}) dient die Semesterarbeit
+als Vorbereitung zur Bachelorarbeit. Sie besteht aus einem konzeptionellen
+Teil und einem Umsetzungsteil, wobei der Schwerpunkt auf der Umsetzung
+liegen soll.
+
+Der Aufwand für die Fertigstellung der Semestarbeit beträgt mindestens
+120 Stunden und schliesst mit einer Präsentation vor dem Betreuer
+und einer Vertretung der Leitung des Studengangs Informatik ab.
+
+
+\section{Softwareentwicklungsprozess}
+
+Software lässt sich nach einer Vielzahl von Prozessen und Modellen
+entwickeln. Von iterativen Vorgehen wie Scrum über komplexe Modelle
+wie RUP \nomenclature{RUP}{Der Rational Unified Process ist ein kommerzielles Vorgehensmodell zur Softwareentwicklung von IBM. }
+hin zu klassischen, linearen Vorgehen wie dem Wasserfallmodell oder
+dem V-Modell\nomenclature{V-Modell}{Das V-Modell ist ein Vorgehensmodell in der Softwareentwicklung, bei dem der Softwareentwicklungsprozess in Phasen organisiert wird. Neben diesen Entwicklungsphasen definiert das V-Modell auch das Vorgehen zur Qualitätssicherung (Testen) phasenweise.}.
+Nach \cite{Starke2011} ist die Auswahl des Entwicklungsprozesses
+eine der schwierigsten Entscheidungen, die man bei einem Softwareprojekt
+treffen muss. Häufig besitzen Unternehmungen bereits etablierte, auf
+sie zugeschnittene Entwicklungsmodelle, die mehr oder weniger gut
+zur Organisation der Unternehmung passen. Ein ungünstig gewählter
+oder nicht vollständig eingeführter und gelebter Entwicklungsprozess
+ist nach \cite{Starke2011} einer der Hauptgründe wieso Softwareprojekte
+mit Qualitätsmängeln, Budgetüberschreitungen oder zeitlichen Verzögerungen
+zu kämpfen haben.
+
+Für dieses Projekt wurde das Wasserfallmodell als Entwicklungsprozess
+ausgewählt. Das Wasserfallmodell teilt die Softwareentwicklung in
+meist fünf verschiedene Phasen auf. Dabei kann erst mit der nächsten
+Phase begonnen werde wenn die Lieferegebnisse und die Ergebnisdokumentation
+der vorhergehenden Phase fertiggestellt und abgenommen worden sind.
+Das Wasserfallmodell wurde ausgewählt, da die jeweiligen Phasen eindeutig
+abgeschlossen werden können, da der Betreuer als einziger, externer
+Stakeholder des Projekts zu festdefinierten Phasen Einfluss auf das
+Projekt ausübt und danach keine Möglichkeit mehr besitzt, den Projektverlauf
+zu beeinflussen. Die grössten Nachteile des Wasserfallmodells sind
+nach \cite{Elmer2005} ein Abgrenzugsproblem zwischen den Phasen sowie
+die Schwierigkeit des Abschlusses einzelner Phasen. Dadurch dass der
+Betreuer nur in den Phasen Requirements und Design Einfluss auf das
+Projekt nehmen kann und Student als einziger Stakeholder den Abschluss
+der Phasen abnimmt sowie den Ablauf der Phasen innerhalb des Projekts
+steuert können diese Nachteile umgangen werden.
+
+\begin{figure}[h]
+\begin{centering}
+\includegraphics[scale=0.6]{Graphics/sw-process}
+\par\end{centering}
+
+\caption{Wasserfallprozess nach \cite{Hung2007}}
+\end{figure}
+
+
+Zu Beginn des Wasserfallmodells steht das Sammeln und Dokumentieren
+der Anforderungen (Requirements). Wenn die Anforderungen umfänglich
+und in hohem Detaillierungsgrad niedergeschrieben sind, werden diese
+vom Auftraggeber abgenommen und das Projekt geht in die Design-Phase
+über. Die zu entwickelnde Software wird auf verschiedenen Ebenen von
+Softwarearchitekten designed und eine Blaupause wird erstellt, nach
+welcher sich die Software Entwickler in der Implementationsphase zu
+halten haben. Das Design sollte einen Plan beinhalten, welcher die
+Implementierung der Anforderungen aufzeigt. Wenn das Design fertiggestellt
+worden ist, wird dieses von den Entwicklern in Programmcode umgesetzt.
+Gegen Ende der Implementationsphase werden die Softwarekomponenten
+verschiedener Teams integriert. Nachdem die Implementierungs- und
+Integrationsphasen abgeschlossen sind, wird das Softwareprodukt getestet
+und allfällige Fehler aus früheren Phasen werden zu diesem Zeitpunkt
+entfernt. Danach wird das Softwareprodukt installiert und später in
+der Wartungsphase (Maintenance) um weitere Funktionalitäten erweitert
+beziehungsweise werden weitere Bugs\nomenclature{Bug}{Ein Programm- oder Softwarefehler wird als Bug bezeichnet und beschreibt im Allgemeinen ein fehlerhaftes Verhalten von Computerprogrammen.}
+behoben.
+
+Die Struktur dieses Dokuments hält sich auch an den Wasserfallprozess
+nach \cite{Hung2007} (siehe Tabelle \ref{tab:Zuweisungstablle-der-Phasen}).
+Die Phase Maintenance wird dabei ausgelassen, da sich die innerhalb
+des Projekts entwickelte Applikation nach Abschluss der Verifizierungsphase
+noch im Protoypenstand befinden wird.
+
+\begin{table}[h]
+\begin{centering}
+\begin{tabular}{|l|l|l|}
+\hline 
+Phase & Kapitelüberschrift & Seite\tabularnewline
+\hline 
+\hline 
+Requirements & \nameref{chap:Anforderungen} & \pageref{chap:Anforderungen}\tabularnewline
+\hline 
+Design & \nameref{chap:Konzept} & \pageref{chap:Konzept}\tabularnewline
+\hline 
+Implementation & \nameref{chap:Implementierung} & \pageref{chap:Implementierung}\tabularnewline
+\hline 
+Verification & \nameref{chap:Test} & \pageref{chap:Test}\tabularnewline
+\hline 
+\end{tabular}
+\par\end{centering}
+
+\caption{Zuweisungstabelle der Phasen zu Kapiteln in diesem Dokument\label{tab:Zuweisungstablle-der-Phasen}}
+\end{table}
+
+
+
+\section{Projektplanung}
+
+Nach Reglement der ZHAW (siehe \cite{Stern2010}) muss die Semesterarbeit
+sechs Monate nach Freigabe beendet sein. Um die Planbarkeit der Semesterarbeit
+zu erhöhen wurde das Projekt vorgängig in einzelne Phasen unterteilt,
+welche auf die bekannten Meilensteine enden.
+
+Die Projektplanung dient dazu möglichst frühzeitig im Verlauf der
+Seminararbeit schon Teile der Dokumentation fertiggestellt zu haben,
+so dass nicht in den letzten zwei Wochen vor der Abgabe der Arbeit
+übermässig viel Zeit und Aufwand in die Arbeit investiert werden muss.
+Ausserdem sinkt das Risiko, das nicht alle erwarteten Resultate der
+Arbeit geliefert werden können, da die Lieferergebnisse bei Phasenende
+schon in genügend hoher Qualität vorliegen, dass diese abgegeben werden
+können.
+
+
+\subsection{Phasenplanung}
+
+Nach dem Wasserfallmodell wird das Projekt in einzelne Phasen eingeteilt,
+die zu einem bestimmten Zeitpunkt mit vordefinierten Endergebnissenen
+enden. Bei Erreichen des Endzeitpunkts und bei Lieferung aller Endergebnisse
+geht das Projekt in die nächste Phase über. Die Phasen in diesem Projekt
+wurden häufig so modelliert, dass ihr Endzeitpunkt mit dem Erreichen
+eines Meilensteins zusammenliegt. Das heisst, das bei Erreichen des
+Meilensteins die vorhergehende Phase zwingend abgeschlossen sein werden
+muss.
+
+Vor dem eigentlichen Projektstart werden geeigeneten Themen für die
+Semesterarbeit evaluiert, ein Betreuer gesucht sowie ein Projektantrag
+in EBS erfasst. Diese Phase endet im Kick-Off-Meeting zwischen Betreuer
+und Student und der formalen Freigabe der Semesterarbeit durch die
+Studiengangsleitung. Das Erheben und Dokumentieren der Anforderungen
+ist die erste Phase der eigentlichen Projektumsetzung und mündet in
+der Konzepterarbeitung auf Basis der Anforderungen. Ist das Konzept
+vollständig abgeschlossen findet das Design-Review statt, bei welchem
+der Betreuer das Konzept begutachtet und allfällige Anpassungen am
+Konzept vorschlägt. Nach Fertigstellung des Konzepts folgt die Implementierungsphase
+und Testphase, nach denen die Arbeit abgegeben werden muss. Als letzte
+Phase folgt das Erarbeiten der Präsentation, die bei Phasenende vorgetragen
+wird.
+
+\begin{table}[H]
+\begin{centering}
+\begin{tabular}{|l|l|l|l|l|}
+\hline 
+Phase & Von & Bis & Ergebnis & Endet in Meilenstein\tabularnewline
+\hline 
+\hline 
+Themenevaluierung & 15.10.2011 & 04.11.2011 & Antrag in EBS & M1, M2\tabularnewline
+\hline 
+Erfassen der Anforderungen & 04.11.2011 & 01.12.2011 & Dokumentierte Anforderungen & \tabularnewline
+\hline 
+Erarbeiten des Konzepts & 01.12.2011 & 13.04.2012 & Umfassendes Konzept & M3\tabularnewline
+\hline 
+Implementierungs des Konzepts & 13.04.2012 & 01.05.2012 & Implementierung & \tabularnewline
+\hline 
+Überprüfen und Test des Konzepts & 01.05.2012 & 23.05.2012 & Erfüllte Integrationstests & M4\tabularnewline
+\hline 
+Erarbeiten der Präsentation & 23.05.2012 & 06.06.2012 & Fertiggestellte Präsentation & M5\tabularnewline
+\hline 
+\end{tabular}
+\par\end{centering}
+
+\caption{Phasenplan}
+\end{table}
+
+
+
+\subsection{Meilensteine}
+
+Ein Meilenstein ist ein Ereignis von besonderer Bedeutung und stellt
+ein (Zwischen-) Ziel innerhalb eines Projekts dar. Meilensteine werden
+typischerweise von Personen oder Organisationen ausserhalb des Projekts
+vorgegeben und passen mit den im vorhergehenden Kapitel definierten
+Phasen überein.
+
+\begin{table}[H]
+\begin{centering}
+\begin{tabular}{|l|l|l|}
+\hline 
+Kürzel & Meilenstein & Datum\tabularnewline
+\hline 
+\hline 
+M1 & Kick-Off  & 04.11.2011\tabularnewline
+\hline 
+M2 & Freigabe der Arbeit & 06.11.2012\tabularnewline
+\hline 
+M3 & Design Review & 13.04.2012\tabularnewline
+\hline 
+M4 & Abgabe der Arbeit & 23.05.2012\tabularnewline
+\hline 
+M5 & Präsentation der Semesterarbeit & 06.06.2012\tabularnewline
+\hline 
+\end{tabular}
+\par\end{centering}
+
+\caption{Meilensteine}
+\end{table}
+
+
+
+\chapter{Anforderungen\label{chap:Anforderungen}}
+
+Gemäss dem verwendeten Wasserfallmodell werden als erstes die Anforderungen
+erhoben. Dazu wird der Begriff {}``Anforderung'' definiert und auf
+verschiedene Arten von Anforderungen eingegangen. Anschliessend wird
+der Systemkontext aufgezeigt sowie die konkreten Anforderungen an
+YAEM als Use-Cases modelliert und spezifiziert. Der Abschluss dieses
+Kapitels wie auch der Anforderungsphase bildet die Erstellung und
+Erklärung der für den Benutzer sichtbaren Dialogfenster.
+
+
+\section{Was sind Anforderungen?}
+
+Die erste Phase des Wasserfallmodells beschäftigt sich mit den Anforderungen
+an das zu entwickelnde Softwareprodukt. Damit das Entwicklungsprodukt
+zum Erfolg geführt werden kann, muss zunächst bekannt sein, was die
+Anforderungen an das System sind und diese müssen geeignet dokumentiert
+sein. Nach \cite{IEEE610.121990} wird eine Anforderung wie folgt
+definiert:
+\begin{description}
+\item [{Anforderung}] Eine Anforderung ist:
+
+\begin{enumerate}
+\item Eine Bedingung oder Fähigkeit, die von einem Benutzer (Person oder
+System) zur Lösung eines Problems zur Erreichung eines Ziels benötigt
+wird.
+\item Eine Bedingung oder Fähigkeit, die ein System oder Teilsystem erfüllen
+oder besitzen muss, um einen Vertrag, eine Norm, eine Spezifikation
+oder andere, formell vorgegebene Dokumente zu erfüllen.
+\item Eine dokumentierte Repräsentation einer Bedingung oder Eigenschaft
+gemäss 1. oder 2.
+\end{enumerate}
+\end{description}
+Die Anforderungen an das im Rahmen der Semesterarbeits zu entwickelnden
+Systems werden in Use-Case-Diagrammen modellhaft dargestellt und als
+Use-Case-Spezifikationen ausformuliert. Auf eine natürlichsprachige
+Dokumentation der Anforderungen wird verzichtet, da die Anforderungen
+aufgrund der Use-Case-Diagrammen verständlich genug sind und alle
+zusätzlich zu den Diagrammen zu beachtenden Punkte in den Use-Case-Spezifikationen
+enthalten sind. 
+
+
+\subsection{Arten von Anforderungen\label{sub:Arten-von-Anforderungen}}
+
+Nach \cite{Pohl2011} unterscheidet man im Allgemeinen zwischen drei
+Arten von Anforderungen:
+\begin{itemize}
+\item Funktionale Anforderungen legen die Funktionalität fest, die das geplante
+System zur Verfügung stellen soll. Sie werden typischerweise in Funktions-,
+Verhaltens- und Strukturanforderungen unterteilt.
+\item Qualitätsanforderungen legen gewünschte Qualitäten des zu entwickelnden
+Systems fest und beeinflussen häufig, in grösserem Umfang als die
+funktionalen Anforderungen, die Gestalt der Systemarchitektur. Typischerweise
+beziehen sich Qualitätsanforderungen auf die Performance, die Verfügbarkeit,
+die Zuverlässigkeit, die Skalierbarkeit oder die Portabilität des
+betrachteten Systems. Anforderungen dieses Typs werden häufig auch
+der Klasse {}``nicht funktionaler Anforderungen'' zugeordnet.
+\item Randbedingungen (auch: Rahmenbedingungen) können von den Projektbeteiligten
+nicht beeinflusst werden. Randbedingungen können sich sowohl auf das
+betrachtete System beziehen (z.B. {}``Das System soll über Webservices
+mit Aussensysteme kommunizieren'') als auch auf den Entwicklungsprozess
+des Systems (z.B. {}``Das Sysemt soll bis spätestens Mitte 2013 am
+Markt verfügbar sein''). Randbedingungen werden, im Gegensatz zu
+funktionalen Anforderungen und Qualitätsanforderungen, nicht umgesetzt,
+sondern schränken die Umsetzungsmöglichkeiten, d.h. den Lösungsraum
+im Entwicklungsprozess ein.
+\end{itemize}
+
+\section{Systemkontext}
+
+Als erster Schritt in der Erhebung und Dokumentierung wird der Systemkontext
+ermittelt. Es wird eine Sollperspektive eingenommen, d.h., es wird
+eine Annahme getroffe, wie das geplante System sich in die Realität
+integriert. Hierdurch wird der Realitätsausschnitt identifiziert,
+der das System und damit potenziell auch dessen Anforderungen beeinflusst.
+Um die Anforderungen an das geplante System korrekt und vollständig
+spezifizieren zu können, ist es notwendig, die Beziehung zwischen
+den einzelnen materiellen und immateriellen Aspekten im Systekontext
+und dem geplanten System exakt zu dfinieren. Der für die Anforderungen
+des Systems relevante Ausschnitt der Realität wird als Systemkontext
+bezeichnet.
+
+Der Ursprung der Anforderungen des Systems liegt im Systemkontext
+des geplanten Systems. Aus diesem Grund wird der Systemkontext vor
+Erhebung und Dokumentierung der Anforderungen festgelegt. Der Systemkontext
+YAEM wird wie folgt dargestellt. Die Benutzer als Stakeholder an das
+System senden und empfangen Nachrichten und befinden sich innerhalb
+des Systemkontexts da sie direkt mit dem System interagieren. Die
+Verschlüsselungsalgorithmen sind in der Fachliteratur klar geregelt
+und normiert und geben aus diesem Grund die konkreten Implementierungsvorschriften
+an das System vor.
+
+
+\subsection*{Systemkontext YAEM}
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.5]{ExportedDiagrams/Systemkontext}
+\par\end{centering}
+
+\caption{Systemkontext}
+\end{figure}
+
+
+
+\section{Use-Case-Spezifikationen}
+
+Nach \cite{Pohl2011} zeigen Use-Case-Diagamme die aus einer externen
+Nutzungssicht wesentlichen Funktionalitäten des betrachteten Systems
+sowie spezifische Beziehungen der einzelnen Funktionalitäten untereinander
+bzw. zu Aspekten in der Umgebung des Systems. Abgesehen vom Namen
+eines Use-Cases und dessen Beziehungen dokumentieren Use-Case-Diagramme
+allerdings keinerlei weitere Informationen über die einzelnen Use-Cases,
+wie z.B. die Systematik der Interaktion eines Use Case\nomenclature{Use Case}{Ein Use Case (deutsch Anwendungsfall) bündelt alle möglichen Szenarien, die eintreten können, wenn ein Akteur versucht, mit Hilfe des betrachteten Systems ein bestimmtes fachliches Ziel zu erreichen. Er beschreibt, was inhaltlich beim Versuch der Zielerreichung passieren kann, und abstrahiert von konkreten technischen Lösungen. Das Ergebnis des Anwendungsfalls kann ein Erfolg oder Fehlschlag/Abbruch sein.}
+mit Akteuren in der Umgebung. Diese Informationen werden unter Verwendung
+einer geeigneten Schablone zusätzlich zum Use-Case-Diagramm textuell
+dokumentiert.
+
+Alle funktionalen Anforderungen (siehe \vref{sub:Arten-von-Anforderungen})
+werden nun als Use-Cases modelliert und spezifiziert%
+\footnote{Die verwendete Schablone für die Use-Case-Spezifikationen stammt aus
+\cite{Pohl2011} und dient zur zweckmässigen Strukturierung von Typen
+von Informationen, die einen Use-Case betreffen. Die Abschnitte Autor,
+Quelle, Verantwortlicher und Qualität werden ausgelassen, da sie für
+die Semesterarbeit keine Relevant besitzen.%
+}. Als Quellen der Anforderungen dienten der Betreuer, die Reglemente
+der ZHAW betreffend der Semesterarbeit sowie der Student in der Rolle
+als Benutzer des Systems. Zusätzlich zu den Use-Cases und der dazugehörigen
+Use-Case-Spezifikation wird vorgängig in Prosatext der Anwendungsfall
+beschrieben. Aus Gründen der Übersichtlichkeit und des überschaubaren
+Umfangs dienen diese Use-Cases primär als Anforderungen an das zu
+entwickelnde Softwaresystem. Jedes Use-Case wird im Rahmen der Verifizerungsphase
+(siehe \vref{chap:Test}) als Integrationstest einzeln getestet.
+
+
+\subsection{Gespräch beitreten}
+
+Ein Benutzer möchte Nachrichten über YAEM versenden und startet die
+Applikation. Er wählt einen Benutzernamen, stellt eine Verbindung
+zum Server her und nimmt am Gespräch teil. Er kann nun anderen Teilnehmern
+des Gesprächs Nachrichten versenden.
+
+
+\subsubsection*{Use-Case}
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.5]{ExportedDiagrams/UC1-GespraechBeitreten}
+\par\end{centering}
+
+\caption{Use-Case Gepräch beitreten}
+\end{figure}
+
+
+
+\subsubsection*{Use-Case-Spezifikation}
+
+\begin{table}[H]
+\begin{centering}
+\begin{tabular}{|l|>{\raggedright}p{10cm}|}
+\hline 
+Abschnitt & Inhalt\tabularnewline
+\hline 
+\hline 
+Bezeichner & UC1\tabularnewline
+\hline 
+Name & Gespräch beitreten\tabularnewline
+\hline 
+Priorität & Wichtigkeit für Systemerfolg: hoch\\
+Technologisches Risiko: niedrig\tabularnewline
+\hline 
+Kritikalität & Hoch\tabularnewline
+\hline 
+Beschreibung & Der Benutzer tritt einem Gespräch bei.\tabularnewline
+\hline 
+Auslösendes Ereignis & Benutzer möchte einem Gespräch beitreten.\tabularnewline
+\hline 
+Akteure & Benutzer\tabularnewline
+\hline 
+Vorbedingung & Der Benutzer ist nicht schon einem Gespräch beigetreten.\tabularnewline
+\hline 
+Nachbedingung & Der Benutzer kann Nachrichten versenden und Nachrichten anderer Gesprächsteilnehmer
+empfangen.\tabularnewline
+\hline 
+Ergebnis & Session-Ticket wird erstellt.\tabularnewline
+\hline 
+Hauptszenario & 1. Der Benutzer wählt einen Benutzernamen.
+
+2. Der Benutzer stellt eine Verbindung zum Server her.
+
+3. Der Server erstellt eine Session-Ticket für den Benutzer und gibt
+ihm dieses zurück.\tabularnewline
+\hline 
+Alternativszenarien & 2a. Der gewählte Benutzername ist bereits im Gespräch vorhanden.
+
+2a1. Der Benutzer wird aufgefordert einen anderen Benutzernamen auszuwählen.\tabularnewline
+\hline 
+Ausnahmeszenarien & Auslösendes Ereignis: Der Benutzer kann keine Verbindung zum Server
+herstellen.\tabularnewline
+\hline 
+\end{tabular}
+\par\end{centering}
+
+\caption{Use-Case-Spezifikation Gespräch beitreten}
+\end{table}
+
+
+
+\subsection{Gespräch verlassen}
+
+Der Benutzer ist im Gespräch und möchte dieses Verlassen. Er schliesst
+die Applikation und meldet sich am Server vom Gespräch ab. Andere
+Teilnehmer des Gesprächs können ihm nun keine Nachrichten mehr senden.
+
+
+\subsubsection*{Use-Case}
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.5]{ExportedDiagrams/UC2-GespraechVerlassen}
+\par\end{centering}
+
+\caption{Use-Case Gespräch verlassen}
+\end{figure}
+
+
+
+\subsubsection*{Use-Case-Spezifikation}
+
+\begin{table}[H]
+\begin{centering}
+\begin{tabular}{|l|>{\raggedright}p{10cm}|}
+\hline 
+Abschnitt & Inhalt\tabularnewline
+\hline 
+\hline 
+Bezeichner & UC2\tabularnewline
+\hline 
+Name & Gespräch verlassen\tabularnewline
+\hline 
+Priorität & Wichtigkeit für Systemerfolg: hoch\\
+Technologisches Risiko: niedrig\tabularnewline
+\hline 
+Kritikalität & Hoch\tabularnewline
+\hline 
+Beschreibung & Der Benutzer verlässt ein Gespräch.\tabularnewline
+\hline 
+Auslösendes Ereignis & Benutzer möchte eine Gespräch verlassen.\tabularnewline
+\hline 
+Akteure & Benutzer\tabularnewline
+\hline 
+Vorbedingung & Der Benutzer ist einem Gespräch beigetreten.\tabularnewline
+\hline 
+Nachbedingung & Der Benutzer kann erneut einem Gespräch beitreten.\tabularnewline
+\hline 
+Ergebnis & Session-Ticket ist abgelaufen.\tabularnewline
+\hline 
+Hauptszenario & 1. Der Benutzer verlässt das Gespräch.
+
+2. Der Server erklärt das Session-Ticket des Benutzers für abgelaufen
+und sendet das aktualisierte Ticket dem Benutzer zu.\tabularnewline
+\hline 
+Alternativszenarien & Keine\tabularnewline
+\hline 
+Ausnahmeszenarien & Keine\tabularnewline
+\hline 
+\end{tabular}
+\par\end{centering}
+
+\caption{Use-Case-Spezifikation Gespräch verlassen}
+\end{table}
+
+
+
+\subsection{Nachricht senden}
+
+Dies ist der wichtigste und meistgenutzte Anwendungsfall des Systems.
+Der Benutzer als Sender möchte einem oder mehreren Teilnehmern des
+Gesprächs (Empfänger) eine Nachricht senden. Er kann dabei wählen,
+ob er diese verschlüsselt oder unverschlüsselt versenden möchte. Sendet
+der Benutzer die Nachricht verschlüsselt, so werden zuerst der Initialisierungsvektor
+festgelegt sowie der Schlüssel gewählt. Danach wird die Nachricht
+an den oder die Empfänger übermittelt und startet den Anwendungsfall
+{}``Nachricht empfangen'' (siehe \vref{sub:Nachricht-empfangen}).
+
+
+\subsubsection*{Use-Case}
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.5]{ExportedDiagrams/UC3-NachrichtSenden}
+\par\end{centering}
+
+\caption{Use-Case Nachricht senden}
+\end{figure}
+
+
+
+\subsubsection*{Use-Case-Spezifikation}
+
+\begin{table}[H]
+\begin{centering}
+\begin{tabular}{|l|>{\raggedright}p{10cm}|}
+\hline 
+Abschnitt & Inhalt\tabularnewline
+\hline 
+\hline 
+Bezeichner & UC3\tabularnewline
+\hline 
+Name & Nachricht senden\tabularnewline
+\hline 
+Priorität & Wichtigkeit für Systemerfolg: hoch\\
+Technologisches Risiko: mittel\tabularnewline
+\hline 
+Kritikalität & Hoch\tabularnewline
+\hline 
+Beschreibung & Der Benutzer versendet eine Nachricht.\tabularnewline
+\hline 
+Auslösendes Ereignis & Benutzer möchte eine Nachricht senden.\tabularnewline
+\hline 
+Akteure & Benutzer\tabularnewline
+\hline 
+Vorbedingung & Der Benutzer ist im Gespräch angemeldet und besitzt eine gültiges
+Session-Ticket.\tabularnewline
+\hline 
+Nachbedingung & Der Benutzer kann erneut eine Nachricht versenden und Nachrichten
+anderer Gesprächsteilnehmer empfangen.\tabularnewline
+\hline 
+Ergebnis & Die Empfänger haben die versendete Nachricht empfangen.\tabularnewline
+\hline 
+Hauptszenario & 1. Der Benutzer erfasst die zu versenden Nachricht
+
+2. Der Benutzer wählt einen Kryptoalgorithmus\nomenclature{Kryptoalgorithmus}{Ein Kryptoalgorithmus ist im Kontext von YAEM die konkrete Implementierung des Interfaces YAEM.Crypto.ICryptoProvider und bietet die Möglichkeit beliebige Nachrichten zu verschlüsseln beziehungsweise zu entschlüsseln.}
+aus.
+
+3. Der Benutzer generiert einen Initalisierungsvektor\nomenclature{Initialisierungsvektor}{Ein Initialisierungsvektor (kurz IV) bezeichnet in der Kryptografie ein Block von Zufallszahlen.}.
+
+4. Der Initialisierungsvektor wird an alle Empfänger gesendet.
+
+5. Der Benutzer wählt einen Schlüssel.
+
+6. Der Schlüssel wird an alle Empfänger gesendet.
+
+7. Der Benutzer verschickt die (verschlüsselte) Nachricht.\tabularnewline
+\hline 
+Alternativszenarien & 2a. Der Benutzer wählt keinen Kryptoalgorithmus aus.
+
+2a1. Der Benutzer versendet die Nachricht unverschlüselt.
+
+3a. Der Benutzer hat bereits einen Intialisierungsvektor erstellt
+oder einen Initalisierungsvektor von einem anderen Teilnehmer des
+Gesprächs erhalten und generiert keinen neuen Initialisierungsvektor.
+
+4a. Der Benutzer hat bereits einen Schlüssel erstellt oder einen Schlüssel
+von einem anderen Teilnehmer des Gesprächs erhalten und wählt keinen
+neuen Schlüssel.\tabularnewline
+\hline 
+Ausnahmeszenarien & Auslösendes Ereignis: Der Benutzer kann keine Verbindung zum Server
+herstellen.\tabularnewline
+\hline 
+\end{tabular}
+\par\end{centering}
+
+\caption{Use-Case-Spezifikation Nachricht senden}
+\end{table}
+
+
+
+\subsection{Nachricht empfangen\label{sub:Nachricht-empfangen}}
+
+Dieser Anwendungsfall wird nicht vom Benutzer ausgelöst, sondern vom
+System. Sobald eine Nachricht, die an den Benutzer gerichtet ist,
+eintrifft, wird der Anwendungsfall gestartet. Ist die Nachricht verschlüsselt,
+versucht das System mit vorhandenem Initialisierungsvektor und Schlüssel
+die Nachricht zu entschlüssel und dem Benutzer darzustellen. Ist die
+Nachricht unverschlüsselt, so wird diese dem Benutzer direkt angezeigt.
+
+
+\subsubsection*{Use-Case}
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.5]{ExportedDiagrams/UC4-NachrichtEmpfangen}
+\par\end{centering}
+
+\caption{Use-Case Nachricht empfangen}
+\end{figure}
+
+
+
+\paragraph{Use-Case-Spezifikation}
+
+\begin{table}[H]
+\begin{centering}
+\begin{tabular}{|l|>{\raggedright}p{10cm}|}
+\hline 
+Abschnitt & Inhalt\tabularnewline
+\hline 
+\hline 
+Bezeichner & UC4\tabularnewline
+\hline 
+Name & Nachricht empfangen\tabularnewline
+\hline 
+Priorität & Wichtigkeit für Systemerfolg: hoch\\
+Technologisches Risiko: mittel\tabularnewline
+\hline 
+Kritikalität & Hoch\tabularnewline
+\hline 
+Beschreibung & Der Benutzer empfängt eine Nachricht.\tabularnewline
+\hline 
+Auslösendes Ereignis & Ein anderer Teilnehmer des Gesprächs versendet eine Nachricht.\tabularnewline
+\hline 
+Akteure & Benutzer\tabularnewline
+\hline 
+Vorbedingung & Der Benutzer ist im Gespräch angemeldet und besitzt eine gültiges
+Session-Ticket. Ein Teilnehmer des Gesprächs versendet eine Nachricht.\tabularnewline
+\hline 
+Nachbedingung & Der Benutzer kann Nachrichten versenden und Nachrichten anderer Gesprächsteilnehmer
+empfangen.\tabularnewline
+\hline 
+Ergebnis & Die Nachricht wird dem Benutzer angezeigt.\tabularnewline
+\hline 
+Hauptszenario & 1. Der Benutzer empfängt die Nachricht und prüft ob diese verschlüsselt
+ist.
+
+2. Der Benutzer verwendet den Initialisierungsvektor und Schlüssel
+zum entschlüsseln der Nachricht.
+
+3. Die entschlüsselte Nachricht wird angezeigt.\tabularnewline
+\hline 
+Alternativszenarien & 1a. Ist die Nachricht nicht verschlüsselt, wird sie direkt angezeigt.\tabularnewline
+\hline 
+Ausnahmeszenarien & Ist kein Initalisierungsvektor, Schlüssel oder Implementierung des
+verwendeten Kryptoalgorithmus vorhanden, so wird der unlesbare Geheimtext\nomenclature{Geheimtext}{Der Geheimtext ist der Text, der durch die Verschlüsselung mittels eines kryptografischen Verfahrens unlesbar gemachte wurde.}
+angezeigt.\tabularnewline
+\hline 
+\end{tabular}
+\par\end{centering}
+
+\caption{Use-Case-Spezifikation Nachricht empfangen}
+\end{table}
+
+
+
+\section{Mockups}
+
+Mockups\nomenclature{Mockup}{Ein Mockup in der Softwareentwicklung bezeichnet einen rudimentären Wegwerfprototypen der Benutzerschnittstelle einer zu erstellenden Software. Mock-ups werden insbesondere in frühen Entwicklungsphasen eingesetzt, um Anforderungen an die Benutzeroberfläche in Zusammenarbeit mit Auftraggeber und Anwendern besser ermitteln zu können. Es handelt sich meist um ein reines Grundgerüst der Bedienelemente ohne weitere Funktionalität.}
+dienen zur Visualisierung der Benutzeroberfläche des zu entwickelnden
+Softwareprodukts und werden häufig bereits in der Anforderungsphase
+zusammen mit den Stakeholdern entwickelt. Sie liefern dem Softwareentwickler
+in der Implmentationsphase (siehe \vref{chap:Implementierung}) ein
+Grundgerüst für die einzelnen Dialogfenster\nomenclature{Dialog}{Als Dialog (oder Dialogfenster) bezeichnet man in der Softwareentwicklung eine grafische Benutzerschnittstelle zur Mensch-Maschine-Interaktion zwischen Computerprogramm und Benutzer.}.
+Je nach Kundenzielgruppe und Wichtigkeit der Mensch-Maschine-Schnittstelle
+wird mehr oder weniger Zeit in die Entwicklung der Mockups investiert.
+Häufig werden diese mit zusammen mit Psychologen entwickelt und enthalten
+sehr weniger Interpretationsspielraum für den Softwareentwickler.
+
+
+\subsection{Dialog Gespräch beitreten}
+
+Startet der Benutzer die Applikation so wird ihm als erstes die Möglichkeit
+gegeben, einen Benutzernamen zu wählen, unter welchem er im Gespräch
+Nachrichten verschicken möchte. Dabei wird der Benutzername auf eine
+Länge von 255 Zeichen beschränkt und er darf keine Sonderzeichen enthalten.
+Nach einem Klick auf Connect werden diese Bedingungen geprüft und
+eine Verbindung zum Server hergestellt. Bei Erfolg wird der Dialog
+geschlossen und dem Benutzer der Gesprächsdialog (siehe \vref{sub:Gespr=0000E4chsdialog})
+angezeigt.
+
+
+\subsubsection*{Mockup}
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.65]{Mockups/Connect}
+\par\end{centering}
+
+\caption{Mockup Dialog Gespräch beitreten}
+\end{figure}
+
+
+
+\subsection{Gesprächsdialog\label{sub:Gespr=0000E4chsdialog}}
+
+Ist der Benutzer einem Gespräch beigetreten so verwendet er den Gesprächsdialog
+zum Senden und Empfangen von Nachrichten. Das Gesprächsprotokoll zeigt
+einen zeitlich geordneten Ablauf aller gesendeten und empfangenen
+Nachrichten. Weiterhin werden Aktionen wie ein Initialisierungsvektoraustausch
+oder das Setzen des Schlüssels eines Verschlüsselungsalgorithmus angezeigt.
+Auf der rechten Seite werden alle dem Gespräch beigetretenen Benutzer
+angezeigt. 
+
+Über die Textbox unterhalb des Gesprächsprotokolls lassen sich Nachrichten
+erfassen, die Nachricht muss dabei mindestens ein Zeichen lang sein.
+in der Dropdownliste rechts neben der Textbox werden alle installierten
+Kryptoalgorithmen angezeigt, zusätzlich zur Voreinstellung {}``<None>'',
+welche die Nachricht unverschlüsselt versendet. Ist kein Algorithmus
+angezeigt, so kann der Benutzer keine Auswahl treffen. Wählt der Benutzer
+einen Algorithmus aus, für welchen noch kein Initialisierungsvektor
+vorhanden ist, so wird eine Vektor generiert und den anderen Gesprächsteilnehmern
+zugsendet. Gleichzeitig wählt der Benutzer einen Schlüssel aus. Beim
+klicken auf den {}``Send'' Button, wird die Nachricht an die anderen
+Gesprächsteilnehmer versendet.
+
+Beim Schliessen der Applikation verlässt der Benutzer das Gespräch
+und der Gesprächsdialog schliesst sich selbst.
+
+
+\subsubsection*{Mockup}
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.65]{Mockups/Messaging}
+\par\end{centering}
+
+\caption{Mockup Gesprächsdialog}
+\end{figure}
+
+
+
+\chapter{Konzept\label{chap:Konzept}}
+
+Die Konzeptphase%
+\footnote{auch Designphase genannt%
+} des Wasserfallmodells behandelt die Entwicklung eines vollständigen
+und umfassenden Lösungskonzepts auf Basis der dokumentierten Anforderungen
+(nach \cite{Oestereich2006}). Als Grundlage für das Konzept wird
+in einem ersten Schritt die Toolchain erfasst, welche die weiteren
+(technologischen) Rahmenbedingungen für das Konzept vorgibt. Weiter
+wird zuerst das Konzept von der Bausteinsicht betrachtet, es wird
+von der Komponentenebene bis zur Klassenebene das System modelliert.
+Als weitere Sicht wird die Laufzeitsicht und die Verteilungssicht
+des Systems beleuchtet und spezifiziert.
+
+
+\section{Toolchain}
+
+Der erste Schritt der Konzepterstellung ist das Erarbeiten und Evaluieren
+der Toolchain. Die Toolchain bestimmt mit welchen Frameworks und Entwicklungswerkzeugen
+der Entwickler später arbeiten wird und gibt einen groben technischen
+Rahmen vor, der bei der Konzepterstellung berücksichtigt werden muss.
+
+Basis der verwendeten Tools und Frameworks wird Microsofts .NET Framework
+in der Version 4.0 sein. Dies primär aufgrund der Möglichkeiten von
+WCF%
+\footnote{Eine umfangreiche Einführung in WCF ist in der MSDN unter \url{http://msdn.microsoft.com/en-us/library/ee958158.aspx}
+erhältlich.%
+} zur Realisierung von Webservices und WPF bzw. Silverlight für Applikationen
+mit Oberflächen für die Windows Plattform. Als Entwicklungswerkzeug
+wird Microsoft Visual Studio 2010 eingesetzt und als Package Manager
+NuGet%
+\footnote{Mehr zum Package Manager NuGet ist unter \url{http://nuget.codeplex.com/}
+zu finden.%
+}. Zur Dateiverwaltung der online Hosting-Dienst Github%
+\footnote{Das Github Repository für YAEM ist unter \url{https://github.com/famstutz/YAEM}
+öffentlich verfügbar.%
+} verwendet, welcher als Versionsverwaltungssystem Git\nomenclature{Git}{Git ist eine freie Software zur verteilten Versionsverwaltung von Dateien, die ursprünglich für die Quellcode-Verwaltung des Kernels Linux entwickelt wurde.}
+einsetzt.
+
+
+\section{Bausteinsicht}
+
+Nach \cite{Starke2011} und \cite{Hruschka2012} lassen sich unter
+dem Begriff {}``Bausteine'' sämtliche Software- oder Implementeirungskomponenten
+zusammenfassen. Sie stellen letztendliche Abstraktionen von Quellcode
+dar. Dazu gehören Klassen, Prozeduren, Programme, Pakete, Komponenten
+(nach der UML-Definition) oder Subsysteme.
+
+Die Bausteinsicht bildet die Aufgaben des System auf Software-Bausteine
+oder -Komponenten ab. Diese Sicht macht Struktur und Zusammenhänge
+zwischen den Bausteinen der Architektur explizit. Bausteinsichten
+zeigen statische Aspekte von Systemen. In dieser Hinsicht entsprechen
+sie den konventionellen Implementierungsmodellen.
+
+
+\subsection{Komponentendiagramm}
+
+Das Komponentendigramm stellt das System YAEM aus Vogelperspektive
+dar und ist die höchstabstrahierte Ansicht der Bausteinsicht. 
+
+Der ServiceHost stellt die Serverapplikation des Systems dar und implementiert
+die beiden Schnittstellen%
+\footnote{In diesem Zusammenhang auch Service Contracts\nomenclature{Service Contract}{Ein Service Contract bezeichnet eine Schnittstelle oder Klasse die zur Kommunikation für verteilte Systeme genutzt werden können.}
+genannt%
+} \emph{IUserService} (siehe \vref{sub:IUserService}) und \emph{IMessagingService}
+(siehe \vref{sub:IMessagingService}). Er stellt die Schnittstellen
+als Webservice den Clientapplikationen zur Verfügung. Die Clientapplikationen
+(die in einer Vielzahl von Frameworks implementiert sein können) benutzen
+diese Schnittstellen um mit der Serverapplikation zu kommunizieren.
+Die Clientapplikationen benutzen MEF\nomenclature{Managed Extensibility Framework}{Das Managed Extensibility Framework (kurz MEF) ist ein Kompositionframework zum Erstellen einer Plugininfrasktruktur innerhalb einer Applikation. Es erhöht die Flexibilität, Erweiterbarkeit und Testbarkeit von grossen Applikationen.}
+um dynamisch Kryptoalgorithmen (siehe \vref{sub:Kryptoalgorithmen})
+zur Laufzeit laden zu können. Dadurch wird gewährleistet, dass der
+Server zu keinem Zeitpunkt die verschlüsselten Nachrichten, die über
+ihn versendet werden, im Klartext lesen kann.
+
+
+\subsubsection*{Komponentendiagramm}
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.65]{ExportedDiagrams/ComponentModel}
+\par\end{centering}
+
+\caption{Komponentendiagramm}
+\end{figure}
+
+
+
+\subsection{Domänenmodell}
+
+Das Domänenmodell umfasst nur die Businessobjekte, die über die Serviceschnittstelle
+vom Client\nomenclature{Client}{Ein Client (oder Clientapplikation) ist eine Softwareanwendung die im Gegensatz zu einer Serverapplikation auf dem Rechner des Benutzers ausgeführt wird.}-
+an die Serverapplikation\nomenclature{Server}{Ein Server (auch Serverapplikation) ist eine serverseitige Anwendung die auf einem zentralen Computer (Server) ausgeführt wird.}
+beziehungsweise umgekehrt übertragen werden. 
+
+YAEM verwendet ein vergleichsweise simples Domänenmodell. Jeder Benutzer
+wird als \emph{User}objekt im Repository\nomenclature{Repository}{Ein Repository ist ein Verzeichnis zur Speicherung einer von digitalen Objekten. In diesem Kontext ist ein Repository eine Datenbank zur Speicherung und zum Wiederfinden von Objekten.}
+gespeichert. Bei erfolgreichem Gesprächsbeitritt erstellt der Server
+ein \emph{Ticket}objekt, welches an den Client zurückgegeben wird.
+Wird eine Nachricht versendet, so erstellt der Client ein \emph{Message}objekt,
+welches die Nachricht selbst als Bytearray in der Eigenschaft \emph{Payload}
+speichert. Will der Benutzer eine verschlüsselte Nachricht versenden,
+so setzt er die Eigenschaft \emph{Algorithm} des \emph{Message}objekts
+auf einen Wert des Enumerators \emph{CryptoAlgorithm}, der ungleich
+\emph{None} ist. Wenn die Eigenschaft \emph{Algorithm} gesetzt ist,
+so muss der Benutzer den \emph{Payload} verschlüsselt in der \emph{Message}
+ablegen.
+
+Sämtliche Domänenobjekte leiten von \emph{ObjectBase} ab. \emph{ObjectBase}
+enthält einen Schlüssel \emph{Key} in Form einer Globally Unique Identifier\nomenclature{Globally Unique Identifier}{Ein Globally Unique Identifier (auch GUID genannt) ist eine eindeutige, 128 Bit lange Zahl, die zur Identifzierung von Objekten in verteilten Systemen dienen.}
+zur eindeutigen Identifizierung der Objekte in den Repositories. Weiterhin
+implementiert \emph{ObjectBase} das Interface \emph{INotifyPropertyChanged}%
+\footnote{Die genaue Schnittstellenbeschreibung ist in der MSDN unter \url{http://msdn.microsoft.com/en-us/library/system.componentmodel.inotifypropertychanged.aspx}
+zu finden.%
+}, welches in WPF\nomenclature{WPF}{Windows Presentation Foundation (kurz WPF) ist ein Grafik-Framework das zusammen mit dem .NET Framework mitgeliefert wird und zur Darstellung von UI-Elementen dient.}
+und Silverlight\nomenclature{Silverlight}{Silverlight ist eine Erweiterung für Webbrowser, welche die Ausführung von Rich Internet Applications erlaubt. Silverlight ist eine abgespeckte Version von WPF und wird für auch als Framework für Windows Phone 7 verwendet.}
+dazu dient, UI-Elemente, die an Datenobjekte gebunden sind, über geänderte
+Eigenschaften zu informieren.
+
+
+\subsubsection*{Klassendiagramm}
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.65]{ExportedDiagrams/DomainModel}
+\par\end{centering}
+
+\caption{Klassendiagramm Domänenmodell}
+\end{figure}
+
+
+
+\subsection{Service Contracts}
+
+Ein Service Contract ist das Ausstellen einer Schnittstelle zur Kommunikation
+verschiedener Applikationen innerhalb eines verteilten Systems. Häufig
+werden diese Contracts als Webservice\nomenclature{Webservice}{Ein Webservice ist eine Softwareapplikation, auf den über eine URL eindeutig idenifiziert ist und Daten als XML-Artefakt zurückgibt. Er wird über internetbasierte Protokolle angesprochen.}
+angeboten, da sie dadurch plattform- und frameworkunabhängig implementiert
+werden können. 
+
+Typischerweise umfasst ein Service Contract mehrere Operationen, deren
+Rückgabewerte als XML-Fragmente an die konsumierende Applikation zurückgegeben
+werden. Ausserdem ist ein Service Contract per Definition grundsätzlich
+zustandslos, er behandelt mehrere Anfragen (auch desselben Auftraggebers)
+immer als unabhängige Transaktionen. Insbesondere werden Anfragen
+ohne Bezug zu früheren Anfragen behandelt und keine Sitzungsinformationen
+ausgetauscht.
+
+
+\subsubsection*{IUserService\label{sub:IUserService}}
+
+Das Interface \emph{IUserService} stellt die Benutzerverwaltungsfunktionalitäten
+zur Verfügung. Der Konsument des Service Contracts übergibt beim anmelden
+an den Server ein \emph{User}objekt, über welches der Benutzer identifiziert
+werden kann. Wird der Benutzer erfolgreich angemeldet, wird ein \emph{Session}objekt
+an den Konsumenten zurückgegeben. Das Gegenstück zur Methode \emph{Join}
+ist die Methode \emph{Leave}, die eine \emph{Session} für ungültig
+erklärt.
+
+Die Methoden \emph{Subscribe} und \emph{Unsubscribe} werden vor dem
+Aufruf von \emph{Join} bzw. nach dem Aufruf von \emph{Leave} aufgerufen
+und ermöglich es der Serverapplikation Callbacks\nomenclature{Callback}{Ein Callback (zu deutsch Rückruffunktion) bezeichnet eine Funktion, der als Parameter eine andere Funktion übergeben wird, die unter gewissen Bedingungen aufgerufen wird.}
+(siehe \vref{sub:IServiceCallback}) an den Client zu versenden.
+
+
+\paragraph*{Klassendiagramm}
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.65]{ExportedDiagrams/Class-IUserService}
+\par\end{centering}
+
+\caption{Klassendiagramm \emph{IUserService}}
+\end{figure}
+
+
+
+\subsubsection*{IMessagingService\label{sub:IMessagingService}}
+
+Über die Schnittstelle \emph{IMessagingService} werden Nachrichten
+in Form eines \emph{Message}objekts übertragen. Der Sender gibt beim
+Aufruf der Methode \emph{Send} neben der \emph{Message} auch noch
+seine \emph{Session} mit, damit die Serverapplikation überprüfen kann,
+ob der Benutzer eine gültige, nicht abgelaufene \emph{Session} besitzt.
+Die Methoden \emph{NegotiateInitializationVector} und \emph{NegotiateKey}
+dienen zur Übermittlung des Initialisierungsvektors bzw. Schlüssels
+für den jeweils mitgelieferten Kryptoalgorithmus vom Typ \emph{CryptoAlgorithm}.
+
+
+\paragraph*{Klassendiagramm}
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.65]{ExportedDiagrams/Class-IMessagingService}
+\par\end{centering}
+
+\caption{Klassendiagramm \emph{IMessagingService}}
+\end{figure}
+
+
+
+\subsubsection*{IServiceCallback\label{sub:IServiceCallback}}
+
+Damit über das HTTP\nomenclature{HTTP}{Das Hypertext Transfer Protocol (kurz HTTP) ist ein Protokoll zur Übertragung von Daten über ein Netzwerk. Es ist das meisteingesetzte Protokoll zur Übertragung von Webseiten im World Wide Web (WWW).}
+Callbacks (der Mechanismus wird detaillierter \noun{{[}Referenz{]}}
+beschrieben) versendet werden können, müssen alle Clientapplikationen,
+die den Webservice der Serverapplikation verwenden, die Schnittstelle
+\emph{IServiceCallback} implementieren. Die beiden Schnittstellen
+\emph{IUserService} und \emph{IMessagingService} werden mit \emph{{[}ServiceContract(CallbackContract
+= typeof(IServiceCallback)){]} }annotiert%
+\footnote{Details zum ServiceContractAttribute sind in der MSDN unter \href{http://msdn.microsoft.com/en-us/library/system.servicemodel.servicecontractattribute.aspx}{http://msdn.microsoft.com/en-us/library/system.servicemodel.servicecontractattribute.aspx}
+zu finden.%
+}\nomenclature{Annotation}{Eine Annotation bezeichnet ein Sprachelement im Quelltext, das zur Einbindung von Metadaten im Quelltext dient.}
+so dass beim Abbonnieren des Webservices der generierte Serviceclient
+gezwungen wird die Schnittstelle \emph{IServiceCallback} zu implementierern.
+
+Die Schnittstelle ist eine zusammengefasste Schnittstelle aller Callbackoperationen
+der beiden Serviceschnittsellen \emph{IUserService} und \emph{IMessagingService},
+die in der Tabelle \ref{tab:Methoden-von-IServiceCallback} beschrieben
+sind.
+
+\begin{table}
+\begin{centering}
+\begin{tabular}{|l|>{\raggedright}p{8.5cm}|}
+\hline 
+Methode & Aufgabe\tabularnewline
+\hline 
+\hline 
+\emph{NotifyNegotiateIntializationVector} & Teilt dem Client mit, dass für einen bestimmten Kryptoalgorithmus
+ein neuer Intialisierungsvektor gesetzt wurde.\tabularnewline
+\hline 
+\emph{NotifyNegotiateKey} & Teilt dem Client mit, dass für einen bestimmten Kryptoalgorithmus
+ein neuer Schlüssel gesetzt wurde.\tabularnewline
+\hline 
+\emph{NotifyNewMessage} & Teilt dem Client mit, dass eine neue Nachricht an ihn gesendet wurde.\tabularnewline
+\hline 
+\emph{NotifyUserJoined} & Teilt dem Client mit, dass ein neuer Benutzer dem Gespräch beigetreten
+ist.\tabularnewline
+\hline 
+\emph{NotifyUserLeft} & Teilt dem Client mit, dass ein Benutzer das Gespräch verlassen hat.\tabularnewline
+\hline 
+\end{tabular}
+\par\end{centering}
+
+\caption{Methoden von \emph{IServiceCallback\label{tab:Methoden-von-IServiceCallback}}}
+\end{table}
+
+
+
+\paragraph*{Klassendiagramm}
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.65]{ExportedDiagrams/Class-IServiceCallback}
+\par\end{centering}
+
+\caption{Klassendiagramm \emph{IServiceCallback}}
+\end{figure}
+
+
+
+\subsection{Kryptoalgorithmen\label{sub:Kryptoalgorithmen}}
+
+Ein Ziel dieses Projekts war es, einzelne Kryptoalgorithmen als eigenständige
+Assemblies\nomenclature{Assembly}{Übersetzter Quellcode als ausführbares Programm wird in .NET in sogeannten Assemblies zusammengefasst, ähnlich den Jar-Dateien in Java. Die Dateiendungen dieser Assemblies sind .exe oder .dll, zusätzlich zum ausführbaren Programmcode enhalten sie auch alle iM Manifest notwendigen Metadaten.}
+zu implementieren und zur Laufzeit den Clientapplikationen anzuhängen.
+Aus diesem Grund müssen alle Kryptoalgorithmen gegen die Schnittstelle
+\emph{ICryptoProvider }implementiert werden. \emph{ICryptoProvider}
+liefert die grundlegenden Funktionalitäten zur Implementierung von
+symmetrischen Kryptosystemen, bei welchen beide Teilnehmer den gleichen
+Schlüssel verwenden. Alle Nutzdaten (verschlüsselt oder unverschlüsselt)
+werden als Bytearrays (\emph{byte{[}{]}}) übergeben, so dass sie einfach
+und ohne Zusatzaufwand über einen Webservice übergeben werden können.
+Jedes symmetrische Kryptosystem enthält einen Initalisierungsvektor,
+der einen Block von Zufallsdaten bezeichnet, sowie einen Schlüssel,
+der nur dem Sender und Empfänger bekannt ist. Aus diesem Grund enthält
+\emph{ICryptoProvider} auch keine Methode \emph{GetKey()}, da der
+Schlüssel nicht öffentlich bekannt sein darf.
+
+Die Methoden \emph{Encrypt(string)} bzw. \emph{Decrypt(byte{[}{]})}
+verschlüsselt bzw. entschlüsseln übergebene Nutzdaten. Im nachfolgenden
+Klassendiagramm werden zusätzlich zur Schnittstelle \emph{ICryptoProvider}
+auch noch die drei beispielhaften Implementierungen von symmetrischen
+Kryptosystemen AES, Rijndael und TripleDES dargestellt. Jedes dieser
+Kryptosysteme wird in eine eigene Assembly kompiliert und zur Laufzeit
+der Clientapplikatikonen via MEF (siehe \noun{{[}Referenz{]}}) geladen.
+
+
+\paragraph*{Klassendiagramm}
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.65]{ExportedDiagrams/Class-Crypto}
+\par\end{centering}
+
+\caption{Klassendiagramm Kryptoalgorithmen}
+\end{figure}
+
+
+
+\subsection{Server\label{sub:Server}}
+
+Die Serverapplikation hosted die beiden Webservices IMessagingService
+(siehe \vref{sub:IMessagingService}) und IUserService (siehe \vref{sub:IUserService})
+in einem gemeinsamen Servicehost Services. Daraus ergibt sich eine
+Verwaltung der angemeldeten Benutzer und deren Sessions sowie das
+Aufrufen der passenden Callbacks bei Serviceoperationen. Dank des
+Bindings (siehe \noun{{[}Referenz{]}}) kann die Serverapplikation
+Delegates\nomenclature{Delegate}{Ein Delegate (dt. Delegat) ist ein Methodenzeiger und wird verwendet um auf eine Methode einer Klasse oder eines Objekts zu verweisen. }
+der Callbackoperationen aller registrierten Clientapplikationen verwalten
+und dadurch z.B. beim Eintreffen einer neuen Nachricht die Callbackoperation
+\emph{NotifyNewMessage} (siehe \emph{IServiceCallback} \vref{tab:Methoden-von-IServiceCallback})
+der registrierten Clients aufrufen.
+
+
+\paragraph*{Klassendiagramm}
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.65]{ExportedDiagrams/Class-Server}
+\par\end{centering}
+
+\caption{Klassendiagramm Server}
+\end{figure}
+
+
+
+\subsection{Client}
+
+Für die Clientapplikationen wird kein Konzept erstellt, da diese über
+eine Service Reference\nomenclature{Service Reference}{Über eine Service Reference erstellt das .NET Framework einen Clientproxy basierend auf einem Webservice und stellt die so verfügbaren Methoden in generiertem Quellcode der Applikation zur Verfügung.}%
+\footnote{In der MSDN finden sich unter \url{http://msdn.microsoft.com/en-us/library/bb907578.aspx}
+mehr Informationen zu Service References.%
+} die Services der Serverapplikation (siehe \vref{sub:Server}) anziehen
+und zusätzlich noch das Interface IServiceCallback (siehe \vref{sub:IServiceCallback})
+implementieren müssen. Ansonsten ergibt sich die logische Struktur
+der Clientapplikation aus dem verwendeten GUI-Framework.
+
+
+\section{Laufzeitsicht}
+
+Die Laufzeitsicht beschreibt, welche Bestandteile des Systems zur
+Laufzeit existieren und wie sie zusammenwirken (nach \cite{Starke2011}).
+Dabei kommen wichtige Aspekte dese Systembetriebs ins Spiel, die beispielsweise
+den Systemstart, die Laufzeitkonfiguration oder die Administration
+des Systems betreffen.
+
+Darüber hinaus dokumentiert die Laufzeitsicht, wie Laufzietkomponenten
+sich aus Instanzen von Implementierungsbausteinen zusammensetzen. 
+
+
+\subsection{Gespräch beitreten}
+
+Möchte ein Benutzer einem Gespräch beitreten so gibt er über das ConnectWindow
+(siehe \noun{{[}Referenz{]}}) seinen gewünschten Benutzernamen ein.
+Der Loop UserName in use stellt dar, dass der Benutzer solange einen
+Benutzernamen auswählen muss bis er einen Benutzernamen wählt, der
+noch nicht dem Gespräch beigetreten ist. Ist der Benutzername frei,
+so erstellt wird von der Serverapplikation in der SessionsStorage
+ein neues SessionTicket gelöst, das der Clientapplikation zurückgegeben
+wird. 
+
+
+\paragraph*{Sequenzdiagramm}
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.65]{ExportedDiagrams/Sequence-GespraechBeitreten}
+\par\end{centering}
+
+\caption{Sequenzdiagramm Gespräch beitreten}
+\end{figure}
+
+
+
+\subsection{Gespräch verlassen}
+
+Möchte der Benutzer das Gespräch verlassen so initiiert er über das
+MessagingWindow eine Anfrage an die Serverapplikation zum Verlassen
+des Gesprächs. In der SessionStorage wird dann das SessionTicket des
+Benutzers entfernt und der Clientapplikation wird mitgeteilt, dass
+der Benutzer erfolgreich das Gespräch verlassen hat und keine Nachrichten
+mehr senden oder empfangen kann.
+
+
+\paragraph*{Sequenzdiagramm}
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.65]{ExportedDiagrams/Sequence-GespraechVerlassen}
+\par\end{centering}
+
+\caption{Sequenzdiagramm Gespräch verlassen}
+\end{figure}
+
+
+
+\subsection{Nachricht senden}
+
+Möchte der Benutzer eine Nachricht vesenden so muss er, falls noch
+kein Initalisierungsvektor für den gewählten Kryptoalgorithmus gesetzt
+ist, zuerst einen Initialisierungsvektor setzen. Dasselbe gilt für
+den Schlüssel des gewählten Kryptoalgorithmus, ist er innerhalb des
+gesamten Gesprächs noch nie gesetzt worden, so muss der Schlüssel
+vom Benutzer gewählt werden.
+
+Sind die beiden Bedingungen (Initialisierungsvektor und Schlüssel
+gesetzt) erfüllt, wird die Nachricht an den Webservice weitergegeben
+und falls die gewählten Empfänger ein gültiges SessionTicket bestitzen
+und beim Webservice einen Delegaten als Callback hinterlegt haben
+wird ihnen die Nachricht übermittelt. Der Benutzer erhält anscheinend
+eine Bestätigung des Nachrichtenversandes.
+
+
+\paragraph*{Sequenzdiagramm}
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.65]{ExportedDiagrams/Sequence-NachrichtSenden}
+\par\end{centering}
+
+\caption{Sequenzdiagramm Nachricht senden}
+\end{figure}
+
+
+
+\section{Verteilungssicht}
+
+Nach \cite{Starke2011} beschreibt die Verteilungssicht die Ablaufumgebung
+des Systems in Form von Hardwarekomponenten (wie Prozessoren, Speicher,
+Netzwerk, Router und Firewalls) mit den beteiligten Protokollen. In
+der Infrastruktursicht können die Leistungsdaten und Parameter der
+beteiligten Elemente dargestellt werden. Ausserdem werden zusätzlich
+Betriebssysteme oder externe Systeme aufgenommen.
+
+Die Verteilungssicht ist von grosser Beduetung für die Betreiber des
+Systems, die Hardwarearchitekten, das Entwicklungsteam sowie Management
+und Projektleitung (gemäss \cite{Hruschka2012}).
+
+
+\subsection{Verteilungsdiagramm}
+
+Die Verteilungssicht in dieser Dokumentation beinhaltet nur ein Verteilungsdiagramm
+das sehr rudimentär und ohne grosse Details aufgezeichnet wird. Dies,
+da kein konkretes Verteilungsszenario der Applikation innerhalb des
+Projekts geplant wurde. Das Projekt beeinhaltet die Erarbeitung des
+Konzepts sowie die konkrete Implementierung der Applikation ohne jedoch
+konkrete Hardware bzw. vorzugeben auf welchen die einzelnen Applikationen
+laufen sollen. 
+
+Generell können die einzelnen Clientapplikationen auf jeglicher Hardware
+laufen, benötigen jedoch jeweils das passende Betriebssystem bzw.
+im Fall des Silverlight-Clients einen Browser mit Silverlight Plugin.
+Zwischen den Clientapplikationen und der Serverapplikation in Form
+des Servicehosts wird eine Netzwerkverbindung vorausgesetzt bei welcher
+die passenden Ports (siehe Binding \noun{{[}Referenz{]}}) geöffnet
+und zugänglich sind. Auch ist eine Verteilung über das WWW denkbar.
+
+
+\paragraph*{Verteilungsdiagramm}
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.65]{ExportedDiagrams/Deployment-Verteilungsdiagramm}
+\par\end{centering}
+
+\caption{Verteilungsdiagramm}
+\end{figure}
+
+
+
+\chapter{Implementierung\label{chap:Implementierung}}
+
+\noun{{[}Kapiteleinführung{]}}
+
+
+\section{Implementierungsmethodik}
+
+\noun{{[}Wahl der Implementierungsmethodik TDD erklären, Vorteile
+von TDD, Verweis auf Unittests{]}}
+
+
+\subsection{Testgetriebene Entwicklung}
+
+\noun{{[}Test, Implement, Refactor erklären{]}}
+
+
+\section{Verwendete Schlüsseltechnologien}
+
+
+\subsection{MEF}
+
+\noun{{[}MEF erläutern, Technologien dahinter (Reflection und Annotations),
+Vorteile und Nachteile{]}}
+
+
+\subsection{WCF}
+
+{[}WCF 
+
+
+\subsubsection{Bindings}
+
+\noun{{[}Verschiedene Bindings auflisten und vergleichen, Details
+zu WsHttpDualBinding auflisten, Vorteile und Nachteile{]}}
+
+
+\subsubsection{Callbacks über NetHttpDualBinding}
+
+\noun{{[}Delegates erklären, Mechanismsu von Callbacks über WsHttpDualBinding
+erklären{]}}
+
+
+\subsection{WPF}
+
+\noun{{[}Vorteile von WPF gegenüber WinForms, Evt. ein paar einfache
+Anwendungsbeispiele{]}}
+
+
+\subsubsection{Silverlight}
+
+\noun{{[}Silverlight als Subset von WPF, das im Browser läuft{]}}
+
+
+\section{Kryptosysteme}
+
+
+\section{Probleme}
+
+WsHttpDualBinding und Silverlight
+
+
+\chapter{Test\label{chap:Test}}
+
+\noun{{[}Kapiteleinführung{]}}
+
+
+\section{Integrationstests}
+
+
+\section{Unittests}
+
+
+\chapter{Fazit}
+
+
+\section{Aufwand SOLL/IST Vergleich}
+
+
+\section{Schlussfolgerungen}
+
+
+\chapter{Anhang}
+
+\noun{{[}Kapiteleinführung{]}}
+
+
+\section{Akronyme}
+\begin{description}
+\item [{GUI}] Graphical User Interface
+\item [{HTTP}] Hypertext Transfer Protocol
+\item [{MEF}] Managed Extensibility Framework
+\item [{MSDN}] Microsoft Developer Network
+\item [{UC}] Use Case
+\item [{UI}] User Interface
+\item [{RUP}] Rational Unified Process
+\item [{WCF}] Windows Communication Foundation
+\item [{WPF}] Windows Presentation Foundation
+\item [{WWW}] World Wide Web
+\item [{YAEM}] Yet Another Encrypted Messenger
+\item [{ZHAW}] Zürcher Hochschule für Angewandte Wissenschaften
+\item [{XML}] Extensible Markup Language
+\end{description}
+
+\section{Glossar}
+
+\settowidth{\nomlabelwidth}{Managed Extensibility Framework}
+\printnomenclature{}
+
+
+\section{Bibliographie}
+
+\bibliographystyle{plain}
+\addcontentsline{toc}{chapter}{\bibname}\bibliography{YAEM}
+
 \end{document}

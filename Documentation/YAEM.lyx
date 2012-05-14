@@ -77,8 +77,8 @@ type "mailto:"
 \end_layout
 
 \begin_layout Date
-02.
- April 2012
+14.
+ Mai 2012
 \end_layout
 
 \begin_layout Publishers
@@ -800,7 +800,7 @@ Erarbeiten des Konzepts
 \begin_inset Text
 
 \begin_layout Plain Layout
-01.12.2012
+01.12.2011
 \end_layout
 
 \end_inset
@@ -1496,10 +1496,16 @@ reference "sub:Arten-von-Anforderungen"
 
 ) werden nun als Use-Cases modelliert und spezifiziert
 \begin_inset Foot
-status collapsed
+status open
 
 \begin_layout Plain Layout
-Die verwendete Schablone für die Use-Case-Spezifikationen stammt aus [Pohl2011]
+Die verwendete Schablone für die Use-Case-Spezifikationen stammt aus 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Pohl2011"
+
+\end_inset
+
  und dient zur zweckmässigen Strukturierung von Typen von Informationen,
  die einen Use-Case betreffen.
  Die Abschnitte Autor, Quelle, Verantwortlicher und Qualität werden ausgelassen,
@@ -3404,7 +3410,13 @@ key "Oestereich2006"
 \end_inset
 
 ).
- [KAPITEL ÜBERSICHT HIER].
+ Als Grundlage für das Konzept wird in einem ersten Schritt die Toolchain
+ erfasst, welche die weiteren (technologischen) Rahmenbedingungen für das
+ Konzept vorgibt.
+ Weiter wird zuerst das Konzept von der Bausteinsicht betrachtet, es wird
+ von der Komponentenebene bis zur Klassenebene das System modelliert.
+ Als weitere Sicht wird die Laufzeitsicht und die Verteilungssicht des Systems
+ beleuchtet und spezifiziert.
 \end_layout
 
 \begin_layout Section
@@ -4125,7 +4137,10 @@ description "Das Hypertext Transfer Protocol (kurz HTTP) ist ein Protokoll zur �
 
 \end_inset
 
- Callbacks (der Mechanismus wird detaillierter [HIER UND DA UND SOWIESO]
+ Callbacks (der Mechanismus wird detaillierter 
+\noun on
+[Referenz]
+\noun default
  beschrieben) versendet werden können, müssen alle Clientapplikationen,
  die den Webservice der Serverapplikation verwenden, die Schnittstelle 
 \emph on
@@ -4490,7 +4505,11 @@ ICryptoProvider
  auch noch die drei beispielhaften Implementierungen von symmetrischen Kryptosys
 temen AES, Rijndael und TripleDES dargestellt.
  Jedes dieser Kryptosysteme wird in eine eigene Assembly kompiliert und
- zur Laufzeit der Clientapplikatikonen via MEF (siehe [HIER UND DAD]) geladen.
+ zur Laufzeit der Clientapplikatikonen via MEF (siehe 
+\noun on
+[Referenz]
+\noun default
+) geladen.
 \end_layout
 
 \begin_layout Paragraph*
@@ -4562,7 +4581,11 @@ reference "sub:IUserService"
 ) in einem gemeinsamen Servicehost Services.
  Daraus ergibt sich eine Verwaltung der angemeldeten Benutzer und deren
  Sessions sowie das Aufrufen der passenden Callbacks bei Serviceoperationen.
- Dank des Bindings (siehe [DATATAT]) kann die Serverapplikation Delegates
+ Dank des Bindings (siehe 
+\noun on
+[Referenz]
+\noun default
+) kann die Serverapplikation Delegates
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "Delegate"
@@ -4714,7 +4737,11 @@ Gespräch beitreten
 
 \begin_layout Standard
 Möchte ein Benutzer einem Gespräch beitreten so gibt er über das ConnectWindow
- (siehe []) seinen gewünschten Benutzernamen ein.
+ (siehe 
+\noun on
+[Referenz]
+\noun default
+) seinen gewünschten Benutzernamen ein.
  Der Loop UserName in use stellt dar, dass der Benutzer solange einen Benutzerna
 men auswählen muss bis er einen Benutzernamen wählt, der noch nicht dem
  Gespräch beigetreten ist.
@@ -4930,8 +4957,11 @@ Generell können die einzelnen Clientapplikationen auf jeglicher Hardware
  im Fall des Silverlight-Clients einen Browser mit Silverlight Plugin.
  Zwischen den Clientapplikationen und der Serverapplikation in Form des
  Servicehosts wird eine Netzwerkverbindung vorausgesetzt bei welcher die
- passenden Ports (siehe Binding [kasjdglsdajg]) geöffnet und zugänglich
- sind.
+ passenden Ports (siehe Binding 
+\noun on
+[Referenz]
+\noun default
+) geöffnet und zugänglich sind.
  Auch ist eine Verteilung über das WWW denkbar.
 \end_layout
 
@@ -4985,32 +5015,140 @@ name "chap:Implementierung"
 
 \end_layout
 
+\begin_layout Standard
+
+\noun on
+[Kapiteleinführung]
+\end_layout
+
+\begin_layout Section
+Implementierungsmethodik
+\end_layout
+
+\begin_layout Standard
+
+\noun on
+[Wahl der Implementierungsmethodik TDD erklären, Vorteile von TDD, Verweis
+ auf Unittests]
+\end_layout
+
+\begin_layout Subsection
+Testgetriebene Entwicklung
+\end_layout
+
+\begin_layout Standard
+
+\noun on
+[Test, Implement, Refactor erklären]
+\end_layout
+
 \begin_layout Section
 Verwendete Technologien
 \end_layout
 
 \begin_layout Standard
+
+\noun on
+[Dieses Kapitel gibt einen Überblick über verschiedene Technologien und
+ Techniken, soll zur Erklärung von Besonderheiten der Architektur dienen]
+\end_layout
+
+\begin_layout Subsection
 MEF
 \end_layout
 
 \begin_layout Standard
+
+\noun on
+[MEF erläutern, Technologien dahinter (Reflection und Annotations), Vorteile
+ und Nachteile]
+\end_layout
+
+\begin_layout Subsection
+WCF
+\end_layout
+
+\begin_layout Standard
+
+\noun on
+[WCF erklären, wofür braucht man WCF']
+\end_layout
+
+\begin_layout Subsubsection
 Bindings
 \end_layout
 
 \begin_layout Standard
-Callback über Duplexchannel
+
+\noun on
+[Verschiedene Bindings auflisten und vergleichen, Details zu WsHttpDualBinding
+ auflisten, Vorteile und Nachteile]
+\end_layout
+
+\begin_layout Subsubsection
+Callbacks über NetHttpDualBinding
+\end_layout
+
+\begin_layout Standard
+
+\noun on
+[Delegates erklären, Mechanismsu von Callbacks über WsHttpDualBinding erklären]
+\end_layout
+
+\begin_layout Subsection
+WPF
+\end_layout
+
+\begin_layout Standard
+
+\noun on
+[Vorteile von WPF gegenüber WinForms, Evt.
+ ein paar einfache Anwendungsbeispiele]
+\end_layout
+
+\begin_layout Subsubsection
+Silverlight
+\end_layout
+
+\begin_layout Standard
+
+\noun on
+[Silverlight als Subset von WPF, das im Browser läuft]
+\end_layout
+
+\begin_layout Subsection
+NuGet
+\end_layout
+
+\begin_layout Standard
+
+\noun on
+[NuGet als Package Manager erklären.
+ Wieso Package Manager? Vorteile/Nachteile]
 \end_layout
 
 \begin_layout Section
 Kryptosysteme
 \end_layout
 
+\begin_layout Standard
+
+\noun on
+[AES, TripleDES und Rijndael erklären, symmetrische/asymmetrische Kryptosysteme
+ erklären, erklären wieso im Moment nur symmetrische Kryptosysteme unterstützt
+ werden, erklären, wie man asymmetrische Kryptosysteme unterstützen würde
+ (welche Änderungen an ICryptoProvider wären nötig)]
+\end_layout
+
 \begin_layout Section
-Probleme
+Aufgetretene Probleme
 \end_layout
 
 \begin_layout Standard
-WsHttpDualBinding und Silverlight
+
+\noun on
+[WsHttpDualBinding und Silverlight funktioniert nicht -> kein Silverlight
+ Client implementiert]
 \end_layout
 
 \begin_layout Chapter
@@ -5025,32 +5163,77 @@ name "chap:Test"
 \end_layout
 
 \begin_layout Standard
-Die Testphase beschäftigt sich mit der Überprüfung und Verifikation von
- 
-\end_layout
 
-\begin_layout Section
-Integrationstests
+\noun on
+[Kapiteleinführung]
 \end_layout
 
 \begin_layout Section
 Unittests
 \end_layout
 
+\begin_layout Standard
+
+\noun on
+[Was sind automatisierte Unittests? Vorteile aufzeigen.
+ Verbindung mit TDD aufzeigen]
+\end_layout
+
+\begin_layout Section
+Akzeptanztests
+\end_layout
+
+\begin_layout Standard
+
+\noun on
+[Was sind Akzeptanztests? Ausformulieren aufgrund der Anforderungen, Übersetzung
+ in Code]
+\end_layout
+
 \begin_layout Chapter
 Fazit
+\end_layout
+
+\begin_layout Standard
+
+\noun on
+[Auführliches Fazit erstellen, Probleme bei der Implemntierung aufzeigen,
+ Zukunft von YAEM?]
 \end_layout
 
 \begin_layout Section
 Aufwand SOLL/IST Vergleich
 \end_layout
 
+\begin_layout Standard
+
+\noun on
+[Tabelle SOLL/IST Aufwand pro Phase, aufzeigen wo viel mehr Zeit als geplant
+ verwendet wurde]
+\end_layout
+
+\begin_layout Section
+Schlussfolgerungen
+\end_layout
+
+\begin_layout Standard
+
+\noun on
+[Zu viel Zeit für Silverlight/HttpDualBinding verwendet, generell viel mehr
+ als 120h aufgewendet, Herzblut in Seminararbeit gesteckt]
+\end_layout
+
 \begin_layout Chapter
+\start_of_appendix
 Anhang
 \end_layout
 
 \begin_layout Section
 Akronyme
+\end_layout
+
+\begin_layout Description
+GUI Graphical User Interface
 \end_layout
 
 \begin_layout Description
@@ -5075,6 +5258,10 @@ UI User Interface
 
 \begin_layout Description
 RUP Rational Unified Process
+\end_layout
+
+\begin_layout Description
+WCF Windows Communication Foundation
 \end_layout
 
 \begin_layout Description
@@ -5112,14 +5299,14 @@ set_width "auto"
 \end_layout
 
 \begin_layout Section
-Bibliographie
+Literaturverzeichnis
 \end_layout
 
 \begin_layout Standard
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
 bibfiles "YAEM"
-options "bibtotoc,plain"
+options "plain"
 
 \end_inset
 
