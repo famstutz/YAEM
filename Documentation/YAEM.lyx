@@ -2646,7 +2646,7 @@ Hauptszenario
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "Kryptoalgorithmus"
-description "Ein Kryptoalgorithmus ist im Kontext von YAEM die konkrete Implementierung des Interfaces YAEM.Crypto.ICryptoProvider und bietet die Möglichkeit beliebige Nachrichten zu verschlüsseln beziehungsweise zu entschlüsseln."
+description "Ein Kryptoalgorithmus ist im Kontext von YAEM die konkrete Implementierung des Interfaces ICryptoProvider und bietet die Möglichkeit beliebige Nachrichten zu verschlüsseln beziehungsweise zu entschlüsseln."
 
 \end_inset
 
@@ -5037,9 +5037,140 @@ Testgetriebene Entwicklung
 \end_layout
 
 \begin_layout Standard
+Test Driven Development (kurz TDD, deutsch Testgetriebene Entwicklung) ist
+ eine evolutionäre Entwicklungsmethode, die häufig zusammen mit agilen Methoden
+ Anwendung findet.
+ Dabei werden Tests entsprechend den Anforderungen an eine Funktion erstellt
+ und erst im Nachhinein der funktionale Code implementiert (gemäss 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Bullinger2010"
 
-\noun on
-[Test, Implement, Refactor erklären]
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+Die Tests werden meist innerhalb eines Unit-Test-Frameworks (siehe 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sec:Unit-Tests"
+
+\end_inset
+
+) implementiert und laufen gelassen.
+ Zu Beginn werden die Tests fehlschlagen, da noch gar kein Code implementiert
+ worden ist.
+ Ziel des Entwicklers ist es, den Code so lange zu verbessern, bis alle
+ zugehörigen Tests bestanden werden.
+\end_layout
+
+\begin_layout Standard
+Kommen neue Anforderungen oder Funktionen hinzu, werden zuerst neue Tests
+ implementiert und danach der Code erweitert.
+ Danach werden alle Test erneut durchgeführt, solange bis wieder alle Tests
+ bestanden werden.
+ 
+\end_layout
+
+\begin_layout Standard
+Zusammengefasst folgt man drei einfachen Schritten bei der Anwendung von
+ TDD (frei nach 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Fowler2012"
+
+\end_inset
+
+, siehe auch 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "fig:Schritte-in-TDD"
+
+\end_inset
+
+):
+\end_layout
+
+\begin_layout Enumerate
+Einen Test schreiben für das nächste Stück von Funktionalität, das der Applikati
+on hinzugefügt werden soll
+\end_layout
+
+\begin_layout Enumerate
+Funktionalen Code schreiben bis der Test erfüllt wird
+\end_layout
+
+\begin_layout Enumerate
+Neuen und alten Code umgestalten um ihn besser zu strukturieren
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Graphics/tddSteps.jpg
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Schritte in TDD (aus 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ambler2011"
+
+\end_inset
+
+)
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Schritte-in-TDD"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Durch die Anwendung von TDD wird der bestehende und neue Code fortlaufend
+ optimiert und ist leicht zu ändern.
+ Die enthaltenen Funktionen werden durch die Tests zugleich dokumentiert
+ und Fehler werden früher entdeckt und sind durch Mini-Iterationen leichter
+ lokalisierbar.
+ Besonders in grossen Teams entsteht ein Qualitätsbewusstsein über das ganze
+ Projekt hinweg, nicht nur bei einer kleinen Expertengruppe.
+\end_layout
+
+\begin_layout Standard
+Nachteilig ist anzumerken, dass konsequent sämtlicher Code testdriven erstellt
+ werden muss.
+ Für Entwickler, die noch nie mit TDD in Berührung gekommen sind, ist es
+ schwierig sich vorzustellen, wie etwas getestet werden soll, das noch nicht
+ existiert.
+ Generell funktioniert TDD auch nur, wenn alle Entwickler ein fundiertes
+ Wissen über Testmethodiken besitzen.
+ Man muss sich auch bewusst sein, dass TDD keine weiteren Tests wie Integrations
+- oder Akzeptanztests ersetzt.
 \end_layout
 
 \begin_layout Section
@@ -5169,14 +5300,22 @@ name "chap:Test"
 \end_layout
 
 \begin_layout Section
-Unittests
+Unit-Tests
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Unit-Tests"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 
 \noun on
 [Was sind automatisierte Unittests? Vorteile aufzeigen.
- Verbindung mit TDD aufzeigen]
+ Verbindung mit TDD aufzeigen.
+ MSTEST einführen]
 \end_layout
 
 \begin_layout Section
@@ -5228,64 +5367,83 @@ Schlussfolgerungen
 Anhang
 \end_layout
 
-\begin_layout Section
+\begin_layout Section*
 Akronyme
 \end_layout
 
-\begin_layout Description
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
 GUI Graphical User Interface
 \end_layout
 
-\begin_layout Description
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
 HTTP Hypertext Transfer Protocol
 \end_layout
 
-\begin_layout Description
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
 MEF Managed Extensibility Framework
 \end_layout
 
-\begin_layout Description
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
 MSDN Microsoft Developer Network
 \end_layout
 
-\begin_layout Description
-UC Use Case
-\end_layout
-
-\begin_layout Description
-UI User Interface
-\end_layout
-
-\begin_layout Description
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
 RUP Rational Unified Process
 \end_layout
 
-\begin_layout Description
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+SL Silverlight
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+TDD Test Driven Development
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+UC Use Case
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+UI User Interface
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
 WCF Windows Communication Foundation
 \end_layout
 
-\begin_layout Description
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
 WPF Windows Presentation Foundation
 \end_layout
 
-\begin_layout Description
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
 WWW World Wide Web
 \end_layout
 
-\begin_layout Description
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
 YAEM Yet Another Encrypted Messenger
 \end_layout
 
-\begin_layout Description
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
 ZHAW Zürcher Hochschule für Angewandte Wissenschaften
 \end_layout
 
-\begin_layout Description
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
 XML Extensible Markup Language
-\end_layout
-
-\begin_layout Section
-Glossar
 \end_layout
 
 \begin_layout Standard
@@ -5298,15 +5456,11 @@ set_width "auto"
 
 \end_layout
 
-\begin_layout Section
-Literaturverzeichnis
-\end_layout
-
 \begin_layout Standard
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
 bibfiles "YAEM"
-options "plain"
+options "plainnat"
 
 \end_inset
 
