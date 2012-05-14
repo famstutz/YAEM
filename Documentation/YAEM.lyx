@@ -104,6 +104,9 @@ Als einführendes Kapitel dieses Dokuments wird die Semesterarbeit als Projekt
  zusammengefasst niedergeschrieben.
  Weiter werden verschiedene Softwareentwicklungsprozesse vorgestellt sowie
  die für diese Semesterarbeit verwendete Methode erklärt.
+ Am Ende dieses Kapitels wird unter Benutzung der vorgestellten Softwareentwickl
+ungsmethode eine Projektplanung erstellt und die wichtigsten Meilensteine
+ definiert.
 \end_layout
 
 \begin_layout Section
@@ -156,15 +159,6 @@ key "Stern2010"
 Der Aufwand für die Fertigstellung der Semestarbeit beträgt mindestens 120
  Stunden und schliesst mit einer Präsentation vor dem Betreuer und einer
  Vertretung der Leitung des Studengangs Informatik ab.
-\end_layout
-
-\begin_layout Section
-Projektplanung
-\end_layout
-
-\begin_layout Standard
-EIFNGUGEN.
- UND AUCH IN EINFèHRUNG.
 \end_layout
 
 \begin_layout Section
@@ -348,11 +342,11 @@ status open
 \begin_inset Tabular
 <lyxtabular version="3" rows="5" columns="3">
 <features tabularvalignment="middle">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
+<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top" width="0">
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -361,7 +355,7 @@ Phase
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -370,7 +364,7 @@ Kapitelüberschrift
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -381,7 +375,7 @@ Seite
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -390,7 +384,7 @@ Requirements
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -405,7 +399,7 @@ reference "chap:Anforderungen"
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -422,7 +416,7 @@ reference "chap:Anforderungen"
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -431,7 +425,7 @@ Design
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -446,7 +440,7 @@ reference "chap:Konzept"
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -463,7 +457,7 @@ reference "chap:Konzept"
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -472,7 +466,7 @@ Implementation
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -487,7 +481,7 @@ reference "chap:Implementierung"
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -504,7 +498,7 @@ reference "chap:Implementierung"
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -513,7 +507,7 @@ Verification
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -528,7 +522,7 @@ reference "chap:Test"
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -563,6 +557,660 @@ name "tab:Zuweisungstablle-der-Phasen"
 \end_inset
 
 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Projektplanung
+\end_layout
+
+\begin_layout Standard
+Nach Reglement der ZHAW (siehe 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Stern2010"
+
+\end_inset
+
+) muss die Semesterarbeit sechs Monate nach Freigabe beendet sein.
+ Um die Planbarkeit der Semesterarbeit zu erhöhen wurde das Projekt vorgängig
+ in einzelne Phasen unterteilt, welche auf die bekannten Meilensteine enden.
+\end_layout
+
+\begin_layout Standard
+Die Projektplanung dient dazu möglichst frühzeitig im Verlauf der Seminararbeit
+ schon Teile der Dokumentation fertiggestellt zu haben, so dass nicht in
+ den letzten zwei Wochen vor der Abgabe der Arbeit übermässig viel Zeit
+ und Aufwand in die Arbeit investiert werden muss.
+ Ausserdem sinkt das Risiko, das nicht alle erwarteten Resultate der Arbeit
+ geliefert werden können, da die Lieferergebnisse bei Phasenende schon in
+ genügend hoher Qualität vorliegen, dass diese abgegeben werden können.
+\end_layout
+
+\begin_layout Subsection
+Phasenplanung
+\end_layout
+
+\begin_layout Standard
+Nach dem Wasserfallmodell wird das Projekt in einzelne Phasen eingeteilt,
+ die zu einem bestimmten Zeitpunkt mit vordefinierten Endergebnissenen enden.
+ Bei Erreichen des Endzeitpunkts und bei Lieferung aller Endergebnisse geht
+ das Projekt in die nächste Phase über.
+ Die Phasen in diesem Projekt wurden häufig so modelliert, dass ihr Endzeitpunkt
+ mit dem Erreichen eines Meilensteins zusammenliegt.
+ Das heisst, das bei Erreichen des Meilensteins die vorhergehende Phase
+ zwingend abgeschlossen sein werden muss.
+\end_layout
+
+\begin_layout Standard
+Vor dem eigentlichen Projektstart werden geeigeneten Themen für die Semesterarbe
+it evaluiert, ein Betreuer gesucht sowie ein Projektantrag in EBS erfasst.
+ Diese Phase endet im Kick-Off-Meeting zwischen Betreuer und Student und
+ der formalen Freigabe der Semesterarbeit durch die Studiengangsleitung.
+ Das Erheben und Dokumentieren der Anforderungen ist die erste Phase der
+ eigentlichen Projektumsetzung und mündet in der Konzepterarbeitung auf
+ Basis der Anforderungen.
+ Ist das Konzept vollständig abgeschlossen findet das Design-Review statt,
+ bei welchem der Betreuer das Konzept begutachtet und allfällige Anpassungen
+ am Konzept vorschlägt.
+ Nach Fertigstellung des Konzepts folgt die Implementierungsphase und Testphase,
+ nach denen die Arbeit abgegeben werden muss.
+ Als letzte Phase folgt das Erarbeiten der Präsentation, die bei Phasenende
+ vorgetragen wird.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="5">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Phase
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Von
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Bis
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ergebnis
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Endet in Meilenstein
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Themenevaluierung
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15.10.2011
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+04.11.2011
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Antrag in EBS
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+M1, M2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Erfassen der Anforderungen
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+04.11.2011
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+01.12.2011
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Dokumentierte Anforderungen
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Erarbeiten des Konzepts
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+01.12.2012
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+13.04.2012
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Umfassendes Konzept
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+M3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Implementierungs des Konzepts
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+13.04.2012
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+01.05.2012
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Implementierung
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Überprüfen und Test des Konzepts
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+01.05.2012
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+23.05.2012
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Erfüllte Integrationstests
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+M4
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Erarbeiten der Präsentation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+23.05.2012
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+06.06.2012
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Fertiggestellte Präsentation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+M5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Phasenplan
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Meilensteine
+\end_layout
+
+\begin_layout Standard
+Ein Meilenstein ist ein Ereignis von besonderer Bedeutung und stellt ein
+ (Zwischen-) Ziel innerhalb eines Projekts dar.
+ Meilensteine werden typischerweise von Personen oder Organisationen ausserhalb
+ des Projekts vorgegeben und passen mit den im vorhergehenden Kapitel definierte
+n Phasen überein.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="3">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Kürzel
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Meilenstein
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Datum
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+M1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Kick-Off 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+04.11.2011
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+M2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Freigabe der Arbeit
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+06.11.2012
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+M3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Design Review
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+13.04.2012
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+M4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Abgabe der Arbeit
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+23.05.2012
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+M5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Präsentation der Semesterarbeit
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+06.06.2012
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Meilensteine
 \end_layout
 
 \end_inset
@@ -687,22 +1335,6 @@ Funktionale Anforderungen legen die Funktionalität fest, die das geplante
  unterteilt.
 \end_layout
 
-\begin_layout Description
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-Funktionale Anforderung
-\end_layout
-
-\end_inset
-
- Eine funktionale Anforderung ist eine Anforderung bezüglich des Ergebnisses
- eines Verhaltens, das von einer Funktion des Systems bereitgestellt werden
- soll.
-\end_layout
-
 \begin_layout Itemize
 Qualitätsanforderungen legen gewünschte Qualitäten des zu entwickelnden
  Systems fest und beeinflussen häufig, in grösserem Umfang als die funktionalen
@@ -719,12 +1351,6 @@ nicht funktionaler Anforderungen
 \end_inset
 
  zugeordnet.
-\end_layout
-
-\begin_layout Description
-Qualitätsanforderung Eine Qualitätsanforderung ist eine Anforderung, die
- sich auf ein Qualitätsmerkmal bezieht, das nicht durch funktionale Anforderunge
-n abgedeckt ist.
 \end_layout
 
 \begin_layout Itemize
@@ -756,12 +1382,6 @@ hkeiten, d.h.
  den Lösungsraum im Entwicklungsprozess ein.
 \end_layout
 
-\begin_layout Description
-Randbedingung Eine Randbedingung ist eine Anforderung, die den Lösungsraum
- jenseits dessen einschränkt, was notwendig ist, um die funktionalen Anforderung
-en und die Qualitätsanforderungen zu erfüllen.
-\end_layout
-
 \begin_layout Section
 Systemkontext
 \end_layout
@@ -779,19 +1399,6 @@ en zu können, ist es notwendig, die Beziehung zwischen den einzelnen materielle
  zu dfinieren.
  Der für die Anforderungen des Systems relevante Ausschnitt der Realität
  wird als Systemkontext bezeichnet.
-\end_layout
-
-\begin_layout Description
-Systemkontext Der Systemkontext ist der Teil der Umgebung eines Systems,
- der für die Definition und das Verständnis der Anfoderungen des betrachteten
- Systems relevant ist (nach 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Pohl2011"
-
-\end_inset
-
-).
 \end_layout
 
 \begin_layout Standard
@@ -2801,7 +3408,138 @@ key "Oestereich2006"
 \end_layout
 
 \begin_layout Section
+Toolchain
+\end_layout
+
+\begin_layout Standard
+Der erste Schritt der Konzepterstellung ist das Erarbeiten und Evaluieren
+ der Toolchain.
+ Die Toolchain bestimmt mit welchen Frameworks und Entwicklungswerkzeugen
+ der Entwickler später arbeiten wird und gibt einen groben technischen Rahmen
+ vor, der bei der Konzepterstellung berücksichtigt werden muss.
+\end_layout
+
+\begin_layout Standard
+Basis der verwendeten Tools und Frameworks wird Microsofts .NET Framework
+ in der Version 4.0 sein.
+ Dies primär aufgrund der Möglichkeiten von WCF
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Eine umfangreiche Einführung in WCF ist in der MSDN unter 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://msdn.microsoft.com/en-us/library/ee958158.aspx
+\end_layout
+
+\end_inset
+
+ erhältlich.
+\end_layout
+
+\end_inset
+
+ zur Realisierung von Webservices und WPF bzw.
+ Silverlight für Applikationen mit Oberflächen für die Windows Plattform.
+ Als Entwicklungswerkzeug wird Microsoft Visual Studio 2010 eingesetzt und
+ als Package Manager NuGet
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Mehr zum Package Manager NuGet ist unter 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://nuget.codeplex.com/
+\end_layout
+
+\end_inset
+
+ zu finden.
+\end_layout
+
+\end_inset
+
+.
+ Zur Dateiverwaltung der online Hosting-Dienst Github
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Das Github Repository für YAEM ist unter 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+https://github.com/famstutz/YAEM
+\end_layout
+
+\end_inset
+
+ öffentlich verfügbar.
+\end_layout
+
+\end_inset
+
+ verwendet, welcher als Versionsverwaltungssystem Git
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Git"
+description "Git ist eine freie Software zur verteilten Versionsverwaltung von Dateien, die ursprünglich für die Quellcode-Verwaltung des Kernels Linux entwickelt wurde."
+
+\end_inset
+
+ einsetzt.
+\end_layout
+
+\begin_layout Section
 Bausteinsicht
+\end_layout
+
+\begin_layout Standard
+Nach 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Starke2011"
+
+\end_inset
+
+ und 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Hruschka2012"
+
+\end_inset
+
+ lassen sich unter dem Begriff 
+\begin_inset Quotes eld
+\end_inset
+
+Bausteine
+\begin_inset Quotes erd
+\end_inset
+
+ sämtliche Software- oder Implementeirungskomponenten zusammenfassen.
+ Sie stellen letztendliche Abstraktionen von Quellcode dar.
+ Dazu gehören Klassen, Prozeduren, Programme, Pakete, Komponenten (nach
+ der UML-Definition) oder Subsysteme.
+\end_layout
+
+\begin_layout Standard
+Die Bausteinsicht bildet die Aufgaben des System auf Software-Bausteine
+ oder -Komponenten ab.
+ Diese Sicht macht Struktur und Zusammenhänge zwischen den Bausteinen der
+ Architektur explizit.
+ Bausteinsichten zeigen statische Aspekte von Systemen.
+ In dieser Hinsicht entsprechen sie den konventionellen Implementierungsmodellen.
 \end_layout
 
 \begin_layout Subsection
@@ -2987,7 +3725,7 @@ Message
 \emph default
 objekts auf einen Wert des Enumerators 
 \emph on
-CryptAlgorithm
+CryptoAlgorithm
 \emph default
 , der ungleich 
 \emph on
@@ -3403,18 +4141,10 @@ IUserService
 IMessagingService
 \emph default
  werden mit 
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-[ServiceContract(CallbackContract = typeof(IServiceCallback))]
-\end_layout
-
-\end_inset
-
- annotiert
+\emph on
+[ServiceContract(CallbackContract = typeof(IServiceCallback))] 
+\emph default
+annotiert
 \begin_inset Foot
 status open
 
@@ -3698,7 +4428,69 @@ name "sub:Kryptoalgorithmen"
 \end_layout
 
 \begin_layout Standard
+Ein Ziel dieses Projekts war es, einzelne Kryptoalgorithmen als eigenständige
+ Assemblies
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Assembly"
+description "Übersetzter Quellcode als ausführbares Programm wird in .NET in sogeannten Assemblies zusammengefasst, ähnlich den Jar-Dateien in Java. Die Dateiendungen dieser Assemblies sind .exe oder .dll, zusätzlich zum ausführbaren Programmcode enhalten sie auch alle iM Manifest notwendigen Metadaten."
 
+\end_inset
+
+ zu implementieren und zur Laufzeit den Clientapplikationen anzuhängen.
+ Aus diesem Grund müssen alle Kryptoalgorithmen gegen die Schnittstelle
+ 
+\emph on
+ICryptoProvider 
+\emph default
+implementiert werden.
+ 
+\emph on
+ICryptoProvider
+\emph default
+ liefert die grundlegenden Funktionalitäten zur Implementierung von symmetrische
+n Kryptosystemen, bei welchen beide Teilnehmer den gleichen Schlüssel verwenden.
+ Alle Nutzdaten (verschlüsselt oder unverschlüsselt) werden als Bytearrays
+ (
+\emph on
+byte[]
+\emph default
+) übergeben, so dass sie einfach und ohne Zusatzaufwand über einen Webservice
+ übergeben werden können.
+ Jedes symmetrische Kryptosystem enthält einen Initalisierungsvektor, der
+ einen Block von Zufallsdaten bezeichnet, sowie einen Schlüssel, der nur
+ dem Sender und Empfänger bekannt ist.
+ Aus diesem Grund enthält 
+\emph on
+ICryptoProvider
+\emph default
+ auch keine Methode 
+\emph on
+GetKey()
+\emph default
+, da der Schlüssel nicht öffentlich bekannt sein darf.
+\end_layout
+
+\begin_layout Standard
+Die Methoden 
+\emph on
+Encrypt(string)
+\emph default
+ bzw.
+ 
+\emph on
+Decrypt(byte[])
+\emph default
+ verschlüsselt bzw.
+ entschlüsseln übergebene Nutzdaten.
+ Im nachfolgenden Klassendiagramm werden zusätzlich zur Schnittstelle 
+\emph on
+ICryptoProvider
+\emph default
+ auch noch die drei beispielhaften Implementierungen von symmetrischen Kryptosys
+temen AES, Rijndael und TripleDES dargestellt.
+ Jedes dieser Kryptosysteme wird in eine eigene Assembly kompiliert und
+ zur Laufzeit der Clientapplikatikonen via MEF (siehe [HIER UND DAD]) geladen.
 \end_layout
 
 \begin_layout Paragraph*
@@ -3742,19 +4534,178 @@ Klassendiagramm Kryptoalgorithmen
 
 \begin_layout Subsection
 Server
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename ExportedDiagrams/Class-Server.png
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Server"
 
 \end_inset
 
 
 \end_layout
 
+\begin_layout Standard
+Die Serverapplikation hosted die beiden Webservices IMessagingService (siehe
+ 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:IMessagingService"
+
+\end_inset
+
+) und IUserService (siehe 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:IUserService"
+
+\end_inset
+
+) in einem gemeinsamen Servicehost Services.
+ Daraus ergibt sich eine Verwaltung der angemeldeten Benutzer und deren
+ Sessions sowie das Aufrufen der passenden Callbacks bei Serviceoperationen.
+ Dank des Bindings (siehe [DATATAT]) kann die Serverapplikation Delegates
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Delegate"
+description "Ein Delegate (dt. Delegat) ist ein Methodenzeiger und wird verwendet um auf eine Methode einer Klasse oder eines Objekts zu verweisen. "
+
+\end_inset
+
+ der Callbackoperationen aller registrierten Clientapplikationen verwalten
+ und dadurch z.B.
+ beim Eintreffen einer neuen Nachricht die Callbackoperation 
+\emph on
+NotifyNewMessage
+\emph default
+ (siehe 
+\emph on
+IServiceCallback
+\emph default
+ 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "tab:Methoden-von-IServiceCallback"
+
+\end_inset
+
+) der registrierten Clients aufrufen.
+\end_layout
+
+\begin_layout Paragraph*
+Klassendiagramm
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ExportedDiagrams/Class-Server.png
+	scale 65
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Klassendiagramm Server
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Client
+\end_layout
+
+\begin_layout Standard
+Für die Clientapplikationen wird kein Konzept erstellt, da diese über eine
+ Service Reference
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Service Reference"
+description "Über eine Service Reference erstellt das .NET Framework einen Clientproxy basierend auf einem Webservice und stellt die so verfügbaren Methoden in generiertem Quellcode der Applikation zur Verfügung."
+
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+In der MSDN finden sich unter 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://msdn.microsoft.com/en-us/library/bb907578.aspx
+\end_layout
+
+\end_inset
+
+ mehr Informationen zu Service References.
+\end_layout
+
+\end_inset
+
+ die Services der Serverapplikation (siehe 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:Server"
+
+\end_inset
+
+) anziehen und zusätzlich noch das Interface IServiceCallback (siehe 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:IServiceCallback"
+
+\end_inset
+
+) implementieren müssen.
+ Ansonsten ergibt sich die logische Struktur der Clientapplikation aus dem
+ verwendeten GUI-Framework.
+\end_layout
+
 \begin_layout Section
 Laufzeitsicht
+\end_layout
+
+\begin_layout Standard
+Die Laufzeitsicht beschreibt, welche Bestandteile des Systems zur Laufzeit
+ existieren und wie sie zusammenwirken (nach 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Starke2011"
+
+\end_inset
+
+).
+ Dabei kommen wichtige Aspekte dese Systembetriebs ins Spiel, die beispielsweise
+ den Systemstart, die Laufzeitkonfiguration oder die Administration des
+ Systems betreffen.
+\end_layout
+
+\begin_layout Standard
+Darüber hinaus dokumentiert die Laufzeitsicht, wie Laufzietkomponenten sich
+ aus Instanzen von Implementierungsbausteinen zusammensetzen.
+ 
 \end_layout
 
 \begin_layout Subsection
@@ -3762,8 +4713,50 @@ Gespräch beitreten
 \end_layout
 
 \begin_layout Standard
+Möchte ein Benutzer einem Gespräch beitreten so gibt er über das ConnectWindow
+ (siehe []) seinen gewünschten Benutzernamen ein.
+ Der Loop UserName in use stellt dar, dass der Benutzer solange einen Benutzerna
+men auswählen muss bis er einen Benutzernamen wählt, der noch nicht dem
+ Gespräch beigetreten ist.
+ Ist der Benutzername frei, so erstellt wird von der Serverapplikation in
+ der SessionsStorage ein neues SessionTicket gelöst, das der Clientapplikation
+ zurückgegeben wird.
+ 
+\end_layout
+
+\begin_layout Paragraph*
+Sequenzdiagramm
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename ExportedDiagrams/Sequence-GespraechBeitreten.png
+	scale 65
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Sequenzdiagramm Gespräch beitreten
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -3775,8 +4768,47 @@ Gespräch verlassen
 \end_layout
 
 \begin_layout Standard
+Möchte der Benutzer das Gespräch verlassen so initiiert er über das MessagingWin
+dow eine Anfrage an die Serverapplikation zum Verlassen des Gesprächs.
+ In der SessionStorage wird dann das SessionTicket des Benutzers entfernt
+ und der Clientapplikation wird mitgeteilt, dass der Benutzer erfolgreich
+ das Gespräch verlassen hat und keine Nachrichten mehr senden oder empfangen
+ kann.
+\end_layout
+
+\begin_layout Paragraph*
+Sequenzdiagramm
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename ExportedDiagrams/Sequence-GespraechVerlassen.png
+	scale 65
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Sequenzdiagramm Gespräch verlassen
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -3788,8 +4820,56 @@ Nachricht senden
 \end_layout
 
 \begin_layout Standard
+Möchte der Benutzer eine Nachricht vesenden so muss er, falls noch kein
+ Initalisierungsvektor für den gewählten Kryptoalgorithmus gesetzt ist,
+ zuerst einen Initialisierungsvektor setzen.
+ Dasselbe gilt für den Schlüssel des gewählten Kryptoalgorithmus, ist er
+ innerhalb des gesamten Gesprächs noch nie gesetzt worden, so muss der Schlüssel
+ vom Benutzer gewählt werden.
+\end_layout
+
+\begin_layout Standard
+Sind die beiden Bedingungen (Initialisierungsvektor und Schlüssel gesetzt)
+ erfüllt, wird die Nachricht an den Webservice weitergegeben und falls die
+ gewählten Empfänger ein gültiges SessionTicket bestitzen und beim Webservice
+ einen Delegaten als Callback hinterlegt haben wird ihnen die Nachricht
+ übermittelt.
+ Der Benutzer erhält anscheinend eine Bestätigung des Nachrichtenversandes.
+\end_layout
+
+\begin_layout Paragraph*
+Sequenzdiagramm
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename ExportedDiagrams/Sequence-NachrichtSenden.png
+	scale 65
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Sequenzdiagramm Nachricht senden
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -3801,8 +4881,93 @@ Verteilungssicht
 \end_layout
 
 \begin_layout Standard
+Nach 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Starke2011"
+
+\end_inset
+
+ beschreibt die Verteilungssicht die Ablaufumgebung des Systems in Form
+ von Hardwarekomponenten (wie Prozessoren, Speicher, Netzwerk, Router und
+ Firewalls) mit den beteiligten Protokollen.
+ In der Infrastruktursicht können die Leistungsdaten und Parameter der beteiligt
+en Elemente dargestellt werden.
+ Ausserdem werden zusätzlich Betriebssysteme oder externe Systeme aufgenommen.
+\end_layout
+
+\begin_layout Standard
+Die Verteilungssicht ist von grosser Beduetung für die Betreiber des Systems,
+ die Hardwarearchitekten, das Entwicklungsteam sowie Management und Projektleitu
+ng (gemäss 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Hruschka2012"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Subsection
+Verteilungsdiagramm
+\end_layout
+
+\begin_layout Standard
+Die Verteilungssicht in dieser Dokumentation beinhaltet nur ein Verteilungsdiagr
+amm das sehr rudimentär und ohne grosse Details aufgezeichnet wird.
+ Dies, da kein konkretes Verteilungsszenario der Applikation innerhalb des
+ Projekts geplant wurde.
+ Das Projekt beeinhaltet die Erarbeitung des Konzepts sowie die konkrete
+ Implementierung der Applikation ohne jedoch konkrete Hardware bzw.
+ vorzugeben auf welchen die einzelnen Applikationen laufen sollen.
+ 
+\end_layout
+
+\begin_layout Standard
+Generell können die einzelnen Clientapplikationen auf jeglicher Hardware
+ laufen, benötigen jedoch jeweils das passende Betriebssystem bzw.
+ im Fall des Silverlight-Clients einen Browser mit Silverlight Plugin.
+ Zwischen den Clientapplikationen und der Serverapplikation in Form des
+ Servicehosts wird eine Netzwerkverbindung vorausgesetzt bei welcher die
+ passenden Ports (siehe Binding [kasjdglsdajg]) geöffnet und zugänglich
+ sind.
+ Auch ist eine Verteilung über das WWW denkbar.
+\end_layout
+
+\begin_layout Paragraph*
+Verteilungsdiagramm
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename ExportedDiagrams/Deployment-Verteilungsdiagramm.png
+	scale 65
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Verteilungsdiagramm
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -3825,11 +4990,27 @@ Verwendete Technologien
 \end_layout
 
 \begin_layout Standard
-Callback über Duplexchannel
+MEF
 \end_layout
 
 \begin_layout Standard
-MEF
+Bindings
+\end_layout
+
+\begin_layout Standard
+Callback über Duplexchannel
+\end_layout
+
+\begin_layout Section
+Kryptosysteme
+\end_layout
+
+\begin_layout Section
+Probleme
+\end_layout
+
+\begin_layout Standard
+WsHttpDualBinding und Silverlight
 \end_layout
 
 \begin_layout Chapter
@@ -3843,8 +5024,25 @@ name "chap:Test"
 
 \end_layout
 
+\begin_layout Standard
+Die Testphase beschäftigt sich mit der Überprüfung und Verifikation von
+ 
+\end_layout
+
 \begin_layout Section
-Test
+Integrationstests
+\end_layout
+
+\begin_layout Section
+Unittests
+\end_layout
+
+\begin_layout Chapter
+Fazit
+\end_layout
+
+\begin_layout Section
+Aufwand SOLL/IST Vergleich
 \end_layout
 
 \begin_layout Chapter
