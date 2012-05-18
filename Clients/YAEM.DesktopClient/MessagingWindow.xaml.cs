@@ -11,6 +11,7 @@ namespace YAEM.DesktopClient
     using System.ComponentModel;
     using System.ComponentModel.Composition;
     using System.ComponentModel.Composition.Hosting;
+    using System.IO;
     using System.Linq;
     using System.ServiceModel;
     using System.Threading;
@@ -24,20 +25,18 @@ namespace YAEM.DesktopClient
     /// <summary>
     /// Interaction logic for MessagingWindow.xaml
     /// </summary>
-    [CallbackBehavior(
-       ConcurrencyMode = ConcurrencyMode.Single,
-       UseSynchronizationContext = false)]
+    [CallbackBehavior(ConcurrencyMode = ConcurrencyMode.Single, UseSynchronizationContext = false)]
     public partial class MessagingWindow : INotifyPropertyChanged, IUserServiceCallback, IMessagingServiceCallback
     {
         /// <summary>
         /// The composition container.
         /// </summary>
-        private readonly CompositionContainer compositionContainer;
+        private CompositionContainer compositionContainer;
 
         /// <summary>
         /// The ui sync context.
         /// </summary>
-        private readonly SynchronizationContext uiSyncContext;
+        private SynchronizationContext uiSyncContext;
 
         /// <summary>
         /// The current session.
@@ -55,6 +54,11 @@ namespace YAEM.DesktopClient
         private MessagingServiceClient messagingProxy;
 
         /// <summary>
+        /// The name.
+        /// </summary>
+        private string name;
+
+        /// <summary>
         /// Initialises a new instance of the <see cref="MessagingWindow"/> class.
         /// </summary>
         /// <param name="name">The name.</param>
@@ -62,35 +66,29 @@ namespace YAEM.DesktopClient
         {
             InitializeComponent();
 
-            var catalog = new AggregateCatalog();
-            catalog.Catalogs.Add(new DirectoryCatalog("..\\..\\Crypto", "*.dll"));
-            var batch = new CompositionBatch();
-            batch.AddPart(this);
-            this.compositionContainer = new CompositionContainer(catalog);
-            ////get all the exports and load them into the appropriate list tagged with the importmany
-            this.compositionContainer.Compose(batch);
-
-            this.CryptoAlgorithmComboBox.ItemsSource =
-                (new List<CryptoAlgorithm> { CryptoAlgorithm.None }).Union(
-                    this.CryptoProviders.Select(c => c.Metadata.Algorithm).Distinct()).ToList();
-
-            this.userProxy = new UserServiceClient(new InstanceContext(this));
-            this.userProxy.Open();
-            this.messagingProxy = new MessagingServiceClient(new InstanceContext(this));
-            this.messagingProxy.Open();
-
-            this.userProxy.Subscribe();
-            foreach (var u in this.userProxy.GetJoinedUsers())
-            {
-                this.AddUser(u);
-            }
-
-            this.uiSyncContext = SynchronizationContext.Current;
-            
-            this.JoinUser(name);
+            this.name = name;
         }
 
         /// <summary>
+        /// Initialises a new instance of the <see cref="MessagingWindow"/> class. 
+        /// </summary>
+        /// <param name="name">
+        /// The name.
+        /// </param>
+        /// <param name="userServiceClient">
+        /// The user service client.
+        /// </param>
+        /// <param name="messagingServiceClient">
+        /// The messaging service client.
+        /// </param>
+        public MessagingWindow(
+            string name, UserServiceClient userServiceClient, MessagingServiceClient messagingServiceClient) : this(name)
+        {
+            this.userProxy = userServiceClient;
+            this.messagingProxy = messagingServiceClient;
+        }
+
+    /// <summary>
         /// Occurs when a property value changes.
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
@@ -327,6 +325,54 @@ namespace YAEM.DesktopClient
             this.messagingProxy = null;
             this.userProxy.Close();
             this.userProxy = null;
+        }
+
+        /// <summary>
+        /// Windows the loaded.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+        private void WindowLoaded(object sender, RoutedEventArgs e)
+        {
+            var catalog = new AggregateCatalog();
+            if (Directory.Exists("..\\..\\Crypto"))
+            {
+                catalog.Catalogs.Add(new DirectoryCatalog("..\\..\\Crypto", "*.dll"));
+            }
+
+            var batch = new CompositionBatch();
+            batch.AddPart(this);
+            this.compositionContainer = new CompositionContainer(catalog);
+            ////get all the exports and load them into the appropriate list tagged with the importmany
+            this.compositionContainer.Compose(batch);
+
+            this.CryptoAlgorithmComboBox.ItemsSource =
+                (new List<CryptoAlgorithm> { CryptoAlgorithm.None }).Union(
+                    this.CryptoProviders.Select(c => c.Metadata.Algorithm).Distinct()).ToList();
+
+            if (this.userProxy == null)
+            {
+                this.userProxy = new UserServiceClient(new InstanceContext(this));
+            }
+
+            this.userProxy.Open();
+
+            if (this.messagingProxy == null)
+            {
+                this.messagingProxy = new MessagingServiceClient(new InstanceContext(this));
+            }
+
+            this.messagingProxy.Open();
+
+            this.userProxy.Subscribe();
+            foreach (var u in this.userProxy.GetJoinedUsers())
+            {
+                this.AddUser(u);
+            }
+
+            this.uiSyncContext = SynchronizationContext.Current;
+
+            this.JoinUser(this.name);
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿<Window x:Class="YAEM.DesktopClient.MessagingWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:DesktopClient="clr-namespace:YAEM.DesktopClient"
-        Title="MessagingWindow" Height="632" Width="569" Closed="WindowClosed">
+        Title="MessagingWindow" Height="632" Width="569" Closed="WindowClosed" Loaded="WindowLoaded">
     <Window.Resources>
         <DesktopClient:UserList x:Key="JoinedUsers"/>
     </Window.Resources>

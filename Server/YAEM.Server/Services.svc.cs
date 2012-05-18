@@ -47,7 +47,7 @@ namespace YAEM.Server
         /// <returns>
         /// The registered session for the supplied user.
         /// </returns>
-        public Session Join(User user)
+        public virtual Session Join(User user)
         {
             Logger.Instance.Info(string.Format("User <{0}> joined", user.Name));
 
@@ -75,7 +75,7 @@ namespace YAEM.Server
         /// Leaves the specified session.
         /// </summary>
         /// <param name="session">The session.</param>
-        public void Leave(Session session)
+        public virtual void Leave(Session session)
         {
             Logger.Instance.Info(string.Format("User <{0}> left", session.User.Name));
 
@@ -100,7 +100,7 @@ namespace YAEM.Server
         /// <returns>
         ///   <c>true</c> if the specified session is registered; otherwise, <c>false</c>.
         /// </returns>
-        public bool IsJoined(Session s)
+        public virtual bool IsJoined(Session s)
         {
             Logger.Instance.Info(string.Format("Called IsJoined with session key <{0}> for user <{1}>", s.Key, s.User.Name));
 
@@ -119,7 +119,7 @@ namespace YAEM.Server
         /// Gets the registered users.
         /// </summary>
         /// <returns>A list with alle registered users.</returns>
-        public IEnumerable<User> GetJoinedUsers()
+        public virtual IEnumerable<User> GetJoinedUsers()
         {
             Logger.Instance.Info("Asked for all joined users");
 
@@ -132,7 +132,7 @@ namespace YAEM.Server
         /// </summary>
         /// <param name="message">The message.</param>
         /// <param name="sender">The sender.</param>
-        public void Send(Message message, Session sender)
+        public virtual void Send(Message message, Session sender)
         {
             Logger.Instance.Info(string.Format("User <{0}> sent message <{1}>", sender.User.Name, message.Payload));
 
@@ -146,7 +146,7 @@ namespace YAEM.Server
         /// </summary>
         /// <param name="initializationVector">The initializatino vector.</param>
         /// <param name="algorithm">The algorithm.</param>
-        public void NegotiateInitializationVector(byte[] initializationVector, CryptoAlgorithm algorithm)
+        public virtual void NegotiateInitializationVector(byte[] initializationVector, CryptoAlgorithm algorithm)
         {
             Logger.Instance.Info(string.Format("Initialization vector for crypto algorithm <{0}> sent", algorithm));
 
@@ -158,7 +158,7 @@ namespace YAEM.Server
         /// </summary>
         /// <param name="key">The key.</param>
         /// <param name="algorithm">The algorithm.</param>
-        public void NegotiateKey(byte[] key, CryptoAlgorithm algorithm)
+        public virtual void NegotiateKey(byte[] key, CryptoAlgorithm algorithm)
         {
             Logger.Instance.Info(string.Format("Key for crypto algorithm <{0}> sent", algorithm));
 
@@ -168,7 +168,7 @@ namespace YAEM.Server
         /// <summary>
         /// Subscribes this instance.
         /// </summary>
-        public void Subscribe()
+        public virtual void Subscribe()
         {
             Logger.Instance.Info("Client subscribed");
 
@@ -192,7 +192,7 @@ namespace YAEM.Server
         /// <summary>
         /// Unsubscribes this instance.
         /// </summary>
-        public void Unsubscribe()
+        public virtual void Unsubscribe()
         {
             Logger.Instance.Info("Client unsubscribed");
 

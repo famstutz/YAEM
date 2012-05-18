@@ -5022,18 +5022,81 @@ name "chap:Implementierung"
 \end_layout
 
 \begin_layout Section
-Implementierungsmethodik
+Entwicklungsmethoden
 \end_layout
 
 \begin_layout Standard
+Als pragmatischer Softwareentwickler versucht man den Blick auf das wesentliche
+ zu konzentrieren: Anforderungen in ein funktionierendes und warbares Programm
+ zu überführen, das die Anwender begeistert (nach 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Hunt1999"
 
-\noun on
-[Wahl der Implementierungsmethodik TDD erklären, Vorteile von TDD, Verweis
- auf Unittests]
+\end_inset
+
+).
+ Um dieses Ziel zu erreichen existieren eine breite Palette an Entwicklungsmetho
+den, die den Entwickler bei seiner (pragmatischen) Arbeitsweise unterstüzen.
+ Insbesondere agile Entwicklungsmethoden wie Scrum oder Extreme Programming
+ (XP) unterstützen ein Entwicklungsteam in der Konzentration auf die Implementie
+rung von Funktionalitäten in einem Softwareprodukt und helfen vor Ablenkungen
+ wie der zunehmenden Spezialisierung und Technisierung.
+\end_layout
+
+\begin_layout Standard
+Für dieses Projekt wurde Test Driven Development (TDD) als Entwicklungsmethode
+ gewählt da die iterative Entwicklung, die auf dem Erstellen des Unit Tests
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Mehr zu automatisierten Tests findet sich im Kapitel 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sec:Unit-Tests"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ fundiert (genauer beschrieben in 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:Testgetriebene-Entwicklung"
+
+\end_inset
+
+) die Fokussierung auf die für den Benutzer relevanten Funktionalitäten
+ ermöglicht.
+ Studien wie 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Nagappan2008"
+
+\end_inset
+
+ beweisen ausserdem dass mit Hilfe von TDD die allgemeine Qualität eines
+ Softwareprodukts steigt da z.B.
+ schon die Fehlerdichte (gemessen in Anzahl Fehler pro tausend Zeilen Code)
+ zwischen 40% und 90% relativ kleiner ist als bei Softwareprodukten, die
+ nicht mit TDD entwickelt wurden.
+ Es wurde zwar der initiale Entwicklungsaufwand zwischen 15% und 35% erhöht,
+ jedoch wurde dies im Nachhinein durch geringere Wartungskosten ausgeglichen.
 \end_layout
 
 \begin_layout Subsection
 Testgetriebene Entwicklung
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Testgetriebene-Entwicklung"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -5178,25 +5241,228 @@ Verwendete Technologien
 \end_layout
 
 \begin_layout Standard
+Dieses Kapitel gibt einen Überblick über die in der Semesterarabeit verwendeten
+ Technologien und dient zum besseren Verständnis der einzelnen Teile des
+ Softwareprodukts, die in einem späteren Kapitel (siehe 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sec:Komponenten-im-Detail"
 
-\noun on
-[Dieses Kapitel gibt einen Überblick über verschiedene Technologien und
- Techniken, soll zur Erklärung von Besonderheiten der Architektur dienen]
-\end_layout
+\end_inset
 
-\begin_layout Subsection
-MEF
+) genauer beschrieben werden.
 \end_layout
 
 \begin_layout Standard
-
-\noun on
-[MEF erläutern, Technologien dahinter (Reflection und Annotations), Vorteile
- und Nachteile]
+Die einzelnen Unterkapitel bieten einen losen Überblick über verschiedenste
+ Technologien und Produkte und erläutert wo und wieso die jeweilige Technologie
+ im Softwareprodukt eingesetzt wird.
 \end_layout
 
 \begin_layout Subsection
-WCF
+Managed Extensibility Framework
+\end_layout
+
+\begin_layout Standard
+Ein Ziel des Softwareproduktes YAEM war es, zur Laufzeit beliebige Kryptosysteme
+ den Clientapplikationen zur Verfügung zu stellen die als Erweiterungen
+ angebunden werden können.
+ MEF bietet genau diese Funktionalität.
+\end_layout
+
+\begin_layout Standard
+Das Managed Extensibility Framework oder MEF ist eine Bibliothek für die
+ Erstellung von leichten, erweiterbare Anwendungen.
+ Es erlaubt Anwendungsentwicklern zu Erweiterungen zu Applikationen zu schreiben
+, die keinerlei Konfiguration benötigen.
+ Ausserdem können Entwickler Erweiterungen leicht kapseln und somit fragile
+ harte Abhängigkeiten zu vermeiden.
+ MEF ermöglicht nicht nur Erweiterungen die innerhalb von Anwendungen wiederverw
+endet werden können, sondern auch über Anwendungen hinweg.
+\end_layout
+
+\begin_layout Standard
+MEF besteht aus einem Katalog (
+\emph on
+Catalog
+\emph default
+) und einem sogenannten Behälter (
+\emph on
+CompositionContainer
+\emph default
+).
+ Ein Katalog ist verwantwortlich für das Entdecken der Erweiterungen und
+ der Behälter koordiniert die Erstellung erfüllt die Abhängigkeiten.
+ MEF-Erweiterungen sind Ersatzteile (
+\emph on
+ComposablePart
+\emph default
+) und ein Ersatzteil bietet ein oder mehrere Exporte, und kann auch von
+ einem oder mehreren extern gelieferten Importe abhängen.
+ Exporte und Import haben jeweils einen Vertrag, der als Schnittstelle zwischen
+ Exporten und Importen dient.
+ Ein Behälter interagiert mit Katalogen um Zugriff zu den Ersatzteilen zu
+ erhalten.
+ Der Behälter selbst behebt die Abhängigkeiten des Ersatzteils und stellt
+ seine Exporte der Aussenwelt zur Verfügung.
+ 
+\end_layout
+
+\begin_layout Standard
+Sämtliche Exporte und Importe werden über Annotationen gesteuert und über
+ Reflection
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Reflection"
+description "Reflection (zu deutsch Reflexion oder Introspektion) ermöglich einem programm dass es seine eigene Strukur kennt und diese gegebenenfalls modifizieren kann."
+
+\end_inset
+
+ können zur Laufzeit diese Annotationen aus Assemblies gelesen werden
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+MEF ist Open Source und unter 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://mef.codeplex.com/
+\end_layout
+
+\end_inset
+
+ zusammen mit Beispielen herunterzuladen.
+\end_layout
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:MEF-Struktur"
+
+\end_inset
+
+ verdeutlich die Struktur von MEF.
+ Dabei entspricht das Part jeweils einem Kryptosystem und wird in eine eigene
+ Assembly kompiliert.
+ Alle einzelnen Kryptosysteme implementieren dabei die Schnittstelle 
+\emph on
+ICryptoProvider
+\emph default
+ (siehe 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:Kryptoalgorithmen"
+
+\end_inset
+
+) und werden mit 
+\emph on
+[Export(typeof(ICryptoProvider))] 
+\emph default
+sowohl 
+\emph on
+[CryptoAlgorithm(Algorithm = CryptoAlgorithm.SpecificCryptoAlgorithm)]
+\emph default
+ annotiert.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Graphics/MEFdiagram.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+MEF Struktur
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:MEF-Struktur"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Windows Communication Foundation
+\end_layout
+
+\begin_layout Standard
+Zur Kommunikation zwischen den Clientapplikationen und der Serverapplikation
+ wird die Windows Communication Foundation (kurz WCF) eingesetzt.
+ WCF ist seit dem .NET Framework 3.0 ein Bestandteil des Frameworks und ist
+ eine dienstorientierte Kommunikationsplattform für verteilte Anwendungen.
+\end_layout
+
+\begin_layout Standard
+Durch WCF werden verschiedene Kommunikationstechnologeien wie DCOM, MSMQ
+ oder Webservices unter einer einheitlichen Programmierschnittstelle zusammengef
+asst.
+ WCF wird hauptsächlich zur Entwicklung von Serviceorientierten Architekturen
+ (SOA) verwendet.
+ Dabei abstrahiert WCF das Konzept des Endpunkts durch eine Trennung in
+ Address, Binding und Contract.
+ Die Addresse (Address) ist eine URI, die den Ort des Dienstes beschreibt
+ und somit seine Erreichbarkeit für Dienstkonsumenten kennzeichnet.
+ Die Anbindung (Binding) beschreibt die Art der Kommunikation, worunter
+ unter anderem die Merkmale der Kodierung des Protokolls fallen.
+ Der Vertrag (Contract) stellt die Dienstdefinition, insbesondere die zur
+ Verfügung gestellten Methoden, dar.
+\end_layout
+
+\begin_layout Standard
+Alle Methoden, welche die Serverapplikation von YAEM zur Verfügung stellt,
+ werden über die Schnittstellen IUserService und IMessagingService definiert
+ (siehe 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:IUserService"
+
+\end_inset
+
+ und 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:IMessagingService"
+
+\end_inset
+
+).
+ Die Serverapplikation implementiert diese beiden Schnittstellen und 
 \end_layout
 
 \begin_layout Standard
@@ -5227,14 +5493,110 @@ Callbacks über NetHttpDualBinding
 \end_layout
 
 \begin_layout Subsection
-WPF
+Windows Presentation Foundation
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Windows-Presentation-Foundation"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
+Die Windows Presentation Foundation (kurz WPF) ist ein Framework zu Erstellung
+ von grafischen Benutzeroberflächen für Windows-basierte Applikationen,
+ das in 2006 zusammen mit dem .NET Framework 3.0 auf den Markt gekommen ist.
+ WPF versucht, ein konsistentes Programmiermodell für die Erstellung von
+ Anwendungen zu bieten und lieferte eine Trennung zwischen der Benutzeroberfläch
+e und der Businesslogik.
+ 
+\end_layout
 
-\noun on
-[Vorteile von WPF gegenüber WinForms, Evt.
- ein paar einfache Anwendungsbeispiele]
+\begin_layout Standard
+WPF bentutzt Extensible Markup Language (XAML), ein XML-Derivat, um verschiedene
+ UI-Elemente zu definierten und miteienander zu verküpfen.
+ WPF Applikationen sowohl als eigenständige Programme sowie innerhalb einer
+ Website als eingebettetes Objekt verteilt werden.
+ WPF kombiniert UIs, 2D Grafiken, 3D Grafiken, Dokumente und Multimediaobjekte
+ in einem einzigen Framework Diese Elemente können miteinander verknüpft
+ werden und unterschiedliche Zustände aufgrund der anzuzeigenden Daten annehmen.
+ Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Hauptfunktionalitäten-von-WPF"
+
+\end_inset
+
+ zeigt die Hauptfunktionalitäten von WPF.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Graphics/wpfMainFeatures.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Hauptfunktionalitäten von WPF (aus
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Moser2012"
+
+\end_inset
+
+)
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Hauptfunktionalitäten-von-WPF"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Vor WPF wurden die meisten Desktopanwendungen für Windowsbasierte Systeme
+ mit Windows Forms entwickelt.
+ Dabei ist Windows Forms ein Wrapper für die Windows-API in Managed Code.
+ WPF basiert nicht mehr auf der Windows-API sondern zeichnet die Benutzerflöäche
+ selbst.
+ Dadurch ist eine bessere Unterstüztung von Templates gegeben und auf längere
+ Sicht eine erhöhte Portierbarkeit.
+ Ausserdem ist WPF hardwarebeschleunigt, nutzt also den Prozessor der 3D-Grafikk
+arte, eine Ressource die insbesondere im normalen Alltagsgebrauch von Windows
+ brachliegt.
+\end_layout
+
+\begin_layout Standard
+WPF ist im Moment die Referenztechnologie zur Entwicklung von Windowsbasierten
+ Clientapplikationen.
+ Aus diesem Grund wird es für die YAEM Desktopapplikation als UI-Framework
+ verwendet.
 \end_layout
 
 \begin_layout Subsubsection
@@ -5242,20 +5604,34 @@ Silverlight
 \end_layout
 
 \begin_layout Standard
+2007 vorgestellt ist Silverlight ein Applikationsframework zur Entwicklung
+ von Rich Internet Applications (RIA).
+ Silverlgiht Applikationen werden dabei innerhalb eines Browserplugins ausgeführ
+t, das für für eine Vielzahl von Browsern und Betriebssystemen existiert.
+ Silverlight benutzt ein ähnliches Grafiksysteme wie WPF (siehe 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:Windows-Presentation-Foundation"
 
-\noun on
-[Silverlight als Subset von WPF, das im Browser läuft]
-\end_layout
+\end_inset
 
-\begin_layout Subsection
-NuGet
+) und integriert Multimedia, Grafiken, Animationen und Interaktivität in
+ eine einzige Laufzeitumgebung.
+ Silverlight dient ausserdem als Entwicklungsplattform für Windows Phone.
 \end_layout
 
 \begin_layout Standard
+Wie in WPF wird auch in Silverlight XAML als Beschreibungssprache von Benutzerob
+erflächen benutzt allerdings in einem verminderten Umfang.
+ Da Silverlightapplikationen gleichzeitig im Browser und auf einem Winows
+ Phone läuft wurde es als UI-Framework für die YAEM Mobile- und Web-Clientapplik
+ationen ausgewählt.
+ Mit minimalem Aufwand können für zwei unterschiedliche Plattformen Anwendungen
+ entwickelt werden.
+\end_layout
 
-\noun on
-[NuGet als Package Manager erklären.
- Wieso Package Manager? Vorteile/Nachteile]
+\begin_layout Subsection
+Moq
 \end_layout
 
 \begin_layout Section
@@ -5269,6 +5645,49 @@ Kryptosysteme
  erklären, erklären wieso im Moment nur symmetrische Kryptosysteme unterstützt
  werden, erklären, wie man asymmetrische Kryptosysteme unterstützen würde
  (welche Änderungen an ICryptoProvider wären nötig)]
+\end_layout
+
+\begin_layout Section
+Komponenten im Detail
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Komponenten-im-Detail"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Domain
+\end_layout
+
+\begin_layout Subsection
+ServiceModel
+\end_layout
+
+\begin_layout Subsection
+Server
+\end_layout
+
+\begin_layout Subsection
+Crypto
+\end_layout
+
+\begin_layout Subsection
+TestClient
+\end_layout
+
+\begin_layout Subsection
+DesktopClient
+\end_layout
+
+\begin_layout Standard
+MVVM
+\end_layout
+
+\begin_layout Subsection
+MobileClient
 \end_layout
 
 \begin_layout Section
@@ -5316,6 +5735,10 @@ name "sec:Unit-Tests"
 [Was sind automatisierte Unittests? Vorteile aufzeigen.
  Verbindung mit TDD aufzeigen.
  MSTEST einführen]
+\end_layout
+
+\begin_layout Subsection
+Testabdeckung
 \end_layout
 
 \begin_layout Section
@@ -5444,6 +5867,11 @@ ZHAW Zürcher Hochschule für Angewandte Wissenschaften
 \begin_layout Labeling
 \labelwidthstring 00.00.0000
 XML Extensible Markup Language
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+XP Extreme Programming
 \end_layout
 
 \begin_layout Standard
