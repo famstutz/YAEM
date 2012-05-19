@@ -26,9 +26,6 @@
 %% Because html converters don't know tabularnewline
 \providecommand{\tabularnewline}{\\}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
-\renewcommand\nomname{New Name for Nomenclature}
-
 \makeatother
 
 \begin{document}
@@ -616,7 +613,7 @@ Ergebnis & Die Empfänger haben die versendete Nachricht empfangen.\tabularnewlin
 \hline 
 Hauptszenario & 1. Der Benutzer erfasst die zu versenden Nachricht
 
-2. Der Benutzer wählt einen Kryptoalgorithmus\nomenclature{Kryptoalgorithmus}{Ein Kryptoalgorithmus ist im Kontext von YAEM die konkrete Implementierung des Interfaces YAEM.Crypto.ICryptoProvider und bietet die Möglichkeit beliebige Nachrichten zu verschlüsseln beziehungsweise zu entschlüsseln.}
+2. Der Benutzer wählt einen Kryptoalgorithmus\nomenclature{Kryptoalgorithmus}{Ein Kryptoalgorithmus ist im Kontext von YAEM die konkrete Implementierung des Interfaces ICryptoProvider und bietet die Möglichkeit beliebige Nachrichten zu verschlüsseln beziehungsweise zu entschlüsseln.}
 aus.
 
 3. Der Benutzer generiert einen Initalisierungsvektor\nomenclature{Initialisierungsvektor}{Ein Initialisierungsvektor (kurz IV) bezeichnet in der Kryptografie ein Block von Zufallszahlen.}.
@@ -1280,29 +1277,170 @@ und zugänglich sind. Auch ist eine Verteilung über das WWW denkbar.
 \noun{{[}Kapiteleinführung{]}}
 
 
-\section{Implementierungsmethodik}
+\section{Entwicklungsmethoden}
 
-\noun{{[}Wahl der Implementierungsmethodik TDD erklären, Vorteile
-von TDD, Verweis auf Unittests{]}}
+Als pragmatischer Softwareentwickler versucht man den Blick auf das
+wesentliche zu konzentrieren: Anforderungen in ein funktionierendes
+und warbares Programm zu überführen, das die Anwender begeistert (nach
+\cite{Hunt1999}). Um dieses Ziel zu erreichen existieren eine breite
+Palette an Entwicklungsmethoden, die den Entwickler bei seiner (pragmatischen)
+Arbeitsweise unterstüzen. Insbesondere agile Entwicklungsmethoden
+wie Scrum oder Extreme Programming (XP) unterstützen ein Entwicklungsteam
+in der Konzentration auf die Implementierung von Funktionalitäten
+in einem Softwareprodukt und helfen vor Ablenkungen wie der zunehmenden
+Spezialisierung und Technisierung.
+
+Für dieses Projekt wurde Test Driven Development (TDD) als Entwicklungsmethode
+gewählt da die iterative Entwicklung, die auf dem Erstellen des Unit
+Tests%
+\footnote{Mehr zu automatisierten Tests findet sich im Kapitel \vref{sec:Unit-Tests}.%
+} fundiert (genauer beschrieben in \vref{sub:Testgetriebene-Entwicklung})
+die Fokussierung auf die für den Benutzer relevanten Funktionalitäten
+ermöglicht. Studien wie \cite{Nagappan2008} beweisen ausserdem dass
+mit Hilfe von TDD die allgemeine Qualität eines Softwareprodukts steigt
+da z.B. schon die Fehlerdichte (gemessen in Anzahl Fehler pro tausend
+Zeilen Code) zwischen 40\% und 90\% relativ kleiner ist als bei Softwareprodukten,
+die nicht mit TDD entwickelt wurden. Es wurde zwar der initiale Entwicklungsaufwand
+zwischen 15\% und 35\% erhöht, jedoch wurde dies im Nachhinein durch
+geringere Wartungskosten ausgeglichen.
 
 
-\subsection{Testgetriebene Entwicklung}
+\subsection{Testgetriebene Entwicklung\label{sub:Testgetriebene-Entwicklung}}
 
-\noun{{[}Test, Implement, Refactor erklären{]}}
+Test Driven Development (kurz TDD, deutsch Testgetriebene Entwicklung)
+ist eine evolutionäre Entwicklungsmethode, die häufig zusammen mit
+agilen Methoden Anwendung findet. Dabei werden Tests entsprechend
+den Anforderungen an eine Funktion erstellt und erst im Nachhinein
+der funktionale Code implementiert (gemäss \cite{Bullinger2010}).
+
+Die Tests werden meist innerhalb eines Unit-Test-Frameworks (siehe
+\vref{sec:Unit-Tests}) implementiert und laufen gelassen. Zu Beginn
+werden die Tests fehlschlagen, da noch gar kein Code implementiert
+worden ist. Ziel des Entwicklers ist es, den Code so lange zu verbessern,
+bis alle zugehörigen Tests bestanden werden.
+
+Kommen neue Anforderungen oder Funktionen hinzu, werden zuerst neue
+Tests implementiert und danach der Code erweitert. Danach werden alle
+Test erneut durchgeführt, solange bis wieder alle Tests bestanden
+werden. 
+
+Zusammengefasst folgt man drei einfachen Schritten bei der Anwendung
+von TDD (frei nach \cite{Fowler2012}, siehe auch \vref{fig:Schritte-in-TDD}):
+\begin{enumerate}
+\item Einen Test schreiben für das nächste Stück von Funktionalität, das
+der Applikation hinzugefügt werden soll
+\item Funktionalen Code schreiben bis der Test erfüllt wird
+\item Neuen und alten Code umgestalten um ihn besser zu strukturieren
+\end{enumerate}
+\begin{figure}
+\centering{}\includegraphics[scale=0.5]{Graphics/tddSteps}\caption{Schritte in TDD (aus \cite{Ambler2011})\label{fig:Schritte-in-TDD}}
+\end{figure}
 
 
-\section{Verwendete Schlüsseltechnologien}
+Durch die Anwendung von TDD wird der bestehende und neue Code fortlaufend
+optimiert und ist leicht zu ändern. Die enthaltenen Funktionen werden
+durch die Tests zugleich dokumentiert und Fehler werden früher entdeckt
+und sind durch Mini-Iterationen leichter lokalisierbar. Besonders
+in grossen Teams entsteht ein Qualitätsbewusstsein über das ganze
+Projekt hinweg, nicht nur bei einer kleinen Expertengruppe.
+
+Nachteilig ist anzumerken, dass konsequent sämtlicher Code testdriven
+erstellt werden muss. Für Entwickler, die noch nie mit TDD in Berührung
+gekommen sind, ist es schwierig sich vorzustellen, wie etwas getestet
+werden soll, das noch nicht existiert. Generell funktioniert TDD auch
+nur, wenn alle Entwickler ein fundiertes Wissen über Testmethodiken
+besitzen. Man muss sich auch bewusst sein, dass TDD keine weiteren
+Tests wie Integrations- oder Akzeptanztests ersetzt.
 
 
-\subsection{MEF}
+\section{Verwendete Technologien}
 
-\noun{{[}MEF erläutern, Technologien dahinter (Reflection und Annotations),
-Vorteile und Nachteile{]}}
+Dieses Kapitel gibt einen Überblick über die in der Semesterarabeit
+verwendeten Technologien und dient zum besseren Verständnis der einzelnen
+Teile des Softwareprodukts, die in einem späteren Kapitel (siehe \vref{sec:Komponenten-im-Detail})
+genauer beschrieben werden.
+
+Die einzelnen Unterkapitel bieten einen losen Überblick über verschiedenste
+Technologien und Produkte und erläutert wo und wieso die jeweilige
+Technologie im Softwareprodukt eingesetzt wird.
 
 
-\subsection{WCF}
+\subsection{Managed Extensibility Framework}
 
-{[}WCF 
+Ein Ziel des Softwareproduktes YAEM war es, zur Laufzeit beliebige
+Kryptosysteme den Clientapplikationen zur Verfügung zu stellen die
+als Erweiterungen angebunden werden können. MEF bietet genau diese
+Funktionalität.
+
+Das Managed Extensibility Framework oder MEF ist eine Bibliothek für
+die Erstellung von leichten, erweiterbare Anwendungen. Es erlaubt
+Anwendungsentwicklern zu Erweiterungen zu Applikationen zu schreiben,
+die keinerlei Konfiguration benötigen. Ausserdem können Entwickler
+Erweiterungen leicht kapseln und somit fragile harte Abhängigkeiten
+zu vermeiden. MEF ermöglicht nicht nur Erweiterungen die innerhalb
+von Anwendungen wiederverwendet werden können, sondern auch über Anwendungen
+hinweg.
+
+MEF besteht aus einem Katalog (\emph{Catalog}) und einem sogenannten
+Behälter (\emph{CompositionContainer}). Ein Katalog ist verwantwortlich
+für das Entdecken der Erweiterungen und der Behälter koordiniert die
+Erstellung erfüllt die Abhängigkeiten. MEF-Erweiterungen sind Ersatzteile
+(\emph{ComposablePart}) und ein Ersatzteil bietet ein oder mehrere
+Exporte, und kann auch von einem oder mehreren extern gelieferten
+Importe abhängen. Exporte und Import haben jeweils einen Vertrag,
+der als Schnittstelle zwischen Exporten und Importen dient. Ein Behälter
+interagiert mit Katalogen um Zugriff zu den Ersatzteilen zu erhalten.
+Der Behälter selbst behebt die Abhängigkeiten des Ersatzteils und
+stellt seine Exporte der Aussenwelt zur Verfügung. 
+
+Sämtliche Exporte und Importe werden über Annotationen gesteuert und
+über Reflection\nomenclature{Reflection}{Reflection (zu deutsch Reflexion oder Introspektion) ermöglich einem programm dass es seine eigene Strukur kennt und diese gegebenenfalls modifizieren kann.}
+können zur Laufzeit diese Annotationen aus Assemblies gelesen werden%
+\footnote{MEF ist Open Source und unter \url{http://mef.codeplex.com/} zusammen
+mit Beispielen herunterzuladen.%
+}. 
+
+Abbildung \ref{fig:MEF-Struktur} verdeutlich die Struktur von MEF.
+Dabei entspricht das Part jeweils einem Kryptosystem und wird in eine
+eigene Assembly kompiliert. Alle einzelnen Kryptosysteme implementieren
+dabei die Schnittstelle \emph{ICryptoProvider} (siehe \vref{sub:Kryptoalgorithmen})
+und werden mit \emph{{[}Export(typeof(ICryptoProvider)){]} }sowohl
+\emph{{[}CryptoAlgorithm(Algorithm = CryptoAlgorithm.SpecificCryptoAlgorithm){]}}
+annotiert.
+
+\begin{figure}[H]
+\includegraphics[scale=0.5]{Graphics/MEFdiagram}
+
+\caption{MEF Struktur\label{fig:MEF-Struktur}}
+\end{figure}
+
+
+
+\subsection{Windows Communication Foundation}
+
+Zur Kommunikation zwischen den Clientapplikationen und der Serverapplikation
+wird die Windows Communication Foundation (kurz WCF) eingesetzt. WCF
+ist seit dem .NET Framework 3.0 ein Bestandteil des Frameworks und
+ist eine dienstorientierte Kommunikationsplattform für verteilte Anwendungen.
+
+Durch WCF werden verschiedene Kommunikationstechnologeien wie DCOM,
+MSMQ oder Webservices unter einer einheitlichen Programmierschnittstelle
+zusammengefasst. WCF wird hauptsächlich zur Entwicklung von Serviceorientierten
+Architekturen (SOA) verwendet. Dabei abstrahiert WCF das Konzept des
+Endpunkts durch eine Trennung in Address, Binding und Contract. Die
+Addresse (Address) ist eine URI, die den Ort des Dienstes beschreibt
+und somit seine Erreichbarkeit für Dienstkonsumenten kennzeichnet.
+Die Anbindung (Binding) beschreibt die Art der Kommunikation, worunter
+unter anderem die Merkmale der Kodierung des Protokolls fallen. Der
+Vertrag (Contract) stellt die Dienstdefinition, insbesondere die zur
+Verfügung gestellten Methoden, dar.
+
+Alle Methoden, welche die Serverapplikation von YAEM zur Verfügung
+stellt, werden über die Schnittstellen IUserService und IMessagingService
+definiert (siehe \vref{sub:IUserService} und \vref{sub:IMessagingService}).
+Die Serverapplikation implementiert diese beiden Schnittstellen und 
+
+\noun{{[}WCF erklären, wofür braucht man WCF'{]}}
 
 
 \subsubsection{Bindings}
@@ -1317,23 +1455,149 @@ zu WsHttpDualBinding auflisten, Vorteile und Nachteile{]}}
 erklären{]}}
 
 
-\subsection{WPF}
+\subsection{Windows Presentation Foundation\label{sub:Windows-Presentation-Foundation}}
 
-\noun{{[}Vorteile von WPF gegenüber WinForms, Evt. ein paar einfache
-Anwendungsbeispiele{]}}
+Die Windows Presentation Foundation (kurz WPF) ist ein Framework zu
+Erstellung von grafischen Benutzeroberflächen für Windows-basierte
+Applikationen, das in 2006 zusammen mit dem .NET Framework 3.0 auf
+den Markt gekommen ist. WPF versucht, ein konsistentes Programmiermodell
+für die Erstellung von Anwendungen zu bieten und lieferte eine Trennung
+zwischen der Benutzeroberfläche und der Businesslogik. 
+
+WPF bentutzt Extensible Markup Language (XAML), ein XML-Derivat, um
+verschiedene UI-Elemente zu definierten und miteienander zu verküpfen.
+WPF Applikationen sowohl als eigenständige Programme sowie innerhalb
+einer Website als eingebettetes Objekt verteilt werden. WPF kombiniert
+UIs, 2D Grafiken, 3D Grafiken, Dokumente und Multimediaobjekte in
+einem einzigen Framework Diese Elemente können miteinander verknüpft
+werden und unterschiedliche Zustände aufgrund der anzuzeigenden Daten
+annehmen. Abbildung \ref{fig:Hauptfunktionalit=0000E4ten-von-WPF}
+zeigt die Hauptfunktionalitäten von WPF.
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics{Graphics/wpfMainFeatures}
+\par\end{centering}
+
+\caption{Hauptfunktionalitäten von WPF (aus\cite{Moser2012})\label{fig:Hauptfunktionalit=0000E4ten-von-WPF}}
+\end{figure}
+
+
+Vor WPF wurden die meisten Desktopanwendungen für Windowsbasierte
+Systeme mit Windows Forms entwickelt. Dabei ist Windows Forms ein
+Wrapper für die Windows-API in Managed Code. WPF basiert nicht mehr
+auf der Windows-API sondern zeichnet die Benutzerflöäche selbst. Dadurch
+ist eine bessere Unterstüztung von Templates gegeben und auf längere
+Sicht eine erhöhte Portierbarkeit. Ausserdem ist WPF hardwarebeschleunigt,
+nutzt also den Prozessor der 3D-Grafikkarte, eine Ressource die insbesondere
+im normalen Alltagsgebrauch von Windows brachliegt.
+
+WPF ist im Moment die Referenztechnologie zur Entwicklung von Windowsbasierten
+Clientapplikationen. Aus diesem Grund wird es für die YAEM Desktopapplikation
+als UI-Framework verwendet.
 
 
 \subsubsection{Silverlight}
 
-\noun{{[}Silverlight als Subset von WPF, das im Browser läuft{]}}
+2007 vorgestellt ist Silverlight ein Applikationsframework zur Entwicklung
+von Rich Internet Applications (RIA). Silverlgiht Applikationen werden
+dabei innerhalb eines Browserplugins ausgeführt, das für für eine
+Vielzahl von Browsern und Betriebssystemen existiert. Silverlight
+benutzt ein ähnliches Grafiksysteme wie WPF (siehe \vref{sub:Windows-Presentation-Foundation})
+und integriert Multimedia, Grafiken, Animationen und Interaktivität
+in eine einzige Laufzeitumgebung. Silverlight dient ausserdem als
+Entwicklungsplattform für Windows Phone.
+
+Wie in WPF wird auch in Silverlight XAML als Beschreibungssprache
+von Benutzeroberflächen benutzt allerdings in einem verminderten Umfang.
+Da Silverlightapplikationen gleichzeitig im Browser und auf einem
+Winows Phone läuft wurde es als UI-Framework für die YAEM Mobile-
+und Web-Clientapplikationen ausgewählt. Mit minimalem Aufwand können
+für zwei unterschiedliche Plattformen Anwendungen entwickelt werden.
+
+
+\subsection{Mock-Objekte}
+
+Bei Unit-Tests möchte man möglichst nur eine kleine Einheit isoliert
+testen. Meistens stehen jedoch Abhängikeiten zu anderen Einheiten
+diesem Vorhaben im Weg, die man für diesen Test ignorieren möchte.
+Soll die Interaktion eines Objektes mit seiner Umgebung überprüft
+werden, muss vor dem eigentlichen Test die Umgebung nachgebildet werden.
+Das kann umständlich, zeitaufwändig, oder gar nur eingeschränkt oder
+überhaupt nicht möglich sein (nach \cite{Freeman2009}). Aus diesem
+Grund kann man Mock-Objekte, auch {}``Dummy''-Objekte oder Attrappen
+genannt, einsetzen. Diese dienen als Platzhalter für echte Objekte
+und Abhängigkeiten. 
+
+Mock-Objekte (in diesem Fall mittels des Frameworks Moq%
+\footnote{Details zu Moq sind unter \url{http://code.google.com/p/moq/} zu
+finden.%
+}) implementieren Schnittstellen, über die das zu testende Objekt auf
+seine Umgebung zugreift. Sie stellen sicher, dass die erwarteten Methodenaufrufe
+vollständig, mit den korrekten Parametern und in der erwarteten Reihenfolge
+durchgeführt werden. Das Mock-Objekt liefert keine Echtdaten zurück,
+sondern vorher zum Testfall passend festgelegte Werte.
+
+Durch den Einsatz von Mock-Objekten kann man einzelne Softwarteile
+testen ohne dass diese die Aussmase von Integrationstests annehmen.
 
 
 \section{Kryptosysteme}
 
+\noun{{[}AES, TripleDES und Rijndael erklären, symmetrische/asymmetrische
+Kryptosysteme erklären, erklären wieso im Moment nur symmetrische
+Kryptosysteme unterstützt werden, erklären, wie man asymmetrische
+Kryptosysteme unterstützen würde (welche Änderungen an ICryptoProvider
+wären nötig){]}}
 
-\section{Probleme}
 
-WsHttpDualBinding und Silverlight
+\section{Komponenten im Detail\label{sec:Komponenten-im-Detail}}
+
+Dieses Kapitel beschreibt im Detail die Implementierung der einzelnen
+Komponenten. Dabei wird auf Besonderheiten in der Architektur der
+Komponenten hingewiesen und es wird ein gesamter technischer Überblick
+über die Umsetzung des Konzepts gegeben.
+
+Zur besseren Orientierung innerhalb des Systems wird auf die Abbildung
+\ref{fig:Visual-Studio-Solution} der Visual Studio-Solution verwiesen.
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics{Graphics/SolutionOverview}
+\par\end{centering}
+
+\caption{Visual Studio-Solution\label{fig:Visual-Studio-Solution}}
+\end{figure}
+
+
+
+\subsection{Domain}
+
+
+\subsection{ServiceModel}
+
+
+\subsection{Server}
+
+
+\subsection{Crypto}
+
+
+\subsection{TestClient}
+
+
+\subsection{DesktopClient}
+
+MVVM
+
+
+\subsection{MobileClient}
+
+
+\section{Aufgetretene Probleme}
+
+\noun{{[}WsHttpDualBinding und Silverlight funktioniert nicht -> kein
+Silverlight Client implementiert{]}}
 
 
 \chapter{Test\label{chap:Test}}
@@ -1341,52 +1605,100 @@ WsHttpDualBinding und Silverlight
 \noun{{[}Kapiteleinführung{]}}
 
 
-\section{Integrationstests}
+\section{Unit-Tests\label{sec:Unit-Tests}}
+
+\noun{{[}Was sind automatisierte Unittests? Vorteile aufzeigen. Verbindung
+mit TDD aufzeigen. MSTEST einführen{]}}
 
 
-\section{Unittests}
+\subsection{Testabdeckung}
+
+Die totale Testabdeckung beträgt 94.13\%.
+
+\begin{table}
+\begin{centering}
+\begin{tabular}{|l|l|l|l|}
+\hline 
+Namespace & Codeblöcke & Getestet (Blöcke) & Getestet (\% Blöcke)\tabularnewline
+\hline 
+\hline 
+YAEM.DesktopClient & 656 & 612 & 93.29\%\tabularnewline
+\hline 
+YAEM.Crypto & 3 & 3 & 100\%\tabularnewline
+\hline 
+YAEM.Crypto.Aes & 47 & 47 & 100\%\tabularnewline
+\hline 
+YAEM.Crypto.Rijndael & 47 & 47 & 100\%\tabularnewline
+\hline 
+YAEM.Crypto.TripleDES & 47 & 47 & 100\%\tabularnewline
+\hline 
+YAEM.Domain & 71 & 61 & 85.91\%\tabularnewline
+\hline 
+YAEM.Server & 157 & 149 & 94.90\%\tabularnewline
+\hline 
+YAEM.Contracts & 28 & 28 & 100\%\tabularnewline
+\hline 
+\end{tabular}
+\par\end{centering}
+
+\caption{Testabdeckung}
+\end{table}
+
+
+
+\section{Akzeptanztests}
+
+\noun{{[}Was sind Akzeptanztests? Ausformulieren aufgrund der Anforderungen,
+Übersetzung in Code{]}}
 
 
 \chapter{Fazit}
 
+\noun{{[}Auführliches Fazit erstellen, Probleme bei der Implemntierung
+aufzeigen, Zukunft von YAEM?{]}}
+
 
 \section{Aufwand SOLL/IST Vergleich}
+
+\noun{{[}Tabelle SOLL/IST Aufwand pro Phase, aufzeigen wo viel mehr
+Zeit als geplant verwendet wurde{]}}
 
 
 \section{Schlussfolgerungen}
 
+\noun{{[}Zu viel Zeit für Silverlight/HttpDualBinding verwendet, generell
+viel mehr als 120h aufgewendet, Herzblut in Seminararbeit gesteckt{]}}
+
+\appendix
 
 \chapter{Anhang}
 
-\noun{{[}Kapiteleinführung{]}}
 
-
-\section{Akronyme}
-\begin{description}
+\section*{Akronyme}
+\begin{labeling}{00.00.0000}
+\item [{API}] Application Programming Interface
 \item [{GUI}] Graphical User Interface
 \item [{HTTP}] Hypertext Transfer Protocol
 \item [{MEF}] Managed Extensibility Framework
 \item [{MSDN}] Microsoft Developer Network
+\item [{MVVM}] Model View View Model
+\item [{RUP}] Rational Unified Process
+\item [{SL}] Silverlight
+\item [{TDD}] Test Driven Development
 \item [{UC}] Use Case
 \item [{UI}] User Interface
-\item [{RUP}] Rational Unified Process
 \item [{WCF}] Windows Communication Foundation
 \item [{WPF}] Windows Presentation Foundation
 \item [{WWW}] World Wide Web
 \item [{YAEM}] Yet Another Encrypted Messenger
 \item [{ZHAW}] Zürcher Hochschule für Angewandte Wissenschaften
 \item [{XML}] Extensible Markup Language
-\end{description}
-
-\section{Glossar}
-
+\item [{XP}] Extreme Programming
+\end{labeling}
 \settowidth{\nomlabelwidth}{Managed Extensibility Framework}
 \printnomenclature{}
 
-
-\section{Bibliographie}
-
-\bibliographystyle{plain}
-\addcontentsline{toc}{chapter}{\bibname}\bibliography{YAEM}
+\bibliographystyle{plainnat}
+\bibliography{YAEM}
 
 \end{document}
