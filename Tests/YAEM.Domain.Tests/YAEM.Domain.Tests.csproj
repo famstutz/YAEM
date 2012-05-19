@@ -59,7 +59,7 @@
     <Compile Include="UserTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Domain\YAEM.Domain\YAEM.Domain.csproj">
+    <ProjectReference Include="..\..\DomainModel\YAEM.Domain\YAEM.Domain.csproj">
       <Project>{E30F4730-2370-4961-A9EC-5FA3F459D549}</Project>
       <Name>YAEM.Domain</Name>
     </ProjectReference>
