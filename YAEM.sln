@@ -67,6 +67,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YAEM.DesktopClient.Tests", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YAEM.MobileClient", "Clients\YAEM.MobileClient\YAEM.MobileClient.csproj", "{D7921A71-A8FD-4D83-91FB-1F172A512A63}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AcceptanceTests", "AcceptanceTests", "{3BA74486-23AB-491F-B132-63E7D39DBD71}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YAEM.AcceptanceTests", "Tests\YAEM.AcceptanceTests\YAEM.AcceptanceTests.csproj", "{D0F3356E-A7F8-490C-937E-042DB08E1AF2}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = YAEM.vsmdi
@@ -274,6 +278,16 @@ Global
 		{D7921A71-A8FD-4D83-91FB-1F172A512A63}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{D7921A71-A8FD-4D83-91FB-1F172A512A63}.Release|Mixed Platforms.Deploy.0 = Release|Any CPU
 		{D7921A71-A8FD-4D83-91FB-1F172A512A63}.Release|x86.ActiveCfg = Release|Any CPU
+		{D0F3356E-A7F8-490C-937E-042DB08E1AF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0F3356E-A7F8-490C-937E-042DB08E1AF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0F3356E-A7F8-490C-937E-042DB08E1AF2}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{D0F3356E-A7F8-490C-937E-042DB08E1AF2}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{D0F3356E-A7F8-490C-937E-042DB08E1AF2}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D0F3356E-A7F8-490C-937E-042DB08E1AF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0F3356E-A7F8-490C-937E-042DB08E1AF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0F3356E-A7F8-490C-937E-042DB08E1AF2}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{D0F3356E-A7F8-490C-937E-042DB08E1AF2}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{D0F3356E-A7F8-490C-937E-042DB08E1AF2}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -303,5 +317,6 @@ Global
 		{3DE9879A-2F8D-469F-8F23-BBED11B58E40} = {FD71D911-25A4-4E31-9728-13469D0D031D}
 		{BBEADB59-3622-4550-A2FF-450BD3E72EFE} = {FD71D911-25A4-4E31-9728-13469D0D031D}
 		{A59018A5-22AB-4CE4-AA89-6907A518DF3D} = {1367A598-3FA3-42FB-9C19-28A4D5D4960C}
+		{D0F3356E-A7F8-490C-937E-042DB08E1AF2} = {3BA74486-23AB-491F-B132-63E7D39DBD71}
 	EndGlobalSection
 EndGlobal
