@@ -6581,21 +6581,79 @@ YAEM.MobileClient
 \end_layout
 
 \begin_layout Standard
+Um eine Applikation für die Windows Phone 7 Plattform zu entwickeln steht
+ entweder XNA oder Silverlight zur Verfügung.
+ 
+\end_layout
+
+\begin_layout Standard
 Windows Phone 7 stellt Silverlight Applikationen nativ dar.
  Aus diesem Grund wurde Silverlight aus Entwicklungsplattform für den YAEM.Mobile
 Client gewählt.
- Auch hält sich 
+ 
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 Aufgetretene Probleme
 \end_layout
 
 \begin_layout Standard
+Einer der ersten Schritte bei Applikationen, die Webservices konsumieren,
+ ist das Hinzufügen der Servicerefenzen auf die Webservices im Visual Studio-Pro
+jekt.
+ Dadurch werden die im WSDL spezifizierten Datentypen als Code generiert
+ sowie das Binding auf den Webservice in der konsumierenden Applikation
+ hinzugefügt.
+\end_layout
 
-\noun on
-[WsHttpDualBinding und Silverlight funktioniert nicht -> kein Silverlight
- Client implementiert]
+\begin_layout Standard
+Es hat sich schnell gezeigt, dass Silverlight keine DuplexClientBase im
+ System.ServiceModel Namespace besitzt und es dadurch nicht möglich ist über
+ das WsDualHttpBinding von Silverlight eine Kommunikation zum WCF Webservice
+ aufzubauen.
+ Dadurch, das WsDualHttpBinding die Grundlage der Bereitstellung der Webservices
+ in der Serverapplikation ist, ist es im Moment nicht möglich einen Silverlight-
+Client zu schreiben
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Die genauen Unterschiede zwischen dem Silverlight und WCF Stack finden sich
+ in der MSDN unter 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://msdn.microsoft.com/en-us/library/cc896571(VS.95).aspx
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Möchte man trotzdem einen zweikanaligen Webservice im Zusammenspiel mit
+ WCF entwickeln, so müsste man entweder auf das PollingDuplexHttpBinding
+ oder NetTcpBinding auswechen.
+ PollingDuplexHttpBinding ist exklusiv für Silverlight 5 verfügbar und ermöglich
+t es dem konsumierenden Client in Silverlight in regelmässigen Zeitabständen
+ beim Webservice nachzufragen, ob ein Callback existiert, für das eine Aktion
+ in der Silverlightapplikation ausgeführt werden müsste.
+ Da PollingDuplexHttpBinding im Moment jedoch nicht für WPF verfügbar ist,
+ ist auch dieses Binding für das Projekt unbrauchbar.
+ Die einzige wirkliche Alternative stellt das NetTcpBinding dar, das allerdings
+ nicht über HTTP Daten austauscht sondern über TCP.
+ Dadurch ginge der grosse Vorteil der Interopabilität verloren, da über
+ TCP serialisierte Daten übertragen würden.
+ 
 \end_layout
 
 \begin_layout Chapter
