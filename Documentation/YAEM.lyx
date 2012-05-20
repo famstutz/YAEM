@@ -3185,6 +3185,13 @@ Use-Case-Spezifikation Nachricht empfangen
 
 \begin_layout Section
 Mockups
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Mockups"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3673,6 +3680,13 @@ Komponentendiagramm
 
 \begin_layout Subsection
 Domänenmodell
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Domänenmodell"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3873,6 +3887,13 @@ Klassendiagramm Domänenmodell
 
 \begin_layout Subsection
 Service Contracts
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Service-Contracts"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -5600,6 +5621,155 @@ WPF ist im Moment die Referenztechnologie zur Entwicklung von Windowsbasierten
 \end_layout
 
 \begin_layout Subsubsection
+Model View ViewModel
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Model-View-ViewModel"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Einer der grossen Vorteile von WPF ist die Trennung von Logik und Präsentation.
+ Dies kann über das Architekturmuster MVVM erreicht werden, das eine Spezialisie
+rung des Entwurfsmusters Presentation Model von Martin Fowler ist (siehe
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Fowler2004"
+
+\end_inset
+
+).
+ MVVM basiert zum grössten Teil auf Model View Controller (MVC), und ist
+ auf moderne UI-Entwicklungsplattformen wie WPF oder Silverlight ausgelegt
+ bei denen es eine Rollentrennung zwischen einem UI-Entwickluer und einem
+ Back-End-Entwickler gibt.
+ Das View-mDoel von MVVM ist dafür verantwortlich, die Datenbojekte des
+ Modells derart blosszulegen, dass sie einfach verwaltet und benutzt werden
+ können.
+ 
+\end_layout
+
+\begin_layout Standard
+MVVM wurde entworfen, um mittels der spezifischen Funktionen in WPF durch
+ Entfernung praktisch alles Code-Behind von der View-Schicht eine bessere
+ Trennung der View-Schicht vom Rest zu ermöglichen.
+ Statt View-Code zu schreiben, kann ein Designer die XAML verwenden und
+ Bindungen zum ViewModel erzeugen, die durch Anwendungsentwickler geschrieben
+ und gewartet werden.
+ Diese Rollentrennung erlaubt es Designern, eher einen Fokus auf die UX-Anforder
+ungen zu legen, als auf Programmierung oder Geschäftslogik, wodurch die
+ Schichten einer Anwendung typischerweise in mehreren Arbeitsgruppen entwickelt
+ werden können.
+\end_layout
+
+\begin_layout Standard
+Das MVVM-Muster beeinhaltet die folgenden Elemente (nach 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Smith2009"
+
+\end_inset
+
+):
+\end_layout
+
+\begin_layout Itemize
+Model: wie im klassischen MVC-Muster bezieht sich das Modell entweder auf
+ ein Objektmodell das den realen Zustandsinhalt repräsentiert (objektorientierte
+r Ansatz) oder die Datenzugriffsschicht welche diesen Inhalt repräsentiert
+ (datenzentrischer Ansatz).
+ 
+\end_layout
+
+\begin_layout Itemize
+View: wie im klassischen MVC-Muster bezieht sich die View auf alle Elemente
+ die durch die GUI angezeigt werden, etwa Schaltflächen, Fenster, Grafiken,
+ und andere Steuerelemente.
+ 
+\end_layout
+
+\begin_layout Itemize
+ViewModel: das ViewModel ist ein “Modell der View” was bedeutet, dass es
+ eine Abstraktion der View ist, die auch der Datenbindung zwischen View
+ und Model dient.
+ Es könnte betrachtet werden als ein spezieller Aspekt eines Controllers
+ (im MVC-Muster) für die Datenbindung und -konvertierung, der Information
+ vom Model zu solcher für die View konvertiert und Befehle von der View
+ zum Model reicht.
+ Das ViewModel legt öffentliche Properties, Befehle und Abstraktionen bloß.
+ Das ViewModel kann mit einem konzeptionellen Zustand der Daten verglichen
+ werden, im Gegensatz zum realen Zustand der Daten im Model.
+\end_layout
+
+\begin_layout Standard
+Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Beispielimplementierung-von-MVVM"
+
+\end_inset
+
+ zeigt eine beispielhafte Implementierung von 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Smith2009"
+
+\end_inset
+
+ des MVVM-Musters mit allen wichtigen Elementen.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Graphics/MVVM.gif
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Beispielimplementierung von MVVM (aus 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Smith2009"
+
+\end_inset
+
+)
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Beispielimplementierung-von-MVVM"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
 Silverlight
 \end_layout
 
@@ -5739,6 +5909,8 @@ reference "fig:Visual-Studio-Solution"
 \end_inset
 
  der Visual Studio-Solution verwiesen.
+ Die Namensgebung der Unterkapitel hält sich dabei an die Namespaces der
+ Projekte.
 \end_layout
 
 \begin_layout Standard
@@ -5783,35 +5955,636 @@ name "fig:Visual-Studio-Solution"
 \end_layout
 
 \begin_layout Subsection
-Domain
-\end_layout
+YAEM.Domain
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:YAEM.Domain"
 
-\begin_layout Subsection
-ServiceModel
-\end_layout
+\end_inset
 
-\begin_layout Subsection
-Server
-\end_layout
 
-\begin_layout Subsection
-Crypto
-\end_layout
-
-\begin_layout Subsection
-TestClient
-\end_layout
-
-\begin_layout Subsection
-DesktopClient
 \end_layout
 
 \begin_layout Standard
-MVVM
+Die Assembly YAEM.Domain enthält alle Klassen, die über die Webservice Schnittste
+llen IUserService und IMessagingService übertragen werden (Inhalt des Namespaces
+ siehe 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:Domänenmodell"
+
+\end_inset
+
+).
+ Alle Klassen sind mit [DataContract]
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Ein DataContract ist eine formale Vereinbarung zwischen einem Dienst und
+ einem Client, in dem die auszutauschenden Daten abstrakt beschrieben werden.
+ Mehr Informationen zu DataContracts sind in der MSDN Library unter 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://msdn.microsoft.com/en-us/library/ms733127.aspx
+\end_layout
+
+\end_inset
+
+ zu finden.
+\end_layout
+
+\end_inset
+
+ annotiert, da sie serialisiert über den WCF Webservice übertragen werden
+ sollen.
+ Die Objekte Message, Session und User leiten von ObjectBase ab, welches
+ neben der Schlüsselverwaltung der einzelnen Instanzen auch die Schnittselle
+ INotifyPropertyChanged implementiert, welche WPF und Silverlight Datenbindings
+ über geänderte Daten benachrichtigt.
+\end_layout
+
+\begin_layout Standard
+Da dieser Namespace auch in Silverlight verfügbar sein soll, wird eine Kopie
+ als Silverlight-Library erstellt, in welcher alle Klassen aus YAEM.Domain
+ als Link im Projekt eingefügt sind und danach als eigenständige Assembly
+ (hier YAEM.Domain.SL) kompiliert werden (siehe 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Betz2008"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Subsection
-MobileClient
+YAEM.Contracts
+\end_layout
+
+\begin_layout Standard
+Dieses Assembly enthält nur die ServiceContracts
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Ein ServiceContract beschreibt eine Schnittstelle oder Klasse die einen
+ Servicevertrag einer Applikation definiert.
+ Siehe MSDN 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://msdn.microsoft.com/en-us/library/system.servicemodel.servicecontractattribute.
+aspx
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+IUserService und IMessagingService, die von der Serverapplikation implementiert
+ als Webservice zur Verfügung gestellt werden (Details zu den einzelnen
+ ServiceOperations sind in Kapitel 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:Service-Contracts"
+
+\end_inset
+
+ zu finden).
+ Zusätzlich wird auch die ServiceContract IServiceCallback in diesem Namespace
+ definiert, der von den Clientapplikationen implementiert werden muss, wenn
+ sie die beiden Services IUserService und IMessagingService nutzen wollen,
+ da diese mit [ServiceContract(CallbackContract = typeof(IServiceCallback))]
+ annotiert sind, was den Webservice-Konsumenten dazu zwingt, den CallbackContrac
+t zu implementieren.
+\end_layout
+
+\begin_layout Standard
+Alle in den Schnittsellen übertragenen Datenobjekte sind entweder primitve
+ Datentypen oder stammen aus YAEM.Domain (siehe 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:YAEM.Domain"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Subsection
+YAEM.Server
+\end_layout
+
+\begin_layout Standard
+Die YAEM.Server-Applikation dient als Servicehost der beiden Webservices
+ IUserService und IMessagingService.
+ Ein WCF Service kann entweder im Internet Information Server (IIS) gehosted
+ werden oder als Selfhosting Applikation z.B.
+ innerhalb einer Konsolenanwendung.
+ Da insbesondere der geringere Konfigurationsaufwand für Selfhosted Services
+ spricht, wurde die IIS-hosted Lösung verworfen.
+\end_layout
+
+\begin_layout Standard
+Die Konsoleanpplikation zeigt direkt ein Protokoll aller aufgerufenen Methoden
+ der Webservices dar.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Graphics/Server.png
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Serverapplikation
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+YAEM.Crypto
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:YAEM.Crypto"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die Infrastruktur für die Implementierungen der Kryptosysteme findet sich
+ im Assembly YAEM.Crypto.
+ Das Interface ICryptoProvider stellt dabei alle Funktionalitäten zur Verfügung,
+ die ein symmetrisches Kryptosystem zur Ver- und Entschlüsselung von Byte-Arrays
+ benötigt.
+\end_layout
+
+\begin_layout Standard
+Zusätzlich zu ICryptoProvider enthält das Projekt auch noch das ExportAttribute
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+ExportAttribute spezifiziert einen Typ, ein Property oder eine Methode die
+ einen Export zur Verfügung stellen.
+ Mehr Informationen in der MSDN unter 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://msdn.microsoft.com/en-us/library/system.componentmodel.composition.exportattri
+bute.aspx
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ CryptoAlgorithmAttribute, das für MEF benötigt wird um zur Laufzeit die
+ vorhanden Kryptoalgorithmen identifizieren zu können.
+\end_layout
+
+\begin_layout Subsubsection
+YAEM.Crypto.Aes
+\end_layout
+
+\begin_layout Standard
+YAEM.Crypto.Aes stellt die Implementierung der Schnittstelle ICryptoProvider
+ (siehe 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:YAEM.Crypto"
+
+\end_inset
+
+) mit dem Kryptosystem Advanced Encryption Standard (AES) zur Verfügung.
+ Der AesCryptoProvider ist dabei mit [CryptoAlgorithm(Algorithm = CryptoAlgorith
+m.Aes)] annotiert, so dass beim Importieren der Assembly das Kryptosystem
+ auch im UI identifiziert werden kann.
+\end_layout
+
+\begin_layout Standard
+Der AesCryptoProvider ist ein Wrapper für den AesCryptoServiceProvider
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Siehe MSDN 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://msdn.microsoft.com/en-us/library/system.security.cryptography.aescryptoservice
+provider.aspx
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ aus dem Namespace System.Security.Cryptography 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Sämtliche Inhalte des Namespaces System.Security.Cryptography finden sich
+ in der MSDN Library unter 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://msdn.microsoft.com/en-us/library/system.security.cryptography.aspx
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+, also Microsofts Refrenzimplementierung von AES.
+ Der AesCryptoServiceProvider implementiert den AES über die Cryptographic
+ Application Programming Interfaces (CAPI).
+\end_layout
+
+\begin_layout Subsubsection
+YAEM.Crypto.Rijndael
+\end_layout
+
+\begin_layout Standard
+Analog der Implementierung des AES enthält der Namespace YAEM.Crypto.Rijndael
+ die Implementierung des Rijndael Kryptosystems.
+ Konkret ist der RijndaelCryptoProvider ein Wrapper von RijndaelManaged
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Siehe 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://msdn.microsoft.com/en-us/library/system.security.cryptography.rijndaelmanaged
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ der den Rijndael Algorithmus implementiert.
+ Zusätzlich ist der RijndaelCryptoProvider mit [CryptoAlgorithm(Algorithm
+ = CryptoAlgorithm.Rijndael)] annotiert.
+\end_layout
+
+\begin_layout Subsubsection
+YAEM.Crypto.TripleDES
+\end_layout
+
+\begin_layout Standard
+Der TripleDESCryptoProvider des YAEM.Crypto.TripleDES Namespaces implementiert
+ auch ICryptoProvider und stellt einen Wrapper für TripleDESCryptoServiceProvide
+r
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Siehe 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://msdn.microsoft.com/en-us/library/system.security.cryptography.tripledescryptos
+erviceprovider.aspx
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ aus dem System.Security.Cryptography Namespace bereit.
+ Er implementiert das symmetrische Kryptosystem TripleDES und ist mit [CryptoAlg
+orithm(Algorithm = CryptoAlgorithm.TripleDES)] annotiert.
+\end_layout
+
+\begin_layout Subsection
+YAEM.TestClient
+\end_layout
+
+\begin_layout Standard
+Die erste entwickelte Clientapplikation, die nicht Teil der Aufgabenstellung
+ war, ist eine in Windows Forms entwickelte Desktopapplikation für Windows-basie
+rte Systeme.
+ Die Applikation zeigt zusätzliche Debug-Informationen an, die in den Clientappl
+ikationen für den Endnutzer nicht ersichtlich sind wie die Guids der Benutzer
+ und Nachrichten sowie weitere Informationen zu den übertragenen Daten.
+ Der YAEM.TestClient hält sich somit auch nicht an die Mockups (siehe Kapitel
+ 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sec:Mockups"
+
+\end_inset
+
+) da er ausserhalb der definierten Anforderungen implementiert wurde.
+\end_layout
+
+\begin_layout Standard
+Der Gesprächsdialog (siehe Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:GesprächsdialogTestClient"
+
+\end_inset
+
+) enthält zusätzlich zum Gesprächsverlauf auf der rechten Seite des Dialogfenste
+rs die Möglichkeit dem Gespräch beizutreten sowie Anzeige der dem Gespräch
+ beigetretenen Benutzer.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Graphics/TestClient-MainForm.png
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+GesprächsdialogTestClient
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:GesprächsdialogTestClient"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Wählt der Benutzer der Applikation eine Kryptosystem aus, für das noch kein
+ Schlüssel vorliegt, so wird der Schlüsselgenerierungsdialog (siehe Abbildung
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Schlüsselgenerierungsdialog-Test"
+
+\end_inset
+
+) geöffnet, der einen zufälligen generierten Schlüssel enthält.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Graphics/TestClient-GenerateKey.png
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Schlüsselgenerierungsdialog TestClient
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Schlüsselgenerierungsdialog-Test"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+YAEM.DesktopClient
+\end_layout
+
+\begin_layout Standard
+Der YAEM.DesktopClient hält sich hingegen an die Anforderungen der Mockups
+ (siehe Kapitel 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sec:Mockups"
+
+\end_inset
+
+) und implementiert diese in einer WPF Applikation unter Berücksichtigung
+ des MVVM-Musters (siehe 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:Model-View-ViewModel"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Graphics/DesktopClient-Connect.png
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Verbindungsdialog DesktopClient
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Graphics/DesktopClient-MainForm.png
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Gesprächsdialog DesktopClient
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Graphics/DesktopClient-GenerateKey.png
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Schlüsselgenerierungsdialog DesktopClient
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+YAEM.MobileClient
+\end_layout
+
+\begin_layout Standard
+Windows Phone 7 stellt Silverlight Applikationen nativ dar.
+ Aus diesem Grund wurde Silverlight aus Entwicklungsplattform für den YAEM.Mobile
+Client gewählt.
+ Auch hält sich 
 \end_layout
 
 \begin_layout Section
