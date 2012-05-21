@@ -5772,7 +5772,7 @@ Zur Kommunikation zwischen den Clientapplikationen und der Serverapplikation
 \end_layout
 
 \begin_layout Standard
-Durch WCF werden verschiedene Kommunikationstechnologeien wie DCOM
+Durch WCF werden verschiedene Kommunikationstechnologien wie DCOM
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "DCOM"
@@ -5790,43 +5790,16 @@ description "MSMQ (oder Microsoft Message Queueing) ist die Implementierung eine
 
  oder Webservices unter einer einheitlichen Programmierschnittstelle zusammengef
 asst.
- WCF wird hauptsächlich zur Entwicklung von Serviceorientierten Architekturen
+ WCF wird hauptsächlich zur Entwicklung von serviceorientierten Architekturen
  (SOA) verwendet.
  Dabei abstrahiert WCF das Konzept des Endpunkts durch eine Trennung in
  Address, Binding und Contract.
- Die Addresse (Address) ist eine URI, die den Ort des Dienstes beschreibt
+ Die Addresse (Address) ist ein URI, die den Ort des Dienstes beschreibt
  und somit seine Erreichbarkeit für Dienstkonsumenten kennzeichnet.
  Die Anbindung (Binding) beschreibt die Art der Kommunikation, worunter
  unter anderem die Merkmale der Kodierung des Protokolls fallen.
  Der Vertrag (Contract) stellt die Dienstdefinition, insbesondere die zur
  Verfügung gestellten Methoden, dar.
-\end_layout
-
-\begin_layout Standard
-Alle Methoden, welche die Serverapplikation von YAEM zur Verfügung stellt,
- werden über die Schnittstellen IUserService und IMessagingService definiert
- (siehe 
-\begin_inset CommandInset ref
-LatexCommand vref
-reference "sub:IUserService"
-
-\end_inset
-
- und 
-\begin_inset CommandInset ref
-LatexCommand vref
-reference "sub:IMessagingService"
-
-\end_inset
-
-).
- Die Serverapplikation implementiert diese beiden Schnittstellen und 
-\end_layout
-
-\begin_layout Standard
-
-\noun on
-[WCF erklären, wofür braucht man WCF']
 \end_layout
 
 \begin_layout Subsubsection
@@ -5841,10 +5814,343 @@ name "sub:Bindings"
 \end_layout
 
 \begin_layout Standard
+WCF unterscheidet zwischen der Implementierung einer Softwarekomponente
+ und wie diese mit anderen Softwarekomponenten kommuniziert.
+ Mithilfe von Bindings werden Transport, Kodierung und Protokolldetails
+ angegeben, die von Client- und Serverapplikationen zur Kommunikation benötigt
+ werden.
+ WCF generiert mit Bindings die zugrundeliegende Übertragungsdarstellung
+ des Endpunkts
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Endpoint"
+description "Ein Endpoint (dt. Endpunkt) kennzeichnet einen verfügbaren Dienst. Er besteht aus einer Addresse, einem Binding und einem Contract."
 
-\noun on
-[Verschiedene Bindings auflisten und vergleichen, Details zu WSDualHttpBinding
-  auflisten, Vorteile und Nachteile]
+\end_inset
+
+.
+ Deshalb müssen die an der Kommunikation beteiligten Parteien die Details
+ des Bindings aufeinander abstimmen.
+ Tabelle 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Bindings"
+
+\end_inset
+
+ bietet eine Übersicht über die im Lieferumfang von WCF vorhandenen Bindings
+ an.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="11" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top" width="10cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Binding
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Beschreibung
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+BasicHttpBinding
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ein Binding, das sich für die Kommunikation mit Webservices eignet.
+ Das Binding verwendet HTTP als Transportprotokoll und XML als Kodierung.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+WSHttpBinding
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ein sicheres Binding, das sich für nicht-duplexfähige Service Contracts
+ eignet.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+WsDualHttpBinding
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ein sicheres Binding, das die Kommunikation mit Service Contracts über SOAP
+ mit Duplexkanälen anbietet.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+WsFederationHttpBinding
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Das 
+\emph on
+WSFederationHttpBinding
+\emph default
+ unterstützt das WS-Federationprotokoll und ermöglicht es den Dienstbenutzer
+ zu authentifizieren und autorisieren.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+NetTcpBinding
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Dieses Binding ist ein sicheres und optimiertes Binding, die sich für die
+ computerübergreifende Kommunikation zwischen WCF-Anwendungen eignet.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+NetNamedPipeBinding
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Das 
+\emph on
+NetNamedPipeBinding
+\emph default
+ eignet sich zur Kommunikation zwischen WCF-Anwendungen auf einem Computer.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+NetMsmqBinding
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Eine warteschlagenbasiertes (queue-based) Binding, das zur computerübergreifende
+n Kommunikation zwischen WCF-Applikationen eingesetzt werden kann.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+NetPeerTcpBinding
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Zwischen mehreren Rechnern wird mit Hilfe dieses Bindings eine sichere Kommunika
+tion ermöglicht.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+WebHttpBinding
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Dieses Binding dient zur Übertragung von HTTP-Requests die nicht über SOAP
+ bereitgestellt werden können.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+MsmqIntegrationBinding
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Zur computerübergreifenden Kommunikation zwischen WCF-Applikation und MSMQ-Anwen
+dungen wird dieses Binding bentutzt.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Bindings
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Bindings"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Da für YAEM zwingend ein duplexfähiges Binding verwenden soll, steht einzig
+ das 
+\emph on
+WSDualHttpBinding
+\emph default
+ zur Verfügung, das sowohl der Webservice wie auch dem konsumierenden Client
+ die Möglichkeit bietet, Nachrichten zu versenden wie auch zu empfangen.
 \end_layout
 
 \begin_layout Subsubsection

@@ -1,6 +1,6 @@
 %% LyX 2.0.0 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
-\documentclass[oneside,ngerman]{scrbook}
+\documentclass[oneside,english,ngerman]{scrbook}
 \usepackage[T1]{fontenc}
 \usepackage[latin9]{inputenc}
 \setcounter{secnumdepth}{3}
@@ -22,10 +22,10 @@
 \makeatletter
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
-\newcommand{\noun}[1]{\textsc{#1}}
 %% Because html converters don't know tabularnewline
 \providecommand{\tabularnewline}{\\}
 
+\@ifundefined{date}{}{\date{}}
 \makeatother
 
 \begin{document}
@@ -36,10 +36,7 @@
 \author{Florian Amstutz <\href{mailto:florian@amstutz.nu}{florian@amstutz.nu}>}
 
 
-\date{14. Mai 2012}
-
-
-\publishers{Semesterarbeit an der Zürcher Hochschule für Angewandte Wissenschaften}
+\publishers{{\large Semesterarbeit an der Zürcher Hochschule für Angewandte Wissenschaften}}
 
 \maketitle
 \tableofcontents{}
@@ -49,7 +46,7 @@
 
 Als einführendes Kapitel dieses Dokuments wird die Semesterarbeit
 als Projekt kurz vorgestellt und es werden die Rahmenbedingungen der
-Semesterarbeit zusammengefasst niedergeschrieben. Weiter werden verschiedene
+Arbeit zusammengefasst niedergeschrieben. Weiter werden verschiedene
 Softwareentwicklungsprozesse vorgestellt sowie die für diese Semesterarbeit
 verwendete Methode erklärt. Am Ende dieses Kapitels wird unter Benutzung
 der vorgestellten Softwareentwicklungsmethode eine Projektplanung
@@ -61,27 +58,27 @@ erstellt und die wichtigsten Meilensteine definiert.
 Mit dem zunehmenden Aufkommen von Attacken und gezieltem Abhorchen
 von Echtzeitkommunikation via E-Mail oder Instant Messaging steigt
 der Bedarf an eine sichere und einfache Übertragungsart von Nachrichten
-oder Daten. 
+und Daten. 
 
 Als Nutzer eines Kommunikationskanals über das öffentliche Internet
 will ich die Möglichkeit haben meine privaten Daten verschlüsselt
 und sicher an einen oder mehrere Empfänger übertragen zu können. Ich
 will dabei eine einfach zu bedienende Applikation zur Verfügung haben
-um meine geheimen Daten übertragen zu können und so potentiellen Mithörern
+um meine geheimen Daten versenden zu können und so potentiellen Mithörern
 keine Klartextinformationen zur Verfügung zu stellen. 
 
 Diese Applikation soll als Prototyp im Rahmen der Semesterarbeit im
 dritten Studienjahr an der ZHAW entwickelt werden. Dabei wird der
-Schwerpunkt der Arbeit auf der methodischen Vorgehensweise der Softwareentwicklung
-und weniger auf der Implementierung der kryptografischen Algorithmen.
+Fokus der Arbeit auf der methodischen Vorgehensweise der Softwareentwicklung
+gelegt und weniger auf der Implementierung der kryptografischen Algorithmen.
 
 
 \section{Über die Semesterarbeit}
 
 Gemäss Reglement der ZHAW (siehe \cite{Stern2010}) dient die Semesterarbeit
-als Vorbereitung zur Bachelorarbeit. Sie besteht aus einem konzeptionellen
+zur Vorbereitung auf die Bachelorarbeit. Sie besteht aus einem konzeptionellen
 Teil und einem Umsetzungsteil, wobei der Schwerpunkt auf der Umsetzung
-liegen soll.
+der Arbeit liegen soll.
 
 Der Aufwand für die Fertigstellung der Semestarbeit beträgt mindestens
 120 Stunden und schliesst mit einer Präsentation vor dem Betreuer
@@ -91,81 +88,88 @@ und einer Vertretung der Leitung des Studengangs Informatik ab.
 \section{Softwareentwicklungsprozess}
 
 Software lässt sich nach einer Vielzahl von Prozessen und Modellen
-entwickeln. Von iterativen Vorgehen wie Scrum über komplexe Modelle
-wie RUP \nomenclature{RUP}{Der Rational Unified Process ist ein kommerzielles Vorgehensmodell zur Softwareentwicklung von IBM. }
-hin zu klassischen, linearen Vorgehen wie dem Wasserfallmodell oder
-dem V-Modell\nomenclature{V-Modell}{Das V-Modell ist ein Vorgehensmodell in der Softwareentwicklung, bei dem der Softwareentwicklungsprozess in Phasen organisiert wird. Neben diesen Entwicklungsphasen definiert das V-Modell auch das Vorgehen zur Qualitätssicherung (Testen) phasenweise.}.
+entwickeln. Von iterativen Vorgehen wie Scrum über komplexe und vergleichsweise
+starre Modelle wie RUP\nomenclature{RUP}{Der Rational Unified Process ist ein kommerzielles Vorgehensmodell zur Softwareentwicklung von IBM. }
+bis hin zu klassischen, linearen Vorgehen wie dem Wasserfallmodell\nomenclature{Wasserfallmodell}{Das Wasserfallmodell ist ein lineares (nicht iteratives) Vorgehensmodell, das in Phasen organisiert wird. Dabei gehen die Phasenergebnisse wie bei einem Wasserfall immer als bindende Vorgaben für die nächsttiefere Phase ein. Im Wasserfallmodell hat jede Phase vordefinierte Start- und Endpunkte mit eindeutig definierten Ergebnissen. }
+oder dem V-Modell\nomenclature{V-Modell}{Das V-Modell ist ein Vorgehensmodell in der Softwareentwicklung, bei dem der Softwareentwicklungsprozess in Phasen organisiert wird. Neben diesen Entwicklungsphasen definiert das V-Modell auch das Vorgehen zur Qualitätssicherung (Testen) phasenweise.}.
 Nach \cite{Starke2011} ist die Auswahl des Entwicklungsprozesses
-eine der schwierigsten Entscheidungen, die man bei einem Softwareprojekt
+eine der kritischsten Entscheidungen, die man bei einem Softwareprojekt
 treffen muss. Häufig besitzen Unternehmungen bereits etablierte, auf
 sie zugeschnittene Entwicklungsmodelle, die mehr oder weniger gut
-zur Organisation der Unternehmung passen. Ein ungünstig gewählter
-oder nicht vollständig eingeführter und gelebter Entwicklungsprozess
-ist nach \cite{Starke2011} einer der Hauptgründe wieso Softwareprojekte
-mit Qualitätsmängeln, Budgetüberschreitungen oder zeitlichen Verzögerungen
-zu kämpfen haben.
+zur Organisation der Unternehmung und dem jeweiligen Projekt passen.
+Ein ungünstig gewählter oder nicht vollständig eingeführter und gelebter
+Entwicklungsprozess ist nach \cite{Starke2011} einer der Hauptgründe
+wieso Softwareprojekte mit Qualitätsmängeln, Budgetüberschreitungen
+oder zeitlichen Verzögerungen zu kämpfen haben.
 
 Für dieses Projekt wurde das Wasserfallmodell als Entwicklungsprozess
-ausgewählt. Das Wasserfallmodell teilt die Softwareentwicklung in
-meist fünf verschiedene Phasen auf. Dabei kann erst mit der nächsten
-Phase begonnen werde wenn die Lieferegebnisse und die Ergebnisdokumentation
-der vorhergehenden Phase fertiggestellt und abgenommen worden sind.
-Das Wasserfallmodell wurde ausgewählt, da die jeweiligen Phasen eindeutig
-abgeschlossen werden können, da der Betreuer als einziger, externer
-Stakeholder des Projekts zu festdefinierten Phasen Einfluss auf das
-Projekt ausübt und danach keine Möglichkeit mehr besitzt, den Projektverlauf
+ausgewählt. Das Wasserfallmodell teilt die Softwareentwicklung meist
+in fünf verschiedene Phasen auf (siehe Abbildung \ref{fig:Wasserfallprozess-nach}).
+Dabei kann jeweils erst mit der nächsten Phase begonnen werde wenn
+die Lieferegebnisse und die Ergebnisdokumentation der vorhergehenden
+Phase fertiggestellt und abgenommen worden sind. Das Wasserfallmodell
+wurde ausgewählt, da dieses Projekt gut linear abgearbeitet werden
+kann und da der Betreuer als einziger externer Stakeholder\nomenclature{Stakeholder}{Als Stakeholder (engl.) wird eine Person oder Gruppe bezeichnet, die ein berechtigtes Interesse am Verlauf oder Ergebnis eines Prozesses oder Projektes hat.}
+des Projekts zu festdefinierten Phasen Einfluss auf das Projekt ausüben
+kann und danach keine andere Möglichkeit besitzt, den Projektverlauf
 zu beeinflussen. Die grössten Nachteile des Wasserfallmodells sind
-nach \cite{Elmer2005} ein Abgrenzugsproblem zwischen den Phasen sowie
-die Schwierigkeit des Abschlusses einzelner Phasen. Dadurch dass der
-Betreuer nur in den Phasen Requirements und Design Einfluss auf das
-Projekt nehmen kann und Student als einziger Stakeholder den Abschluss
-der Phasen abnimmt sowie den Ablauf der Phasen innerhalb des Projekts
-steuert können diese Nachteile umgangen werden.
+nach \cite{Elmer2005} Abgrenzugsprobleme zwischen den einzelnen Phasen
+sowie die Schwierigkeit des Abschlusses einzelner Phasen da diese
+nur mit viel (zusätzlichem) Aufwand isoliert von anderen Phasen abgeschlossen
+werden können. Dadurch dass der Betreuer nur in der Anforderungs-
+und Konzeptphase Einfluss auf das Projekt nehmen kann und der Student
+alleinig den Abschluss der Phasen steuert und verifiziert sowie den
+Ablauf der Phasen innerhalb des Projekts steuert, können diese Nachteile
+umgangen werden.
 
-\begin{figure}[h]
+\begin{figure}
 \begin{centering}
 \includegraphics[scale=0.6]{Graphics/sw-process}
 \par\end{centering}
 
-\caption{Wasserfallprozess nach \cite{Hung2007}}
+\caption{Wasserfallprozess nach \cite{Hung2007}\label{fig:Wasserfallprozess-nach}}
 \end{figure}
 
 
 Zu Beginn des Wasserfallmodells steht das Sammeln und Dokumentieren
-der Anforderungen (Requirements). Wenn die Anforderungen umfänglich
-und in hohem Detaillierungsgrad niedergeschrieben sind, werden diese
-vom Auftraggeber abgenommen und das Projekt geht in die Design-Phase
-über. Die zu entwickelnde Software wird auf verschiedenen Ebenen von
-Softwarearchitekten designed und eine Blaupause wird erstellt, nach
-welcher sich die Software Entwickler in der Implementationsphase zu
-halten haben. Das Design sollte einen Plan beinhalten, welcher die
-Implementierung der Anforderungen aufzeigt. Wenn das Design fertiggestellt
-worden ist, wird dieses von den Entwicklern in Programmcode umgesetzt.
-Gegen Ende der Implementationsphase werden die Softwarekomponenten
-verschiedener Teams integriert. Nachdem die Implementierungs- und
-Integrationsphasen abgeschlossen sind, wird das Softwareprodukt getestet
-und allfällige Fehler aus früheren Phasen werden zu diesem Zeitpunkt
-entfernt. Danach wird das Softwareprodukt installiert und später in
-der Wartungsphase (Maintenance) um weitere Funktionalitäten erweitert
-beziehungsweise werden weitere Bugs\nomenclature{Bug}{Ein Programm- oder Softwarefehler wird als Bug bezeichnet und beschreibt im Allgemeinen ein fehlerhaftes Verhalten von Computerprogrammen.}
+der Anforderungen (Requirements) im Vordergrund. Wenn die Anforderungen
+umfänglich und in hohem Detaillierungsgrad niedergeschrieben sind,
+werden diese vom Auftraggeber abgenommen und das Projekt geht in die
+Phase Design über. Die zu entwickelnde Software wird auf verschiedenen
+Ebenen von Softwarearchitekten designed und eine Blaupause wird erstellt,
+nach welcher sich die Softwareentwickler in der Implementationsphase
+zu halten haben. Das Design sollte einen Plan beinhalten, welcher
+die Implementierung der Anforderungen aufzeigt. 
+
+Wenn das Design fertiggestellt worden ist, wird dieses von den Entwicklern
+in Programmcode umgesetzt. Gegen Ende der Implementationsphase werden
+die Softwarekomponenten verschiedener Teams integriert und als Gesamtsystem
+zum Einsatz gebracht. Nachdem die Implementierungs- und Integrationsphase
+abgeschlossen sind, wird das Softwareprodukt getestet und allfällige
+Fehler aus früheren Phasen werden zu diesem Zeitpunkt behoben. Danach
+wird das Softwareprodukt installiert und später in der Wartungsphase
+(Maintenance) um weitere Funktionalitäten erweitert beziehungsweise
+werden neu entdeckte Bugs\nomenclature{Bug}{Ein Programm- oder Softwarefehler wird als Bug bezeichnet und beschreibt im Allgemeinen ein fehlerhaftes Verhalten von Computerprogrammen.}
 behoben.
 
-Die Struktur dieses Dokuments hält sich auch an den Wasserfallprozess
-nach \cite{Hung2007} (siehe Tabelle \ref{tab:Zuweisungstablle-der-Phasen}).
-Die Phase Maintenance wird dabei ausgelassen, da sich die innerhalb
-des Projekts entwickelte Applikation nach Abschluss der Verifizierungsphase
-noch im Protoypenstand befinden wird.
+Die Struktur dieses Projekts und der dazugehörigen Dokumentation hält
+sich auch an den Wasserfallprozess nach \cite{Hung2007} (siehe Tabelle
+\ref{tab:Zuweisungstablle-der-Phasen}). Die Phase Maintenance wird
+dabei ausgelassen, da sich die innerhalb des Projekts entwickelte
+Applikation nach Abschluss der Verifizierungsphase noch im Protoypenstadium
+befinden wird und nicht dem Reifegrad einer Applikation besitzt, die
+in die Wartung übergehen kann.
 
-\begin{table}[h]
+\begin{table}
 \begin{centering}
 \begin{tabular}{|l|l|l|}
 \hline 
-Phase & Kapitelüberschrift & Seite\tabularnewline
+Phase & Kapitelüberschrift & Siehe Seite\tabularnewline
 \hline 
 \hline 
 Requirements & \nameref{chap:Anforderungen} & \pageref{chap:Anforderungen}\tabularnewline
 \hline 
-Design & \nameref{chap:Konzept} & \pageref{chap:Konzept}\tabularnewline
+Design & \nameref{chap:Konzept-und-Architektur} & \pageref{chap:Konzept-und-Architektur}\tabularnewline
 \hline 
 Implementation & \nameref{chap:Implementierung} & \pageref{chap:Implementierung}\tabularnewline
 \hline 
@@ -183,67 +187,66 @@ Verification & \nameref{chap:Test} & \pageref{chap:Test}\tabularnewline
 
 Nach Reglement der ZHAW (siehe \cite{Stern2010}) muss die Semesterarbeit
 sechs Monate nach Freigabe beendet sein. Um die Planbarkeit der Semesterarbeit
-zu erhöhen wurde das Projekt vorgängig in einzelne Phasen unterteilt,
-welche auf die bekannten Meilensteine enden.
+zu erhöhen wurde das Projekt bei Projektstart in einzelne Phasen unterteilt,
+welche auf die vorgängig bekannten Termine als Meilensteine enden.
 
-Die Projektplanung dient dazu möglichst frühzeitig im Verlauf der
-Seminararbeit schon Teile der Dokumentation fertiggestellt zu haben,
-so dass nicht in den letzten zwei Wochen vor der Abgabe der Arbeit
-übermässig viel Zeit und Aufwand in die Arbeit investiert werden muss.
-Ausserdem sinkt das Risiko, das nicht alle erwarteten Resultate der
-Arbeit geliefert werden können, da die Lieferergebnisse bei Phasenende
-schon in genügend hoher Qualität vorliegen, dass diese abgegeben werden
-können.
+Ziel dieser Phasenplanung ist es, möglichst frühzeitig im Verlauf
+der Seminararbeit Teile der erwarteten Resultate sowie der Dokumentation
+fertiggestellt zu haben, so dass das Risiko von Qualitätseinbussen
+der Abgaberesultate zu minimieren. Ausserdem sinkt das Wahrscheinlichkeit,
+dass nicht alle erwarteten Resultate der Arbeit geliefert werden können,
+da die Lieferergebnisse bei jeweiligem Phasenende schon in abgabefertiger
+Qualität vorliegen.
 
 
-\subsection{Phasenplanung}
+\subsection{Phasenplanung\label{sub:Phasenplanung}}
 
 Nach dem Wasserfallmodell wird das Projekt in einzelne Phasen eingeteilt,
 die zu einem bestimmten Zeitpunkt mit vordefinierten Endergebnissenen
 enden. Bei Erreichen des Endzeitpunkts und bei Lieferung aller Endergebnisse
-geht das Projekt in die nächste Phase über. Die Phasen in diesem Projekt
-wurden häufig so modelliert, dass ihr Endzeitpunkt mit dem Erreichen
-eines Meilensteins zusammenliegt. Das heisst, das bei Erreichen des
-Meilensteins die vorhergehende Phase zwingend abgeschlossen sein werden
-muss.
+geht das Projekt in die nächste Phase über. Die Phasen dieser Semesterarbeit
+wurden so modelliert, dass ihr Endzeitpunkt möglichst mit dem Erreichen
+eines Meilensteins zusammenfällt (siehe Tabelle \ref{tab:Phasenplan}).
+Das heisst, dass bei Erreichen des Meilensteins die vorhergehende
+Phase zwingend abgeschlossen sein werden muss.
 
 Vor dem eigentlichen Projektstart werden geeigeneten Themen für die
 Semesterarbeit evaluiert, ein Betreuer gesucht sowie ein Projektantrag
-in EBS erfasst. Diese Phase endet im Kick-Off-Meeting zwischen Betreuer
-und Student und der formalen Freigabe der Semesterarbeit durch die
-Studiengangsleitung. Das Erheben und Dokumentieren der Anforderungen
-ist die erste Phase der eigentlichen Projektumsetzung und mündet in
-der Konzepterarbeitung auf Basis der Anforderungen. Ist das Konzept
-vollständig abgeschlossen findet das Design-Review statt, bei welchem
-der Betreuer das Konzept begutachtet und allfällige Anpassungen am
-Konzept vorschlägt. Nach Fertigstellung des Konzepts folgt die Implementierungsphase
-und Testphase, nach denen die Arbeit abgegeben werden muss. Als letzte
-Phase folgt das Erarbeiten der Präsentation, die bei Phasenende vorgetragen
-wird.
+in EBS erfasst. Diese Phase endet mit dem Kick-Off-Meeting zwischen
+Betreuer und Student sowie der formalen Freigabe der Semesterarbeit
+durch die Studiengangsleitung. Das Erheben und Dokumentieren der Anforderungen
+ist die erste Phase des eigentlichen Projekts und mündet in der Konzepterarbeitung
+auf Basis der Anforderungen. Ist das Konzept vollständig abgeschlossen,
+findet das Design-Review statt, bei welchem der Betreuer das Konzept
+begutachtet und allfällige Anpassungen darn vorschlägt. Nach Fertigstellung
+des Konzepts folgt die Implementierungsphase und Testphase, nach denen
+die Arbeit abgegeben wird. In der letzten Phase des Projekts wird
+die Präsentation erarbeitet, die an der Schlusspräsentation (Meilenstein
+M5) vorgetragen wird.
 
-\begin{table}[H]
+\begin{table}
 \begin{centering}
-\begin{tabular}{|l|l|l|l|l|}
+\begin{tabular}{|l|l|l|l|}
 \hline 
-Phase & Von & Bis & Ergebnis & Endet in Meilenstein\tabularnewline
+Phase & Start & Ende & Endet in Meilenstein\tabularnewline
 \hline 
 \hline 
-Themenevaluierung & 15.10.2011 & 04.11.2011 & Antrag in EBS & M1, M2\tabularnewline
+Themenevaluation & 15.10.2011 & 04.11.2011 & M1, M2\tabularnewline
 \hline 
-Erfassen der Anforderungen & 04.11.2011 & 01.12.2011 & Dokumentierte Anforderungen & \tabularnewline
+Erfassen der Anforderungen & 04.11.2011 & 01.12.2011 & \tabularnewline
 \hline 
-Erarbeiten des Konzepts & 01.12.2011 & 13.04.2012 & Umfassendes Konzept & M3\tabularnewline
+Erarbeiten des Konzepts & 01.12.2011 & 13.04.2012 & M3\tabularnewline
 \hline 
-Implementierungs des Konzepts & 13.04.2012 & 01.05.2012 & Implementierung & \tabularnewline
+Implementierungs des Konzepts & 13.04.2012 & 01.05.2012 & \tabularnewline
 \hline 
-Überprüfen und Test des Konzepts & 01.05.2012 & 23.05.2012 & Erfüllte Integrationstests & M4\tabularnewline
+Überprüfen und Test des Konzepts & 01.05.2012 & 23.05.2012 & M4\tabularnewline
 \hline 
-Erarbeiten der Präsentation & 23.05.2012 & 06.06.2012 & Fertiggestellte Präsentation & M5\tabularnewline
+Erarbeiten der Präsentation & 23.05.2012 & 06.06.2012 & M5\tabularnewline
 \hline 
 \end{tabular}
 \par\end{centering}
 
-\caption{Phasenplan}
+\caption{Phasenplan\label{tab:Phasenplan}}
 \end{table}
 
 
@@ -254,42 +257,47 @@ Ein Meilenstein ist ein Ereignis von besonderer Bedeutung und stellt
 ein (Zwischen-) Ziel innerhalb eines Projekts dar. Meilensteine werden
 typischerweise von Personen oder Organisationen ausserhalb des Projekts
 vorgegeben und passen mit den im vorhergehenden Kapitel definierten
-Phasen überein.
+Phasenenden überein.
 
-\begin{table}[H]
+Die Meilensteine des Projekts sind in der Tabelle \ref{tab:Meilensteine}
+ersichtlich.
+
+\begin{table}
 \begin{centering}
 \begin{tabular}{|l|l|l|}
 \hline 
-Kürzel & Meilenstein & Datum\tabularnewline
+Bezeichner & Meilenstein & Datum\tabularnewline
 \hline 
 \hline 
 M1 & Kick-Off  & 04.11.2011\tabularnewline
 \hline 
-M2 & Freigabe der Arbeit & 06.11.2012\tabularnewline
+M2 & Freigabe der Arbeit & 06.11.2011\tabularnewline
 \hline 
-M3 & Design Review & 13.04.2012\tabularnewline
+M3 & Design-Review & 13.04.2012\tabularnewline
 \hline 
 M4 & Abgabe der Arbeit & 23.05.2012\tabularnewline
 \hline 
-M5 & Präsentation der Semesterarbeit & 06.06.2012\tabularnewline
+M5 & Schlusspräsentation & 06.06.2012\tabularnewline
 \hline 
 \end{tabular}
 \par\end{centering}
 
-\caption{Meilensteine}
+\caption{Meilensteine\label{tab:Meilensteine}}
 \end{table}
 
 
 
 \chapter{Anforderungen\label{chap:Anforderungen}}
 
-Gemäss dem verwendeten Wasserfallmodell werden als erstes die Anforderungen
-erhoben. Dazu wird der Begriff {}``Anforderung'' definiert und auf
-verschiedene Arten von Anforderungen eingegangen. Anschliessend wird
-der Systemkontext aufgezeigt sowie die konkreten Anforderungen an
-YAEM als Use-Cases modelliert und spezifiziert. Der Abschluss dieses
-Kapitels wie auch der Anforderungsphase bildet die Erstellung und
-Erklärung der für den Benutzer sichtbaren Dialogfenster.
+In der Phasenplanung (siehe Kapitel \vref{sub:Phasenplanung}) wurde
+festgelegt, dass in der ersten Projektphase des Projekts die Anforderungen
+erhoben werden. Dazu wird zu Beginn dieses Kapitels der Begriff Anforderung
+definiert und es wird auf verschiedene Arten von Anforderungen näher
+eingegangen. Anschliessend wird der Systemkontext beschrieben und
+eingegrenzt sowie die konkreten Anforderungen an YAEM als Use-Cases\nomenclature{Use-Case}{Ein Use Case (deutsch Anwendungsfall) bündelt alle möglichen Szenarien, die eintreten können, wenn ein Akteur versucht, mit Hilfe des betrachteten Systems ein bestimmtes fachliches Ziel zu erreichen. Er beschreibt, was inhaltlich beim Versuch der Zielerreichung passieren kann, und abstrahiert von konkreten technischen Lösungen. Das Ergebnis des Anwendungsfalls kann ein Erfolg oder Fehlschlag/Abbruch sein.}
+modelliert und spezifiziert. Der Abschluss dieses Kapitels wie auch
+der Anforderungsphase selbst bildet das Entwerfen der für den Benutzer
+sichtbaren Dialogfenster.
 
 
 \section{Was sind Anforderungen?}
@@ -314,13 +322,13 @@ oder andere, formell vorgegebene Dokumente zu erfüllen.
 gemäss 1. oder 2.
 \end{enumerate}
 \end{description}
-Die Anforderungen an das im Rahmen der Semesterarbeits zu entwickelnden
-Systems werden in Use-Case-Diagrammen modellhaft dargestellt und als
+Die Anforderungen an das im Rahmen dieser Semesterarbeits zu entwickelnde
+System werden in Use-Case-Diagrammen modellhaft dargestellt und als
 Use-Case-Spezifikationen ausformuliert. Auf eine natürlichsprachige
-Dokumentation der Anforderungen wird verzichtet, da die Anforderungen
-aufgrund der Use-Case-Diagrammen verständlich genug sind und alle
-zusätzlich zu den Diagrammen zu beachtenden Punkte in den Use-Case-Spezifikationen
-enthalten sind. 
+Dokumentation der Anforderungen wird verzichtet, da die modellierten
+Anforderungen innerhalb der Use-Case-Diagrammen verständlich genug
+sind und zu den Use-Case-Diagrammen noch detaillierte Use-Case-Spezifikationen
+vorhanden sind. 
 
 
 \subsection{Arten von Anforderungen\label{sub:Arten-von-Anforderungen}}
@@ -338,93 +346,101 @@ beziehen sich Qualitätsanforderungen auf die Performance, die Verfügbarkeit,
 die Zuverlässigkeit, die Skalierbarkeit oder die Portabilität des
 betrachteten Systems. Anforderungen dieses Typs werden häufig auch
 der Klasse {}``nicht funktionaler Anforderungen'' zugeordnet.
-\item Randbedingungen (auch: Rahmenbedingungen) können von den Projektbeteiligten
-nicht beeinflusst werden. Randbedingungen können sich sowohl auf das
-betrachtete System beziehen (z.B. {}``Das System soll über Webservices
-mit Aussensysteme kommunizieren'') als auch auf den Entwicklungsprozess
-des Systems (z.B. {}``Das Sysemt soll bis spätestens Mitte 2013 am
-Markt verfügbar sein''). Randbedingungen werden, im Gegensatz zu
-funktionalen Anforderungen und Qualitätsanforderungen, nicht umgesetzt,
-sondern schränken die Umsetzungsmöglichkeiten, d.h. den Lösungsraum
-im Entwicklungsprozess ein.
+\item Randbedingungen%
+\footnote{auch Rahmenbedingungen genannt%
+} können von den Projektbeteiligten nicht beeinflusst werden. Randbedingungen
+können sich sowohl auf das betrachtete System beziehen (z.B. {}``Das
+System soll über Webservices mit Aussensysteme kommunizieren'') als
+auch auf den Entwicklungsprozess des Systems (z.B. {}``Das System
+soll bis spätestens Mitte 2013 am Markt verfügbar sein''). Randbedingungen
+werden, im Gegensatz zu funktionalen Anforderungen und Qualitätsanforderungen,
+nicht umgesetzt, sondern schränken die Umsetzungsmöglichkeiten, das
+heisst den Lösungsraum im Entwicklungsprozess ein.
 \end{itemize}
+In diesem Dokument werden der Einfachheit halber nur funktionale Anforderungen
+beschrieben. Qualitätsanforderungen betreffend der Leistungsfähigkeit
+oder Wartbarkeit des Systems werden nicht erhoben, da diese für den
+Prototypen nur eingeschränkt relevant sind und innerhalb dieses Projekts
+keinen Wert gelegt werden soll. Rahmenbedingungen werden nicht implizit
+festgehalten sondern ergeben sich einerseits aus \cite{Stern2010}
+sowohl der technischen Umgebung des Systems. Technische Rahmenbedingungen
+die das Projekt beeinflussen werden im Konzept beziehungsweise in
+der Implementierung berücksichtigt und entsprechend hervorgehoben.
+
 
 \section{Systemkontext}
 
-Als erster Schritt in der Erhebung und Dokumentierung wird der Systemkontext
-ermittelt. Es wird eine Sollperspektive eingenommen, d.h., es wird
-eine Annahme getroffe, wie das geplante System sich in die Realität
-integriert. Hierdurch wird der Realitätsausschnitt identifiziert,
-der das System und damit potenziell auch dessen Anforderungen beeinflusst.
-Um die Anforderungen an das geplante System korrekt und vollständig
-spezifizieren zu können, ist es notwendig, die Beziehung zwischen
-den einzelnen materiellen und immateriellen Aspekten im Systekontext
-und dem geplanten System exakt zu dfinieren. Der für die Anforderungen
+Als erster Schritt in der Erhebung und Dokumentierung der Anforderung
+wird der Systemkontext ermittelt. Es wird eine Sollperspektive eingenommen,
+das heisst, es wird eine Annahme getroffen, wie sich das geplante
+System in die Realität integriert. Hierdurch wird der Realitätsausschnitt
+identifiziert, der das System und damit potenziell auch dessen Anforderungen
+beeinflusst. Um die Anforderungen an das geplante System korrekt und
+vollständig spezifizieren zu können, ist es notwendig, die Beziehung
+zwischen den einzelnen materiellen und immateriellen Aspekten im Systemkontext
+und dem geplanten System exakt zu definieren. Der für die Anforderungen
 des Systems relevante Ausschnitt der Realität wird als Systemkontext
-bezeichnet.
+bezeichnet (nach \cite{Pohl2011}).
 
 Der Ursprung der Anforderungen des Systems liegt im Systemkontext
 des geplanten Systems. Aus diesem Grund wird der Systemkontext vor
 Erhebung und Dokumentierung der Anforderungen festgelegt. Der Systemkontext
-YAEM wird wie folgt dargestellt. Die Benutzer als Stakeholder an das
-System senden und empfangen Nachrichten und befinden sich innerhalb
-des Systemkontexts da sie direkt mit dem System interagieren. Die
-Verschlüsselungsalgorithmen sind in der Fachliteratur klar geregelt
-und normiert und geben aus diesem Grund die konkreten Implementierungsvorschriften
+des Systems YAEM ist in Abbildung \ref{fig:Systemkontext} als Modell
+dargestellt. Die Benutzer als Stakeholder an das System senden und
+empfangen Nachrichten und befinden sich innerhalb des Systemkontexts,
+da sie direkt mit dem System interagieren. Die Verschlüsselungsalgorithmen
+sind in der Fachliteratur klar geregelt und normiert und geben aus
+diesem Grund die konkreten Implementierungsvorschriften ihrerselbst
 an das System vor.
-
-
-\subsection*{Systemkontext YAEM}
 
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[scale=0.5]{ExportedDiagrams/Systemkontext}
 \par\end{centering}
 
-\caption{Systemkontext}
+\caption{Systemkontext\label{fig:Systemkontext}}
 \end{figure}
 
 
 
-\section{Use-Case-Spezifikationen}
+\section{Use-Case-Spezifikationen\label{sec:Use-Case-Spezifikationen}}
 
 Nach \cite{Pohl2011} zeigen Use-Case-Diagamme die aus einer externen
 Nutzungssicht wesentlichen Funktionalitäten des betrachteten Systems
 sowie spezifische Beziehungen der einzelnen Funktionalitäten untereinander
-bzw. zu Aspekten in der Umgebung des Systems. Abgesehen vom Namen
-eines Use-Cases und dessen Beziehungen dokumentieren Use-Case-Diagramme
-allerdings keinerlei weitere Informationen über die einzelnen Use-Cases,
-wie z.B. die Systematik der Interaktion eines Use Case\nomenclature{Use Case}{Ein Use Case (deutsch Anwendungsfall) bündelt alle möglichen Szenarien, die eintreten können, wenn ein Akteur versucht, mit Hilfe des betrachteten Systems ein bestimmtes fachliches Ziel zu erreichen. Er beschreibt, was inhaltlich beim Versuch der Zielerreichung passieren kann, und abstrahiert von konkreten technischen Lösungen. Das Ergebnis des Anwendungsfalls kann ein Erfolg oder Fehlschlag/Abbruch sein.}
-mit Akteuren in der Umgebung. Diese Informationen werden unter Verwendung
-einer geeigneten Schablone zusätzlich zum Use-Case-Diagramm textuell
-dokumentiert.
+beziehungsweise zu Aspekten in der Umgebung des Systems. Abgesehen
+vom Namen des Use-Cases und dessen Beziehungen dokumentieren Use-Case-Diagramme
+keinerlei weitere Informationen über die einzelnen Use-Cases, wie
+z.B. die Systematik der Interaktion eines Use-Case mit Akteuren in
+der Umgebung. Diese Informationen werden unter Verwendung einer geeigneten
+Schablone zusätzlich zum Use-Case-Diagramm textuell als Use-Case-Spezifikation
+festgehalten.
 
-Alle funktionalen Anforderungen (siehe \vref{sub:Arten-von-Anforderungen})
-werden nun als Use-Cases modelliert und spezifiziert%
-\footnote{Die verwendete Schablone für die Use-Case-Spezifikationen stammt aus
-\cite{Pohl2011} und dient zur zweckmässigen Strukturierung von Typen
-von Informationen, die einen Use-Case betreffen. Die Abschnitte Autor,
-Quelle, Verantwortlicher und Qualität werden ausgelassen, da sie für
-die Semesterarbeit keine Relevant besitzen.%
-}. Als Quellen der Anforderungen dienten der Betreuer, die Reglemente
+Alle funktionalen Anforderungen (siehe Kapitel \vref{sub:Arten-von-Anforderungen})
+werden als Use-Cases modelliert und spezifiziert%
+\footnote{Die verwendete Schablone stammt aus \cite{Pohl2011} und dient zur
+zweckmässigen Strukturierung von Typen von Informationen, die einen
+Use-Case betreffen. Die vorgeschlagenen Abschnitte der Schablone Autor,
+Quelle, Verantwortlicher und Qualität werden ausgelassen, da sie im
+Rahmen dieses Projekts keinen zusätzlichen Nutzen bringen.%
+}. Als Quellen der Anforderungen dienen der Betreuer, die Reglemente
 der ZHAW betreffend der Semesterarbeit sowie der Student in der Rolle
-als Benutzer des Systems. Zusätzlich zu den Use-Cases und der dazugehörigen
-Use-Case-Spezifikation wird vorgängig in Prosatext der Anwendungsfall
-beschrieben. Aus Gründen der Übersichtlichkeit und des überschaubaren
-Umfangs dienen diese Use-Cases primär als Anforderungen an das zu
-entwickelnde Softwaresystem. Jedes Use-Case wird im Rahmen der Verifizerungsphase
-(siehe \vref{chap:Test}) als Integrationstest einzeln getestet.
+des Benutzers des Systems. Zusätzlich zu den Use-Cases und den dazugehörigen
+Use-Case-Spezifikationen wird vorgängig in Prosatext der Anwendungsfall
+beschrieben. Aus Gründen der Übersichtlichkeit und der limitierten
+Gesamtfunktionaliät des Systems stellen diese Use-Cases die primären
+Anforderungen an das zu entwickelnde Softwaresystem dar. 
+
+Jedes Use-Case wird im Rahmen der Verifizerungsphase (siehe Kapitel
+\vref{chap:Test}) als Akzeptanztest einzeln getestet.
 
 
 \subsection{Gespräch beitreten}
 
-Ein Benutzer möchte Nachrichten über YAEM versenden und startet die
-Applikation. Er wählt einen Benutzernamen, stellt eine Verbindung
-zum Server her und nimmt am Gespräch teil. Er kann nun anderen Teilnehmern
-des Gesprächs Nachrichten versenden.
-
-
-\subsubsection*{Use-Case}
+Ein Benutzer möchte verschlüsselte Nachrichten an andere Gesprächsteilnehmer
+versenden und startet dazu die Applikation. Er wählt einen Benutzernamen,
+stellt eine Verbindung zum Server her und nimmt am Gespräch teil.
+Er kann nun anderen Teilnehmern des Gesprächs Nachrichten versenden.
 
 \begin{figure}[H]
 \begin{centering}
@@ -434,9 +450,6 @@ des Gesprächs Nachrichten versenden.
 \caption{Use-Case Gepräch beitreten}
 \end{figure}
 
-
-
-\subsubsection*{Use-Case-Spezifikation}
 
 \begin{table}[H]
 \begin{centering}
@@ -456,7 +469,7 @@ Kritikalität & Hoch\tabularnewline
 \hline 
 Beschreibung & Der Benutzer tritt einem Gespräch bei.\tabularnewline
 \hline 
-Auslösendes Ereignis & Benutzer möchte einem Gespräch beitreten.\tabularnewline
+Auslösendes Ereignis & Der Benutzer möchte einem Gespräch beitreten.\tabularnewline
 \hline 
 Akteure & Benutzer\tabularnewline
 \hline 
@@ -465,13 +478,13 @@ Vorbedingung & Der Benutzer ist nicht schon einem Gespräch beigetreten.\tabularn
 Nachbedingung & Der Benutzer kann Nachrichten versenden und Nachrichten anderer Gesprächsteilnehmer
 empfangen.\tabularnewline
 \hline 
-Ergebnis & Session-Ticket wird erstellt.\tabularnewline
+Ergebnis & Ein gültiges Session-Ticket wird erstellt.\tabularnewline
 \hline 
 Hauptszenario & 1. Der Benutzer wählt einen Benutzernamen.
 
 2. Der Benutzer stellt eine Verbindung zum Server her.
 
-3. Der Server erstellt eine Session-Ticket für den Benutzer und gibt
+3. Der Server erstellt ein Session-Ticket für den Benutzer und gibt
 ihm dieses zurück.\tabularnewline
 \hline 
 Alternativszenarien & 2a. Der gewählte Benutzername ist bereits im Gespräch vorhanden.
@@ -491,12 +504,10 @@ herstellen.\tabularnewline
 
 \subsection{Gespräch verlassen}
 
-Der Benutzer ist im Gespräch und möchte dieses Verlassen. Er schliesst
-die Applikation und meldet sich am Server vom Gespräch ab. Andere
-Teilnehmer des Gesprächs können ihm nun keine Nachrichten mehr senden.
-
-
-\subsubsection*{Use-Case}
+Der Benutzer ist einem Gespräch beigetreten und möchte dieses verlassen.
+Er schliesst die Applikation und meldet sich dabei am Server vom Gespräch
+ab. Andere Teilnehmer des Gesprächs können ihm nun keine Nachrichten
+mehr senden.
 
 \begin{figure}[H]
 \begin{centering}
@@ -506,9 +517,6 @@ Teilnehmer des Gesprächs können ihm nun keine Nachrichten mehr senden.
 \caption{Use-Case Gespräch verlassen}
 \end{figure}
 
-
-
-\subsubsection*{Use-Case-Spezifikation}
 
 \begin{table}[H]
 \begin{centering}
@@ -526,9 +534,9 @@ Technologisches Risiko: niedrig\tabularnewline
 \hline 
 Kritikalität & Hoch\tabularnewline
 \hline 
-Beschreibung & Der Benutzer verlässt ein Gespräch.\tabularnewline
+Beschreibung & Der Benutzer verlässt das Gespräch.\tabularnewline
 \hline 
-Auslösendes Ereignis & Benutzer möchte eine Gespräch verlassen.\tabularnewline
+Auslösendes Ereignis & Der Benutzer möchte das Gespräch verlassen.\tabularnewline
 \hline 
 Akteure & Benutzer\tabularnewline
 \hline 
@@ -536,12 +544,11 @@ Vorbedingung & Der Benutzer ist einem Gespräch beigetreten.\tabularnewline
 \hline 
 Nachbedingung & Der Benutzer kann erneut einem Gespräch beitreten.\tabularnewline
 \hline 
-Ergebnis & Session-Ticket ist abgelaufen.\tabularnewline
+Ergebnis & Das Session-Ticket des Benutzers ist ungültig.\tabularnewline
 \hline 
 Hauptszenario & 1. Der Benutzer verlässt das Gespräch.
 
-2. Der Server erklärt das Session-Ticket des Benutzers für abgelaufen
-und sendet das aktualisierte Ticket dem Benutzer zu.\tabularnewline
+2. Der Server erklärt das Session-Ticket des Benutzers für ungültig.\tabularnewline
 \hline 
 Alternativszenarien & Keine\tabularnewline
 \hline 
@@ -558,16 +565,13 @@ Ausnahmeszenarien & Keine\tabularnewline
 \subsection{Nachricht senden}
 
 Dies ist der wichtigste und meistgenutzte Anwendungsfall des Systems.
-Der Benutzer als Sender möchte einem oder mehreren Teilnehmern des
-Gesprächs (Empfänger) eine Nachricht senden. Er kann dabei wählen,
-ob er diese verschlüsselt oder unverschlüsselt versenden möchte. Sendet
-der Benutzer die Nachricht verschlüsselt, so werden zuerst der Initialisierungsvektor
-festgelegt sowie der Schlüssel gewählt. Danach wird die Nachricht
-an den oder die Empfänger übermittelt und startet den Anwendungsfall
-{}``Nachricht empfangen'' (siehe \vref{sub:Nachricht-empfangen}).
-
-
-\subsubsection*{Use-Case}
+Der Benutzer (hier in der Rolle des Senders) möchte einem oder mehreren
+Teilnehmern des Gesprächs (Empfänger) eine Nachricht senden. Er kann
+dabei wählen, ob er diese verschlüsselt oder unverschlüsselt versenden
+möchte. Sendet der Benutzer die Nachricht verschlüsselt, so werden
+zuerst der Initialisierungsvektor festgelegt sowie der Schlüssel gewählt.
+Danach wird die Nachricht an den oder die Empfänger übermittelt und
+startet den Anwendungsfall Nachricht empfangen (siehe Kapitel \vref{sub:Nachricht-empfangen}).
 
 \begin{figure}[H]
 \begin{centering}
@@ -577,9 +581,6 @@ an den oder die Empfänger übermittelt und startet den Anwendungsfall
 \caption{Use-Case Nachricht senden}
 \end{figure}
 
-
-
-\subsubsection*{Use-Case-Spezifikation}
 
 \begin{table}[H]
 \begin{centering}
@@ -599,11 +600,11 @@ Kritikalität & Hoch\tabularnewline
 \hline 
 Beschreibung & Der Benutzer versendet eine Nachricht.\tabularnewline
 \hline 
-Auslösendes Ereignis & Benutzer möchte eine Nachricht senden.\tabularnewline
+Auslösendes Ereignis & Der Benutzer möchte eine Nachricht senden.\tabularnewline
 \hline 
-Akteure & Benutzer\tabularnewline
+Akteure & Benutzer (als Empfänger und Sender)\tabularnewline
 \hline 
-Vorbedingung & Der Benutzer ist im Gespräch angemeldet und besitzt eine gültiges
+Vorbedingung & Der Benutzer ist im Gespräch beigetreten und besitzt ein gültiges
 Session-Ticket.\tabularnewline
 \hline 
 Nachbedingung & Der Benutzer kann erneut eine Nachricht versenden und Nachrichten
@@ -611,26 +612,23 @@ anderer Gesprächsteilnehmer empfangen.\tabularnewline
 \hline 
 Ergebnis & Die Empfänger haben die versendete Nachricht empfangen.\tabularnewline
 \hline 
-Hauptszenario & 1. Der Benutzer erfasst die zu versenden Nachricht
+Hauptszenario & 1. Der Benutzer erfasst die zu versendende Nachricht.
 
-2. Der Benutzer wählt einen Kryptoalgorithmus\nomenclature{Kryptoalgorithmus}{Ein Kryptoalgorithmus ist im Kontext von YAEM die konkrete Implementierung des Interfaces ICryptoProvider und bietet die Möglichkeit beliebige Nachrichten zu verschlüsseln beziehungsweise zu entschlüsseln.}
-aus.
+2. Der Benutzer wählt die Implementierung eines Kryptosystems aus.
 
 3. Der Benutzer generiert einen Initalisierungsvektor\nomenclature{Initialisierungsvektor}{Ein Initialisierungsvektor (kurz IV) bezeichnet in der Kryptografie ein Block von Zufallszahlen.}.
 
 4. Der Initialisierungsvektor wird an alle Empfänger gesendet.
 
-5. Der Benutzer wählt einen Schlüssel.
+5. Der Benutzer wählt einen Schlüssel\nomenclature{Schlüssel}{Als Schlüssel wird in der Kryptologie allgemein eine Information bezeichnet, die einen kryptographischen Algorithmus parametrisiert.}.
 
-6. Der Schlüssel wird an alle Empfänger gesendet.
-
-7. Der Benutzer verschickt die (verschlüsselte) Nachricht.\tabularnewline
+6. Der Benutzer verschickt die (verschlüsselte) Nachricht.\tabularnewline
 \hline 
 Alternativszenarien & 2a. Der Benutzer wählt keinen Kryptoalgorithmus aus.
 
 2a1. Der Benutzer versendet die Nachricht unverschlüselt.
 
-3a. Der Benutzer hat bereits einen Intialisierungsvektor erstellt
+3a. Der Benutzer hat bereits einen Intialisierungsvektor generiert
 oder einen Initalisierungsvektor von einem anderen Teilnehmer des
 Gesprächs erhalten und generiert keinen neuen Initialisierungsvektor.
 
@@ -658,9 +656,6 @@ versucht das System mit vorhandenem Initialisierungsvektor und Schlüssel
 die Nachricht zu entschlüssel und dem Benutzer darzustellen. Ist die
 Nachricht unverschlüsselt, so wird diese dem Benutzer direkt angezeigt.
 
-
-\subsubsection*{Use-Case}
-
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[scale=0.5]{ExportedDiagrams/UC4-NachrichtEmpfangen}
@@ -669,9 +664,6 @@ Nachricht unverschlüsselt, so wird diese dem Benutzer direkt angezeigt.
 \caption{Use-Case Nachricht empfangen}
 \end{figure}
 
-
-
-\paragraph{Use-Case-Spezifikation}
 
 \begin{table}[H]
 \begin{centering}
@@ -691,30 +683,32 @@ Kritikalität & Hoch\tabularnewline
 \hline 
 Beschreibung & Der Benutzer empfängt eine Nachricht.\tabularnewline
 \hline 
-Auslösendes Ereignis & Ein anderer Teilnehmer des Gesprächs versendet eine Nachricht.\tabularnewline
+Auslösendes Ereignis & Ein anderer Teilnehmer des Gesprächs versendet eine Nachricht, die
+an den Benutzer gerichtet ist.\tabularnewline
 \hline 
 Akteure & Benutzer\tabularnewline
 \hline 
-Vorbedingung & Der Benutzer ist im Gespräch angemeldet und besitzt eine gültiges
-Session-Ticket. Ein Teilnehmer des Gesprächs versendet eine Nachricht.\tabularnewline
+Vorbedingung & Der Benutzer ist dem Gespräch beigetreten und besitzt ein gültiges
+Session-Ticket. Ein Teilnehmer des Gesprächs versendet eine Nachricht,
+die an den Benutzer gerichtet ist.\tabularnewline
 \hline 
 Nachbedingung & Der Benutzer kann Nachrichten versenden und Nachrichten anderer Gesprächsteilnehmer
 empfangen.\tabularnewline
 \hline 
 Ergebnis & Die Nachricht wird dem Benutzer angezeigt.\tabularnewline
 \hline 
-Hauptszenario & 1. Der Benutzer empfängt die Nachricht und prüft ob diese verschlüsselt
-ist.
+Hauptszenario & 1. Der Benutzer empfängt eine Nachricht.
 
 2. Der Benutzer verwendet den Initialisierungsvektor und Schlüssel
-zum entschlüsseln der Nachricht.
+zum Entschlüsseln der Nachricht.
 
 3. Die entschlüsselte Nachricht wird angezeigt.\tabularnewline
 \hline 
-Alternativszenarien & 1a. Ist die Nachricht nicht verschlüsselt, wird sie direkt angezeigt.\tabularnewline
+Alternativszenarien & 1a. Ist die Nachricht nicht verschlüsselt, wird sie dem Benutzer direkt
+angezeigt.\tabularnewline
 \hline 
 Ausnahmeszenarien & Ist kein Initalisierungsvektor, Schlüssel oder Implementierung des
-verwendeten Kryptoalgorithmus vorhanden, so wird der unlesbare Geheimtext\nomenclature{Geheimtext}{Der Geheimtext ist der Text, der durch die Verschlüsselung mittels eines kryptografischen Verfahrens unlesbar gemachte wurde.}
+verwendeten Kryptosystems vorhanden, so wird der unlesbare Geheimtext\nomenclature{Geheimtext}{Der Geheimtext ist der Text, der durch die Verschlüsselung mittels eines kryptografischen Verfahrens unlesbar gemachte wurde.}
 angezeigt.\tabularnewline
 \hline 
 \end{tabular}
@@ -725,40 +719,39 @@ angezeigt.\tabularnewline
 
 
 
-\section{Mockups}
+\section{Mockups\label{sec:Mockups}}
 
 Mockups\nomenclature{Mockup}{Ein Mockup in der Softwareentwicklung bezeichnet einen rudimentären Wegwerfprototypen der Benutzerschnittstelle einer zu erstellenden Software. Mock-ups werden insbesondere in frühen Entwicklungsphasen eingesetzt, um Anforderungen an die Benutzeroberfläche in Zusammenarbeit mit Auftraggeber und Anwendern besser ermitteln zu können. Es handelt sich meist um ein reines Grundgerüst der Bedienelemente ohne weitere Funktionalität.}
 dienen zur Visualisierung der Benutzeroberfläche des zu entwickelnden
 Softwareprodukts und werden häufig bereits in der Anforderungsphase
-zusammen mit den Stakeholdern entwickelt. Sie liefern dem Softwareentwickler
-in der Implmentationsphase (siehe \vref{chap:Implementierung}) ein
-Grundgerüst für die einzelnen Dialogfenster\nomenclature{Dialog}{Als Dialog (oder Dialogfenster) bezeichnet man in der Softwareentwicklung eine grafische Benutzerschnittstelle zur Mensch-Maschine-Interaktion zwischen Computerprogramm und Benutzer.}.
+zusammen mit den Stakeholdern entwickelt. 
+
+Sie liefern dem Softwareentwickler in der Implmentationsphase (siehe
+\vref{chap:Implementierung}) ein Grundgerüst für die einzelnen Dialogfenster\nomenclature{Dialog}{Als Dialog (oder Dialogfenster) bezeichnet man in der Softwareentwicklung eine grafische Benutzerschnittstelle zur Mensch-Maschine-Interaktion zwischen Computerprogramm und Benutzer.}.
 Je nach Kundenzielgruppe und Wichtigkeit der Mensch-Maschine-Schnittstelle
-wird mehr oder weniger Zeit in die Entwicklung der Mockups investiert.
+wird mehr oder weniger Aufwand in die Entwicklung der Mockups investiert.
 Häufig werden diese mit zusammen mit Psychologen entwickelt und enthalten
-sehr weniger Interpretationsspielraum für den Softwareentwickler.
+sehr wenig Interpretationsspielraum für den Softwareentwickler.
 
 
 \subsection{Dialog Gespräch beitreten}
 
-Startet der Benutzer die Applikation so wird ihm als erstes die Möglichkeit
-gegeben, einen Benutzernamen zu wählen, unter welchem er im Gespräch
-Nachrichten verschicken möchte. Dabei wird der Benutzername auf eine
-Länge von 255 Zeichen beschränkt und er darf keine Sonderzeichen enthalten.
-Nach einem Klick auf Connect werden diese Bedingungen geprüft und
-eine Verbindung zum Server hergestellt. Bei Erfolg wird der Dialog
-geschlossen und dem Benutzer der Gesprächsdialog (siehe \vref{sub:Gespr=0000E4chsdialog})
-angezeigt.
-
-
-\subsubsection*{Mockup}
+Startet der Benutzer die Applikation so wird er gebeten, einen Benutzernamen
+zu wählen, unter welchem er im Gespräch Nachrichten versenden kann
+(Mockup siehe Abbildung \ref{fig:Mockup-Dialog-Gespr=0000E4ch}).
+Dabei wird der Benutzername auf eine Länge von 255 Zeichen beschränkt
+und er darf keine Sonderzeichen enthalten. Nach einem Klick auf den
+Button {}``Connect'' werden diese Bedingungen überprüft und gegebenenfalls
+wird eine Verbindung zum Server hergestellt. Bei erfolgreichem Verbindungsaufbau
+wird der Dialog geschlossen und dem Benutzer wird der Gesprächsdialog
+(siehe Kapitel \vref{sub:Gespr=0000E4chsdialog}) angezeigt.
 
 \begin{figure}[H]
 \begin{centering}
-\includegraphics[scale=0.65]{Mockups/Connect}
+\includegraphics[scale=0.5]{Mockups/Connect}
 \par\end{centering}
 
-\caption{Mockup Dialog Gespräch beitreten}
+\caption{Mockup Dialog Gespräch beitreten\label{fig:Mockup-Dialog-Gespr=0000E4ch}}
 \end{figure}
 
 
@@ -766,246 +759,250 @@ angezeigt.
 \subsection{Gesprächsdialog\label{sub:Gespr=0000E4chsdialog}}
 
 Ist der Benutzer einem Gespräch beigetreten so verwendet er den Gesprächsdialog
-zum Senden und Empfangen von Nachrichten. Das Gesprächsprotokoll zeigt
-einen zeitlich geordneten Ablauf aller gesendeten und empfangenen
-Nachrichten. Weiterhin werden Aktionen wie ein Initialisierungsvektoraustausch
-oder das Setzen des Schlüssels eines Verschlüsselungsalgorithmus angezeigt.
+zum Senden und Empfangen von Nachrichten (Mockup siehe Abbildung \ref{sub:Gespr=0000E4chsdialog}).
+Das Gesprächsprotokoll stellt einen zeitlich geordneten Ablauf aller
+gesendeten und empfangenen Nachrichten dar. Weiterhin werden Aktionen
+wie ein Initialisierungsvektoraustausch oder das Setzen des Schlüssels
+eines Verschlüsselungsalgorithmus im Gesprächsprotokoll angezeigt.
 Auf der rechten Seite werden alle dem Gespräch beigetretenen Benutzer
 angezeigt. 
 
 Über die Textbox unterhalb des Gesprächsprotokolls lassen sich Nachrichten
 erfassen, die Nachricht muss dabei mindestens ein Zeichen lang sein.
-in der Dropdownliste rechts neben der Textbox werden alle installierten
-Kryptoalgorithmen angezeigt, zusätzlich zur Voreinstellung {}``<None>'',
-welche die Nachricht unverschlüsselt versendet. Ist kein Algorithmus
-angezeigt, so kann der Benutzer keine Auswahl treffen. Wählt der Benutzer
-einen Algorithmus aus, für welchen noch kein Initialisierungsvektor
-vorhanden ist, so wird eine Vektor generiert und den anderen Gesprächsteilnehmern
-zugsendet. Gleichzeitig wählt der Benutzer einen Schlüssel aus. Beim
-klicken auf den {}``Send'' Button, wird die Nachricht an die anderen
-Gesprächsteilnehmer versendet.
+In der Dropdownliste rechts neben der Textbox werden alle installierten
+Kryptosysteme installiert, zusätzlich zur Voreinstellung {}``<None>'',
+welche die Nachricht unverschlüsselt versendet. Ist kein Kryptosystem
+installiert, so kann der Benutzer keine Auswahl aus der Dropdownliste
+treffen. 
+
+Wählt der Benutzer ein Kryptosystem aus, für welchen noch kein Initialisierungsvektor
+vorhanden ist, so wird eine neuer Initialisierungsvektor generiert
+und den anderen Gesprächsteilnehmern zugesandt. Gleichzeitig wählt
+der Benutzer einen Schlüssel aus. Wird auf den Button {}``Send''
+geklickt, wird die Nachricht an die anderen Gesprächsteilnehmer versendet.
 
 Beim Schliessen der Applikation verlässt der Benutzer das Gespräch
 und der Gesprächsdialog schliesst sich selbst.
 
-
-\subsubsection*{Mockup}
-
 \begin{figure}[H]
 \begin{centering}
-\includegraphics[scale=0.65]{Mockups/Messaging}
+\includegraphics[scale=0.5]{Mockups/Messaging}
 \par\end{centering}
 
-\caption{Mockup Gesprächsdialog}
+\caption{Mockup Gesprächsdialog\label{fig:Mockup-Gespr=0000E4chsdialog}}
 \end{figure}
 
 
 
-\chapter{Konzept\label{chap:Konzept}}
+\chapter{Konzept und Architektur\label{chap:Konzept-und-Architektur}}
 
 Die Konzeptphase%
 \footnote{auch Designphase genannt%
 } des Wasserfallmodells behandelt die Entwicklung eines vollständigen
 und umfassenden Lösungskonzepts auf Basis der dokumentierten Anforderungen
 (nach \cite{Oestereich2006}). Als Grundlage für das Konzept wird
-in einem ersten Schritt die Toolchain erfasst, welche die weiteren
-(technologischen) Rahmenbedingungen für das Konzept vorgibt. Weiter
-wird zuerst das Konzept von der Bausteinsicht betrachtet, es wird
-von der Komponentenebene bis zur Klassenebene das System modelliert.
-Als weitere Sicht wird die Laufzeitsicht und die Verteilungssicht
-des Systems beleuchtet und spezifiziert.
+in einem ersten Schritt die Toolchain erfasst, welche weitere (technisch)
+Rahmenbedingungen für das Konzept und die Archtektur des Systems vorgibt.
+Weiter wird zuerst das Konzept aus der Bausteinperspektive betrachtet,
+es wird von der Komponentenebene bis zur Klassenebene das System modelliert
+und die Architektur des Systems festgelegt. Als weitere Sicht wird
+die Laufzeitsicht und die Verteilungssicht des Systems beleuchtet
+und spezifiziert.
 
 
 \section{Toolchain}
 
 Der erste Schritt der Konzepterstellung ist das Erarbeiten und Evaluieren
-der Toolchain. Die Toolchain bestimmt mit welchen Frameworks und Entwicklungswerkzeugen
-der Entwickler später arbeiten wird und gibt einen groben technischen
-Rahmen vor, der bei der Konzepterstellung berücksichtigt werden muss.
+der Toolchain. Die Toolchain beeinhaltet Frameworks und Entwicklungswerkzeuge,
+mit denen der Entwickler später arbeitet und gibt einen groben technischen
+Rahmen vor, der bei der Konzepterstellung und insbesondere bei der
+Erarbeitung der Systemarchitektur berücksichtigt werden muss.
 
 Basis der verwendeten Tools und Frameworks wird Microsofts .NET Framework
-in der Version 4.0 sein. Dies primär aufgrund der Möglichkeiten von
-WCF%
-\footnote{Eine umfangreiche Einführung in WCF ist in der MSDN unter \url{http://msdn.microsoft.com/en-us/library/ee958158.aspx}
-erhältlich.%
-} zur Realisierung von Webservices und WPF bzw. Silverlight für Applikationen
-mit Oberflächen für die Windows Plattform. Als Entwicklungswerkzeug
-wird Microsoft Visual Studio 2010 eingesetzt und als Package Manager
-NuGet%
+in der Version 4.0 sein. Dies primär aufgrund der Möglichkeiten welche
+die Windows Communication Foundation (siehe Kapitel \vref{sub:Windows-Communication-Foundation})
+zur Realisierung von Webservices bietet sowie Windows Presentation
+Foundation (siehe Kapitel \vref{sub:Windows-Presentation-Foundation})
+beziehungsweise Silverlight (siehe Kapitel \vref{sub:Silverlight})
+für grafische Applikationen für die Windows Plattform. Als Entwicklungswerkzeug
+wird Microsoft Visual Studio 2010 eingesetzt zusammen mit dem Package
+Manager NuGet%
 \footnote{Mehr zum Package Manager NuGet ist unter \url{http://nuget.codeplex.com/}
 zu finden.%
-}. Zur Dateiverwaltung der online Hosting-Dienst Github%
+} zur Verwaltung der externen Abhängigkeiten. Zur Dateiverwaltung wird
+der online Hosting-Dienst Github%
 \footnote{Das Github Repository für YAEM ist unter \url{https://github.com/famstutz/YAEM}
 öffentlich verfügbar.%
-} verwendet, welcher als Versionsverwaltungssystem Git\nomenclature{Git}{Git ist eine freie Software zur verteilten Versionsverwaltung von Dateien, die ursprünglich für die Quellcode-Verwaltung des Kernels Linux entwickelt wurde.}
-einsetzt.
+} eingesetzt, welcher als Versionsverwaltungssystem Git\nomenclature{Git}{Git ist eine freie Software zur verteilten Versionsverwaltung von Dateien, die ursprünglich für die Quellcode-Verwaltung des Kernels Linux entwickelt wurde.}
+verwendet.
 
 
 \section{Bausteinsicht}
 
 Nach \cite{Starke2011} und \cite{Hruschka2012} lassen sich unter
-dem Begriff {}``Bausteine'' sämtliche Software- oder Implementeirungskomponenten
-zusammenfassen. Sie stellen letztendliche Abstraktionen von Quellcode
-dar. Dazu gehören Klassen, Prozeduren, Programme, Pakete, Komponenten
-(nach der UML-Definition) oder Subsysteme.
+dem Begriff {}``Bausteine'' sämtliche Software- oder Implementierungskomponenten
+zusammenfassen, die letztendlich Abstraktionen von Quellcode darstellen.
+Dazu gehören Klassen, Prozeduren, Programme, Pakete, Komponenten (nach
+der UML-Definition) oder Subsysteme.
 
 Die Bausteinsicht bildet die Aufgaben des System auf Software-Bausteine
 oder -Komponenten ab. Diese Sicht macht Struktur und Zusammenhänge
 zwischen den Bausteinen der Architektur explizit. Bausteinsichten
-zeigen statische Aspekte von Systemen. In dieser Hinsicht entsprechen
-sie den konventionellen Implementierungsmodellen.
+zeigen statische Aspekte von Systemen und entsprechen in dieser Hinsicht
+den konventionellen Implementierungsmodellen.
 
 
 \subsection{Komponentendiagramm}
 
-Das Komponentendigramm stellt das System YAEM aus Vogelperspektive
-dar und ist die höchstabstrahierte Ansicht der Bausteinsicht. 
+Das Komponentendigramm in Abbildung \ref{fig:Komponentendiagramm}
+stellt das System YAEM aus der Vogelperspektive dar und ist die höchstabstrahierte
+Ansicht der Bausteinsicht die in diesem Projekt existiert. 
 
-Der ServiceHost stellt die Serverapplikation des Systems dar und implementiert
-die beiden Schnittstellen%
-\footnote{In diesem Zusammenhang auch Service Contracts\nomenclature{Service Contract}{Ein Service Contract bezeichnet eine Schnittstelle oder Klasse die zur Kommunikation für verteilte Systeme genutzt werden können.}
-genannt%
-} \emph{IUserService} (siehe \vref{sub:IUserService}) und \emph{IMessagingService}
-(siehe \vref{sub:IMessagingService}). Er stellt die Schnittstellen
-als Webservice den Clientapplikationen zur Verfügung. Die Clientapplikationen
-(die in einer Vielzahl von Frameworks implementiert sein können) benutzen
-diese Schnittstellen um mit der Serverapplikation zu kommunizieren.
-Die Clientapplikationen benutzen MEF\nomenclature{Managed Extensibility Framework}{Das Managed Extensibility Framework (kurz MEF) ist ein Kompositionframework zum Erstellen einer Plugininfrasktruktur innerhalb einer Applikation. Es erhöht die Flexibilität, Erweiterbarkeit und Testbarkeit von grossen Applikationen.}
-um dynamisch Kryptoalgorithmen (siehe \vref{sub:Kryptoalgorithmen})
-zur Laufzeit laden zu können. Dadurch wird gewährleistet, dass der
-Server zu keinem Zeitpunkt die verschlüsselten Nachrichten, die über
-ihn versendet werden, im Klartext lesen kann.
+Der ServiceHost\nomenclature{ServiceHost}{Der ServiceHost implementiert den Host, der vom Progammiermodell für das Windows Communication Foundation (WCF)-Dienstmodell verwendet wird.}
+stellt die Serverapplikation des Systems dar und implementiert die
+beiden Schnittstellen%
+\footnote{Im Zusammenhang mit WCF auch Service Contracts\nomenclature{Service Contract}{Ein Service Contract bezeichnet eine Schnittstelle oder Klasse die zur Kommunikation für verteilte Systeme genutzt werden können.}
+genannt.%
+} \emph{IUserService} und \emph{IMessagingService} (siehe Kapitel \vref{sub:Service-Contracts}).
+Er stellt die Schnittstellen als Webservice den Clientapplikationen
+zur Verfügung. 
 
-
-\subsubsection*{Komponentendiagramm}
+Die Clientapplikationen (die in einer Vielzahl von Frameworks implementiert
+sein können) benutzen diese Schnittstellen um mit der Serverapplikation
+zu kommunizieren. Die Clientapplikationen benutzen das Managed Extensibility
+Framework\nomenclature{Managed Extensibility Framework}{Das Managed Extensibility Framework (kurz MEF) ist ein Kompositionframework zum Erstellen einer Plugininfrasktruktur innerhalb einer Applikation. Es erhöht die Flexibilität, Erweiterbarkeit und Testbarkeit von grossen Applikationen.}(mehr
+in Kapitel \vref{sub:Managed-Extensibility-Framework}) um dynamisch
+die Implementierungen der Kryptosysteme (siehe \vref{sub:Kryptoalgorithmen})
+zur Laufzeit laden und verwenden zu können. Dadurch wird gewährleistet,
+dass die Serverapplikation zu keinem Zeitpunkt die verschlüsselten
+Nachrichten, die über sie versendet werden, im Klartext lesen kann.
 
 \begin{figure}[H]
 \begin{centering}
-\includegraphics[scale=0.65]{ExportedDiagrams/ComponentModel}
+\includegraphics[scale=0.5]{ExportedDiagrams/ComponentModel}
 \par\end{centering}
 
-\caption{Komponentendiagramm}
+\caption{Komponentendiagramm\label{fig:Komponentendiagramm}}
 \end{figure}
 
 
 
-\subsection{Domänenmodell}
+\subsection{Domänenmodell\label{sub:Dom=0000E4nenmodell}}
 
-Das Domänenmodell umfasst nur die Businessobjekte, die über die Serviceschnittstelle
-vom Client\nomenclature{Client}{Ein Client (oder Clientapplikation) ist eine Softwareanwendung die im Gegensatz zu einer Serverapplikation auf dem Rechner des Benutzers ausgeführt wird.}-
+Das Domänenmodell (siehe Abbildung \ref{fig:Klassendiagramm-Dom=0000E4nenmodell})
+umfasst nur die Klassen der Objekte, die über die Serviceschnittstelle
+von der Client\nomenclature{Client}{Ein Client (oder Clientapplikation) ist eine Softwareanwendung die im Gegensatz zu einer Serverapplikation auf dem Rechner des Benutzers ausgeführt wird.}-
 an die Serverapplikation\nomenclature{Server}{Ein Server (auch Serverapplikation) ist eine serverseitige Anwendung die auf einem zentralen Computer (Server) ausgeführt wird.}
 beziehungsweise umgekehrt übertragen werden. 
 
 YAEM verwendet ein vergleichsweise simples Domänenmodell. Jeder Benutzer
 wird als \emph{User}objekt im Repository\nomenclature{Repository}{Ein Repository ist ein Verzeichnis zur Speicherung einer von digitalen Objekten. In diesem Kontext ist ein Repository eine Datenbank zur Speicherung und zum Wiederfinden von Objekten.}
-gespeichert. Bei erfolgreichem Gesprächsbeitritt erstellt der Server
-ein \emph{Ticket}objekt, welches an den Client zurückgegeben wird.
-Wird eine Nachricht versendet, so erstellt der Client ein \emph{Message}objekt,
-welches die Nachricht selbst als Bytearray in der Eigenschaft \emph{Payload}
-speichert. Will der Benutzer eine verschlüsselte Nachricht versenden,
-so setzt er die Eigenschaft \emph{Algorithm} des \emph{Message}objekts
-auf einen Wert des Enumerators \emph{CryptoAlgorithm}, der ungleich
-\emph{None} ist. Wenn die Eigenschaft \emph{Algorithm} gesetzt ist,
-so muss der Benutzer den \emph{Payload} verschlüsselt in der \emph{Message}
-ablegen.
+gespeichert. Bei erfolgreichem Gesprächsbeitritt erstellt die Serverapplikation
+ein \emph{Ticket}objekt, welches an die Clientapplikation zurückgegeben
+wird. Wird eine Nachricht versendet, so erstellt der Client ein \emph{Message}objekt,
+welches die Nachricht selbst als Bytearray\nomenclature{Bytearray}{Ein Bytearray ist eine Datenstruktur die als Container für Byte-Werte (ganzzahlige Werte von 0 bis 255) dient.}
+in der Eigenschaft \emph{Payload} speichert. Will der Benutzer eine
+verschlüsselte Nachricht versenden, so setzt er die Eigenschaft \emph{Algorithm}
+des \emph{Message}objekts auf einen Wert des Enumerators \emph{CryptoAlgorithm},
+der ungleich \emph{None} ist. Wenn die Eigenschaft \emph{Algorithm}
+gesetzt ist, so muss der Benutzer den \emph{Payload} verschlüsselt
+in der \emph{Message} ablegen.
 
-Sämtliche Domänenobjekte leiten von \emph{ObjectBase} ab. \emph{ObjectBase}
-enthält einen Schlüssel \emph{Key} in Form einer Globally Unique Identifier\nomenclature{Globally Unique Identifier}{Ein Globally Unique Identifier (auch GUID genannt) ist eine eindeutige, 128 Bit lange Zahl, die zur Identifzierung von Objekten in verteilten Systemen dienen.}
+Sämtliche Domänenobjekte leiten von der Klasse \emph{ObjectBase} ab.
+\emph{ObjectBase} enthält einen Schlüssel \emph{Key} in Form einer
+Globally Unique Identifier\nomenclature{Globally Unique Identifier}{Ein Globally Unique Identifier (auch GUID genannt) ist eine eindeutige, 128 Bit lange Zahl, die zur Identifzierung von Objekten in verteilten Systemen dienen.}
 zur eindeutigen Identifizierung der Objekte in den Repositories. Weiterhin
 implementiert \emph{ObjectBase} das Interface \emph{INotifyPropertyChanged}%
 \footnote{Die genaue Schnittstellenbeschreibung ist in der MSDN unter \url{http://msdn.microsoft.com/en-us/library/system.componentmodel.inotifypropertychanged.aspx}
 zu finden.%
-}, welches in WPF\nomenclature{WPF}{Windows Presentation Foundation (kurz WPF) ist ein Grafik-Framework das zusammen mit dem .NET Framework mitgeliefert wird und zur Darstellung von UI-Elementen dient.}
+}, welches in der Windows Presentation Foundation\nomenclature{WPF}{Windows Presentation Foundation (kurz WPF) ist ein Grafik-Framework das zusammen mit dem .NET Framework mitgeliefert wird und zur Darstellung von UI-Elementen dient.}
 und Silverlight\nomenclature{Silverlight}{Silverlight ist eine Erweiterung für Webbrowser, welche die Ausführung von Rich Internet Applications erlaubt. Silverlight ist eine abgespeckte Version von WPF und wird für auch als Framework für Windows Phone 7 verwendet.}
 dazu dient, UI-Elemente, die an Datenobjekte gebunden sind, über geänderte
 Eigenschaften zu informieren.
 
-
-\subsubsection*{Klassendiagramm}
-
 \begin{figure}[H]
 \begin{centering}
-\includegraphics[scale=0.65]{ExportedDiagrams/DomainModel}
+\includegraphics[scale=0.5]{ExportedDiagrams/DomainModel}
 \par\end{centering}
 
-\caption{Klassendiagramm Domänenmodell}
+\caption{Klassendiagramm Domänenmodell\label{fig:Klassendiagramm-Dom=0000E4nenmodell}}
 \end{figure}
 
 
 
-\subsection{Service Contracts}
+\subsection{Service Contracts\label{sub:Service-Contracts}}
 
-Ein Service Contract ist das Ausstellen einer Schnittstelle zur Kommunikation
+Ein Service Contract spezifiziert eine Schnittstelle zur Kommunikation
 verschiedener Applikationen innerhalb eines verteilten Systems. Häufig
-werden diese Contracts als Webservice\nomenclature{Webservice}{Ein Webservice ist eine Softwareapplikation, auf den über eine URL eindeutig idenifiziert ist und Daten als XML-Artefakt zurückgibt. Er wird über internetbasierte Protokolle angesprochen.}
+werden diese Service Contracts als Webservice\nomenclature{Webservice}{Ein Webservice ist eine Softwareapplikation, auf den über eine URL eindeutig idenifiziert ist und Daten als XML-Artefakt zurückgibt. Er wird über internetbasierte Protokolle angesprochen.}
 angeboten, da sie dadurch plattform- und frameworkunabhängig implementiert
-werden können. 
+genutzt werden können. 
 
 Typischerweise umfasst ein Service Contract mehrere Operationen, deren
 Rückgabewerte als XML-Fragmente an die konsumierende Applikation zurückgegeben
 werden. Ausserdem ist ein Service Contract per Definition grundsätzlich
 zustandslos, er behandelt mehrere Anfragen (auch desselben Auftraggebers)
-immer als unabhängige Transaktionen. Insbesondere werden Anfragen
-ohne Bezug zu früheren Anfragen behandelt und keine Sitzungsinformationen
-ausgetauscht.
+immer als unabhängige Transaktionen. Anfragen werden ohne Bezug zu
+früheren, vorhergegeganen Anfragen behandelt und es werden auch keine
+Sitzungsinformationen ausgetauscht.
 
 
-\subsubsection*{IUserService\label{sub:IUserService}}
+\subsubsection{IUserService\label{sub:IUserService}}
 
-Das Interface \emph{IUserService} stellt die Benutzerverwaltungsfunktionalitäten
-zur Verfügung. Der Konsument des Service Contracts übergibt beim anmelden
-an den Server ein \emph{User}objekt, über welches der Benutzer identifiziert
-werden kann. Wird der Benutzer erfolgreich angemeldet, wird ein \emph{Session}objekt
-an den Konsumenten zurückgegeben. Das Gegenstück zur Methode \emph{Join}
-ist die Methode \emph{Leave}, die eine \emph{Session} für ungültig
-erklärt.
+Die in Abbildung \ref{fig:Klassendiagramm-IUserService} gezeigte
+Schnittstelle \emph{IUserService} stellt die Benutzerverwaltungsfunktionalitäten
+des Sytems zur Verfügung. Der Konsument des Webservices übergibt beim
+Anmelden (Methode \emph{Join}) ein \emph{User}objekt an den Server,
+über welches der Benutzer identifiziert werden kann. Wird der Benutzer
+erfolgreich angemeldet, wird ein \emph{Session}objekt an den Konsumenten
+zurückgegeben. Das Gegenstück zur Methode \emph{Join} ist die Methode
+\emph{Leave}, die eine \emph{Session} für ungültig erklärt.
 
 Die Methoden \emph{Subscribe} und \emph{Unsubscribe} werden vor dem
 Aufruf von \emph{Join} bzw. nach dem Aufruf von \emph{Leave} aufgerufen
 und ermöglich es der Serverapplikation Callbacks\nomenclature{Callback}{Ein Callback (zu deutsch Rückruffunktion) bezeichnet eine Funktion, der als Parameter eine andere Funktion übergeben wird, die unter gewissen Bedingungen aufgerufen wird.}
-(siehe \vref{sub:IServiceCallback}) an den Client zu versenden.
-
-
-\paragraph*{Klassendiagramm}
+(siehe Kapitel \vref{sub:IServiceCallback}) an alle registrierten
+Clients zu versenden um sie über dem Gespräch neue hinzgekommene Benutzer
+oder Benutzer, die das Gespräch verlassen haben, zu informieren.
 
 \begin{figure}[H]
 \begin{centering}
-\includegraphics[scale=0.65]{ExportedDiagrams/Class-IUserService}
+\includegraphics[scale=0.5]{ExportedDiagrams/Class-IUserService}
 \par\end{centering}
 
-\caption{Klassendiagramm \emph{IUserService}}
+\caption{Klassendiagramm \emph{IUserService}\label{fig:Klassendiagramm-IUserService}}
 \end{figure}
 
 
 
-\subsubsection*{IMessagingService\label{sub:IMessagingService}}
+\subsubsection{IMessagingService\label{sub:IMessagingService}}
 
 Über die Schnittstelle \emph{IMessagingService} werden Nachrichten
-in Form eines \emph{Message}objekts übertragen. Der Sender gibt beim
-Aufruf der Methode \emph{Send} neben der \emph{Message} auch noch
-seine \emph{Session} mit, damit die Serverapplikation überprüfen kann,
-ob der Benutzer eine gültige, nicht abgelaufene \emph{Session} besitzt.
+in Form eines \emph{Message}objekts übertragen (siehe Klassendiagramm
+in Abbildung \ref{fig:Klassendiagramm-IMessagingServic}). Die Clientapplikation
+als Sender einer Nachricht übergibt beim Aufruf der Methode \emph{Send}
+neben der \emph{Message} auch noch seine \emph{Session} mit, damit
+die Serverapplikation überprüfen kann, ob der Benutzer eine gültige,
+nicht abgelaufene \emph{Session} besitzt. 
+
 Die Methoden \emph{NegotiateInitializationVector} und \emph{NegotiateKey}
-dienen zur Übermittlung des Initialisierungsvektors bzw. Schlüssels
-für den jeweils mitgelieferten Kryptoalgorithmus vom Typ \emph{CryptoAlgorithm}.
-
-
-\paragraph*{Klassendiagramm}
+dienen zur Übermittlung des Initialisierungsvektors beziehungsweise
+des Schlüssels für ein Kryptosystem vom Typ \emph{CryptoAlgorithm}.
 
 \begin{figure}[H]
 \begin{centering}
-\includegraphics[scale=0.65]{ExportedDiagrams/Class-IMessagingService}
+\includegraphics[scale=0.5]{ExportedDiagrams/Class-IMessagingService}
 \par\end{centering}
 
-\caption{Klassendiagramm \emph{IMessagingService}}
+\caption{Klassendiagramm \emph{IMessagingService\label{fig:Klassendiagramm-IMessagingServic}}}
 \end{figure}
 
 
 
-\subsubsection*{IServiceCallback\label{sub:IServiceCallback}}
+\subsubsection{IServiceCallback\label{sub:IServiceCallback}}
 
 Damit über das HTTP\nomenclature{HTTP}{Das Hypertext Transfer Protocol (kurz HTTP) ist ein Protokoll zur Übertragung von Daten über ein Netzwerk. Es ist das meisteingesetzte Protokoll zur Übertragung von Webseiten im World Wide Web (WWW).}
-Callbacks (der Mechanismus wird detaillierter \noun{{[}Referenz{]}}
+Callbacks (der Mechanismus wird detaillierter in Kapitel \vref{sub:Callbacks-=0000FCber-NetHttpDualBindin}
 beschrieben) versendet werden können, müssen alle Clientapplikationen,
 die den Webservice der Serverapplikation verwenden, die Schnittstelle
 \emph{IServiceCallback} implementieren. Die beiden Schnittstellen
@@ -1014,13 +1011,15 @@ die den Webservice der Serverapplikation verwenden, die Schnittstelle
 \footnote{Details zum ServiceContractAttribute sind in der MSDN unter \href{http://msdn.microsoft.com/en-us/library/system.servicemodel.servicecontractattribute.aspx}{http://msdn.microsoft.com/en-us/library/system.servicemodel.servicecontractattribute.aspx}
 zu finden.%
 }\nomenclature{Annotation}{Eine Annotation bezeichnet ein Sprachelement im Quelltext, das zur Einbindung von Metadaten im Quelltext dient.}
-so dass beim Abbonnieren des Webservices der generierte Serviceclient
-gezwungen wird die Schnittstelle \emph{IServiceCallback} zu implementierern.
+so dass beim Abonnieren des Webservices der generierte Serviceclient
+des Webservices gezwungen wird die Schnittstelle \emph{IServiceCallback}
+zu implementierern.
 
 Die Schnittstelle ist eine zusammengefasste Schnittstelle aller Callbackoperationen
 der beiden Serviceschnittsellen \emph{IUserService} und \emph{IMessagingService},
 die in der Tabelle \ref{tab:Methoden-von-IServiceCallback} beschrieben
-sind.
+sind sowie in der Abbildung \ref{fig:Klassendiagramm-IServiceCallback}
+als Klassendiagramm grafisch dargestellt sind.
 
 \begin{table}
 \begin{centering}
@@ -1029,11 +1028,11 @@ sind.
 Methode & Aufgabe\tabularnewline
 \hline 
 \hline 
-\emph{NotifyNegotiateIntializationVector} & Teilt dem Client mit, dass für einen bestimmten Kryptoalgorithmus
-ein neuer Intialisierungsvektor gesetzt wurde.\tabularnewline
+\emph{NotifyNegotiateIntializationVector} & Teilt dem Client mit, dass für ein Kryptosystem ein neuer Intialisierungsvektor
+generiert wurde.\tabularnewline
 \hline 
-\emph{NotifyNegotiateKey} & Teilt dem Client mit, dass für einen bestimmten Kryptoalgorithmus
-ein neuer Schlüssel gesetzt wurde.\tabularnewline
+\emph{NotifyNegotiateKey} & Teilt dem Client mit, dass für ein Kryptosystem ein neuer Schlüssel
+gesetzt wurde.\tabularnewline
 \hline 
 \emph{NotifyNewMessage} & Teilt dem Client mit, dass eine neue Nachricht an ihn gesendet wurde.\tabularnewline
 \hline 
@@ -1049,180 +1048,182 @@ ist.\tabularnewline
 \end{table}
 
 
-
-\paragraph*{Klassendiagramm}
-
 \begin{figure}[H]
 \begin{centering}
-\includegraphics[scale=0.65]{ExportedDiagrams/Class-IServiceCallback}
+\includegraphics[scale=0.5]{ExportedDiagrams/Class-IServiceCallback}
 \par\end{centering}
 
-\caption{Klassendiagramm \emph{IServiceCallback}}
+\caption{Klassendiagramm \emph{IServiceCallback}\label{fig:Klassendiagramm-IServiceCallback}}
 \end{figure}
 
 
 
-\subsection{Kryptoalgorithmen\label{sub:Kryptoalgorithmen}}
+\subsection{Kryptosysteme\label{sub:Kryptoalgorithmen}}
 
-Ein Ziel dieses Projekts war es, einzelne Kryptoalgorithmen als eigenständige
-Assemblies\nomenclature{Assembly}{Übersetzter Quellcode als ausführbares Programm wird in .NET in sogeannten Assemblies zusammengefasst, ähnlich den Jar-Dateien in Java. Die Dateiendungen dieser Assemblies sind .exe oder .dll, zusätzlich zum ausführbaren Programmcode enhalten sie auch alle iM Manifest notwendigen Metadaten.}
-zu implementieren und zur Laufzeit den Clientapplikationen anzuhängen.
-Aus diesem Grund müssen alle Kryptoalgorithmen gegen die Schnittstelle
-\emph{ICryptoProvider }implementiert werden. \emph{ICryptoProvider}
-liefert die grundlegenden Funktionalitäten zur Implementierung von
-symmetrischen Kryptosystemen, bei welchen beide Teilnehmer den gleichen
-Schlüssel verwenden. Alle Nutzdaten (verschlüsselt oder unverschlüsselt)
-werden als Bytearrays (\emph{byte{[}{]}}) übergeben, so dass sie einfach
-und ohne Zusatzaufwand über einen Webservice übergeben werden können.
-Jedes symmetrische Kryptosystem enthält einen Initalisierungsvektor,
-der einen Block von Zufallsdaten bezeichnet, sowie einen Schlüssel,
-der nur dem Sender und Empfänger bekannt ist. Aus diesem Grund enthält
-\emph{ICryptoProvider} auch keine Methode \emph{GetKey()}, da der
-Schlüssel nicht öffentlich bekannt sein darf.
+Ein Ziel dieses Projekts war es, die Implementierungen von Kryptosystemen
+als eigenständige Assemblies\nomenclature{Assembly}{Übersetzter Quellcode als ausführbares Programm wird in .NET in sogeannten Assemblies zusammengefasst, ähnlich den Jar-Dateien in Java. Die Dateiendungen dieser Assemblies sind .exe oder .dll, zusätzlich zum ausführbaren Programmcode enhalten sie auch alle iM Manifest notwendigen Metadaten.}
+zu kompilieren und zur Laufzeit den Clientapplikationen zur Verfügung
+zu stellen. Aus diesem Grund müssen alle Kryptosystemen die Schnittstelle
+\emph{ICryptoProvider }implementieren.
 
-Die Methoden \emph{Encrypt(string)} bzw. \emph{Decrypt(byte{[}{]})}
-verschlüsselt bzw. entschlüsseln übergebene Nutzdaten. Im nachfolgenden
-Klassendiagramm werden zusätzlich zur Schnittstelle \emph{ICryptoProvider}
-auch noch die drei beispielhaften Implementierungen von symmetrischen
-Kryptosystemen AES, Rijndael und TripleDES dargestellt. Jedes dieser
-Kryptosysteme wird in eine eigene Assembly kompiliert und zur Laufzeit
-der Clientapplikatikonen via MEF (siehe \noun{{[}Referenz{]}}) geladen.
+\emph{ICryptoProvider} liefert die grundlegenden Funktionalitäten
+zur Implementierung von symmetrischen Kryptosystemen, bei welchen
+beide Teilnehmer den gleichen Schlüssel verwenden (mehr zu symmetrischen
+und asymmetrischen Kryposystemen in Kapitel \vref{sec:Kryptosysteme}).
+Alle Nutzdaten (verschlüsselt oder unverschlüsselt) werden als Bytearrays
+übergeben, so dass sie einfach und ohne Zusatzaufwand über einen Webservice
+serialisiert übergeben werden können. Jedes symmetrische Kryptosystem
+enthält einen Initalisierungsvektor, der einen Block von Zufallsdaten
+bezeichnet, sowie einen Schlüssel, der nur dem Sender und Empfänger
+bekannt ist. Aus diesem Grund enthält \emph{ICryptoProvider} auch
+keine Methode \emph{GetKey}, da der Schlüssel innerhalb eines Kryptosystems
+nicht zugänglich sein darf.
 
+Die Methoden \emph{Encrypt} bzw. \emph{Decrypt} verschlüsselt bzw.
+entschlüsseln übergebene Nutzdaten. Im Klassendiagramm (siehe Abbildung
+\ref{fig:Klassendiagramm-Kryptoalgorithme}) werden zusätzlich zur
+Schnittstelle \emph{ICryptoProvider} auch die drei beispielhaften
+Implementierungen der symmetrischen Kryptosystemen AES, Rijndael und
+Triple-DES dargestellt. Jedes dieser Kryptosysteme wird in eine eigene
+Assembly kompiliert und zur Laufzeit der Clientapplikatikonen mit
+Hilfe des Managed Extensibility Frameworks (siehe \vref{sub:Managed-Extensibility-Framework})
+geladen.
 
-\paragraph*{Klassendiagramm}
-
-\begin{figure}[H]
+\begin{figure}
 \begin{centering}
-\includegraphics[scale=0.65]{ExportedDiagrams/Class-Crypto}
+\includegraphics[scale=0.5]{ExportedDiagrams/Class-Crypto}
 \par\end{centering}
 
-\caption{Klassendiagramm Kryptoalgorithmen}
+\caption{Klassendiagramm Kryptoalgorithmen\label{fig:Klassendiagramm-Kryptoalgorithme}}
 \end{figure}
 
 
 
 \subsection{Server\label{sub:Server}}
 
-Die Serverapplikation hosted die beiden Webservices IMessagingService
-(siehe \vref{sub:IMessagingService}) und IUserService (siehe \vref{sub:IUserService})
-in einem gemeinsamen Servicehost Services. Daraus ergibt sich eine
+Abbildung \ref{fig:Klassendiagramm-Server} zeigt das Klassendiagramm
+der Serverapplikation dar. Die Serverapplikation stellt die beiden
+Webservices \emph{IMessagingService} und \emph{IUserService} (siehe
+Kapitel \vref{sub:Service-Contracts}) im zusammengeführten Servicehost
+\emph{Services} der Aussenwelt zur Verfügung. Daraus ergibt sich eine
 Verwaltung der angemeldeten Benutzer und deren Sessions sowie das
-Aufrufen der passenden Callbacks bei Serviceoperationen. Dank des
-Bindings (siehe \noun{{[}Referenz{]}}) kann die Serverapplikation
+Aufrufen der passenden Callbacks bei entsprechenden Serviceoperationen. 
+
+Dank des Bindings (siehe Kapitel \vref{sub:Bindings}) kann die Serverapplikation
 Delegates\nomenclature{Delegate}{Ein Delegate (dt. Delegat) ist ein Methodenzeiger und wird verwendet um auf eine Methode einer Klasse oder eines Objekts zu verweisen. }
 der Callbackoperationen aller registrierten Clientapplikationen verwalten
 und dadurch z.B. beim Eintreffen einer neuen Nachricht die Callbackoperation
-\emph{NotifyNewMessage} (siehe \emph{IServiceCallback} \vref{tab:Methoden-von-IServiceCallback})
-der registrierten Clients aufrufen.
+\emph{NotifyNewMessage} (siehe \emph{IServiceCallback} in Kapitel
+\vref{tab:Methoden-von-IServiceCallback}) der registrierten Clients
+aufrufen.
 
-
-\paragraph*{Klassendiagramm}
-
-\begin{figure}[H]
+\begin{figure}
 \begin{centering}
-\includegraphics[scale=0.65]{ExportedDiagrams/Class-Server}
+\includegraphics[scale=0.5]{ExportedDiagrams/Class-Server}
 \par\end{centering}
 
-\caption{Klassendiagramm Server}
+\caption{Klassendiagramm Server\label{fig:Klassendiagramm-Server}}
 \end{figure}
 
 
 
 \subsection{Client}
 
-Für die Clientapplikationen wird kein Konzept erstellt, da diese über
-eine Service Reference\nomenclature{Service Reference}{Über eine Service Reference erstellt das .NET Framework einen Clientproxy basierend auf einem Webservice und stellt die so verfügbaren Methoden in generiertem Quellcode der Applikation zur Verfügung.}%
+Für die Clientapplikationen wird kein gesondertes Konzept erstellt,
+da sich ihre Logik auf das Benutezn der Webservices der Serverapplikation
+(siehe \vref{sub:Server}) beschränkt, die über eine Service Reference\nomenclature{Service Reference}{Über eine Service Reference erstellt das .NET Framework einen Clientproxy basierend auf einem Webservice und stellt die so verfügbaren Methoden in generiertem Quellcode der Applikation zur Verfügung.}%
 \footnote{In der MSDN finden sich unter \url{http://msdn.microsoft.com/en-us/library/bb907578.aspx}
 mehr Informationen zu Service References.%
-} die Services der Serverapplikation (siehe \vref{sub:Server}) anziehen
-und zusätzlich noch das Interface IServiceCallback (siehe \vref{sub:IServiceCallback})
-implementieren müssen. Ansonsten ergibt sich die logische Struktur
-der Clientapplikation aus dem verwendeten GUI-Framework.
+} eingebunden werden. Dadurch werden die Clientapplikationen gezwungen,
+das Interface \emph{IServiceCallback} (siehe \vref{sub:IServiceCallback})
+zu implementieren. 
+
+Ansonsten ergibt sich die logische Struktur der Clientapplikation
+aus dem verwendeten GUI-Framework.
 
 
 \section{Laufzeitsicht}
 
 Die Laufzeitsicht beschreibt, welche Bestandteile des Systems zur
-Laufzeit existieren und wie sie zusammenwirken (nach \cite{Starke2011}).
-Dabei kommen wichtige Aspekte dese Systembetriebs ins Spiel, die beispielsweise
+Laufzeit existieren und wie diese zusammenwirken (nach \cite{Starke2011}).
+Dabei kommen wichtige Aspekte des Systembetriebs ins Spiel, die beispielsweise
 den Systemstart, die Laufzeitkonfiguration oder die Administration
 des Systems betreffen.
 
-Darüber hinaus dokumentiert die Laufzeitsicht, wie Laufzietkomponenten
+Darüber hinaus dokumentiert die Laufzeitsicht, wie Laufzeitkomponenten
 sich aus Instanzen von Implementierungsbausteinen zusammensetzen. 
 
 
 \subsection{Gespräch beitreten}
 
-Möchte ein Benutzer einem Gespräch beitreten so gibt er über das ConnectWindow
-(siehe \noun{{[}Referenz{]}}) seinen gewünschten Benutzernamen ein.
-Der Loop UserName in use stellt dar, dass der Benutzer solange einen
-Benutzernamen auswählen muss bis er einen Benutzernamen wählt, der
-noch nicht dem Gespräch beigetreten ist. Ist der Benutzername frei,
-so erstellt wird von der Serverapplikation in der SessionsStorage
-ein neues SessionTicket gelöst, das der Clientapplikation zurückgegeben
-wird. 
+Möchte ein Benutzer einem Gespräch beitreten so gibt er über Gesprächsbeitrittdialog
+seinen gewünschten Benutzernamen ein. Die Schleife {}``UserName in
+use'' stellt dar, dass der Benutzer solange einen Benutzernamen auswählen
+muss bis er einen Benutzernamen wählt, der im Gespräch noch nicht
+vergeben ist. Ist der Benutzername frei, so wird von der Serverapplikation
+in der Sessionverwaltung ein neues Sessionticket gelöst, das der Clientapplikation
+zurückgegeben wird. 
 
+Das Sequenzdiagramm ist in Abbildung \ref{fig:Sequenzdiagramm-Gespr=0000E4ch-beitret}
+ersichtlich.
 
-\paragraph*{Sequenzdiagramm}
-
-\begin{figure}[H]
+\begin{figure}
 \begin{centering}
-\includegraphics[scale=0.65]{ExportedDiagrams/Sequence-GespraechBeitreten}
+\includegraphics[width=16cm]{ExportedDiagrams/Sequence-GespraechBeitreten}
 \par\end{centering}
 
-\caption{Sequenzdiagramm Gespräch beitreten}
+\caption{Sequenzdiagramm Gespräch beitreten\label{fig:Sequenzdiagramm-Gespr=0000E4ch-beitret}}
 \end{figure}
 
 
 
 \subsection{Gespräch verlassen}
 
-Möchte der Benutzer das Gespräch verlassen so initiiert er über das
-MessagingWindow eine Anfrage an die Serverapplikation zum Verlassen
-des Gesprächs. In der SessionStorage wird dann das SessionTicket des
-Benutzers entfernt und der Clientapplikation wird mitgeteilt, dass
-der Benutzer erfolgreich das Gespräch verlassen hat und keine Nachrichten
-mehr senden oder empfangen kann.
+Möchte der Benutzer das Gespräch verlassen so initiiert er über den
+Gesprächsdialog eine Anfrage an die Serverapplikation zum Verlassen
+des Gesprächs. In der Sessionverwaltung wird dann das Sessionticket
+des Benutzers entfernt und der Clientapplikation wird mitgeteilt,
+dass der Benutzer erfolgreich das Gespräch verlassen hat und keine
+Nachrichten mehr senden oder empfangen kann.
 
+Das Sequenzdiagramm hierzu ist unter Abbildung \ref{fig:Sequenzdiagramm-Gespr=0000E4ch-verlass}
+zu finden.
 
-\paragraph*{Sequenzdiagramm}
-
-\begin{figure}[H]
+\begin{figure}
 \begin{centering}
-\includegraphics[scale=0.65]{ExportedDiagrams/Sequence-GespraechVerlassen}
+\includegraphics[scale=0.5]{ExportedDiagrams/Sequence-GespraechVerlassen}
 \par\end{centering}
 
-\caption{Sequenzdiagramm Gespräch verlassen}
+\caption{Sequenzdiagramm Gespräch verlassen\label{fig:Sequenzdiagramm-Gespr=0000E4ch-verlass}}
 \end{figure}
 
 
 
 \subsection{Nachricht senden}
 
-Möchte der Benutzer eine Nachricht vesenden so muss er, falls noch
+Möchte der Benutzer eine Nachricht versenden, so muss er, falls noch
 kein Initalisierungsvektor für den gewählten Kryptoalgorithmus gesetzt
 ist, zuerst einen Initialisierungsvektor setzen. Dasselbe gilt für
-den Schlüssel des gewählten Kryptoalgorithmus, ist er innerhalb des
-gesamten Gesprächs noch nie gesetzt worden, so muss der Schlüssel
+den Schlüssel des ausgewählten Kryptosystems. Ist dieser innerhalb
+des gesamten Gesprächs noch nie gesetzt worden, so muss der Schlüssel
 vom Benutzer gewählt werden.
 
 Sind die beiden Bedingungen (Initialisierungsvektor und Schlüssel
-gesetzt) erfüllt, wird die Nachricht an den Webservice weitergegeben
-und falls die gewählten Empfänger ein gültiges SessionTicket bestitzen
-und beim Webservice einen Delegaten als Callback hinterlegt haben
-wird ihnen die Nachricht übermittelt. Der Benutzer erhält anscheinend
-eine Bestätigung des Nachrichtenversandes.
+gesetzt) erfüllt, wird die Nachricht an den Webservice der Serverapplikation
+weitergegeben. Besitzen die ausgewählten Empfänger jeweils ein gültiges
+Sessionticket und haben diese beim Webservice einen Delegaten als
+Callback, so wird ihnen die Nachricht übermittelt. Der Benutzer erhält
+anscheinend eine Bestätigung des Nachrichtenversandes im Gesprächsprotokoll.
 
+Dieses Sequendiagramm ist in Abbildung \ref{fig:Sequenzdiagramm-Nachricht-senden}
+sichtbar.
 
-\paragraph*{Sequenzdiagramm}
-
-\begin{figure}[H]
+\begin{figure}
 \begin{centering}
-\includegraphics[scale=0.65]{ExportedDiagrams/Sequence-NachrichtSenden}
+\includegraphics[width=16cm]{ExportedDiagrams/Sequence-NachrichtSenden}
 \par\end{centering}
 
-\caption{Sequenzdiagramm Nachricht senden}
+\caption{Sequenzdiagramm Nachricht senden\label{fig:Sequenzdiagramm-Nachricht-senden}}
 \end{figure}
 
 
@@ -1243,63 +1244,78 @@ und Projektleitung (gemäss \cite{Hruschka2012}).
 
 \subsection{Verteilungsdiagramm}
 
-Die Verteilungssicht in dieser Dokumentation beinhaltet nur ein Verteilungsdiagramm
-das sehr rudimentär und ohne grosse Details aufgezeichnet wird. Dies,
-da kein konkretes Verteilungsszenario der Applikation innerhalb des
-Projekts geplant wurde. Das Projekt beeinhaltet die Erarbeitung des
-Konzepts sowie die konkrete Implementierung der Applikation ohne jedoch
-konkrete Hardware bzw. vorzugeben auf welchen die einzelnen Applikationen
-laufen sollen. 
+Die Verteilungssicht dieser Projektdokumentation enthält nur ein sehr
+rudimentär und ohne grosse Details ausgearbeitetes Verteilungsdiagramm
+(siehe Abbildung \ref{fig:Verteilungsdiagramm}). Dies, da kein konkretes
+Verteilungsszenario der Applikation innerhalb des Projekts geplant
+wurde. Das Projekt beeinhaltet die Erarbeitung des Konzepts sowie
+die konkrete Implementierung der Applikation ohne jedoch auf Verteilung
+des Systems einzugehen. 
 
 Generell können die einzelnen Clientapplikationen auf jeglicher Hardware
-laufen, benötigen jedoch jeweils das passende Betriebssystem bzw.
-im Fall des Silverlight-Clients einen Browser mit Silverlight Plugin.
+laufen, benötigen jedoch jeweils das passende Betriebssystem beziehungsweise
+im Fall des Silverlight-Clients einen Browser mit Silverlight-Plugin.
 Zwischen den Clientapplikationen und der Serverapplikation in Form
 des Servicehosts wird eine Netzwerkverbindung vorausgesetzt bei welcher
-die passenden Ports (siehe Binding \noun{{[}Referenz{]}}) geöffnet
+die passenden Ports (siehe Binding Kapitel \vref{sub:Bindings}) geöffnet
 und zugänglich sind. Auch ist eine Verteilung über das WWW denkbar.
 
-
-\paragraph*{Verteilungsdiagramm}
-
-\begin{figure}[H]
+\begin{figure}
 \begin{centering}
-\includegraphics[scale=0.65]{ExportedDiagrams/Deployment-Verteilungsdiagramm}
+\includegraphics[scale=0.5]{ExportedDiagrams/Deployment-Verteilungsdiagramm}
 \par\end{centering}
 
-\caption{Verteilungsdiagramm}
+\caption{Verteilungsdiagramm\label{fig:Verteilungsdiagramm}}
 \end{figure}
 
 
 
 \chapter{Implementierung\label{chap:Implementierung}}
 
-\noun{{[}Kapiteleinführung{]}}
+Das Kapitel Implementierung beschäftigt sich zunächst mit der Wahl
+der geeigneten Entwicklungsmethode für dieses Projekt. Als Nächstes
+werden verschiedene Technologien vorgestellt, die innerhalb des Projekts
+Anwendung finden und deren Kenntniss für das weitere Verständnis des
+Quellcodes oder dieser Dokumentation notwendig sind. Auch wird auf
+einzelne besondere Entwurfsmuster näher eingegangen, insbesondere
+im Zusammenhang mit den UI-Frameworks. 
+
+Anschliessend wird ein theoretischer Überblick über asymmetrische
+und symmetrische Kryptosysteme gegeben sowie aufgezeigt, wie diese
+in YAEM eingebunden werden können. 
+
+Am Ende des Kapitels werden die einzelnen Visual Studio-Projekte als
+Teilkomponenten des Projekts vorgestellt und es wird auf in der Implementierungsphase
+aufgetretenen Probleme hingewiesen, sowie ihre Auswirkungen auf Teile
+des Projekterfolgs erläutert.
 
 
 \section{Entwicklungsmethoden}
 
 Als pragmatischer Softwareentwickler versucht man den Blick auf das
-wesentliche zu konzentrieren: Anforderungen in ein funktionierendes
+Wesentliche zu konzentrieren: Anforderungen in ein funktionierendes
 und warbares Programm zu überführen, das die Anwender begeistert (nach
-\cite{Hunt1999}). Um dieses Ziel zu erreichen existieren eine breite
+\cite{Hunt1999}). Um dieses Ziel zu erreichen existiert eine breite
 Palette an Entwicklungsmethoden, die den Entwickler bei seiner (pragmatischen)
 Arbeitsweise unterstüzen. Insbesondere agile Entwicklungsmethoden
-wie Scrum oder Extreme Programming (XP) unterstützen ein Entwicklungsteam
-in der Konzentration auf die Implementierung von Funktionalitäten
-in einem Softwareprodukt und helfen vor Ablenkungen wie der zunehmenden
-Spezialisierung und Technisierung.
+wie Scrum oder Extreme Programming (XP) unterstützen einen Entwickler
+oder ein Entwicklungsteam bei der Konzentration auf die Implementierung
+von Funktionalitäten in einem Softwareprodukt und beugen Ablenkungen
+vor.
 
 Für dieses Projekt wurde Test Driven Development (TDD) als Entwicklungsmethode
-gewählt da die iterative Entwicklung, die auf dem Erstellen des Unit
+gewählt, da die iterative Entwicklung, die auf dem Erstellen des Unit
 Tests%
 \footnote{Mehr zu automatisierten Tests findet sich im Kapitel \vref{sec:Unit-Tests}.%
-} fundiert (genauer beschrieben in \vref{sub:Testgetriebene-Entwicklung})
+} fundiert (genauer beschrieben in Kapitel \vref{sub:Testgetriebene-Entwicklung})
 die Fokussierung auf die für den Benutzer relevanten Funktionalitäten
-ermöglicht. Studien wie \cite{Nagappan2008} beweisen ausserdem dass
-mit Hilfe von TDD die allgemeine Qualität eines Softwareprodukts steigt
-da z.B. schon die Fehlerdichte (gemessen in Anzahl Fehler pro tausend
-Zeilen Code) zwischen 40\% und 90\% relativ kleiner ist als bei Softwareprodukten,
+ermöglicht. 
+
+Studien wie \cite{Nagappan2008} beweisen, dass mit Hilfe von TDD
+die allgemeine Qualität eines Softwareprodukts steigt da z.B. schon
+die Fehlerdichte%
+\footnote{gemessen in Anzahl Fehler pro tausend Zeilen Code%
+} zwischen 40\% und 90\% relativ kleiner ist als bei Softwareprodukten,
 die nicht mit TDD entwickelt wurden. Es wurde zwar der initiale Entwicklungsaufwand
 zwischen 15\% und 35\% erhöht, jedoch wurde dies im Nachhinein durch
 geringere Wartungskosten ausgeglichen.
@@ -1309,28 +1325,30 @@ geringere Wartungskosten ausgeglichen.
 
 Test Driven Development (kurz TDD, deutsch Testgetriebene Entwicklung)
 ist eine evolutionäre Entwicklungsmethode, die häufig zusammen mit
-agilen Methoden Anwendung findet. Dabei werden Tests entsprechend
-den Anforderungen an eine Funktion erstellt und erst im Nachhinein
-der funktionale Code implementiert (gemäss \cite{Bullinger2010}).
+agilen Softwareentwicklungsmethoden Anwendung findet. Dabei werden
+Tests entsprechend den Anforderungen an eine Funktion erstellt und
+erst im Nachhinein der funktionale Code implementiert (gemäss \cite{Bullinger2010}).
 
 Die Tests werden meist innerhalb eines Unit-Test-Frameworks (siehe
-\vref{sec:Unit-Tests}) implementiert und laufen gelassen. Zu Beginn
+Kapitel \vref{sec:Unit-Tests}) implementiert und ausgeführt. Zu Beginn
 werden die Tests fehlschlagen, da noch gar kein Code implementiert
-worden ist. Ziel des Entwicklers ist es, den Code so lange zu verbessern,
-bis alle zugehörigen Tests bestanden werden.
+worden ist. Ziel des Entwicklers ist es, den Code so lange zu implementieren
+und verbessern, bis alle zugehörigen Tests bestanden werden und kein
+bisheriger Test fehlschlägt.
 
 Kommen neue Anforderungen oder Funktionen hinzu, werden zuerst neue
 Tests implementiert und danach der Code erweitert. Danach werden alle
-Test erneut durchgeführt, solange bis wieder alle Tests bestanden
+Tests erneut durchgeführt und es werden solange Anpassungen an der
+bestehenden Codebasis duchgeführt, bis wieder alle Tests bestanden
 werden. 
 
 Zusammengefasst folgt man drei einfachen Schritten bei der Anwendung
-von TDD (frei nach \cite{Fowler2012}, siehe auch \vref{fig:Schritte-in-TDD}):
+von TDD (frei nach \cite{Fowler2012}, siehe Abbildung \vref{fig:Schritte-in-TDD}):
 \begin{enumerate}
 \item Einen Test schreiben für das nächste Stück von Funktionalität, das
-der Applikation hinzugefügt werden soll
-\item Funktionalen Code schreiben bis der Test erfüllt wird
-\item Neuen und alten Code umgestalten um ihn besser zu strukturieren
+der Applikation hinzugefügt werden soll.
+\item Funktionalen Code schreiben bis der Test erfüllt wird.
+\item Neuen und alten Code umgestalten um ihn besser zu strukturieren.
 \end{enumerate}
 \begin{figure}
 \centering{}\includegraphics[scale=0.5]{Graphics/tddSteps}\caption{Schritte in TDD (aus \cite{Ambler2011})\label{fig:Schritte-in-TDD}}
@@ -1338,13 +1356,14 @@ der Applikation hinzugefügt werden soll
 
 
 Durch die Anwendung von TDD wird der bestehende und neue Code fortlaufend
-optimiert und ist leicht zu ändern. Die enthaltenen Funktionen werden
-durch die Tests zugleich dokumentiert und Fehler werden früher entdeckt
-und sind durch Mini-Iterationen leichter lokalisierbar. Besonders
-in grossen Teams entsteht ein Qualitätsbewusstsein über das ganze
-Projekt hinweg, nicht nur bei einer kleinen Expertengruppe.
+optimiert und er ist leicht zu ändern und zu warten da eventuelle
+Seiteneffekte einer Codeanpassung schnell entdeckt werden. Die enthaltenen
+Funktionen werden durch die Tests zugleich dokumentiert, Fehler werden
+früher entdeckt und sind durch die durchgeführten Mini-Iterationen
+leichter lokalisierbar. Besonders in grossen Teams entsteht so ein
+Qualitätsbewusstsein über das ganze Projekt hinweg.
 
-Nachteilig ist anzumerken, dass konsequent sämtlicher Code testdriven
+Nachteilig ist anzumerken, dass konsequent sämtlicher Code testgetrieben
 erstellt werden muss. Für Entwickler, die noch nie mit TDD in Berührung
 gekommen sind, ist es schwierig sich vorzustellen, wie etwas getestet
 werden soll, das noch nicht existiert. Generell funktioniert TDD auch
@@ -1353,106 +1372,179 @@ besitzen. Man muss sich auch bewusst sein, dass TDD keine weiteren
 Tests wie Integrations- oder Akzeptanztests ersetzt.
 
 
-\section{Verwendete Technologien}
+\section{Verwendete Technologien\label{sec:Verwendete-Technologien}}
 
-Dieses Kapitel gibt einen Überblick über die in der Semesterarabeit
+Dieses Kapitel gibt einen Überblick über die in der Semesterarbeit
 verwendeten Technologien und dient zum besseren Verständnis der einzelnen
-Teile des Softwareprodukts, die in einem späteren Kapitel (siehe \vref{sec:Komponenten-im-Detail})
-genauer beschrieben werden.
+Teile des Softwareprodukts, die in einem späteren Kapitel (siehe Kapitel
+\vref{sec:Komponenten-im-Detail}) genauer beschrieben werden.
 
 Die einzelnen Unterkapitel bieten einen losen Überblick über verschiedenste
-Technologien und Produkte und erläutert wo und wieso die jeweilige
-Technologie im Softwareprodukt eingesetzt wird.
+Technologien und Produkte und erläuteren in welcher Komponenten und
+warum die jeweilige Technologie eingesetzt wird.
 
 
-\subsection{Managed Extensibility Framework}
+\subsection{Managed Extensibility Framework\label{sub:Managed-Extensibility-Framework}}
 
 Ein Ziel des Softwareproduktes YAEM war es, zur Laufzeit beliebige
-Kryptosysteme den Clientapplikationen zur Verfügung zu stellen die
-als Erweiterungen angebunden werden können. MEF bietet genau diese
-Funktionalität.
+Kryptosysteme den Clientapplikationen zur Verfügung zu stellen, die
+als Erweiterungen in die Applikation eingebunden werden können. MEF
+bietet genau diese Funktionalität.
 
-Das Managed Extensibility Framework oder MEF ist eine Bibliothek für
-die Erstellung von leichten, erweiterbare Anwendungen. Es erlaubt
-Anwendungsentwicklern zu Erweiterungen zu Applikationen zu schreiben,
-die keinerlei Konfiguration benötigen. Ausserdem können Entwickler
-Erweiterungen leicht kapseln und somit fragile harte Abhängigkeiten
-zu vermeiden. MEF ermöglicht nicht nur Erweiterungen die innerhalb
-von Anwendungen wiederverwendet werden können, sondern auch über Anwendungen
-hinweg.
+Das Managed Extensibility Framework%
+\footnote{MEF ist Open Source und unter \url{http://mef.codeplex.com/} zusammen
+mit Beispielen herunterzuladen.%
+} oder MEF ist eine Bibliothek für die Erstellung von leichtgewichtigen,
+erweiterbaren Anwendungen. Es erlaubt Anwendungsentwicklern Erweiterungen
+zu Applikationen zu schreiben, die keinerlei Konfiguration benötigen.
+Ausserdem können Erweiterungen leicht gekapselt werden und es können
+somit fragile, harte Abhängigkeiten vermieden werden. MEF ermöglicht
+nicht nur Erweiterungen, die innerhalb von Anwendungen wiederverwendet
+werden können, sondern auch über Anwendungen hinweg.
 
 MEF besteht aus einem Katalog (\emph{Catalog}) und einem sogenannten
 Behälter (\emph{CompositionContainer}). Ein Katalog ist verwantwortlich
 für das Entdecken der Erweiterungen und der Behälter koordiniert die
-Erstellung erfüllt die Abhängigkeiten. MEF-Erweiterungen sind Ersatzteile
-(\emph{ComposablePart}) und ein Ersatzteil bietet ein oder mehrere
-Exporte, und kann auch von einem oder mehreren extern gelieferten
-Importe abhängen. Exporte und Import haben jeweils einen Vertrag,
-der als Schnittstelle zwischen Exporten und Importen dient. Ein Behälter
-interagiert mit Katalogen um Zugriff zu den Ersatzteilen zu erhalten.
-Der Behälter selbst behebt die Abhängigkeiten des Ersatzteils und
-stellt seine Exporte der Aussenwelt zur Verfügung. 
+Instanziierung der in ihnen gelagerten Ersatzteile und erfüllt deren
+Abhängigkeiten. MEF-Erweiterungen sind Ersatzteile (\emph{ComposablePart}),
+die ein oder mehrere Exporte bieten und von einem oder mehreren extern
+gelieferten Importe abhängen können. Exporte und Import haben jeweils
+einen Vertrag, der als Schnittstelle zwischen Exporten und Importen
+dient. Der Behälter interagiert mit Katalogen um Zugriff zu den Ersatzteilen
+zu erhalten. Er behebt die Abhängigkeiten des Ersatzteils und stellt
+seine Exporte der Aussenwelt zur Verfügung. 
 
 Sämtliche Exporte und Importe werden über Annotationen gesteuert und
-über Reflection\nomenclature{Reflection}{Reflection (zu deutsch Reflexion oder Introspektion) ermöglich einem programm dass es seine eigene Strukur kennt und diese gegebenenfalls modifizieren kann.}
-können zur Laufzeit diese Annotationen aus Assemblies gelesen werden%
-\footnote{MEF ist Open Source und unter \url{http://mef.codeplex.com/} zusammen
-mit Beispielen herunterzuladen.%
-}. 
+mittels Reflection\nomenclature{Reflection}{Reflection (zu deutsch Reflexion oder Introspektion) ermöglich einem programm dass es seine eigene Strukur kennt und diese gegebenenfalls modifizieren kann.}
+können zur Laufzeit diese Annotationen aus Assemblies gelesen werden. 
 
-Abbildung \ref{fig:MEF-Struktur} verdeutlich die Struktur von MEF.
-Dabei entspricht das Part jeweils einem Kryptosystem und wird in eine
-eigene Assembly kompiliert. Alle einzelnen Kryptosysteme implementieren
-dabei die Schnittstelle \emph{ICryptoProvider} (siehe \vref{sub:Kryptoalgorithmen})
-und werden mit \emph{{[}Export(typeof(ICryptoProvider)){]} }sowohl
-\emph{{[}CryptoAlgorithm(Algorithm = CryptoAlgorithm.SpecificCryptoAlgorithm){]}}
+Die Abbildung \ref{fig:MEF-Struktur} verdeutlich die interne Struktur
+von MEF. Innerhalb von MEF entspricht ein Ersatzteil (Part) einem
+Kryptosystem, das in einer eigenen Assembly residiert. Alle Kryptosysteme
+implementieren dabei die Schnittstelle \emph{ICryptoProvider} (siehe
+Kapitel \vref{sub:Kryptoalgorithmen}) und werden mit \emph{{[}Export(typeof(ICryptoProvider)){]}
+}sowohl \emph{{[}CryptoAlgorithm(Algorithm = CryptoAlgorithm.SpecificCryptoAlgorithm){]}}
 annotiert.
 
 \begin{figure}[H]
-\includegraphics[scale=0.5]{Graphics/MEFdiagram}
+\begin{centering}
+\includegraphics[scale=0.4]{Graphics/MEFdiagram}
+\par\end{centering}
 
 \caption{MEF Struktur\label{fig:MEF-Struktur}}
 \end{figure}
 
 
 
-\subsection{Windows Communication Foundation}
+\subsection{Windows Communication Foundation\label{sub:Windows-Communication-Foundation}}
 
 Zur Kommunikation zwischen den Clientapplikationen und der Serverapplikation
 wird die Windows Communication Foundation (kurz WCF) eingesetzt. WCF
-ist seit dem .NET Framework 3.0 ein Bestandteil des Frameworks und
-ist eine dienstorientierte Kommunikationsplattform für verteilte Anwendungen.
+ist seit dem .NET Framework 3.0 ein Bestandteil des .NET Frameworks
+und ist eine dienstorientierte Kommunikationsplattform für verteilte
+Anwendungen.
 
-Durch WCF werden verschiedene Kommunikationstechnologeien wie DCOM,
-MSMQ oder Webservices unter einer einheitlichen Programmierschnittstelle
-zusammengefasst. WCF wird hauptsächlich zur Entwicklung von Serviceorientierten
+Durch WCF werden verschiedene Kommunikationstechnologien wie DCOM\nomenclature{DCOM}{Das Distributed Component Object Model (kurz DCOM) ist ein objektorientiertes RPC-System, das von Microsoft entwickelt wurde, damit man mit COM die Möglichkeit hat, über das Netzwerk zu kommunizieren.},
+MSMQ\nomenclature{MSMQ}{MSMQ (oder Microsoft Message Queueing) ist die Implementierung einer Message Queue die von Microsoft entwickelt wurde und seit Windows NT 4 und Windows 95 Teil der Windowsplattform ist. MSMQ ist ein Nachrichtenprotokoll, das es Applikationen erlaubt mit verschiedenen Server bzw. Prozesse fehlergesichert zu kommunizieren.}
+oder Webservices unter einer einheitlichen Programmierschnittstelle
+zusammengefasst. WCF wird hauptsächlich zur Entwicklung von serviceorientierten
 Architekturen (SOA) verwendet. Dabei abstrahiert WCF das Konzept des
 Endpunkts durch eine Trennung in Address, Binding und Contract. Die
-Addresse (Address) ist eine URI, die den Ort des Dienstes beschreibt
+Addresse (Address) ist ein URI, die den Ort des Dienstes beschreibt
 und somit seine Erreichbarkeit für Dienstkonsumenten kennzeichnet.
 Die Anbindung (Binding) beschreibt die Art der Kommunikation, worunter
 unter anderem die Merkmale der Kodierung des Protokolls fallen. Der
 Vertrag (Contract) stellt die Dienstdefinition, insbesondere die zur
 Verfügung gestellten Methoden, dar.
 
-Alle Methoden, welche die Serverapplikation von YAEM zur Verfügung
-stellt, werden über die Schnittstellen IUserService und IMessagingService
-definiert (siehe \vref{sub:IUserService} und \vref{sub:IMessagingService}).
-Die Serverapplikation implementiert diese beiden Schnittstellen und 
 
-\noun{{[}WCF erklären, wofür braucht man WCF'{]}}
+\subsubsection{Bindings\label{sub:Bindings}}
+
+WCF unterscheidet zwischen der Implementierung einer Softwarekomponente
+und wie diese mit anderen Softwarekomponenten kommuniziert. Mithilfe
+von Bindings werden Transport, Kodierung und Protokolldetails angegeben,
+die von Client- und Serverapplikationen zur Kommunikation benötigt
+werden. WCF generiert mit Bindings die zugrundeliegende Übertragungsdarstellung
+des Endpunkts\nomenclature{Endpoint}{Ein Endpoint (dt. Endpunkt) kennzeichnet einen verfügbaren Dienst. Er besteht aus einer Addresse, einem Binding und einem Contract.}.
+Deshalb müssen die an der Kommunikation beteiligten Parteien die Details
+des Bindings aufeinander abstimmen. Tabelle \ref{tab:Bindings} bietet
+eine Übersicht über die im Lieferumfang von WCF vorhandenen Bindings
+an.
+
+\begin{table}
+\begin{centering}
+\begin{tabular}{|l|>{\raggedright}p{10cm}|}
+\hline 
+Binding & Beschreibung\tabularnewline
+\hline 
+\hline 
+\emph{BasicHttpBinding} & Ein Binding, das sich für die Kommunikation mit Webservices eignet.
+Das Binding verwendet HTTP als Transportprotokoll und XML als Kodierung.\tabularnewline
+\hline 
+\emph{WSHttpBinding} & Ein sicheres Binding, das sich für nicht-duplexfähige Service Contracts
+eignet.\tabularnewline
+\hline 
+\emph{WsDualHttpBinding} & Ein sicheres Binding, das die Kommunikation mit Service Contracts
+über SOAP mit Duplexkanälen anbietet.\tabularnewline
+\hline 
+\emph{WsFederationHttpBinding} & Das \emph{WSFederationHttpBinding} unterstützt das WS-Federationprotokoll
+und ermöglicht es den Dienstbenutzer zu authentifizieren und autorisieren.\tabularnewline
+\hline 
+\emph{NetTcpBinding} & Dieses Binding ist ein sicheres und optimiertes Binding, die sich
+für die computerübergreifende Kommunikation zwischen WCF-Anwendungen
+eignet.\tabularnewline
+\hline 
+\emph{NetNamedPipeBinding} & Das \emph{NetNamedPipeBinding} eignet sich zur Kommunikation zwischen
+WCF-Anwendungen auf einem Computer.\tabularnewline
+\hline 
+\emph{NetMsmqBinding} & Eine warteschlagenbasiertes (queue-based) Binding, das zur computerübergreifenden
+Kommunikation zwischen WCF-Applikationen eingesetzt werden kann.\tabularnewline
+\hline 
+\emph{NetPeerTcpBinding} & Zwischen mehreren Rechnern wird mit Hilfe dieses Bindings eine sichere
+Kommunikation ermöglicht.\tabularnewline
+\hline 
+\emph{WebHttpBinding} & Dieses Binding dient zur Übertragung von HTTP-Requests die nicht über
+SOAP bereitgestellt werden können.\tabularnewline
+\hline 
+\emph{MsmqIntegrationBinding} & Zur computerübergreifenden Kommunikation zwischen WCF-Applikation
+und MSMQ-Anwendungen wird dieses Binding bentutzt.\tabularnewline
+\hline 
+\end{tabular}
+\par\end{centering}
+
+\caption{Bindings\label{tab:Bindings}}
+\end{table}
 
 
-\subsubsection{Bindings}
+Da für YAEM zwingend ein duplexfähiges Binding verwenden soll, steht
+einzig das \emph{WSDualHttpBinding} zur Verfügung, das sowohl der
+Webservice wie auch dem konsumierenden Client die Möglichkeit bietet,
+Nachrichten zu versenden wie auch zu empfangen.
 
-\noun{{[}Verschiedene Bindings auflisten und vergleichen, Details
-zu WsHttpDualBinding auflisten, Vorteile und Nachteile{]}}
 
+\subsubsection{Callbacks über WSDualHttpBinding \label{sub:Callbacks-=0000FCber-NetHttpDualBindin}}
 
-\subsubsection{Callbacks über NetHttpDualBinding}
+Das WSDualHttpBinding definiert eine sichere und interoperable Bindung,
+die für duplexfähige Service Contracts oder für die Kommunikation
+über SOAP\nomenclature{SOAP}{SOAP (ursprünglich "Simple Object Access Protocol") ist ein vom W3C standardisiertes Nachrichtenprotokoll. Darüber wird Kommunikation zwischen verteilten Anwendungen ermöglicht und standardisiert und Applikationen werden webfähig.}-Vermittler
+geeignet ist%
+\footnote{Siehe MSDN Library \url{http://msdn.microsoft.com/en-us/library/ms731821.aspx}.%
+}. WSDualHttpBinding bietet dieselbe Unterstützung von Webservices
+wie WSHttpBinding, erlaubt es jedoch zusätzlich die Verwendung von
+Duplexchannels. Das Binding macht es erforderlich, dass der Client
+einen öffentlichen URI\nomenclature{URI}{Ein Uniform Resource Identifier (kurz URI) ist ein Identifikator und besteht aus einer Zeichenfolge, die zur Identifizierung einer abstrakten oder physischen Ressource dient.}
+aufweist, der einen Callback für den Webservice bereitstellt.
 
-\noun{{[}Delegates erklären, Mechanismsu von Callbacks über WsHttpDualBinding
-erklären{]}}
+Wird ein Service Contract mit dem \emph{ServiceContractAttribute.CallbackContract}%
+\footnote{Siehe MSDN Library \url{http://msdn.microsoft.com/en-us/library/system.servicemodel.servicecontractattribute.callbackcontract.aspx}.%
+} annotiert, so muss dieses von Webservicekonsumenten implementiert
+werden. Dadurch stellt der Client einen öffentlichen URI zur Verfügung,
+der vom Webservice aufgerufen werden kann.
+
+Die Serverapplikation kann so über den Aufruf der Methode \emph{OperationContext.GetCallbackChannel<T>}%
+\footnote{Siehe MSDN Library \url{http://msdn.microsoft.com/en-us/library/ms575542.aspx}.%
+} einen Callback-Delegaten, über welchen die Serverapplikation direkt
+Nachrichten an den registrierten Webservicekonsumenten versenden kann.
 
 
 \subsection{Windows Presentation Foundation\label{sub:Windows-Presentation-Foundation}}
@@ -1464,19 +1556,19 @@ den Markt gekommen ist. WPF versucht, ein konsistentes Programmiermodell
 für die Erstellung von Anwendungen zu bieten und lieferte eine Trennung
 zwischen der Benutzeroberfläche und der Businesslogik. 
 
-WPF bentutzt Extensible Markup Language (XAML), ein XML-Derivat, um
-verschiedene UI-Elemente zu definierten und miteienander zu verküpfen.
-WPF Applikationen sowohl als eigenständige Programme sowie innerhalb
-einer Website als eingebettetes Objekt verteilt werden. WPF kombiniert
-UIs, 2D Grafiken, 3D Grafiken, Dokumente und Multimediaobjekte in
-einem einzigen Framework Diese Elemente können miteinander verknüpft
-werden und unterschiedliche Zustände aufgrund der anzuzeigenden Daten
-annehmen. Abbildung \ref{fig:Hauptfunktionalit=0000E4ten-von-WPF}
+WPF bentutzt Extensible Markup Language (XAML)\nomenclature{XAML}{Extensible Application Markup Language (XAML) ist eine von Microsoft entwickelte allgemeine Beschreibungssprache für die Oberflächengestaltung von Anwendungen sowie zur Definition von Workflows in WF.},
+ein XML-Derivat, um verschiedene UI-Elemente zu definierten und miteinander
+zu verküpfen. WPF-Applikationen können sowohl als eigenständige Programme
+als auch innerhalb einer Website als eingebettetes Objekt verteilt
+werden. WPF kombiniert UIs, 2D Grafiken, 3D Grafiken, Dokumente und
+Multimediaobjekte in einem einzigen Framework Diese Elemente können
+miteinander verbunden werden und unterschiedliche Zustände aufgrund
+der anzuzeigenden Daten annehmen. Die Abbildung \ref{fig:Hauptfunktionalit=0000E4ten-von-WPF}
 zeigt die Hauptfunktionalitäten von WPF.
 
 \begin{figure}[H]
 \begin{centering}
-\includegraphics{Graphics/wpfMainFeatures}
+\includegraphics[scale=0.8]{Graphics/wpfMainFeatures}
 \par\end{centering}
 
 \caption{Hauptfunktionalitäten von WPF (aus\cite{Moser2012})\label{fig:Hauptfunktionalit=0000E4ten-von-WPF}}
@@ -1485,70 +1577,239 @@ zeigt die Hauptfunktionalitäten von WPF.
 
 Vor WPF wurden die meisten Desktopanwendungen für Windowsbasierte
 Systeme mit Windows Forms entwickelt. Dabei ist Windows Forms ein
-Wrapper für die Windows-API in Managed Code. WPF basiert nicht mehr
-auf der Windows-API sondern zeichnet die Benutzerflöäche selbst. Dadurch
-ist eine bessere Unterstüztung von Templates gegeben und auf längere
-Sicht eine erhöhte Portierbarkeit. Ausserdem ist WPF hardwarebeschleunigt,
-nutzt also den Prozessor der 3D-Grafikkarte, eine Ressource die insbesondere
-im normalen Alltagsgebrauch von Windows brachliegt.
+Wrapper für die Windows-API in Managed Code\nomenclature{Managed Code}{Programmcode, der im .NET Framework unter der .NET-Laufzeitumgebung abläuft, wird als Managed Code bezeichnet. Im Gegensatz dazu wird herkömmlicher Code als Unmanaged Code oder Classic Code bezeichnet. }.
+WPF basiert nicht mehr auf der Windows-API sondern zeichnet die Benutzerfläche
+selbst. Dadurch ist eine bessere Unterstüztung von Templates gegeben
+und auf längere Sicht eine erhöhte Portierbarkeit. Ausserdem ist WPF
+hardwarebeschleunigt, nutzt also den Prozessor der 3D-Grafikkarte,
+eine Ressource die insbesondere im normalen Alltagsgebrauch von Windows
+brachliegt und Applikationen merkbar beschleunigt.
 
-WPF ist im Moment die Referenztechnologie zur Entwicklung von Windowsbasierten
+WPF ist im Moment die Referenztechnologie zur Entwicklung von windowsbasierten
 Clientapplikationen. Aus diesem Grund wird es für die YAEM Desktopapplikation
 als UI-Framework verwendet.
 
 
-\subsubsection{Silverlight}
+\subsubsection{Model View ViewModel\label{sub:Model-View-ViewModel}}
+
+Einer der grossen Vorteile von WPF ist die Trennung von Logik und
+Präsentation. Dies kann über das Architekturmuster MVVM erreicht werden,
+das eine Spezialisierung des Entwurfsmusters Presentation Model von
+Martin Fowler ist (siehe \cite{Fowler2004}). MVVM basiert zum grössten
+Teil auf Model View Controller (MVC), und ist auf moderne UI-Entwicklungsplattformen
+wie WPF oder Silverlight ausgelegt, bei denen es eine Rollentrennung
+zwischen einem UI-Entwickluer und einem Back-End-Entwickler gibt.
+Das View-Model von MVVM ist dafür verantwortlich, die Datenobjekte
+des Modells derart blosszulegen, dass sie einfach verwaltet und benutzt
+werden können. 
+
+MVVM wurde entworfen, um mittels der spezifischen Funktionen in WPF
+durch Entfernung praktisch allen Code-Behind Quellcode von der View-Schicht
+eine bessere Trennung der View-Schicht vom Rest zu ermöglichen. Statt
+View-Code zu schreiben, kann ein Designer die XAML verwenden und Bindungen
+zum View-Model erzeugen, die durch Anwendungsentwickler geschrieben
+und gewartet werden. Diese Rollentrennung erlaubt es Designern, den
+Fokus auf die UX-Anforderungen zu legen, als auf Programmierung oder
+Geschäftslogik, wodurch die Schichten einer Anwendung typischerweise
+in mehreren Arbeitsgruppen entwickelt werden können.
+
+Das MVVM-Muster beeinhaltet die folgenden Elemente (nach \cite{Smith2009}):
+\begin{itemize}
+\item Model: wie im klassischen MVC-Muster bezieht sich das Modell entweder
+auf ein Objektmodell das den realen Zustandsinhalt repräsentiert (objektorientierter
+Ansatz) oder die Datenzugriffsschicht welche diesen Inhalt repräsentiert
+(datenzentrischer Ansatz). 
+\item View: wie im klassischen MVC-Muster bezieht sich die View auf alle
+Elemente die durch die GUI angezeigt werden, etwa Schaltflächen, Fenster,
+Grafiken, und andere Steuerelemente. 
+\item ViewModel: das ViewModel ist ein \textquotedblleft{}Modell der View\textquotedblright{}
+was bedeutet, dass es eine Abstraktion der View ist, die auch der
+Datenbindung zwischen View und Model dient. Es könnte als ein spezieller
+Aspekt eines Controllers (im MVC-Muster) für die Datenbindung und
+-konvertierung betrachtet werden, der Information vom Model zu solcher
+für die View konvertiert und Befehle von der View zum Model reicht.
+Das ViewModel legt öffentliche Eigenschaften, Befehle und Abstraktionen
+bloss. Das View-Model kann mit einem konzeptionellen Zustand der Daten
+verglichen werden, im Gegensatz zum realen Zustand der Daten im Model.
+\end{itemize}
+Die Abbildung \ref{fig:Beispielimplementierung-von-MVVM} zeigt eine
+beispielhafte Implementierung des MVVM-Musters von \cite{Smith2009}
+mit allen wichtigen Elementen.
+
+\begin{figure}
+\begin{centering}
+\includegraphics[scale=0.6]{Graphics/MVVM}
+\par\end{centering}
+
+\caption{MVVM-Beispielimplementierung (aus \cite{Smith2009})\label{fig:Beispielimplementierung-von-MVVM}}
+\end{figure}
+
+
+
+\subsubsection{Silverlight\label{sub:Silverlight}}
 
 2007 vorgestellt ist Silverlight ein Applikationsframework zur Entwicklung
-von Rich Internet Applications (RIA). Silverlgiht Applikationen werden
+von Rich Internet Applications (RIA). Silverlight Applikationen werden
 dabei innerhalb eines Browserplugins ausgeführt, das für für eine
 Vielzahl von Browsern und Betriebssystemen existiert. Silverlight
-benutzt ein ähnliches Grafiksysteme wie WPF (siehe \vref{sub:Windows-Presentation-Foundation})
+benutzt ein ähnliches Grafiksysteme wie WPF (siehe Kapitel \vref{sub:Windows-Presentation-Foundation})
 und integriert Multimedia, Grafiken, Animationen und Interaktivität
 in eine einzige Laufzeitumgebung. Silverlight dient ausserdem als
 Entwicklungsplattform für Windows Phone.
 
 Wie in WPF wird auch in Silverlight XAML als Beschreibungssprache
-von Benutzeroberflächen benutzt allerdings in einem verminderten Umfang.
-Da Silverlightapplikationen gleichzeitig im Browser und auf einem
-Winows Phone läuft wurde es als UI-Framework für die YAEM Mobile-
-und Web-Clientapplikationen ausgewählt. Mit minimalem Aufwand können
-für zwei unterschiedliche Plattformen Anwendungen entwickelt werden.
+der Benutzeroberflächen benutzt allerdings in einem leicht verminderten
+Umfang. Da Silverlightapplikationen gleichzeitig im Browser und auf
+einem Winows Phone laufen können, wurde es als UI-Framework für die
+YAEM Mobileapplikation ausgewählt mit Hinblick auf eine eventuelle
+Webapplikation. 
+
+Dank Silverlight können mit minimsten Entwicklungsaufwand für zwei
+unterschiedliche Plattformen Anwendungen entwickelt werden.
 
 
 \subsection{Mock-Objekte}
 
-Bei Unit-Tests möchte man möglichst nur eine kleine Einheit isoliert
-testen. Meistens stehen jedoch Abhängikeiten zu anderen Einheiten
-diesem Vorhaben im Weg, die man für diesen Test ignorieren möchte.
-Soll die Interaktion eines Objektes mit seiner Umgebung überprüft
-werden, muss vor dem eigentlichen Test die Umgebung nachgebildet werden.
-Das kann umständlich, zeitaufwändig, oder gar nur eingeschränkt oder
-überhaupt nicht möglich sein (nach \cite{Freeman2009}). Aus diesem
-Grund kann man Mock-Objekte, auch {}``Dummy''-Objekte oder Attrappen
-genannt, einsetzen. Diese dienen als Platzhalter für echte Objekte
-und Abhängigkeiten. 
+Bei Unit-Tests möchte man möglichst nur eine kleine Einheit eines
+Programms isoliert testen. Meistens stehen jedoch Abhängikeiten zu
+anderen Einheiten diesem Vorhaben im Weg, die man für diesen Test
+ignorieren möchte. Soll die Interaktion eines Objektes mit seiner
+Umgebung überprüft werden, muss vor dem eigentlichen Test die Umgebung
+nachgebildet werden. Das kann umständlich, zeitaufwändig, oder gar
+nur eingeschränkt oder überhaupt nicht möglich sein (nach \cite{Freeman2009}).
+Aus diesem Grund kann man Mock-Objekte, auch {}``Dummy''-Objekte
+oder Attrappen genannt, einsetzen, die als Platzhalter für echte Objekte
+und Abhängigkeiten dienen. 
 
-Mock-Objekte (in diesem Fall mittels des Frameworks Moq%
+Mock-Objekte (in YAEM kommt das Framework Moq%
 \footnote{Details zu Moq sind unter \url{http://code.google.com/p/moq/} zu
 finden.%
-}) implementieren Schnittstellen, über die das zu testende Objekt auf
-seine Umgebung zugreift. Sie stellen sicher, dass die erwarteten Methodenaufrufe
-vollständig, mit den korrekten Parametern und in der erwarteten Reihenfolge
-durchgeführt werden. Das Mock-Objekt liefert keine Echtdaten zurück,
-sondern vorher zum Testfall passend festgelegte Werte.
+} zum Einsatz) implementieren Schnittstellen, über die das zu testende
+Objekt auf seine Umgebung zugreift. Sie stellen sicher, dass die erwarteten
+Methodenaufrufe vollständig, mit den korrekten Parametern und in der
+erwarteten Reihenfolge durchgeführt werden. Das Mock-Objekt liefert
+keine Echtdaten zurück, sondern vorher zum Testfall passend festgelegte
+Werte.
 
 Durch den Einsatz von Mock-Objekten kann man einzelne Softwarteile
-testen ohne dass diese die Aussmase von Integrationstests annehmen.
+testen ohne dass diese die Ausmasse von Integrationstests annehmen.
 
 
-\section{Kryptosysteme}
+\section{Kryptosysteme\label{sec:Kryptosysteme}}
 
-\noun{{[}AES, TripleDES und Rijndael erklären, symmetrische/asymmetrische
-Kryptosysteme erklären, erklären wieso im Moment nur symmetrische
-Kryptosysteme unterstützt werden, erklären, wie man asymmetrische
-Kryptosysteme unterstützen würde (welche Änderungen an ICryptoProvider
-wären nötig){]}}
+Ein Kryptosystem besteht aus einem Algorithmus der eine Eingabemenge
+parametergesteuert in eine Ausgabemenge transformiert. Es dient zur
+Geheimhaltung von übertragenen und gespeicherten Informationen gegenüber
+Dritten. Geheimhaltung wird dabei durch Transformation der Nachricht
+erzielt, so dass die transformierte Nachricht für Dritte keine konstruierbaren
+semantischen, statistischen oder strukturellen Korrelationen zum Original
+mehr aufweist (nach \cite{Geiselmann2009}).
+
+Ein symmetrisches Kryptosystem ist ein Kryptosystem, bei welchem im
+Gegensatz zu einem asymmetrischen Kryptosystem beide Teilnehmer den
+gleichen Schlüssel verwenden. 
+
+Ein asymmetrisches Kryptosystem (oder Public-Key-Kryptosystem) hingegen
+ist ein kryptographisches Verfahren, bei dem die kommunizierenden
+Parteien keinen gemeinsamen Schlüssel kennen müssen. Ein Benutzer
+erzeugt hierzu ein Schlüsselpaar, das aus einem geheimen Teil (privater
+Schlüssel) und einem nicht geheimen Teil (öffentlicher Schlüssel)
+besteht. Der öffentliche Schlüssel ermöglicht es jedem, Daten für
+den Inhaber des privaten Schlüssels zu verschlüsseln, dessen digitale
+Signaturen zu prüfen oder ihn zu authentifizieren. Der private Schlüssel
+ermöglicht es seinem Inhaber, mit dem öffentlichen Schlüssel verschlüsselte
+Daten zu entschlüsseln, digitale Signaturen zu erzeugen oder sich
+zu authentisieren.
+
+
+\subsection{Symmetrische Kryptosysteme\label{sub:Symmetrische-Kryptosysteme}}
+
+Da der Fokus dieses Projekts nicht auf der Implementierung von Kryptosystemen
+liegt, werden im Moment nur symmetrische Kryptosysteme unterstützt,
+die einfacher zu handhaben sind, da zum Ent- und Verschlüsseln derselbe
+Schlüssel benutzt wird.
+
+Man teilt die symmetrischen Verfahren in Blockchiffren-basierte Verfahren
+und Stromchiffren auf. Mit Stromchiffren wird der Klartext Zeichen
+für Zeichen verschlüsselt, um den Geheimtext zu erhalten, beziehungsweise
+entschlüsselt, um den Klartext zu erhalten. Eine Blockchiffre arbeitet
+mit einer festen Blockgröße und ver- beziehungsweise entschlüsselt
+mehrere Zeichen in einem Schritt. Um damit Texte beliebiger Länge
+verschlüsseln zu können, sind Betriebmodi festgelegt, die bestimmen,
+wie die Blockchiffre verwendet wird.
+
+Im Rahmen dieses Projekts werden drei Algorithmen mittels der Schnittstelle
+\emph{ICryptoProvider} (siehe Kapitel \vref{sub:YAEM.Crypto}) implementiert,
+die allesamt aus dem \emph{System.Security.Cryptography} Namespace
+des .NET Frameworks stammen und deren Funktionsweisen in den folgenden
+Unterkapiteln kurz beschrieben werden. 
+
+
+\subsubsection{Advanced Encryption Standard}
+
+Der Advanced Encryption Standard (AES) ist ein symmetrisches Kryptosystem,
+das als Nachfolger für DES und Triple-DES im Oktober 2000 vom National
+Institute of Standards and Technology (NIST) als Standard bekanntgegeben
+wurde. 
+
+Der AES ist ist eine Blockchiffre, wobei sie auf einer Verflechtung
+von Substitutions- und Permutationsvorgängen basiert, was bedeutet,
+dass eine Reihe mathematischer Vorgänge miteinander verbunden werden
+um Daten höchstmöglich zu modifizieren beziehungsweise zu verschlüsseln. 
+
+
+\subsubsection{Rijndael}
+
+Nach \cite{Shawnfa2006} ist der Rijndael Algorithmus identisch mit
+demjenigen des AES, allerdings können bei Rijndael die Block- und
+Schlüsselgrössen unabhängig voneinander aus 128, 160, 192, 224 oder
+256 Bits gewählt werden. AES legt die Blockgrösse immer auf 128 bits
+fest, die Schlüsselgrösse kann hingegen entweder 128, 192 oder 256
+Bits bestehen.
+
+
+\subsubsection{Triple-DES}
+
+Der Triple-DES (Data Encryption Standard) Algorithmus ist ein Nachfolger
+des DES-Algorithmus und wurde im Jahr 1976 als offizieller Standard
+der US-Regierung bestätigt. Im Gegensatz zum DES mit seiner Schlüssellänge
+von 56 Bits (die heute als nicht ausreichend sicher betrachtet wird)
+kann die Schlüssellänge durch Mehrfachfachverwendung des DES einfach
+vergrössert werden.
+
+Der DES verwendet eine Blockchiffre, die den Klartext in 64 Bit-Blöcke
+unterteilt und verschlüsselt. Triple-DES verwendet drei 64 Bit-Schlüssel,
+die dadurch eine gesamte Schlüsselläge von 192 Bit ergeben. Dabei
+wird die erste Verschlüsselung mit dem zweiten Schlüssel verschlüsselt
+und der resultierende Kryptotext erneut mit dem dritten Schlüssel
+verschlüsselt.
+
+
+\subsection{Unterstützung asymmetrischer Kryptosysteme}
+
+Wie schon in Kapitel \ref{sub:Symmetrische-Kryptosysteme} erwähnt,
+unterstützt YAEM.Crypto im Moment nur symmetrische Kryptosysteme,
+da die Schnittstelle \emph{ICryptoProvider} darauf basiert, das derselbe
+Schlüssel zum Ver- und Entschlüsseln der Nutzdaten verwendet wird. 
+
+Auch bei asymmetrischen Verfahren ist der Austausch von Schlüsseln
+wichtig. Muss man den öffentlichen Schlüssel doch zugänglich machen
+damit er zur Verschlüsselung benutzt werden kann und den dazu passende
+privaten Schlüssel irgendwo sicher verwahren um nicht das gesamte
+Konzept auszuhebeln. 
+
+Würde YAEM auch asymmetrische Kryptosysteme unterstützen müssen, so
+müsste neben \emph{ICryptoProvider} eine zweite Schnittstelle mit
+dem Namen \emph{IAsymmetricCryptoProvider} definiert werden, welche
+anstelle der Properties \emph{Key} und \emph{InitializationVector}
+eine Möglichkeit besitzt den öffentlichen Schlüssel aus dem installierten
+Zertifikat eiens Benutzers auszulesen%
+\footnote{Dazu findet sich ein Beispiel in der MSDN: \url{http://msdn.microsoft.com/en-us/library/system.security.cryptography.asymmetricalgorithm.aspx}.%
+}. Der private Schlüssel wird dabei in dem dafür vorgesehenen Container
+\emph{CspParameters}%
+\footnote{Siehe \url{http://msdn.microsoft.com/en-us/library/system.security.cryptography.cspparameters.aspx}.%
+} abgelegt, der ein Wrapper von Microsofts Cryptography API (CAPI)
+darstellt.
 
 
 \section{Komponenten im Detail\label{sec:Komponenten-im-Detail}}
@@ -1558,12 +1819,14 @@ Komponenten. Dabei wird auf Besonderheiten in der Architektur der
 Komponenten hingewiesen und es wird ein gesamter technischer Überblick
 über die Umsetzung des Konzepts gegeben.
 
-Zur besseren Orientierung innerhalb des Systems wird auf die Abbildung
-\ref{fig:Visual-Studio-Solution} der Visual Studio-Solution verwiesen.
+Zur besseren Orientierung innerhalb des Systems wird auf Abbildung
+\ref{fig:Visual-Studio-Solution} verwiesen, welche die Struktur Visual
+Studio-Solution darstellt. Die Namensgebung der Unterkapitel hält
+sich dabei an die Namespaces der Projekte.
 
-\begin{figure}[H]
+\begin{figure}
 \begin{centering}
-\includegraphics{Graphics/SolutionOverview}
+\includegraphics[scale=0.8]{Graphics/SolutionOverview}
 \par\end{centering}
 
 \caption{Visual Studio-Solution\label{fig:Visual-Studio-Solution}}
@@ -1571,49 +1834,328 @@ Zur besseren Orientierung innerhalb des Systems wird auf die Abbildung
 
 
 
-\subsection{Domain}
+\subsection{YAEM.Domain\label{sub:YAEM.Domain}}
+
+Die Assembly \emph{YAEM.Domain} enthält alle Klassen, die über die
+Webservice Schnittstellen \emph{IUserService} und \emph{IMessagingService}
+übertragen werden (Inhalt des Namespaces siehe Kapitel \vref{sub:Dom=0000E4nenmodell}).
+Alle Klassen sind mit \emph{{[}DataContract{]}}%
+\footnote{Ein DataContract ist eine formale Vereinbarung zwischen einem Dienst
+und einem Client, in dem die auszutauschenden Daten abstrakt beschrieben
+werden. Mehr Informationen zu DataContracts sind in der MSDN Library
+unter \url{http://msdn.microsoft.com/en-us/library/ms733127.aspx}
+zu finden.%
+} annotiert, da sie serialisiert über den WCF-Webservice übertragen
+werden sollen. Die Objekte \emph{Message}, \emph{Session} und \emph{User}
+leiten von \emph{ObjectBase} ab, welches neben der Schlüsselverwaltung
+der einzelnen Instanzen auch die Schnittstelle \emph{INotifyPropertyChanged}
+implementiert, welche WPF- und Silverlight-Datenbindings über geänderte
+Daten benachrichtigt.
+
+Da dieser Namespace auch in Silverlight verfügbar sein soll, wird
+eine Kopie als Silverlight-Bibliothek erstellt, in welcher alle Klassen
+aus \emph{YAEM.Domain} als Link im Projekt eingefügt sind und danach
+als eigenständige Assembly (hier \emph{YAEM.Domain.SL}) kompiliert
+werden (siehe \cite{Betz2008}).
 
 
-\subsection{ServiceModel}
+\subsection{YAEM.Contracts}
+
+Dieses Assembly enthält nur die Service Contracts%
+\footnote{Ein Service Contract beschreibt eine Schnittstelle oder Klasse die
+einen Servicevertrag einer Applikation definiert. Siehe MSDN \url{http://msdn.microsoft.com/en-us/library/system.servicemodel.servicecontractattribute.aspx}.%
+}\emph{IUserService} und \emph{IMessagingService}, die von der Serverapplikation
+implementiert als Webservice zur Verfügung gestellt werden (Details
+zu den einzelnen ServiceOperations sind in Kapitel \vref{sub:Service-Contracts}
+zu finden). 
+
+Zusätzlich wird auch die Service Contract \emph{IServiceCallback}
+in diesem Namespace definiert, der von den Clientapplikationen implementiert
+werden muss, wenn sie die beiden Services \emph{IUserService} und
+\emph{IMessagingService} nutzen will, da diese mit \emph{{[}ServiceContract(CallbackContract
+= typeof(IServiceCallback)){]}} annotiert sind, was den Webservice-Konsumenten
+dazu zwingt, den \emph{CallbackContract} zu implementieren.
+
+Alle in den Schnittsellen übertragenen Datenobjekte sind entweder
+primitve Datentypen oder stammen aus \emph{YAEM.Domain} (siehe Kapitel
+\vref{sub:YAEM.Domain}).
 
 
-\subsection{Server}
+\subsection{YAEM.Server}
+
+Die Applikation \emph{YAEM.Server} dient als Servicehost der beiden
+Webservices \emph{IUserService} und \emph{IMessagingService}. Ein
+WCF-Webservice kann entweder im Internet Information Server\nomenclature{Internet Information Service}{Der Internet Information Services (IIS)  ist eine Serviceplattform über welche Dokumente und Dateien im Netzwerk zugänglich gemacht werden. Als Kommunikationsprotokolle kommen hierbei HTTP, HTTPS, FTP, SMTP, POP3, WebDAV und andere zum Einsatz. Über IIS können ASP- oder .NET-Applikationen (ASP.NET) ausgeführt werden und WCF Services gehosted werden.}
+gehosted werden oder als Selfhost-Applikation z.B. innerhalb einer
+Konsolenanwendung. Da insbesondere der geringere Konfigurationsaufwand
+für Selfhosted-Services spricht, wurde die IIS-hosted Lösung für die
+Serverapplikation verworfen.
+
+Nach dem Start der Serverapplikation zeigt die Konsoleanpplikation
+ein Protokoll aller aufgerufenen Methoden der Webservices dar (siehe
+Abbildung \ref{fig:Serverapplikation}). Wird das Konsolenfenster
+geschlossen, so terminiert sich \emph{YAEM.Server} von selbst und
+benachrichtigt alle eventuell verbundenen Clients darüber.
+
+\begin{figure}
+\begin{centering}
+\includegraphics[scale=0.6]{Graphics/Server}
+\par\end{centering}
+
+\caption{Serverapplikation\label{fig:Serverapplikation}}
+\end{figure}
 
 
-\subsection{Crypto}
+
+\subsection{YAEM.Crypto\label{sub:YAEM.Crypto}}
+
+Die Infrastruktur für die Implementierungen der Kryptosysteme findet
+sich im Namespace \emph{YAEM.Crypto}. Das Interface \emph{ICryptoProvider}
+stellt dabei alle Funktionalitäten zur Verfügung, die ein symmetrisches
+Kryptosystem zur Ver- und Entschlüsselung von Bytearrays benötigt.
+
+Zusätzlich zu \emph{ICryptoProvider} enthält das Projekt auch noch
+das \emph{ExportAttribute}%
+\footnote{\emph{ExportAttribute} spezifiziert einen Typ, ein Property oder eine
+Methode die einen Export zur Verfügung stellen. Mehr Informationen
+in der MSDN unter \url{http://msdn.microsoft.com/en-us/library/system.componentmodel.composition.exportattribute.aspx}.%
+} \emph{CryptoAlgorithmAttribute}, das von MEF benötigt wird um zur
+Laufzeit die installierten Kryptoalgorithmen identifizieren zu können.
 
 
-\subsection{TestClient}
+\subsubsection{YAEM.Crypto.Aes}
+
+\emph{YAEM.Crypto.Aes} stellt die Implementierung der Schnittstelle
+\emph{ICryptoProvider} (siehe Kapitel \vref{sub:YAEM.Crypto}) mit
+dem Kryptosystem Advanced Encryption Standard (AES) zur Verfügung.
+Der \emph{AesCryptoProvider} ist dabei mit \emph{{[}CryptoAlgorithm(Algorithm
+= CryptoAlgorithm.Aes){]}} annotiert, so dass beim Importieren der
+Assembly das Kryptosystem auch im UI identifiziert werden kann.
+
+Der \emph{AesCryptoProvider} stellt dabei einen Wrapper für den \emph{AesCryptoServiceProvider}%
+\footnote{Siehe MSDN \url{http://msdn.microsoft.com/en-us/library/system.security.cryptography.aescryptoserviceprovider.aspx}.%
+} aus dem Namespace \emph{System.Security.Cryptography} %
+\footnote{Sämtliche Inhalte des Namespaces System.Security.Cryptography finden
+sich in der MSDN Library unter \url{http://msdn.microsoft.com/en-us/library/system.security.cryptography.aspx}.%
+}zur Verfügung, der Microsofts Refrenzimplementierung von AES darstellt.
+Der \emph{AesCryptoServiceProvider} implementiert den AES über die
+Cryptographic Application Programming Interfaces (CAPI).
 
 
-\subsection{DesktopClient}
+\subsubsection{YAEM.Crypto.Rijndael}
 
-MVVM
+Analog der Implementierung des AES enthält der Namespace \emph{YAEM.Crypto.Rijndael}
+die Implementierung des Rijndael Kryptosystems. Konkret ist der \emph{RijndaelCryptoProvider}
+ein Wrapper von \emph{RijndaelManaged}%
+\footnote{Siehe \url{http://msdn.microsoft.com/en-us/library/system.security.cryptography.rijndaelmanaged}.%
+} der den Rijndael Algorithmus implementiert. Zusätzlich ist der \emph{RijndaelCryptoProvider}
+mit \emph{{[}CryptoAlgorithm(Algorithm = CryptoAlgorithm.Rijndael){]}}
+annotiert.
 
 
-\subsection{MobileClient}
+\subsubsection{YAEM.Crypto.TripleDES}
+
+Der \emph{TripleDESCryptoProvider} des \emph{YAEM.Crypto.TripleDES}
+Namespaces implementiert wiederum \emph{ICryptoProvider} und stellt
+einen Wrapper für den \emph{TripleDESCryptoServiceProvider}%
+\footnote{Siehe \url{http://msdn.microsoft.com/en-us/library/system.security.cryptography.tripledescryptoserviceprovider.aspx}.%
+} aus dem \emph{System.Security.Cryptography} Namespace bereit. Er
+implementiert das symmetrische Kryptosystem TripleDES und ist mit
+\emph{{[}CryptoAlgorithm(Algorithm = CryptoAlgorithm.TripleDES){]}}
+annotiert.
 
 
-\section{Aufgetretene Probleme}
+\subsection{YAEM.TestClient}
 
-\noun{{[}WsHttpDualBinding und Silverlight funktioniert nicht -> kein
-Silverlight Client implementiert{]}}
+Zu Beginn der Implementationsphase wurde der \emph{YAEM.TestClient}
+entwickelt, der nicht Teil der Aufgabenstellung war. Der Testclient
+ist eine in Windows Forms entwickelte Desktopapplikation für windowsbasierte
+Systeme. Die Applikation zeigt zusätzliche Debug-Informationen an,
+die in den weiteren Clientapplikationenen für den Endnutzer nicht
+ersichtlich sind wie zum Beispiel die GUIDs der Benutzer und Nachrichten
+sowie weitere Informationen zu den übertragenen Daten. Der YAEM.TestClient
+hält sich somit auch nicht an die Mockups (siehe Kapitel \vref{sec:Mockups})
+da er ausserhalb der definierten Anforderungen implementiert wurde.
+
+Der Gesprächsdialog (siehe Abbildung \ref{fig:Gespr=0000E4chsdialogTestClient})
+enthält zusätzlich zum Gesprächsverlauf auf der rechten Seite des
+Dialogfensters die Möglichkeit dem Gespräch beizutreten sowie eine
+Anzeige der dem Gespräch beigetretenen Benutzer.
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.6]{Graphics/TestClient-MainForm}
+\par\end{centering}
+
+\caption{GesprächsdialogTestClient\label{fig:Gespr=0000E4chsdialogTestClient}}
+\end{figure}
+
+
+Wählt der Benutzer der Applikation eine Kryptosystem aus, für das
+noch kein Schlüssel vorliegt, so wird der Schlüsselgenerierungsdialog
+(siehe Abbildung \ref{fig:Schl=0000FCsselgenerierungsdialog-Test})
+geöffnet, der einen zufälligen generierten Schlüssel enthält. 
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.6]{Graphics/TestClient-GenerateKey}
+\par\end{centering}
+
+\caption{Schlüsselgenerierungsdialog TestClient\label{fig:Schl=0000FCsselgenerierungsdialog-Test}}
+\end{figure}
+
+
+
+\subsection{YAEM.DesktopClient}
+
+Der \emph{YAEM.DesktopClient} hält sich hingegen an die Anforderungen
+der Mockups (siehe Kapitel \vref{sec:Mockups}) und implementiert
+diese in einer WPF-Applikation unter Berücksichtigung des MVVM-Entwurfsmusters
+(siehe Kapitel \vref{sub:Model-View-ViewModel}).
+
+Die Applikation startet mit dem Anzeigen des Verbindungdialogs (siehe
+Abbildung \ref{fig:Verbindungsdialog-DesktopClient}) bei welchem
+man den gewünschten Benutzernamen eingeben kann. Nach Klick auf den
+{}``Join''-Button wird der Dialog geschlossen und es öffnet sich
+der Gesprächsdialog (siehe Abbildung \ref{fig:Gespr=0000E4chsdialog-DesktopClient}). 
+
+\begin{figure}
+\begin{centering}
+\includegraphics[scale=0.6]{Graphics/DesktopClient-Connect}
+\par\end{centering}
+
+\caption{Verbindungsdialog DesktopClient\label{fig:Verbindungsdialog-DesktopClient}}
+\end{figure}
+
+
+Das \emph{MessagingViewModel}, das an das \emph{MessagingWindow} gebunden
+ist, implementiert die Schnittstelle \emph{IServiceCallback} (siehe
+Kapitel \vref{sub:IServiceCallback}), da das View-Model die Webservices
+der Serverapplikation benutzet. Bei erfolgreichem Beitreten des Gesprächs
+wird der Serverapplikation der Callbackchannel der Clientapplikation
+mitgeteilt, so dass diese beim Eintreffen neuer Nachrichten oder beim
+Hinzukommen oder Verlassen der angemeldeten Benutzer entsprechend
+reagieren kann.
+
+Schliesst man das \emph{MessagingWindow}, so wird der Benutzer vom
+Server abgemeldet und der Callbackchannel wird geschlossen.
+
+\begin{figure}
+\begin{centering}
+\includegraphics[scale=0.8]{Graphics/DesktopClient-MainForm}
+\par\end{centering}
+
+\caption{Gesprächsdialog DesktopClient\label{fig:Gespr=0000E4chsdialog-DesktopClient}}
+\end{figure}
+
+
+Wählt der Benutzer der Applikation eine Kryptosystem aus, für das
+noch kein Schlüssel vorliegt, so wird der Schlüsselgenerierungsdialog
+(siehe Abbildung \vref{fig:Schl=0000FCsselgenerierungsdialog-Desk})
+geöffnet, der einen zufälligen generierten Schlüssel enthält. 
+
+\begin{figure}
+\begin{centering}
+\includegraphics[scale=0.6]{Graphics/DesktopClient-GenerateKey}
+\par\end{centering}
+
+\caption{Schlüsselgenerierungsdialog DesktopClient\label{fig:Schl=0000FCsselgenerierungsdialog-Desk}}
+\end{figure}
+
+
+
+\subsection{YAEM.MobileClient}
+
+Zur Entwicklung des \emph{YAEM.MobileClient}, der unter Windows Phone
+7 verteilt werden soll, wird Silverlight (siehe Kapitel \vref{sub:Silverlight})
+benutzt. Schnell hat sich gezeigt, dass Silverlight mit dem in der
+Konzeptphase ausgewählten \emph{WsDualHttpBinding} nicht kompatibel
+ist und aufgrund der fehlenden \emph{DuplexClientBase} (genaures siehe
+Kapitel \vref{sub:Aufgetretene-Probleme}) es nicht möglich ist, eine
+funktionsfähige mobile Applikation zu entwickeln. Aus diesem Grund
+wird im Rahmen des Projekts auch kein mobiler Client implementiert.
+
+
+\subsection{Aufgetretene Probleme\label{sub:Aufgetretene-Probleme}}
+
+Einer der ersten Schritte beim Erstellen von Applikationen, die Webservices
+konsumieren, ist das Hinzufügen der Servicerefenzen auf die Webservices
+im Visual Studio-Projekt. Dadurch werden die im WSDL\nomenclature{WSDL}{Die Web Services Description Language (WSDL) ist eine plattform-, programmiersprachen- und protokollunabhängige Beschreibungssprache für Netzwerkdienste (Webservices) zum Austausch von Nachrichten auf Basis von XML.}
+spezifizierten Datentypen als Programmcode generiert sowie das Binding
+auf den Webservice in der konsumierenden Applikation hinzugefügt.
+
+Es hat sich schnell gezeigt, dass Silverlight keine \emph{DuplexClientBase}
+im \emph{System.ServiceModel} Namespace besitzt und es dadurch nicht
+möglich ist über das \emph{WSDualHttpBinding } von Silverlight eine
+Kommunikation zum WCF-Webservice aufzubauen. Dadurch, das \emph{WSDualHttpBinding
+} die Grundlage der Bereitstellung der Webservices in der Serverapplikation
+ist, ist es im Moment nicht möglich einen Silverlight-Client zu schreiben%
+\footnote{Die genauen Unterschiede zwischen dem Silverlight- und WCF-Stack finden
+sich in der MSDN unter \url{http://msdn.microsoft.com/en-us/library/cc896571(VS.95).aspx}.%
+}. 
+
+Möchte man trotzdem einen zweikanaligen Webservice zusammen mit WCF
+entwickeln, so müsste man entweder auf das \emph{PollingDuplexHttpBinding}
+oder \emph{NetTcpBinding} auswechen. \emph{PollingDuplexHttpBinding}
+ist exklusiv für Silverlight 5 verfügbar und ermöglicht es dem konsumierenden
+Client in Silverlight in regelmässigen Zeitabständen beim Webservice
+nachzufragen, ob ein Callback existiert, für das eine Aktion in der
+konsumierenden Applikation ausgeführt werden müsste. Da \emph{PollingDuplexHttpBinding}
+im Moment jedoch nicht für WPF verfügbar ist, ist auch dieses Binding
+für das Projekt unbrauchbar. Die einzige wirkliche Alternative stellt
+das \emph{NetTcpBinding} dar, das allerdings nicht über HTTP Daten
+austauscht sondern über TCP. Dadurch ginge der grosse Vorteil der
+Interopabilität verloren, da über TCP nur komplett serialisierte Daten
+übertragen würden. 
 
 
 \chapter{Test\label{chap:Test}}
 
-\noun{{[}Kapiteleinführung{]}}
+Die Überprüfung und Verifikation des Softwareprodukts zählt zu den
+wichtigsten Teilen der Softwareentwicklung. Insbesondere da in den
+letzten Jahre neue Methoden und Technologien auf den Markt gekommen
+sind, die dem Softwareentwickler helfen, diese anspruchsvolle Arbeit
+zu erledigen wird in diesem Kapitel ein Basiswissen auf technischer
+Ebene vermittelt.
+
+Unit-Tests als automatisierte Tests, die in Quellcode vom Softwareentwickler
+geschrieben werden, werden als Erstes vorgestellt. Anschliessend wird
+auf das Thema Akzeptanztest eingegangen, mit Hilfe deren Anforderungen
+an ein System mithilfe des Systems selbst getestet werden können.
 
 
 \section{Unit-Tests\label{sec:Unit-Tests}}
 
-\noun{{[}Was sind automatisierte Unittests? Vorteile aufzeigen. Verbindung
-mit TDD aufzeigen. MSTEST einführen{]}}
+Unit-Tests (auch Komponententests genannt) überprüfen, ob die von
+Entwicklern geschriebenen Komponenten so arbeiten, wie diese es beabsichtigen.
+Zur Qualitätssicherung eines Softwareprodukts wird eine sehr häufige
+Ausführung der Unit-Tests angestrebt. Das lässt sich nur erreichen,
+wenn die Tests vollständig automatisiert vorliegen, sie also selbst
+ein Programm sind, dessen Ausführung nicht mehr Aufwand als einen
+Knopfdruck erfordert. Insbesondere in der testgetriebenen Entwicklung
+(siehe Kapitel \vref{sub:Testgetriebene-Entwicklung}) werden Unit-Tests
+auch als Regressionstests nach Refactoring verwendet. 
+
+Durch die testgetriebene Entwicklung von YAEM werden alle implementierten
+Komponenten schon vorgängig mit Unit-Tests abgedeckt. Die Unit-Tests
+sind dabei in einem eigenen Visual Studio-Projekt innerhalb der Solution
+untergebracht und werden nicht zusammen mit dem produktiven Code verteilt.
 
 
 \subsection{Testabdeckung}
 
-Die totale Testabdeckung beträgt 94.13\%.
+Eine Kenngrösse zur Qualitätssicherung und zur Steigerung der Softwarequalität
+stellt die Testabdeckung dar. Die Testabdeckung bezeichnet die prozentuale
+Anzahl des produktiven Quellcodes, der über automatisierte Unit-Test
+abgedeckt ist, im Vergleich zur gesamten Anzahl des Quellcodes. Insbesondere
+hift die Testabdeckung bei der Identifizierung von einzelnen Bereichen
+im Quellcode die potentiell fehleranfällig (da ungetestet beziehungsweise
+ungenügend getestet) sind.
+
+Wie in Tabelle \ref{tab:Testabdeckung} ersichtlich ist, beträgt die
+Testabdeckung der einzelnen Namespaces jeweils mehr als 80\%, die
+laut Aufgabenstellung gefordert sind. Die totale Testabdeckung des
+Projekts YAEM beträgt 94.13\%.
 
 \begin{table}
 \begin{centering}
@@ -1641,64 +2183,260 @@ YAEM.Contracts & 28 & 28 & 100\%\tabularnewline
 \end{tabular}
 \par\end{centering}
 
-\caption{Testabdeckung}
+\caption{Testabdeckung\label{tab:Testabdeckung}}
 \end{table}
 
 
 
 \section{Akzeptanztests}
 
-\noun{{[}Was sind Akzeptanztests? Ausformulieren aufgrund der Anforderungen,
-Übersetzung in Code{]}}
+Mithilfe von Akzeptanztest%
+\footnote{auch Abnahmetests oder User Acceptance Tests (UAT)%
+} wird geprüft, ob die Software die funktionalen Erwartungen und Anforderungen
+im Gebrauch erfüllt. Dabei werden Akzeptanztests als Black-Box-Tests\nomenclature{Black-Box-Test}{Ein Black-Box-Test bezeichnet einen Test ohne Kenntnisse über die innere Funktionsweise des zu testenden Systems. Er beschränkt sich auf funktionsorientiertes Testen, d. h. für die Ermittlung der Testfälle werden nur die Anforderungen, aber nicht die Implementierung des Testobjekts herangezogen. Die genaue Beschaffenheit des Programms wird nicht betrachtet, sondern vielmehr als Black Box behandelt. Nur nach außen sichtbares Verhalten fliesst in den Test ein.}
+gegen die einzelnen Use-Cases der funktionalen Anforderungen (siehe
+Kapitel \vref{sec:Use-Case-Spezifikationen}) geprüft, das heisst
+der Test hat keine Kentnisse über die innere Funktionsweise des Systems
+und imitiert den Benutzer der Applikation.
+
+In diesem Projekt werden zur Entwicklung der Akzeptanztests Coded
+UI-Tests verwendet. Coded UI-Tests%
+\footnote{Mehr zu Coded UI-Tests in der MSDN Library unter \url{http://msdn.microsoft.com/en-us/library/dd286681.aspx}.%
+} sind automatisierte Tests die auf der Benutzerfläche festgelegte
+Aktionen als Skript ausführen lassen. Ein Coded UI-Test kann ausserdem
+auf einzelnen UI-Elementen Erwartungen definieren (z.B. nach Klick
+auf den {}``Senden''-Button muss die Nachricht-Textbox leer sein).
+
+Die Anforderungen in den Use-Cases UC1 bis UC4 aus den Use-Case-Spezifikationen
+werden als Coded UI-Tests ausformuliert und im Visual Studio-Projekt
+\emph{YAEM.AcceptanceTests} abgelegt. Beim Ausführen eines der Coded
+UI-Tests wird automatisch die Serverapplikation sowie die Clientapplikation
+gestartet und der jeweilige Testfall wird als Skript abgearbeitet.
+Je nach Use-Case sind unterschiedliche Eingaben sowie Erwartungen
+definiert. Werden diese nicht erfüllt (z.B. wird nach dem Senden einer
+Nachricht eines Benutzers bei einem anderen Benutzer keine neue Nachricht
+angezeigt) so wird schlägt der Test fehl.
+
+Die Ergebnisse der Akzeptanztests sind in Tabelle \ref{tab:Akzeptantests}
+ersichtlich. Alle Anforderungen sind somit erfüllt und die Akzeptanztests
+können als bestanden betrachtet werden.
+
+\begin{table}
+\begin{centering}
+\begin{tabular}{|l|l|l|l|}
+\hline 
+Bezeichner & Use-Case & Testklasse & Testergebnis\tabularnewline
+\hline 
+\hline 
+UC1 & Gespräch beitreten & UC1Tests & bestanden\tabularnewline
+\hline 
+UC2 & Gespräch verlassen & UC2Tests & bestanden\tabularnewline
+\hline 
+UC3 & Nachricht senden & UC3Tests & bestanden\tabularnewline
+\hline 
+UC4 & Nachricht empfangen & UC4Tests & bestanden\tabularnewline
+\hline 
+\end{tabular}
+\par\end{centering}
+
+\caption{Akzeptantests\label{tab:Akzeptantests}}
+\end{table}
+
 
 
 \chapter{Fazit}
 
-\noun{{[}Auführliches Fazit erstellen, Probleme bei der Implemntierung
-aufzeigen, Zukunft von YAEM?{]}}
+Die Semesterarbeit stellt ein spannendes und lehrreiches Projekt dar,
+das insbesondere als Vorbereitung für die Bachelorarbeit hilfreich
+ist. Das sorgfältige Erfassen der Aufgabenstellung und der zu erwartenden
+Resultate stellen dabei ein zentrales Element der Projektarbeit dar
+und es ist von Vorteil genau abzuwägen, was genau in der Aufgabenstellung
+erfasst sein soll und was am Ende des Projekts in welcher Qualität
+abgeliefert werden soll.
+
+Die Verwendung des Wassserfallmodells für dieses Projekt hat sich
+als ideal herausgestellt, da so nach jeder Phase die abzugebenden
+Dokumente und Resultate fertiggestellt vorlagen und erst danach zur
+nächsten Phase vorgegangen werden konnte. Auch hat es sich bezahlt
+gemacht, relativ viel Zeit in die Erarbeitung des Konzepts zu investieren,
+da dadurch bei Erreichen der Implementierungsphase direkt mit der
+Entwicklung der einzelnen Komponenten begonnen werden konnte und zwischen
+den Komponenten keine Inkonsistenzen entstanden sind die Erst in der
+Verifikationsphase bemerkt wurden.
+
+Gegenüber der Aufgabenstellung fehlen in der Implementierung beziehungsweise
+der Dokumentation der Semestararbeit die mobile Clientapplikation
+(Gründe siehe dazu Kapitel \vref{sub:Aufgetretene-Probleme}) sowie
+der Vergleich der Funktionen und Performance mit Konkurrenzprodukten.
+Da YAEM sich noch im Prototypenstadium befindet und die verlangten
+120 Stunden Aufwand schon überschritten worden sind, wurde darauf
+verzichtet. Zudem wurden anstatt Caesar und Blowfish die Kryptosysteme
+AES und Rijndael implementiert, wie im Kapitel Implementierung ausführlich
+beschrieben wurde (siehe Kapitel \vref{sec:Kryptosysteme}).
 
 
-\section{Aufwand SOLL/IST Vergleich}
+\section{Aufwand Seminararbeit}
 
-\noun{{[}Tabelle SOLL/IST Aufwand pro Phase, aufzeigen wo viel mehr
-Zeit als geplant verwendet wurde{]}}
+In Tabelle \ref{tab:Geplanter/effektiver-Aufwand} aufgezeigt, wird
+der geplante Aufwand mit dem (ungefähren) effektiven Aufwand verglichen
+um die ursprünglichen Schätzungen zu überprüfen. Laut Reglement der
+Seminararbeit (siehe \cite{Stern2010}) sollte der Aufwand der Seminararbeit
+bei mindestens 120 Stunden pro Student liegen. Diese 120 Stunden wurden
+auf die sechs Phasen verteilt und es wurden die effektiv investierten
+Stunden pro Phase gemessen.
 
+Wie sich herausgestellt hat, wurde die Planung der einzelnen Phasen
+zu optimistisch erstellt. Alleine schon für das Erarbeiten des Konzepts
+wurde mehr als fünf Mal so viel Zeit gebraucht wie geplant und total
+wurden die geplanten 120 Stunden um den Faktor 2.8 überschritten.
+Dieser Soll/Ist-Vergleich des investierten Aufwands zeigt insbesondere
+auf, in welchen Phasen (zu) viel Zeit investiert wurde, namentlich
+in der Design- und Implementierungsphase. 
+
+\selectlanguage{english}%
+\begin{table}[H]
+\begin{centering}
+\begin{tabular}{|l|l|l|}
+\hline 
+\selectlanguage{ngerman}%
+Phase\selectlanguage{english}
+ & \selectlanguage{ngerman}%
+Geplante Stunden\selectlanguage{english}
+ & \selectlanguage{ngerman}%
+Effektive Stunden\selectlanguage{english}
+\tabularnewline
+\hline 
+\hline 
+\selectlanguage{ngerman}%
+Themenevaluation\selectlanguage{english}
+ & \selectlanguage{ngerman}%
+10\selectlanguage{english}
+ & \selectlanguage{ngerman}%
+8\selectlanguage{english}
+\tabularnewline
+\hline 
+\selectlanguage{ngerman}%
+Erfassen der Anforderungen\selectlanguage{english}
+ & \selectlanguage{ngerman}%
+20\selectlanguage{english}
+ & \selectlanguage{ngerman}%
+26\selectlanguage{english}
+\tabularnewline
+\hline 
+\selectlanguage{ngerman}%
+Erarbeiten des Konzepts\selectlanguage{english}
+ & \selectlanguage{ngerman}%
+20\selectlanguage{english}
+ & \selectlanguage{ngerman}%
+103\selectlanguage{english}
+\tabularnewline
+\hline 
+\selectlanguage{ngerman}%
+Implementierungs des Konzepts\selectlanguage{english}
+ & \selectlanguage{ngerman}%
+40\selectlanguage{english}
+ & \selectlanguage{ngerman}%
+153\selectlanguage{english}
+\tabularnewline
+\hline 
+\selectlanguage{ngerman}%
+Überprüfen und Test des Konzepts\selectlanguage{english}
+ & \selectlanguage{ngerman}%
+20\selectlanguage{english}
+ & \selectlanguage{ngerman}%
+48\selectlanguage{english}
+\tabularnewline
+\hline 
+\selectlanguage{ngerman}%
+Erarbeiten der Präsentation\selectlanguage{english}
+ & \selectlanguage{ngerman}%
+10\selectlanguage{english}
+ & \selectlanguage{ngerman}%
+in Arbeit\selectlanguage{english}
+\tabularnewline
+\hline 
+\end{tabular}
+\par\end{centering}
+
+\caption{\selectlanguage{ngerman}%
+Gegenüberstellung geplanter/effektiver Aufwand\label{tab:Geplanter/effektiver-Aufwand}\selectlanguage{english}
+}
+\end{table}
+
+
+\selectlanguage{ngerman}%
 
 \section{Schlussfolgerungen}
 
-\noun{{[}Zu viel Zeit für Silverlight/HttpDualBinding verwendet, generell
-viel mehr als 120h aufgewendet, Herzblut in Seminararbeit gesteckt{]}}
+Dieses Unterkapitel soll die Lehren aus der Semesterarbeit im Hinblick
+auf die Bachelorarbeit ziehen. 
+
+Die wichtigste Lehre ist, dass eine realistische Aufwandsschätzung
+von Beginn der Arbeit zwingend ist. Das Verhältnis zwischen geplantem
+und effektivem Aufwand, das in dieser Semestearbeit aus dem Ruder
+gelaufen ist, muss insbesondere in der Bachelorarbeit realistisch
+sein. Bereits zum Zeitpunkt des Erfassens der Aufgabenstellung sollte
+eine grobe Vorstellung des Aufwands der einzelnen Punkte sowie der
+zu erwartenden Resultate vorhanden sein.
+
+Auch wurde zuviel Zeit verwendet um allfällige Lösungen für Silverlight
+und \emph{WSDualHttpBinding } zu finden, eine technische Schwierigkeit
+von welcher der Erfolg dieser Arbeit nicht abhängt, da die mobile
+Clientapplikation nur eine von mehreren Applikationen darstellt.
+
+Es ist auch fragwürdig ob soviel Zeit und Aufwand in die Erklärung
+verschiedener Technologien im Kapitel Implementierung (siehe \vref{sec:Verwendete-Technologien})
+verwendet werden soll oder ob mehr Verweise auf Fachliteratur gemacht
+werden soll. Dieser Aufwand soll in der Bachelorarbeit von Anfang
+an eingeplant und in der Aufgabenstellung bzw. den erwarteten Resultate
+festgehalten werden oder es soll nur reduziert auf die verwendeten
+Technologien eingegangen werden.
+
+Im Allgemeinen hat mir diese Semesterarbeit viel Spass gemacht und
+ich habe Herzblut hineingesteckt. Im Hinblick auf die Bachelorarbeit
+konnte ich viel profitieren und hoffe, nicht mehr in dieselben Fallen
+zu treten, in die ich im Verlauf dieser Semesterarbeit getreten bin.
 
 \appendix
 
-\chapter{Anhang}
-
-
-\section*{Akronyme}
+\chapter*{Akronyme}
 \begin{labeling}{00.00.0000}
+\item [{AES}] Advanced Encryption Standard
 \item [{API}] Application Programming Interface
+\item [{CAPI}] Cryptography API
+\item [{DCOM}] Distributed Component Object Model
+\item [{DES}] Data Encryption Standard
 \item [{GUI}] Graphical User Interface
 \item [{HTTP}] Hypertext Transfer Protocol
 \item [{MEF}] Managed Extensibility Framework
 \item [{MSDN}] Microsoft Developer Network
+\item [{MSMQ}] Microsoft Message Queuing
 \item [{MVVM}] Model View View Model
+\item [{NIST}] National Institute of Standards and Technology
 \item [{RUP}] Rational Unified Process
 \item [{SL}] Silverlight
+\item [{SOA}] Service Oriented Architecture
+\item [{SOAP}] Simple Object Access Protocol
 \item [{TDD}] Test Driven Development
 \item [{UC}] Use Case
 \item [{UI}] User Interface
+\item [{URI}] Uniform Resource Identifier
 \item [{WCF}] Windows Communication Foundation
+\item [{WSDL}] Web Services Description Language
 \item [{WPF}] Windows Presentation Foundation
 \item [{WWW}] World Wide Web
-\item [{YAEM}] Yet Another Encrypted Messenger
-\item [{ZHAW}] Zürcher Hochschule für Angewandte Wissenschaften
+\item [{XAML}] Extensible Application Markup Language
 \item [{XML}] Extensible Markup Language
 \item [{XP}] Extreme Programming
+\item [{YAEM}] Yet Another Encrypted Messenger
+\item [{ZHAW}] Zürcher Hochschule für Angewandte Wissenschaften
 \end{labeling}
 \settowidth{\nomlabelwidth}{Managed Extensibility Framework}
 \printnomenclature{}
 
-\bibliographystyle{plainnat}
-\bibliography{YAEM}
+\listoffigures
+
+
+\listoftables
 
 \end{document}
