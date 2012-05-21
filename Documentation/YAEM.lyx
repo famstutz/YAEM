@@ -37,7 +37,7 @@
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
-\suppress_date false
+\suppress_date true
 \use_refstyle 1
 \index Index
 \shortcut idx
@@ -76,12 +76,9 @@ type "mailto:"
 >
 \end_layout
 
-\begin_layout Date
-14.
- Mai 2012
-\end_layout
-
 \begin_layout Publishers
+
+\size large
 Semesterarbeit an der Zürcher Hochschule für Angewandte Wissenschaften
 \end_layout
 
@@ -100,8 +97,8 @@ Einführung
 
 \begin_layout Standard
 Als einführendes Kapitel dieses Dokuments wird die Semesterarbeit als Projekt
- kurz vorgestellt und es werden die Rahmenbedingungen der Semesterarbeit
- zusammengefasst niedergeschrieben.
+ kurz vorgestellt und es werden die Rahmenbedingungen der Arbeit zusammengefasst
+ niedergeschrieben.
  Weiter werden verschiedene Softwareentwicklungsprozesse vorgestellt sowie
  die für diese Semesterarbeit verwendete Methode erklärt.
  Am Ende dieses Kapitels wird unter Benutzung der vorgestellten Softwareentwickl
@@ -116,7 +113,7 @@ Management Summary
 \begin_layout Standard
 Mit dem zunehmenden Aufkommen von Attacken und gezieltem Abhorchen von Echtzeitk
 ommunikation via E-Mail oder Instant Messaging steigt der Bedarf an eine
- sichere und einfache Übertragungsart von Nachrichten oder Daten.
+ sichere und einfache Übertragungsart von Nachrichten und Daten.
  
 \end_layout
 
@@ -125,7 +122,7 @@ Als Nutzer eines Kommunikationskanals über das öffentliche Internet will
  ich die Möglichkeit haben meine privaten Daten verschlüsselt und sicher
  an einen oder mehrere Empfänger übertragen zu können.
  Ich will dabei eine einfach zu bedienende Applikation zur Verfügung haben
- um meine geheimen Daten übertragen zu können und so potentiellen Mithörern
+ um meine geheimen Daten versenden zu können und so potentiellen Mithörern
  keine Klartextinformationen zur Verfügung zu stellen.
  
 \end_layout
@@ -133,9 +130,9 @@ Als Nutzer eines Kommunikationskanals über das öffentliche Internet will
 \begin_layout Standard
 Diese Applikation soll als Prototyp im Rahmen der Semesterarbeit im dritten
  Studienjahr an der ZHAW entwickelt werden.
- Dabei wird der Schwerpunkt der Arbeit auf der methodischen Vorgehensweise
- der Softwareentwicklung und weniger auf der Implementierung der kryptografische
-n Algorithmen.
+ Dabei wird der Fokus der Arbeit auf der methodischen Vorgehensweise der
+ Softwareentwicklung gelegt und weniger auf der Implementierung der kryptografis
+chen Algorithmen.
 \end_layout
 
 \begin_layout Section
@@ -150,9 +147,9 @@ key "Stern2010"
 
 \end_inset
 
-) dient die Semesterarbeit als Vorbereitung zur Bachelorarbeit.
+) dient die Semesterarbeit zur Vorbereitung auf die Bachelorarbeit.
  Sie besteht aus einem konzeptionellen Teil und einem Umsetzungsteil, wobei
- der Schwerpunkt auf der Umsetzung liegen soll.
+ der Schwerpunkt auf der Umsetzung der Arbeit liegen soll.
 \end_layout
 
 \begin_layout Standard
@@ -167,7 +164,8 @@ Softwareentwicklungsprozess
 
 \begin_layout Standard
 Software lässt sich nach einer Vielzahl von Prozessen und Modellen entwickeln.
- Von iterativen Vorgehen wie Scrum über komplexe Modelle wie RUP 
+ Von iterativen Vorgehen wie Scrum über komplexe und vergleichsweise starre
+ Modelle wie RUP
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "RUP"
@@ -175,8 +173,15 @@ description "Der Rational Unified Process ist ein kommerzielles Vorgehensmodell 
 
 \end_inset
 
- hin zu klassischen, linearen Vorgehen wie dem Wasserfallmodell oder dem
- V-Modell
+ bis hin zu klassischen, linearen Vorgehen wie dem Wasserfallmodell
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Wasserfallmodell"
+description "Das Wasserfallmodell ist ein lineares (nicht iteratives) Vorgehensmodell, das in Phasen organisiert wird. Dabei gehen die Phasenergebnisse wie bei einem Wasserfall immer als bindende Vorgaben für die nächsttiefere Phase ein. Im Wasserfallmodell hat jede Phase vordefinierte Start- und Endpunkte mit eindeutig definierten Ergebnissen. "
+
+\end_inset
+
+ oder dem V-Modell
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "V-Modell"
@@ -192,11 +197,11 @@ key "Starke2011"
 
 \end_inset
 
- ist die Auswahl des Entwicklungsprozesses eine der schwierigsten Entscheidungen
-, die man bei einem Softwareprojekt treffen muss.
+ ist die Auswahl des Entwicklungsprozesses eine der kritischsten Entscheidungen,
+ die man bei einem Softwareprojekt treffen muss.
  Häufig besitzen Unternehmungen bereits etablierte, auf sie zugeschnittene
  Entwicklungsmodelle, die mehr oder weniger gut zur Organisation der Unternehmun
-g passen.
+g und dem jeweiligen Projekt passen.
  Ein ungünstig gewählter oder nicht vollständig eingeführter und gelebter
  Entwicklungsprozess ist nach 
 \begin_inset CommandInset citation
@@ -211,15 +216,30 @@ hreitungen oder zeitlichen Verzögerungen zu kämpfen haben.
 
 \begin_layout Standard
 Für dieses Projekt wurde das Wasserfallmodell als Entwicklungsprozess ausgewählt.
- Das Wasserfallmodell teilt die Softwareentwicklung in meist fünf verschiedene
- Phasen auf.
- Dabei kann erst mit der nächsten Phase begonnen werde wenn die Lieferegebnisse
- und die Ergebnisdokumentation der vorhergehenden Phase fertiggestellt und
- abgenommen worden sind.
- Das Wasserfallmodell wurde ausgewählt, da die jeweiligen Phasen eindeutig
- abgeschlossen werden können, da der Betreuer als einziger, externer Stakeholder
- des Projekts zu festdefinierten Phasen Einfluss auf das Projekt ausübt
- und danach keine Möglichkeit mehr besitzt, den Projektverlauf zu beeinflussen.
+ Das Wasserfallmodell teilt die Softwareentwicklung meist in fünf verschiedene
+ Phasen auf (siehe Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Wasserfallprozess-nach"
+
+\end_inset
+
+).
+ Dabei kann jeweils erst mit der nächsten Phase begonnen werde wenn die
+ Lieferegebnisse und die Ergebnisdokumentation der vorhergehenden Phase
+ fertiggestellt und abgenommen worden sind.
+ Das Wasserfallmodell wurde ausgewählt, da dieses Projekt gut linear abgearbeite
+t werden kann und da der Betreuer als einziger externer Stakeholder
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Stakeholder"
+description "Als Stakeholder (engl.) wird eine Person oder Gruppe bezeichnet, die ein berechtigtes Interesse am Verlauf oder Ergebnis eines Prozesses oder Projektes hat."
+
+\end_inset
+
+ des Projekts zu festdefinierten Phasen Einfluss auf das Projekt ausüben
+ kann und danach keine andere Möglichkeit besitzt, den Projektverlauf zu
+ beeinflussen.
  Die grössten Nachteile des Wasserfallmodells sind nach 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -227,17 +247,17 @@ key "Elmer2005"
 
 \end_inset
 
- ein Abgrenzugsproblem zwischen den Phasen sowie die Schwierigkeit des Abschluss
-es einzelner Phasen.
- Dadurch dass der Betreuer nur in den Phasen Requirements und Design Einfluss
- auf das Projekt nehmen kann und Student als einziger Stakeholder den Abschluss
- der Phasen abnimmt sowie den Ablauf der Phasen innerhalb des Projekts steuert
- können diese Nachteile umgangen werden.
+ Abgrenzugsprobleme zwischen den einzelnen Phasen sowie die Schwierigkeit
+ des Abschlusses einzelner Phasen da diese nur mit viel (zusätzlichem) Aufwand
+ isoliert von anderen Phasen abgeschlossen werden können.
+ Dadurch dass der Betreuer nur in der Anforderungs- und Konzeptphase Einfluss
+ auf das Projekt nehmen kann und der Student alleinig den Abschluss der
+ Phasen steuert und verifiziert sowie den Ablauf der Phasen innerhalb des
+ Projekts steuert, können diese Nachteile umgangen werden.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
-placement h
 wide false
 sideways false
 status open
@@ -265,6 +285,13 @@ key "Hung2007"
 \end_inset
 
 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Wasserfallprozess-nach"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -279,25 +306,29 @@ key "Hung2007"
 
 \begin_layout Standard
 Zu Beginn des Wasserfallmodells steht das Sammeln und Dokumentieren der
- Anforderungen (Requirements).
+ Anforderungen (Requirements) im Vordergrund.
  Wenn die Anforderungen umfänglich und in hohem Detaillierungsgrad niedergeschri
 eben sind, werden diese vom Auftraggeber abgenommen und das Projekt geht
- in die Design-Phase über.
+ in die Phase Design über.
  Die zu entwickelnde Software wird auf verschiedenen Ebenen von Softwarearchitek
-ten designed und eine Blaupause wird erstellt, nach welcher sich die Software
- Entwickler in der Implementationsphase zu halten haben.
+ten designed und eine Blaupause wird erstellt, nach welcher sich die Softwareent
+wickler in der Implementationsphase zu halten haben.
  Das Design sollte einen Plan beinhalten, welcher die Implementierung der
  Anforderungen aufzeigt.
- Wenn das Design fertiggestellt worden ist, wird dieses von den Entwicklern
+ 
+\end_layout
+
+\begin_layout Standard
+Wenn das Design fertiggestellt worden ist, wird dieses von den Entwicklern
  in Programmcode umgesetzt.
  Gegen Ende der Implementationsphase werden die Softwarekomponenten verschiedene
-r Teams integriert.
- Nachdem die Implementierungs- und Integrationsphasen abgeschlossen sind,
+r Teams integriert und als Gesamtsystem zum Einsatz gebracht.
+ Nachdem die Implementierungs- und Integrationsphase abgeschlossen sind,
  wird das Softwareprodukt getestet und allfällige Fehler aus früheren Phasen
- werden zu diesem Zeitpunkt entfernt.
+ werden zu diesem Zeitpunkt behoben.
  Danach wird das Softwareprodukt installiert und später in der Wartungsphase
  (Maintenance) um weitere Funktionalitäten erweitert beziehungsweise werden
- weitere Bugs
+ neu entdeckte Bugs
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "Bug"
@@ -309,8 +340,8 @@ description "Ein Programm- oder Softwarefehler wird als Bug bezeichnet und besch
 \end_layout
 
 \begin_layout Standard
-Die Struktur dieses Dokuments hält sich auch an den Wasserfallprozess nach
- 
+Die Struktur dieses Projekts und der dazugehörigen Dokumentation hält sich
+ auch an den Wasserfallprozess nach 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Hung2007"
@@ -327,12 +358,12 @@ reference "tab:Zuweisungstablle-der-Phasen"
 ).
  Die Phase Maintenance wird dabei ausgelassen, da sich die innerhalb des
  Projekts entwickelte Applikation nach Abschluss der Verifizierungsphase
- noch im Protoypenstand befinden wird.
+ noch im Protoypenstadium befinden wird und nicht dem Reifegrad einer Applikatio
+n besitzt, die in die Wartung übergehen kann.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float table
-placement h
 wide false
 sideways false
 status open
@@ -368,7 +399,7 @@ Kapitelüberschrift
 \begin_inset Text
 
 \begin_layout Plain Layout
-Seite
+Siehe Seite
 \end_layout
 
 \end_inset
@@ -431,7 +462,7 @@ Design
 \begin_layout Plain Layout
 \begin_inset CommandInset ref
 LatexCommand nameref
-reference "chap:Konzept"
+reference "chap:Konzept-und-Architektur"
 
 \end_inset
 
@@ -446,7 +477,7 @@ reference "chap:Konzept"
 \begin_layout Plain Layout
 \begin_inset CommandInset ref
 LatexCommand pageref
-reference "chap:Konzept"
+reference "chap:Konzept-und-Architektur"
 
 \end_inset
 
@@ -582,22 +613,30 @@ key "Stern2010"
 \end_inset
 
 ) muss die Semesterarbeit sechs Monate nach Freigabe beendet sein.
- Um die Planbarkeit der Semesterarbeit zu erhöhen wurde das Projekt vorgängig
- in einzelne Phasen unterteilt, welche auf die bekannten Meilensteine enden.
+ Um die Planbarkeit der Semesterarbeit zu erhöhen wurde das Projekt bei
+ Projektstart in einzelne Phasen unterteilt, welche auf die vorgängig bekannten
+ Termine als Meilensteine enden.
 \end_layout
 
 \begin_layout Standard
-Die Projektplanung dient dazu möglichst frühzeitig im Verlauf der Seminararbeit
- schon Teile der Dokumentation fertiggestellt zu haben, so dass nicht in
- den letzten zwei Wochen vor der Abgabe der Arbeit übermässig viel Zeit
- und Aufwand in die Arbeit investiert werden muss.
- Ausserdem sinkt das Risiko, das nicht alle erwarteten Resultate der Arbeit
- geliefert werden können, da die Lieferergebnisse bei Phasenende schon in
- genügend hoher Qualität vorliegen, dass diese abgegeben werden können.
+Ziel dieser Phasenplanung ist es, möglichst frühzeitig im Verlauf der Seminararb
+eit Teile der erwarteten Resultate sowie der Dokumentation fertiggestellt
+ zu haben, so dass das Risiko von Qualitätseinbussen der Abgaberesultate
+ zu minimieren.
+ Ausserdem sinkt das Wahrscheinlichkeit, dass nicht alle erwarteten Resultate
+ der Arbeit geliefert werden können, da die Lieferergebnisse bei jeweiligem
+ Phasenende schon in abgabefertiger Qualität vorliegen.
 \end_layout
 
 \begin_layout Subsection
 Phasenplanung
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Phasenplanung"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -605,32 +644,39 @@ Nach dem Wasserfallmodell wird das Projekt in einzelne Phasen eingeteilt,
  die zu einem bestimmten Zeitpunkt mit vordefinierten Endergebnissenen enden.
  Bei Erreichen des Endzeitpunkts und bei Lieferung aller Endergebnisse geht
  das Projekt in die nächste Phase über.
- Die Phasen in diesem Projekt wurden häufig so modelliert, dass ihr Endzeitpunkt
- mit dem Erreichen eines Meilensteins zusammenliegt.
- Das heisst, das bei Erreichen des Meilensteins die vorhergehende Phase
+ Die Phasen dieser Semesterarbeit wurden so modelliert, dass ihr Endzeitpunkt
+ möglichst mit dem Erreichen eines Meilensteins zusammenfällt (siehe Tabelle
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Phasenplan"
+
+\end_inset
+
+).
+ Das heisst, dass bei Erreichen des Meilensteins die vorhergehende Phase
  zwingend abgeschlossen sein werden muss.
 \end_layout
 
 \begin_layout Standard
 Vor dem eigentlichen Projektstart werden geeigeneten Themen für die Semesterarbe
 it evaluiert, ein Betreuer gesucht sowie ein Projektantrag in EBS erfasst.
- Diese Phase endet im Kick-Off-Meeting zwischen Betreuer und Student und
- der formalen Freigabe der Semesterarbeit durch die Studiengangsleitung.
- Das Erheben und Dokumentieren der Anforderungen ist die erste Phase der
- eigentlichen Projektumsetzung und mündet in der Konzepterarbeitung auf
- Basis der Anforderungen.
- Ist das Konzept vollständig abgeschlossen findet das Design-Review statt,
+ Diese Phase endet mit dem Kick-Off-Meeting zwischen Betreuer und Student
+ sowie der formalen Freigabe der Semesterarbeit durch die Studiengangsleitung.
+ Das Erheben und Dokumentieren der Anforderungen ist die erste Phase des
+ eigentlichen Projekts und mündet in der Konzepterarbeitung auf Basis der
+ Anforderungen.
+ Ist das Konzept vollständig abgeschlossen, findet das Design-Review statt,
  bei welchem der Betreuer das Konzept begutachtet und allfällige Anpassungen
- am Konzept vorschlägt.
+ darn vorschlägt.
  Nach Fertigstellung des Konzepts folgt die Implementierungsphase und Testphase,
- nach denen die Arbeit abgegeben werden muss.
- Als letzte Phase folgt das Erarbeiten der Präsentation, die bei Phasenende
- vorgetragen wird.
+ nach denen die Arbeit abgegeben wird.
+ In der letzten Phase des Projekts wird die Präsentation erarbeitet, die
+ an der Schlusspräsentation (Meilenstein M5) vorgetragen wird.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float table
-placement H
 wide false
 sideways false
 status open
@@ -638,9 +684,8 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="7" columns="5">
+<lyxtabular version="3" rows="7" columns="4">
 <features tabularvalignment="middle">
-<column alignment="left" valignment="top" width="0">
 <column alignment="left" valignment="top" width="0">
 <column alignment="left" valignment="top" width="0">
 <column alignment="left" valignment="top" width="0">
@@ -659,7 +704,7 @@ Phase
 \begin_inset Text
 
 \begin_layout Plain Layout
-Von
+Start
 \end_layout
 
 \end_inset
@@ -668,16 +713,7 @@ Von
 \begin_inset Text
 
 \begin_layout Plain Layout
-Bis
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Ergebnis
+Ende
 \end_layout
 
 \end_inset
@@ -697,7 +733,7 @@ Endet in Meilenstein
 \begin_inset Text
 
 \begin_layout Plain Layout
-Themenevaluierung
+Themenevaluation
 \end_layout
 
 \end_inset
@@ -716,15 +752,6 @@ Themenevaluierung
 
 \begin_layout Plain Layout
 04.11.2011
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Antrag in EBS
 \end_layout
 
 \end_inset
@@ -767,15 +794,6 @@ Erfassen der Anforderungen
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Dokumentierte Anforderungen
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -810,15 +828,6 @@ Erarbeiten des Konzepts
 
 \begin_layout Plain Layout
 13.04.2012
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Umfassendes Konzept
 \end_layout
 
 \end_inset
@@ -861,15 +870,6 @@ Implementierungs des Konzepts
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Implementierung
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -904,15 +904,6 @@ Implementierung
 
 \begin_layout Plain Layout
 23.05.2012
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Erfüllte Integrationstests
 \end_layout
 
 \end_inset
@@ -955,15 +946,6 @@ Erarbeiten der Präsentation
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Fertiggestellte Präsentation
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -986,6 +968,13 @@ M5
 
 \begin_layout Plain Layout
 Phasenplan
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Phasenplan"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1007,12 +996,22 @@ Ein Meilenstein ist ein Ereignis von besonderer Bedeutung und stellt ein
  (Zwischen-) Ziel innerhalb eines Projekts dar.
  Meilensteine werden typischerweise von Personen oder Organisationen ausserhalb
  des Projekts vorgegeben und passen mit den im vorhergehenden Kapitel definierte
-n Phasen überein.
+n Phasenenden überein.
+\end_layout
+
+\begin_layout Standard
+Die Meilensteine des Projekts sind in der Tabelle 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Meilensteine"
+
+\end_inset
+
+ ersichtlich.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float table
-placement H
 wide false
 sideways false
 status open
@@ -1030,7 +1029,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-Kürzel
+Bezeichner
 \end_layout
 
 \end_inset
@@ -1106,7 +1105,7 @@ Freigabe der Arbeit
 \begin_inset Text
 
 \begin_layout Plain Layout
-06.11.2012
+06.11.2011
 \end_layout
 
 \end_inset
@@ -1126,7 +1125,7 @@ M3
 \begin_inset Text
 
 \begin_layout Plain Layout
-Design Review
+Design-Review
 \end_layout
 
 \end_inset
@@ -1184,7 +1183,7 @@ M5
 \begin_inset Text
 
 \begin_layout Plain Layout
-Präsentation der Semesterarbeit
+Schlusspräsentation
 \end_layout
 
 \end_inset
@@ -1211,6 +1210,13 @@ Präsentation der Semesterarbeit
 
 \begin_layout Plain Layout
 Meilensteine
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Meilensteine"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1235,21 +1241,29 @@ name "chap:Anforderungen"
 \end_layout
 
 \begin_layout Standard
-Gemäss dem verwendeten Wasserfallmodell werden als erstes die Anforderungen
- erhoben.
- Dazu wird der Begriff 
-\begin_inset Quotes eld
+In der Phasenplanung (siehe Kapitel 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:Phasenplanung"
+
 \end_inset
 
-Anforderung
-\begin_inset Quotes erd
+) wurde festgelegt, dass in der ersten Projektphase des Projekts die Anforderung
+en erhoben werden.
+ Dazu wird zu Beginn dieses Kapitels der Begriff Anforderung definiert und
+ es wird auf verschiedene Arten von Anforderungen näher eingegangen.
+ Anschliessend wird der Systemkontext beschrieben und eingegrenzt sowie
+ die konkreten Anforderungen an YAEM als Use-Cases
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Use-Case"
+description "Ein Use Case (deutsch Anwendungsfall) bündelt alle möglichen Szenarien, die eintreten können, wenn ein Akteur versucht, mit Hilfe des betrachteten Systems ein bestimmtes fachliches Ziel zu erreichen. Er beschreibt, was inhaltlich beim Versuch der Zielerreichung passieren kann, und abstrahiert von konkreten technischen Lösungen. Das Ergebnis des Anwendungsfalls kann ein Erfolg oder Fehlschlag/Abbruch sein."
+
 \end_inset
 
- definiert und auf verschiedene Arten von Anforderungen eingegangen.
- Anschliessend wird der Systemkontext aufgezeigt sowie die konkreten Anforderung
-en an YAEM als Use-Cases modelliert und spezifiziert.
- Der Abschluss dieses Kapitels wie auch der Anforderungsphase bildet die
- Erstellung und Erklärung der für den Benutzer sichtbaren Dialogfenster.
+ modelliert und spezifiziert.
+ Der Abschluss dieses Kapitels wie auch der Anforderungsphase selbst bildet
+ das Entwerfen der für den Benutzer sichtbaren Dialogfenster.
 \end_layout
 
 \begin_layout Section
@@ -1296,13 +1310,13 @@ Eine dokumentierte Repräsentation einer Bedingung oder Eigenschaft gemäss
 
 \end_deeper
 \begin_layout Standard
-Die Anforderungen an das im Rahmen der Semesterarbeits zu entwickelnden
- Systems werden in Use-Case-Diagrammen modellhaft dargestellt und als Use-Case-S
-pezifikationen ausformuliert.
+Die Anforderungen an das im Rahmen dieser Semesterarbeits zu entwickelnde
+ System werden in Use-Case-Diagrammen modellhaft dargestellt und als Use-Case-Sp
+ezifikationen ausformuliert.
  Auf eine natürlichsprachige Dokumentation der Anforderungen wird verzichtet,
- da die Anforderungen aufgrund der Use-Case-Diagrammen verständlich genug
- sind und alle zusätzlich zu den Diagrammen zu beachtenden Punkte in den
- Use-Case-Spezifikationen enthalten sind.
+ da die modellierten Anforderungen innerhalb der Use-Case-Diagrammen verständlic
+h genug sind und zu den Use-Case-Diagrammen noch detaillierte Use-Case-Spezifika
+tionen vorhanden sind.
  
 \end_layout
 
@@ -1354,8 +1368,17 @@ nicht funktionaler Anforderungen
 \end_layout
 
 \begin_layout Itemize
-Randbedingungen (auch: Rahmenbedingungen) können von den Projektbeteiligten
- nicht beeinflusst werden.
+Randbedingungen
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+auch Rahmenbedingungen genannt
+\end_layout
+
+\end_inset
+
+ können von den Projektbeteiligten nicht beeinflusst werden.
  Randbedingungen können sich sowohl auf das betrachtete System beziehen
  (z.B.
  
@@ -1371,15 +1394,34 @@ Das System soll über Webservices mit Aussensysteme kommunizieren
 \begin_inset Quotes eld
 \end_inset
 
-Das Sysemt soll bis spätestens Mitte 2013 am Markt verfügbar sein
+Das System soll bis spätestens Mitte 2013 am Markt verfügbar sein
 \begin_inset Quotes erd
 \end_inset
 
 ).
  Randbedingungen werden, im Gegensatz zu funktionalen Anforderungen und
  Qualitätsanforderungen, nicht umgesetzt, sondern schränken die Umsetzungsmöglic
-hkeiten, d.h.
- den Lösungsraum im Entwicklungsprozess ein.
+hkeiten, das heisst den Lösungsraum im Entwicklungsprozess ein.
+\end_layout
+
+\begin_layout Standard
+In diesem Dokument werden der Einfachheit halber nur funktionale Anforderungen
+ beschrieben.
+ Qualitätsanforderungen betreffend der Leistungsfähigkeit oder Wartbarkeit
+ des Systems werden nicht erhoben, da diese für den Prototypen nur eingeschränkt
+ relevant sind und innerhalb dieses Projekts keinen Wert gelegt werden soll.
+ Rahmenbedingungen werden nicht implizit festgehalten sondern ergeben sich
+ einerseits aus 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Stern2010"
+
+\end_inset
+
+ sowohl der technischen Umgebung des Systems.
+ Technische Rahmenbedingungen die das Projekt beeinflussen werden im Konzept
+ beziehungsweise in der Implementierung berücksichtigt und entsprechend
+ hervorgehoben.
 \end_layout
 
 \begin_layout Section
@@ -1387,18 +1429,25 @@ Systemkontext
 \end_layout
 
 \begin_layout Standard
-Als erster Schritt in der Erhebung und Dokumentierung wird der Systemkontext
- ermittelt.
- Es wird eine Sollperspektive eingenommen, d.h., es wird eine Annahme getroffe,
- wie das geplante System sich in die Realität integriert.
+Als erster Schritt in der Erhebung und Dokumentierung der Anforderung wird
+ der Systemkontext ermittelt.
+ Es wird eine Sollperspektive eingenommen, das heisst, es wird eine Annahme
+ getroffen, wie sich das geplante System in die Realität integriert.
  Hierdurch wird der Realitätsausschnitt identifiziert, der das System und
  damit potenziell auch dessen Anforderungen beeinflusst.
  Um die Anforderungen an das geplante System korrekt und vollständig spezifizier
 en zu können, ist es notwendig, die Beziehung zwischen den einzelnen materiellen
- und immateriellen Aspekten im Systekontext und dem geplanten System exakt
- zu dfinieren.
+ und immateriellen Aspekten im Systemkontext und dem geplanten System exakt
+ zu definieren.
  Der für die Anforderungen des Systems relevante Ausschnitt der Realität
- wird als Systemkontext bezeichnet.
+ wird als Systemkontext bezeichnet (nach 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Pohl2011"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Standard
@@ -1406,17 +1455,20 @@ Der Ursprung der Anforderungen des Systems liegt im Systemkontext des geplanten
  Systems.
  Aus diesem Grund wird der Systemkontext vor Erhebung und Dokumentierung
  der Anforderungen festgelegt.
- Der Systemkontext YAEM wird wie folgt dargestellt.
+ Der Systemkontext des Systems YAEM ist in Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Systemkontext"
+
+\end_inset
+
+ als Modell dargestellt.
  Die Benutzer als Stakeholder an das System senden und empfangen Nachrichten
- und befinden sich innerhalb des Systemkontexts da sie direkt mit dem System
+ und befinden sich innerhalb des Systemkontexts, da sie direkt mit dem System
  interagieren.
  Die Verschlüsselungsalgorithmen sind in der Fachliteratur klar geregelt
  und normiert und geben aus diesem Grund die konkreten Implementierungsvorschrif
-ten an das System vor.
-\end_layout
-
-\begin_layout Subsection*
-Systemkontext YAEM
+ten ihrerselbst an das System vor.
 \end_layout
 
 \begin_layout Standard
@@ -1442,6 +1494,13 @@ status open
 
 \begin_layout Plain Layout
 Systemkontext
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Systemkontext"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1456,6 +1515,13 @@ Systemkontext
 
 \begin_layout Section
 Use-Case-Spezifikationen
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Use-Case-Spezifikationen"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1468,38 +1534,31 @@ key "Pohl2011"
 
  zeigen Use-Case-Diagamme die aus einer externen Nutzungssicht wesentlichen
  Funktionalitäten des betrachteten Systems sowie spezifische Beziehungen
- der einzelnen Funktionalitäten untereinander bzw.
- zu Aspekten in der Umgebung des Systems.
- Abgesehen vom Namen eines Use-Cases und dessen Beziehungen dokumentieren
- Use-Case-Diagramme allerdings keinerlei weitere Informationen über die
- einzelnen Use-Cases, wie z.B.
- die Systematik der Interaktion eines Use Case
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "Use Case"
-description "Ein Use Case (deutsch Anwendungsfall) bündelt alle möglichen Szenarien, die eintreten können, wenn ein Akteur versucht, mit Hilfe des betrachteten Systems ein bestimmtes fachliches Ziel zu erreichen. Er beschreibt, was inhaltlich beim Versuch der Zielerreichung passieren kann, und abstrahiert von konkreten technischen Lösungen. Das Ergebnis des Anwendungsfalls kann ein Erfolg oder Fehlschlag/Abbruch sein."
-
-\end_inset
-
- mit Akteuren in der Umgebung.
+ der einzelnen Funktionalitäten untereinander beziehungsweise zu Aspekten
+ in der Umgebung des Systems.
+ Abgesehen vom Namen des Use-Cases und dessen Beziehungen dokumentieren
+ Use-Case-Diagramme keinerlei weitere Informationen über die einzelnen Use-Cases
+, wie z.B.
+ die Systematik der Interaktion eines Use-Case mit Akteuren in der Umgebung.
  Diese Informationen werden unter Verwendung einer geeigneten Schablone
- zusätzlich zum Use-Case-Diagramm textuell dokumentiert.
+ zusätzlich zum Use-Case-Diagramm textuell als Use-Case-Spezifikation festgehalt
+en.
 \end_layout
 
 \begin_layout Standard
-Alle funktionalen Anforderungen (siehe 
+Alle funktionalen Anforderungen (siehe Kapitel 
 \begin_inset CommandInset ref
 LatexCommand vref
 reference "sub:Arten-von-Anforderungen"
 
 \end_inset
 
-) werden nun als Use-Cases modelliert und spezifiziert
+) werden als Use-Cases modelliert und spezifiziert
 \begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-Die verwendete Schablone für die Use-Case-Spezifikationen stammt aus 
+Die verwendete Schablone stammt aus 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Pohl2011"
@@ -1508,28 +1567,34 @@ key "Pohl2011"
 
  und dient zur zweckmässigen Strukturierung von Typen von Informationen,
  die einen Use-Case betreffen.
- Die Abschnitte Autor, Quelle, Verantwortlicher und Qualität werden ausgelassen,
- da sie für die Semesterarbeit keine Relevant besitzen.
+ Die vorgeschlagenen Abschnitte der Schablone Autor, Quelle, Verantwortlicher
+ und Qualität werden ausgelassen, da sie im Rahmen dieses Projekts keinen
+ zusätzlichen Nutzen bringen.
 \end_layout
 
 \end_inset
 
 .
- Als Quellen der Anforderungen dienten der Betreuer, die Reglemente der
- ZHAW betreffend der Semesterarbeit sowie der Student in der Rolle als Benutzer
+ Als Quellen der Anforderungen dienen der Betreuer, die Reglemente der ZHAW
+ betreffend der Semesterarbeit sowie der Student in der Rolle des Benutzers
  des Systems.
- Zusätzlich zu den Use-Cases und der dazugehörigen Use-Case-Spezifikation
+ Zusätzlich zu den Use-Cases und den dazugehörigen Use-Case-Spezifikationen
  wird vorgängig in Prosatext der Anwendungsfall beschrieben.
- Aus Gründen der Übersichtlichkeit und des überschaubaren Umfangs dienen
- diese Use-Cases primär als Anforderungen an das zu entwickelnde Softwaresystem.
- Jedes Use-Case wird im Rahmen der Verifizerungsphase (siehe 
+ Aus Gründen der Übersichtlichkeit und der limitierten Gesamtfunktionaliät
+ des Systems stellen diese Use-Cases die primären Anforderungen an das zu
+ entwickelnde Softwaresystem dar.
+ 
+\end_layout
+
+\begin_layout Standard
+Jedes Use-Case wird im Rahmen der Verifizerungsphase (siehe Kapitel 
 \begin_inset CommandInset ref
 LatexCommand vref
 reference "chap:Test"
 
 \end_inset
 
-) als Integrationstest einzeln getestet.
+) als Akzeptanztest einzeln getestet.
 \end_layout
 
 \begin_layout Subsection
@@ -1537,14 +1602,11 @@ Gespräch beitreten
 \end_layout
 
 \begin_layout Standard
-Ein Benutzer möchte Nachrichten über YAEM versenden und startet die Applikation.
+Ein Benutzer möchte verschlüsselte Nachrichten an andere Gesprächsteilnehmer
+ versenden und startet dazu die Applikation.
  Er wählt einen Benutzernamen, stellt eine Verbindung zum Server her und
  nimmt am Gespräch teil.
  Er kann nun anderen Teilnehmern des Gesprächs Nachrichten versenden.
-\end_layout
-
-\begin_layout Subsubsection*
-Use-Case
 \end_layout
 
 \begin_layout Standard
@@ -1580,10 +1642,6 @@ Use-Case Gepräch beitreten
 \end_inset
 
 
-\end_layout
-
-\begin_layout Subsubsection*
-Use-Case-Spezifikation
 \end_layout
 
 \begin_layout Standard
@@ -1738,7 +1796,7 @@ Auslösendes Ereignis
 \begin_inset Text
 
 \begin_layout Plain Layout
-Benutzer möchte einem Gespräch beitreten.
+Der Benutzer möchte einem Gespräch beitreten.
 \end_layout
 
 \end_inset
@@ -1819,7 +1877,7 @@ Ergebnis
 \begin_inset Text
 
 \begin_layout Plain Layout
-Session-Ticket wird erstellt.
+Ein gültiges Session-Ticket wird erstellt.
 \end_layout
 
 \end_inset
@@ -1850,7 +1908,7 @@ Hauptszenario
 
 \begin_layout Plain Layout
 3.
- Der Server erstellt eine Session-Ticket für den Benutzer und gibt ihm dieses
+ Der Server erstellt ein Session-Ticket für den Benutzer und gibt ihm dieses
  zurück.
 \end_layout
 
@@ -1932,13 +1990,10 @@ Gespräch verlassen
 \end_layout
 
 \begin_layout Standard
-Der Benutzer ist im Gespräch und möchte dieses Verlassen.
- Er schliesst die Applikation und meldet sich am Server vom Gespräch ab.
+Der Benutzer ist einem Gespräch beigetreten und möchte dieses verlassen.
+ Er schliesst die Applikation und meldet sich dabei am Server vom Gespräch
+ ab.
  Andere Teilnehmer des Gesprächs können ihm nun keine Nachrichten mehr senden.
-\end_layout
-
-\begin_layout Subsubsection*
-Use-Case
 \end_layout
 
 \begin_layout Standard
@@ -1974,10 +2029,6 @@ Use-Case Gespräch verlassen
 \end_inset
 
 
-\end_layout
-
-\begin_layout Subsubsection*
-Use-Case-Spezifikation
 \end_layout
 
 \begin_layout Standard
@@ -2112,7 +2163,7 @@ Beschreibung
 \begin_inset Text
 
 \begin_layout Plain Layout
-Der Benutzer verlässt ein Gespräch.
+Der Benutzer verlässt das Gespräch.
 \end_layout
 
 \end_inset
@@ -2132,7 +2183,7 @@ Auslösendes Ereignis
 \begin_inset Text
 
 \begin_layout Plain Layout
-Benutzer möchte eine Gespräch verlassen.
+Der Benutzer möchte das Gespräch verlassen.
 \end_layout
 
 \end_inset
@@ -2212,7 +2263,7 @@ Ergebnis
 \begin_inset Text
 
 \begin_layout Plain Layout
-Session-Ticket ist abgelaufen.
+Das Session-Ticket des Benutzers ist ungültig.
 \end_layout
 
 \end_inset
@@ -2238,8 +2289,7 @@ Hauptszenario
 
 \begin_layout Plain Layout
 2.
- Der Server erklärt das Session-Ticket des Benutzers für abgelaufen und
- sendet das aktualisierte Ticket dem Benutzer zu.
+ Der Server erklärt das Session-Ticket des Benutzers für ungültig.
 \end_layout
 
 \end_inset
@@ -2315,22 +2365,14 @@ Nachricht senden
 
 \begin_layout Standard
 Dies ist der wichtigste und meistgenutzte Anwendungsfall des Systems.
- Der Benutzer als Sender möchte einem oder mehreren Teilnehmern des Gesprächs
- (Empfänger) eine Nachricht senden.
+ Der Benutzer (hier in der Rolle des Senders) möchte einem oder mehreren
+ Teilnehmern des Gesprächs (Empfänger) eine Nachricht senden.
  Er kann dabei wählen, ob er diese verschlüsselt oder unverschlüsselt versenden
  möchte.
  Sendet der Benutzer die Nachricht verschlüsselt, so werden zuerst der Initialis
 ierungsvektor festgelegt sowie der Schlüssel gewählt.
  Danach wird die Nachricht an den oder die Empfänger übermittelt und startet
- den Anwendungsfall 
-\begin_inset Quotes eld
-\end_inset
-
-Nachricht empfangen
-\begin_inset Quotes erd
-\end_inset
-
- (siehe 
+ den Anwendungsfall Nachricht empfangen (siehe Kapitel 
 \begin_inset CommandInset ref
 LatexCommand vref
 reference "sub:Nachricht-empfangen"
@@ -2338,10 +2380,6 @@ reference "sub:Nachricht-empfangen"
 \end_inset
 
 ).
-\end_layout
-
-\begin_layout Subsubsection*
-Use-Case
 \end_layout
 
 \begin_layout Standard
@@ -2377,10 +2415,6 @@ Use-Case Nachricht senden
 \end_inset
 
 
-\end_layout
-
-\begin_layout Subsubsection*
-Use-Case-Spezifikation
 \end_layout
 
 \begin_layout Standard
@@ -2535,7 +2569,7 @@ Auslösendes Ereignis
 \begin_inset Text
 
 \begin_layout Plain Layout
-Benutzer möchte eine Nachricht senden.
+Der Benutzer möchte eine Nachricht senden.
 \end_layout
 
 \end_inset
@@ -2555,7 +2589,7 @@ Akteure
 \begin_inset Text
 
 \begin_layout Plain Layout
-Benutzer
+Benutzer (als Empfänger und Sender)
 \end_layout
 
 \end_inset
@@ -2575,7 +2609,7 @@ Vorbedingung
 \begin_inset Text
 
 \begin_layout Plain Layout
-Der Benutzer ist im Gespräch angemeldet und besitzt eine gültiges Session-Ticket.
+Der Benutzer ist im Gespräch beigetreten und besitzt ein gültiges Session-Ticket.
 \end_layout
 
 \end_inset
@@ -2637,20 +2671,12 @@ Hauptszenario
 
 \begin_layout Plain Layout
 1.
- Der Benutzer erfasst die zu versenden Nachricht
+ Der Benutzer erfasst die zu versendende Nachricht.
 \end_layout
 
 \begin_layout Plain Layout
 2.
- Der Benutzer wählt einen Kryptoalgorithmus
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "Kryptoalgorithmus"
-description "Ein Kryptoalgorithmus ist im Kontext von YAEM die konkrete Implementierung des Interfaces ICryptoProvider und bietet die Möglichkeit beliebige Nachrichten zu verschlüsseln beziehungsweise zu entschlüsseln."
-
-\end_inset
-
- aus.
+ Der Benutzer wählt die Implementierung eines Kryptosystems aus.
 \end_layout
 
 \begin_layout Plain Layout
@@ -2673,16 +2699,19 @@ description "Ein Initialisierungsvektor (kurz IV) bezeichnet in der Kryptografie
 
 \begin_layout Plain Layout
 5.
- Der Benutzer wählt einen Schlüssel.
+ Der Benutzer wählt einen Schlüssel
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Schlüssel"
+description "Als Schlüssel wird in der Kryptologie allgemein eine Information bezeichnet, die einen kryptographischen Algorithmus parametrisiert."
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Plain Layout
 6.
- Der Schlüssel wird an alle Empfänger gesendet.
-\end_layout
-
-\begin_layout Plain Layout
-7.
  Der Benutzer verschickt die (verschlüsselte) Nachricht.
 \end_layout
 
@@ -2714,7 +2743,7 @@ Alternativszenarien
 
 \begin_layout Plain Layout
 3a.
- Der Benutzer hat bereits einen Intialisierungsvektor erstellt oder einen
+ Der Benutzer hat bereits einen Intialisierungsvektor generiert oder einen
  Initalisierungsvektor von einem anderen Teilnehmer des Gesprächs erhalten
  und generiert keinen neuen Initialisierungsvektor.
 \end_layout
@@ -2794,10 +2823,6 @@ erungsvektor und Schlüssel die Nachricht zu entschlüssel und dem Benutzer
  Ist die Nachricht unverschlüsselt, so wird diese dem Benutzer direkt angezeigt.
 \end_layout
 
-\begin_layout Subsubsection*
-Use-Case
-\end_layout
-
 \begin_layout Standard
 \begin_inset Float figure
 placement H
@@ -2831,10 +2856,6 @@ Use-Case Nachricht empfangen
 \end_inset
 
 
-\end_layout
-
-\begin_layout Paragraph
-Use-Case-Spezifikation
 \end_layout
 
 \begin_layout Standard
@@ -2989,7 +3010,8 @@ Auslösendes Ereignis
 \begin_inset Text
 
 \begin_layout Plain Layout
-Ein anderer Teilnehmer des Gesprächs versendet eine Nachricht.
+Ein anderer Teilnehmer des Gesprächs versendet eine Nachricht, die an den
+ Benutzer gerichtet ist.
 \end_layout
 
 \end_inset
@@ -3029,8 +3051,10 @@ Vorbedingung
 \begin_inset Text
 
 \begin_layout Plain Layout
-Der Benutzer ist im Gespräch angemeldet und besitzt eine gültiges Session-Ticket.
- Ein Teilnehmer des Gesprächs versendet eine Nachricht.
+Der Benutzer ist dem Gespräch beigetreten und besitzt ein gültiges Session-Ticke
+t.
+ Ein Teilnehmer des Gesprächs versendet eine Nachricht, die an den Benutzer
+ gerichtet ist.
 \end_layout
 
 \end_inset
@@ -3092,12 +3116,12 @@ Hauptszenario
 
 \begin_layout Plain Layout
 1.
- Der Benutzer empfängt die Nachricht und prüft ob diese verschlüsselt ist.
+ Der Benutzer empfängt eine Nachricht.
 \end_layout
 
 \begin_layout Plain Layout
 2.
- Der Benutzer verwendet den Initialisierungsvektor und Schlüssel zum entschlüsse
+ Der Benutzer verwendet den Initialisierungsvektor und Schlüssel zum Entschlüsse
 ln der Nachricht.
 \end_layout
 
@@ -3124,7 +3148,7 @@ Alternativszenarien
 
 \begin_layout Plain Layout
 1a.
- Ist die Nachricht nicht verschlüsselt, wird sie direkt angezeigt.
+ Ist die Nachricht nicht verschlüsselt, wird sie dem Benutzer direkt angezeigt.
 \end_layout
 
 \end_inset
@@ -3145,7 +3169,7 @@ Ausnahmeszenarien
 
 \begin_layout Plain Layout
 Ist kein Initalisierungsvektor, Schlüssel oder Implementierung des verwendeten
- Kryptoalgorithmus vorhanden, so wird der unlesbare Geheimtext
+ Kryptosystems vorhanden, so wird der unlesbare Geheimtext
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "Geheimtext"
@@ -3206,7 +3230,11 @@ description "Ein Mockup in der Softwareentwicklung bezeichnet einen rudimentäre
  dienen zur Visualisierung der Benutzeroberfläche des zu entwickelnden Softwarep
 rodukts und werden häufig bereits in der Anforderungsphase zusammen mit
  den Stakeholdern entwickelt.
- Sie liefern dem Softwareentwickler in der Implmentationsphase (siehe 
+ 
+\end_layout
+
+\begin_layout Standard
+Sie liefern dem Softwareentwickler in der Implmentationsphase (siehe 
 \begin_inset CommandInset ref
 LatexCommand vref
 reference "chap:Implementierung"
@@ -3223,9 +3251,9 @@ description "Als Dialog (oder Dialogfenster) bezeichnet man in der Softwareentwi
 
 .
  Je nach Kundenzielgruppe und Wichtigkeit der Mensch-Maschine-Schnittstelle
- wird mehr oder weniger Zeit in die Entwicklung der Mockups investiert.
+ wird mehr oder weniger Aufwand in die Entwicklung der Mockups investiert.
  Häufig werden diese mit zusammen mit Psychologen entwickelt und enthalten
- sehr weniger Interpretationsspielraum für den Softwareentwickler.
+ sehr wenig Interpretationsspielraum für den Softwareentwickler.
 \end_layout
 
 \begin_layout Subsection
@@ -3233,15 +3261,30 @@ Dialog Gespräch beitreten
 \end_layout
 
 \begin_layout Standard
-Startet der Benutzer die Applikation so wird ihm als erstes die Möglichkeit
- gegeben, einen Benutzernamen zu wählen, unter welchem er im Gespräch Nachrichte
-n verschicken möchte.
+Startet der Benutzer die Applikation so wird er gebeten, einen Benutzernamen
+ zu wählen, unter welchem er im Gespräch Nachrichten versenden kann (Mockup
+ siehe Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Mockup-Dialog-Gespräch"
+
+\end_inset
+
+).
  Dabei wird der Benutzername auf eine Länge von 255 Zeichen beschränkt und
  er darf keine Sonderzeichen enthalten.
- Nach einem Klick auf Connect werden diese Bedingungen geprüft und eine
- Verbindung zum Server hergestellt.
- Bei Erfolg wird der Dialog geschlossen und dem Benutzer der Gesprächsdialog
- (siehe 
+ Nach einem Klick auf den Button 
+\begin_inset Quotes eld
+\end_inset
+
+Connect
+\begin_inset Quotes erd
+\end_inset
+
+ werden diese Bedingungen überprüft und gegebenenfalls wird eine Verbindung
+ zum Server hergestellt.
+ Bei erfolgreichem Verbindungsaufbau wird der Dialog geschlossen und dem
+ Benutzer wird der Gesprächsdialog (siehe Kapitel 
 \begin_inset CommandInset ref
 LatexCommand vref
 reference "sub:Gesprächsdialog"
@@ -3249,10 +3292,6 @@ reference "sub:Gesprächsdialog"
 \end_inset
 
 ) angezeigt.
-\end_layout
-
-\begin_layout Subsubsection*
-Mockup
 \end_layout
 
 \begin_layout Standard
@@ -3266,7 +3305,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename Mockups/Connect.png
-	scale 65
+	scale 50
 
 \end_inset
 
@@ -3278,6 +3317,13 @@ status open
 
 \begin_layout Plain Layout
 Mockup Dialog Gespräch beitreten
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Mockup-Dialog-Gespräch"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -3303,11 +3349,19 @@ name "sub:Gesprächsdialog"
 
 \begin_layout Standard
 Ist der Benutzer einem Gespräch beigetreten so verwendet er den Gesprächsdialog
- zum Senden und Empfangen von Nachrichten.
- Das Gesprächsprotokoll zeigt einen zeitlich geordneten Ablauf aller gesendeten
- und empfangenen Nachrichten.
+ zum Senden und Empfangen von Nachrichten (Mockup siehe Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Gesprächsdialog"
+
+\end_inset
+
+).
+ Das Gesprächsprotokoll stellt einen zeitlich geordneten Ablauf aller gesendeten
+ und empfangenen Nachrichten dar.
  Weiterhin werden Aktionen wie ein Initialisierungsvektoraustausch oder
- das Setzen des Schlüssels eines Verschlüsselungsalgorithmus angezeigt.
+ das Setzen des Schlüssels eines Verschlüsselungsalgorithmus im Gesprächsprotoko
+ll angezeigt.
  Auf der rechten Seite werden alle dem Gespräch beigetretenen Benutzer angezeigt.
  
 \end_layout
@@ -3315,8 +3369,8 @@ Ist der Benutzer einem Gespräch beigetreten so verwendet er den Gesprächsdialo
 \begin_layout Standard
 Über die Textbox unterhalb des Gesprächsprotokolls lassen sich Nachrichten
  erfassen, die Nachricht muss dabei mindestens ein Zeichen lang sein.
- in der Dropdownliste rechts neben der Textbox werden alle installierten
- Kryptoalgorithmen angezeigt, zusätzlich zur Voreinstellung 
+ In der Dropdownliste rechts neben der Textbox werden alle installierten
+ Kryptosysteme installiert, zusätzlich zur Voreinstellung 
 \begin_inset Quotes eld
 \end_inset
 
@@ -3325,12 +3379,17 @@ Ist der Benutzer einem Gespräch beigetreten so verwendet er den Gesprächsdialo
 \end_inset
 
 , welche die Nachricht unverschlüsselt versendet.
- Ist kein Algorithmus angezeigt, so kann der Benutzer keine Auswahl treffen.
- Wählt der Benutzer einen Algorithmus aus, für welchen noch kein Initialisierung
-svektor vorhanden ist, so wird eine Vektor generiert und den anderen Gesprächste
-ilnehmern zugsendet.
+ Ist kein Kryptosystem installiert, so kann der Benutzer keine Auswahl aus
+ der Dropdownliste treffen.
+ 
+\end_layout
+
+\begin_layout Standard
+Wählt der Benutzer ein Kryptosystem aus, für welchen noch kein Initialisierungsv
+ektor vorhanden ist, so wird eine neuer Initialisierungsvektor generiert
+ und den anderen Gesprächsteilnehmern zugesandt.
  Gleichzeitig wählt der Benutzer einen Schlüssel aus.
- Beim klicken auf den 
+ Wird auf den Button 
 \begin_inset Quotes eld
 \end_inset
 
@@ -3338,16 +3397,12 @@ Send
 \begin_inset Quotes erd
 \end_inset
 
- Button, wird die Nachricht an die anderen Gesprächsteilnehmer versendet.
+ geklickt, wird die Nachricht an die anderen Gesprächsteilnehmer versendet.
 \end_layout
 
 \begin_layout Standard
 Beim Schliessen der Applikation verlässt der Benutzer das Gespräch und der
  Gesprächsdialog schliesst sich selbst.
-\end_layout
-
-\begin_layout Subsubsection*
-Mockup
 \end_layout
 
 \begin_layout Standard
@@ -3361,7 +3416,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename Mockups/Messaging.png
-	scale 65
+	scale 50
 
 \end_inset
 
@@ -3373,6 +3428,13 @@ status open
 
 \begin_layout Plain Layout
 Mockup Gesprächsdialog
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Mockup-Gesprächsdialog"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -3386,10 +3448,10 @@ Mockup Gesprächsdialog
 \end_layout
 
 \begin_layout Chapter
-Konzept
+Konzept und Architektur
 \begin_inset CommandInset label
 LatexCommand label
-name "chap:Konzept"
+name "chap:Konzept-und-Architektur"
 
 \end_inset
 
@@ -3418,10 +3480,11 @@ key "Oestereich2006"
 
 ).
  Als Grundlage für das Konzept wird in einem ersten Schritt die Toolchain
- erfasst, welche die weiteren (technologischen) Rahmenbedingungen für das
- Konzept vorgibt.
- Weiter wird zuerst das Konzept von der Bausteinsicht betrachtet, es wird
- von der Komponentenebene bis zur Klassenebene das System modelliert.
+ erfasst, welche weitere (technisch) Rahmenbedingungen für das Konzept und
+ die Archtektur des Systems vorgibt.
+ Weiter wird zuerst das Konzept aus der Bausteinperspektive betrachtet,
+ es wird von der Komponentenebene bis zur Klassenebene das System modelliert
+ und die Architektur des Systems festgelegt.
  Als weitere Sicht wird die Laufzeitsicht und die Verteilungssicht des Systems
  beleuchtet und spezifiziert.
 \end_layout
@@ -3433,39 +3496,41 @@ Toolchain
 \begin_layout Standard
 Der erste Schritt der Konzepterstellung ist das Erarbeiten und Evaluieren
  der Toolchain.
- Die Toolchain bestimmt mit welchen Frameworks und Entwicklungswerkzeugen
- der Entwickler später arbeiten wird und gibt einen groben technischen Rahmen
- vor, der bei der Konzepterstellung berücksichtigt werden muss.
+ Die Toolchain beeinhaltet Frameworks und Entwicklungswerkzeuge, mit denen
+ der Entwickler später arbeitet und gibt einen groben technischen Rahmen
+ vor, der bei der Konzepterstellung und insbesondere bei der Erarbeitung
+ der Systemarchitektur berücksichtigt werden muss.
 \end_layout
 
 \begin_layout Standard
 Basis der verwendeten Tools und Frameworks wird Microsofts .NET Framework
  in der Version 4.0 sein.
- Dies primär aufgrund der Möglichkeiten von WCF
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-Eine umfangreiche Einführung in WCF ist in der MSDN unter 
-\begin_inset Flex URL
-status collapsed
-
-\begin_layout Plain Layout
-
-http://msdn.microsoft.com/en-us/library/ee958158.aspx
-\end_layout
+ Dies primär aufgrund der Möglichkeiten welche die Windows Communication
+ Foundation (siehe Kapitel 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:Windows-Communication-Foundation"
 
 \end_inset
 
- erhältlich.
-\end_layout
+) zur Realisierung von Webservices bietet sowie Windows Presentation Foundation
+ (siehe Kapitel 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:Windows-Presentation-Foundation"
 
 \end_inset
 
- zur Realisierung von Webservices und WPF bzw.
- Silverlight für Applikationen mit Oberflächen für die Windows Plattform.
- Als Entwicklungswerkzeug wird Microsoft Visual Studio 2010 eingesetzt und
- als Package Manager NuGet
+) beziehungsweise Silverlight (siehe Kapitel 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:Silverlight"
+
+\end_inset
+
+) für grafische Applikationen für die Windows Plattform.
+ Als Entwicklungswerkzeug wird Microsoft Visual Studio 2010 eingesetzt zusammen
+ mit dem Package Manager NuGet
 \begin_inset Foot
 status open
 
@@ -3486,8 +3551,8 @@ http://nuget.codeplex.com/
 
 \end_inset
 
-.
- Zur Dateiverwaltung der online Hosting-Dienst Github
+ zur Verwaltung der externen Abhängigkeiten.
+ Zur Dateiverwaltung wird der online Hosting-Dienst Github
 \begin_inset Foot
 status open
 
@@ -3508,7 +3573,7 @@ https://github.com/famstutz/YAEM
 
 \end_inset
 
- verwendet, welcher als Versionsverwaltungssystem Git
+ eingesetzt, welcher als Versionsverwaltungssystem Git
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "Git"
@@ -3516,7 +3581,7 @@ description "Git ist eine freie Software zur verteilten Versionsverwaltung von D
 
 \end_inset
 
- einsetzt.
+ verwendet.
 \end_layout
 
 \begin_layout Section
@@ -3546,8 +3611,8 @@ Bausteine
 \begin_inset Quotes erd
 \end_inset
 
- sämtliche Software- oder Implementeirungskomponenten zusammenfassen.
- Sie stellen letztendliche Abstraktionen von Quellcode dar.
+ sämtliche Software- oder Implementierungskomponenten zusammenfassen, die
+ letztendlich Abstraktionen von Quellcode darstellen.
  Dazu gehören Klassen, Prozeduren, Programme, Pakete, Komponenten (nach
  der UML-Definition) oder Subsysteme.
 \end_layout
@@ -3557,8 +3622,8 @@ Die Bausteinsicht bildet die Aufgaben des System auf Software-Bausteine
  oder -Komponenten ab.
  Diese Sicht macht Struktur und Zusammenhänge zwischen den Bausteinen der
  Architektur explizit.
- Bausteinsichten zeigen statische Aspekte von Systemen.
- In dieser Hinsicht entsprechen sie den konventionellen Implementierungsmodellen.
+ Bausteinsichten zeigen statische Aspekte von Systemen und entsprechen in
+ dieser Hinsicht den konventionellen Implementierungsmodellen.
 \end_layout
 
 \begin_layout Subsection
@@ -3566,19 +3631,34 @@ Komponentendiagramm
 \end_layout
 
 \begin_layout Standard
-Das Komponentendigramm stellt das System YAEM aus Vogelperspektive dar und
- ist die höchstabstrahierte Ansicht der Bausteinsicht.
+Das Komponentendigramm in Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Komponentendiagramm"
+
+\end_inset
+
+ stellt das System YAEM aus der Vogelperspektive dar und ist die höchstabstrahie
+rte Ansicht der Bausteinsicht die in diesem Projekt existiert.
  
 \end_layout
 
 \begin_layout Standard
-Der ServiceHost stellt die Serverapplikation des Systems dar und implementiert
- die beiden Schnittstellen
+Der ServiceHost
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "ServiceHost"
+description "Der ServiceHost implementiert den Host, der vom Progammiermodell für das Windows Communication Foundation (WCF)-Dienstmodell verwendet wird."
+
+\end_inset
+
+ stellt die Serverapplikation des Systems dar und implementiert die beiden
+ Schnittstellen
 \begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-In diesem Zusammenhang auch Service Contracts
+Im Zusammenhang mit WCF auch Service Contracts
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "Service Contract"
@@ -3586,7 +3666,7 @@ description "Ein Service Contract bezeichnet eine Schnittstelle oder Klasse die 
 
 \end_inset
 
- genannt
+ genannt.
 \end_layout
 
 \end_inset
@@ -3595,31 +3675,28 @@ description "Ein Service Contract bezeichnet eine Schnittstelle oder Klasse die 
 \emph on
 IUserService
 \emph default
- (siehe 
-\begin_inset CommandInset ref
-LatexCommand vref
-reference "sub:IUserService"
-
-\end_inset
-
-) und 
+ und 
 \emph on
 IMessagingService
 \emph default
- (siehe 
+ (siehe Kapitel 
 \begin_inset CommandInset ref
 LatexCommand vref
-reference "sub:IMessagingService"
+reference "sub:Service-Contracts"
 
 \end_inset
 
 ).
  Er stellt die Schnittstellen als Webservice den Clientapplikationen zur
  Verfügung.
- Die Clientapplikationen (die in einer Vielzahl von Frameworks implementiert
+ 
+\end_layout
+
+\begin_layout Standard
+Die Clientapplikationen (die in einer Vielzahl von Frameworks implementiert
  sein können) benutzen diese Schnittstellen um mit der Serverapplikation
  zu kommunizieren.
- Die Clientapplikationen benutzen MEF
+ Die Clientapplikationen benutzen das Managed Extensibility Framework
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "Managed Extensibility Framework"
@@ -3627,20 +3704,24 @@ description "Das Managed Extensibility Framework (kurz MEF) ist ein Kompositionf
 
 \end_inset
 
- um dynamisch Kryptoalgorithmen (siehe 
+(mehr in Kapitel 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:Managed-Extensibility-Framework"
+
+\end_inset
+
+) um dynamisch die Implementierungen der Kryptosysteme (siehe 
 \begin_inset CommandInset ref
 LatexCommand vref
 reference "sub:Kryptoalgorithmen"
 
 \end_inset
 
-) zur Laufzeit laden zu können.
- Dadurch wird gewährleistet, dass der Server zu keinem Zeitpunkt die verschlüsse
-lten Nachrichten, die über ihn versendet werden, im Klartext lesen kann.
-\end_layout
-
-\begin_layout Subsubsection*
-Komponentendiagramm
+) zur Laufzeit laden und verwenden zu können.
+ Dadurch wird gewährleistet, dass die Serverapplikation zu keinem Zeitpunkt
+ die verschlüsselten Nachrichten, die über sie versendet werden, im Klartext
+ lesen kann.
 \end_layout
 
 \begin_layout Standard
@@ -3666,6 +3747,13 @@ status open
 
 \begin_layout Plain Layout
 Komponentendiagramm
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Komponentendiagramm"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -3690,8 +3778,15 @@ name "sub:Domänenmodell"
 \end_layout
 
 \begin_layout Standard
-Das Domänenmodell umfasst nur die Businessobjekte, die über die Serviceschnittst
-elle vom Client
+Das Domänenmodell (siehe Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Klassendiagramm-Domänenmodell"
+
+\end_inset
+
+) umfasst nur die Klassen der Objekte, die über die Serviceschnittstelle
+ von der Client
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "Client"
@@ -3726,16 +3821,25 @@ description "Ein Repository ist ein Verzeichnis zur Speicherung einer von digita
 \end_inset
 
  gespeichert.
- Bei erfolgreichem Gesprächsbeitritt erstellt der Server ein 
+ Bei erfolgreichem Gesprächsbeitritt erstellt die Serverapplikation ein
+ 
 \emph on
 Ticket
 \emph default
-objekt, welches an den Client zurückgegeben wird.
+objekt, welches an die Clientapplikation zurückgegeben wird.
  Wird eine Nachricht versendet, so erstellt der Client ein 
 \emph on
 Message
 \emph default
-objekt, welches die Nachricht selbst als Bytearray in der Eigenschaft 
+objekt, welches die Nachricht selbst als Bytearray
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Bytearray"
+description "Ein Bytearray ist eine Datenstruktur die als Container für Byte-Werte (ganzzahlige Werte von 0 bis 255) dient."
+
+\end_inset
+
+ in der Eigenschaft 
 \emph on
 Payload
 \emph default
@@ -3774,7 +3878,7 @@ Message
 \end_layout
 
 \begin_layout Standard
-Sämtliche Domänenobjekte leiten von 
+Sämtliche Domänenobjekte leiten von der Klasse 
 \emph on
 ObjectBase
 \emph default
@@ -3806,7 +3910,7 @@ INotifyPropertyChanged
 \emph default
 
 \begin_inset Foot
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Die genaue Schnittstellenbeschreibung ist in der MSDN unter 
@@ -3826,7 +3930,7 @@ aspx
 
 \end_inset
 
-, welches in WPF
+, welches in der Windows Presentation Foundation
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "WPF"
@@ -3844,10 +3948,6 @@ description "Silverlight ist eine Erweiterung für Webbrowser, welche die Ausfü
 
  dazu dient, UI-Elemente, die an Datenobjekte gebunden sind, über geänderte
  Eigenschaften zu informieren.
-\end_layout
-
-\begin_layout Subsubsection*
-Klassendiagramm
 \end_layout
 
 \begin_layout Standard
@@ -3873,6 +3973,13 @@ status open
 
 \begin_layout Plain Layout
 Klassendiagramm Domänenmodell
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Klassendiagramm-Domänenmodell"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -3897,9 +4004,9 @@ name "sub:Service-Contracts"
 \end_layout
 
 \begin_layout Standard
-Ein Service Contract ist das Ausstellen einer Schnittstelle zur Kommunikation
- verschiedener Applikationen innerhalb eines verteilten Systems.
- Häufig werden diese Contracts als Webservice
+Ein Service Contract spezifiziert eine Schnittstelle zur Kommunikation verschied
+ener Applikationen innerhalb eines verteilten Systems.
+ Häufig werden diese Service Contracts als Webservice
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "Webservice"
@@ -3908,7 +4015,7 @@ description "Ein Webservice ist eine Softwareapplikation, auf den über eine URL
 \end_inset
 
  angeboten, da sie dadurch plattform- und frameworkunabhängig implementiert
- werden können.
+ genutzt werden können.
  
 \end_layout
 
@@ -3918,11 +4025,11 @@ erte als XML-Fragmente an die konsumierende Applikation zurückgegeben werden.
  Ausserdem ist ein Service Contract per Definition grundsätzlich zustandslos,
  er behandelt mehrere Anfragen (auch desselben Auftraggebers) immer als
  unabhängige Transaktionen.
- Insbesondere werden Anfragen ohne Bezug zu früheren Anfragen behandelt
- und keine Sitzungsinformationen ausgetauscht.
+ Anfragen werden ohne Bezug zu früheren, vorhergegeganen Anfragen behandelt
+ und es werden auch keine Sitzungsinformationen ausgetauscht.
 \end_layout
 
-\begin_layout Subsubsection*
+\begin_layout Subsubsection
 IUserService
 \begin_inset CommandInset label
 LatexCommand label
@@ -3934,17 +4041,27 @@ name "sub:IUserService"
 \end_layout
 
 \begin_layout Standard
-Das Interface 
+Die in Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Klassendiagramm-IUserService"
+
+\end_inset
+
+ gezeigte Schnittstelle 
 \emph on
 IUserService
 \emph default
- stellt die Benutzerverwaltungsfunktionalitäten zur Verfügung.
- Der Konsument des Service Contracts übergibt beim anmelden an den Server
- ein 
+ stellt die Benutzerverwaltungsfunktionalitäten des Sytems zur Verfügung.
+ Der Konsument des Webservices übergibt beim Anmelden (Methode 
+\emph on
+Join
+\emph default
+) ein 
 \emph on
 User
 \emph default
-objekt, über welches der Benutzer identifiziert werden kann.
+objekt an den Server, über welches der Benutzer identifiziert werden kann.
  Wird der Benutzer erfolgreich angemeldet, wird ein 
 \emph on
 Session
@@ -3991,18 +4108,16 @@ description "Ein Callback (zu deutsch Rückruffunktion) bezeichnet eine Funktion
 
 \end_inset
 
- (siehe 
+ (siehe Kapitel 
 \begin_inset CommandInset ref
 LatexCommand vref
 reference "sub:IServiceCallback"
 
 \end_inset
 
-) an den Client zu versenden.
-\end_layout
-
-\begin_layout Paragraph*
-Klassendiagramm
+) an alle registrierten Clients zu versenden um sie über dem Gespräch neue
+ hinzgekommene Benutzer oder Benutzer, die das Gespräch verlassen haben,
+ zu informieren.
 \end_layout
 
 \begin_layout Standard
@@ -4030,7 +4145,11 @@ status open
 Klassendiagramm 
 \emph on
 IUserService
-\end_layout
+\emph default
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Klassendiagramm-IUserService"
 
 \end_inset
 
@@ -4042,7 +4161,12 @@ IUserService
 
 \end_layout
 
-\begin_layout Subsubsection*
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
 IMessagingService
 \begin_inset CommandInset label
 LatexCommand label
@@ -4062,8 +4186,16 @@ IMessagingService
 \emph on
 Message
 \emph default
-objekts übertragen.
- Der Sender gibt beim Aufruf der Methode 
+objekts übertragen (siehe Klassendiagramm in Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Klassendiagramm-IMessagingServic"
+
+\end_inset
+
+).
+ Die Clientapplikation als Sender einer Nachricht übergibt beim Aufruf der
+ Methode 
 \emph on
 Send
 \emph default
@@ -4081,7 +4213,11 @@ Session
 Session
 \emph default
  besitzt.
- Die Methoden 
+ 
+\end_layout
+
+\begin_layout Standard
+Die Methoden 
 \emph on
 NegotiateInitializationVector
 \emph default
@@ -4089,16 +4225,12 @@ NegotiateInitializationVector
 \emph on
 NegotiateKey
 \emph default
- dienen zur Übermittlung des Initialisierungsvektors bzw.
- Schlüssels für den jeweils mitgelieferten Kryptoalgorithmus vom Typ 
+ dienen zur Übermittlung des Initialisierungsvektors beziehungsweise des
+ Schlüssels für ein Kryptosystem vom Typ 
 \emph on
 CryptoAlgorithm
 \emph default
 .
-\end_layout
-
-\begin_layout Paragraph*
-Klassendiagramm
 \end_layout
 
 \begin_layout Standard
@@ -4126,7 +4258,9 @@ status open
 Klassendiagramm 
 \emph on
 IMessagingService
-\end_layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Klassendiagramm-IMessagingServic"
 
 \end_inset
 
@@ -4138,7 +4272,12 @@ IMessagingService
 
 \end_layout
 
-\begin_layout Subsubsection*
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
 IServiceCallback
 \begin_inset CommandInset label
 LatexCommand label
@@ -4159,9 +4298,12 @@ description "Das Hypertext Transfer Protocol (kurz HTTP) ist ein Protokoll zur �
 \end_inset
 
  Callbacks (der Mechanismus wird detaillierter 
-\noun on
-[Referenz]
-\noun default
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:Callbacks-über-NetHttpDualBindin"
+
+\end_inset
+
  beschrieben) versendet werden können, müssen alle Clientapplikationen,
  die den Webservice der Serverapplikation verwenden, die Schnittstelle 
 \emph on
@@ -4205,8 +4347,8 @@ description "Eine Annotation bezeichnet ein Sprachelement im Quelltext, das zur 
 
 \end_inset
 
- so dass beim Abbonnieren des Webservices der generierte Serviceclient gezwungen
- wird die Schnittstelle 
+ so dass beim Abbonnieren des Webservices der generierte Serviceclient des
+ Webservices gezwungen wird die Schnittstelle 
 \emph on
 IServiceCallback
 \emph default
@@ -4230,7 +4372,14 @@ reference "tab:Methoden-von-IServiceCallback"
 
 \end_inset
 
- beschrieben sind.
+ beschrieben sind sowie in der Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Klassendiagramm-IServiceCallback"
+
+\end_inset
+
+ als Klassendiagramm grafisch dargestellt sind.
 \end_layout
 
 \begin_layout Standard
@@ -4282,8 +4431,8 @@ NotifyNegotiateIntializationVector
 \begin_inset Text
 
 \begin_layout Plain Layout
-Teilt dem Client mit, dass für einen bestimmten Kryptoalgorithmus ein neuer
- Intialisierungsvektor gesetzt wurde.
+Teilt dem Client mit, dass für ein Kryptosystem ein neuer Intialisierungsvektor
+ generiert wurde.
 \end_layout
 
 \end_inset
@@ -4305,8 +4454,8 @@ NotifyNegotiateKey
 \begin_inset Text
 
 \begin_layout Plain Layout
-Teilt dem Client mit, dass für einen bestimmten Kryptoalgorithmus ein neuer
- Schlüssel gesetzt wurde.
+Teilt dem Client mit, dass für ein Kryptosystem ein neuer Schlüssel gesetzt
+ wurde.
 \end_layout
 
 \end_inset
@@ -4411,10 +4560,6 @@ name "tab:Methoden-von-IServiceCallback"
 
 \end_layout
 
-\begin_layout Paragraph*
-Klassendiagramm
-\end_layout
-
 \begin_layout Standard
 \begin_inset Float figure
 placement H
@@ -4440,6 +4585,15 @@ status open
 Klassendiagramm 
 \emph on
 IServiceCallback
+\emph default
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Klassendiagramm-IServiceCallback"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -4453,7 +4607,7 @@ IServiceCallback
 \end_layout
 
 \begin_layout Subsection
-Kryptoalgorithmen
+Kryptosysteme
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:Kryptoalgorithmen"
@@ -4464,8 +4618,8 @@ name "sub:Kryptoalgorithmen"
 \end_layout
 
 \begin_layout Standard
-Ein Ziel dieses Projekts war es, einzelne Kryptoalgorithmen als eigenständige
- Assemblies
+Ein Ziel dieses Projekts war es, die Implementierungen von Kryptosystemen
+ als eigenständige Assemblies
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "Assembly"
@@ -4473,26 +4627,33 @@ description "Übersetzter Quellcode als ausführbares Programm wird in .NET in s
 
 \end_inset
 
- zu implementieren und zur Laufzeit den Clientapplikationen anzuhängen.
- Aus diesem Grund müssen alle Kryptoalgorithmen gegen die Schnittstelle
- 
+ zu kompilieren und zur Laufzeit den Clientapplikationen zur Verfügung zu
+ stellen.
+ Aus diesem Grund müssen alle Kryptosystemen die Schnittstelle 
 \emph on
 ICryptoProvider 
 \emph default
-implementiert werden.
- 
+implementieren.
+\end_layout
+
+\begin_layout Standard
+
 \emph on
 ICryptoProvider
 \emph default
  liefert die grundlegenden Funktionalitäten zur Implementierung von symmetrische
-n Kryptosystemen, bei welchen beide Teilnehmer den gleichen Schlüssel verwenden.
+n Kryptosystemen, bei welchen beide Teilnehmer den gleichen Schlüssel verwenden
+ (mehr zu symmetrischen und asymmetrischen Kryposystemen in Kapitel 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sec:Kryptosysteme"
+
+\end_inset
+
+).
  Alle Nutzdaten (verschlüsselt oder unverschlüsselt) werden als Bytearrays
- (
-\emph on
-byte[]
-\emph default
-) übergeben, so dass sie einfach und ohne Zusatzaufwand über einen Webservice
- übergeben werden können.
+ übergeben, so dass sie einfach und ohne Zusatzaufwand über einen Webservice
+ serialisiert übergeben werden können.
  Jedes symmetrische Kryptosystem enthält einen Initalisierungsvektor, der
  einen Block von Zufallsdaten bezeichnet, sowie einen Schlüssel, der nur
  dem Sender und Empfänger bekannt ist.
@@ -4502,44 +4663,50 @@ ICryptoProvider
 \emph default
  auch keine Methode 
 \emph on
-GetKey()
+GetKey
 \emph default
-, da der Schlüssel nicht öffentlich bekannt sein darf.
+, da der Schlüssel innerhalb eines Kryptosystems nicht zugänglich sein darf.
 \end_layout
 
 \begin_layout Standard
 Die Methoden 
 \emph on
-Encrypt(string)
+Encrypt
 \emph default
  bzw.
  
 \emph on
-Decrypt(byte[])
+Decrypt
 \emph default
  verschlüsselt bzw.
  entschlüsseln übergebene Nutzdaten.
- Im nachfolgenden Klassendiagramm werden zusätzlich zur Schnittstelle 
+ Im Klassendiagramm (siehe Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Klassendiagramm-Kryptoalgorithme"
+
+\end_inset
+
+) werden zusätzlich zur Schnittstelle 
 \emph on
 ICryptoProvider
 \emph default
- auch noch die drei beispielhaften Implementierungen von symmetrischen Kryptosys
-temen AES, Rijndael und TripleDES dargestellt.
+ auch die drei beispielhaften Implementierungen der symmetrischen Kryptosystemen
+ AES, Rijndael und Triple-DES dargestellt.
  Jedes dieser Kryptosysteme wird in eine eigene Assembly kompiliert und
- zur Laufzeit der Clientapplikatikonen via MEF (siehe 
-\noun on
-[Referenz]
-\noun default
-) geladen.
-\end_layout
+ zur Laufzeit der Clientapplikatikonen mit Hilfe des Managed Extensibility
+ Frameworks (siehe 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:Managed-Extensibility-Framework"
 
-\begin_layout Paragraph*
-Klassendiagramm
+\end_inset
+
+) geladen.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
-placement H
 wide false
 sideways false
 status open
@@ -4560,6 +4727,13 @@ status open
 
 \begin_layout Plain Layout
 Klassendiagramm Kryptoalgorithmen
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Klassendiagramm-Kryptoalgorithme"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -4584,28 +4758,48 @@ name "sub:Server"
 \end_layout
 
 \begin_layout Standard
-Die Serverapplikation hosted die beiden Webservices IMessagingService (siehe
- 
+Abbildung 
 \begin_inset CommandInset ref
-LatexCommand vref
-reference "sub:IMessagingService"
+LatexCommand ref
+reference "fig:Klassendiagramm-Server"
 
 \end_inset
 
-) und IUserService (siehe 
+ zeigt das Klassendiagramm der Serverapplikation dar.
+ Die Serverapplikation stellt die beiden Webservices 
+\emph on
+IMessagingService
+\emph default
+ und 
+\emph on
+IUserService
+\emph default
+ (siehe Kapitel 
 \begin_inset CommandInset ref
 LatexCommand vref
-reference "sub:IUserService"
+reference "sub:Service-Contracts"
 
 \end_inset
 
-) in einem gemeinsamen Servicehost Services.
+) im zusammengeführten Servicehost 
+\emph on
+Services
+\emph default
+ der Aussenwelt zur Verfügung.
  Daraus ergibt sich eine Verwaltung der angemeldeten Benutzer und deren
- Sessions sowie das Aufrufen der passenden Callbacks bei Serviceoperationen.
- Dank des Bindings (siehe 
-\noun on
-[Referenz]
-\noun default
+ Sessions sowie das Aufrufen der passenden Callbacks bei entsprechenden
+ Serviceoperationen.
+ 
+\end_layout
+
+\begin_layout Standard
+Dank des Bindings (siehe Kapitel 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:Bindings"
+
+\end_inset
+
 ) kann die Serverapplikation Delegates
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
@@ -4624,7 +4818,7 @@ NotifyNewMessage
 \emph on
 IServiceCallback
 \emph default
- 
+ in Kapitel 
 \begin_inset CommandInset ref
 LatexCommand vref
 reference "tab:Methoden-von-IServiceCallback"
@@ -4634,13 +4828,8 @@ reference "tab:Methoden-von-IServiceCallback"
 ) der registrierten Clients aufrufen.
 \end_layout
 
-\begin_layout Paragraph*
-Klassendiagramm
-\end_layout
-
 \begin_layout Standard
 \begin_inset Float figure
-placement H
 wide false
 sideways false
 status open
@@ -4661,6 +4850,13 @@ status open
 
 \begin_layout Plain Layout
 Klassendiagramm Server
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Klassendiagramm-Server"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -4678,8 +4874,16 @@ Client
 \end_layout
 
 \begin_layout Standard
-Für die Clientapplikationen wird kein Konzept erstellt, da diese über eine
- Service Reference
+Für die Clientapplikationen wird kein gesondertes Konzept erstellt, da sich
+ ihre Logik auf das Benutezn der Webservices der Serverapplikation (siehe
+ 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:Server"
+
+\end_inset
+
+) beschränkt, die über eine Service Reference
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "Service Reference"
@@ -4708,22 +4912,24 @@ http://msdn.microsoft.com/en-us/library/bb907578.aspx
 
 \end_inset
 
- die Services der Serverapplikation (siehe 
-\begin_inset CommandInset ref
-LatexCommand vref
-reference "sub:Server"
-
-\end_inset
-
-) anziehen und zusätzlich noch das Interface IServiceCallback (siehe 
+ eingebunden werden.
+ Dadurch werden die Clientapplikationen gezwungen, das Interface 
+\emph on
+IServiceCallback
+\emph default
+ (siehe 
 \begin_inset CommandInset ref
 LatexCommand vref
 reference "sub:IServiceCallback"
 
 \end_inset
 
-) implementieren müssen.
- Ansonsten ergibt sich die logische Struktur der Clientapplikation aus dem
+) zu implementieren.
+ 
+\end_layout
+
+\begin_layout Standard
+Ansonsten ergibt sich die logische Struktur der Clientapplikation aus dem
  verwendeten GUI-Framework.
 \end_layout
 
@@ -4733,7 +4939,7 @@ Laufzeitsicht
 
 \begin_layout Standard
 Die Laufzeitsicht beschreibt, welche Bestandteile des Systems zur Laufzeit
- existieren und wie sie zusammenwirken (nach 
+ existieren und wie diese zusammenwirken (nach 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Starke2011"
@@ -4741,13 +4947,13 @@ key "Starke2011"
 \end_inset
 
 ).
- Dabei kommen wichtige Aspekte dese Systembetriebs ins Spiel, die beispielsweise
+ Dabei kommen wichtige Aspekte des Systembetriebs ins Spiel, die beispielsweise
  den Systemstart, die Laufzeitkonfiguration oder die Administration des
  Systems betreffen.
 \end_layout
 
 \begin_layout Standard
-Darüber hinaus dokumentiert die Laufzeitsicht, wie Laufzietkomponenten sich
+Darüber hinaus dokumentiert die Laufzeitsicht, wie Laufzeitkomponenten sich
  aus Instanzen von Implementierungsbausteinen zusammensetzen.
  
 \end_layout
@@ -4839,7 +5045,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename ExportedDiagrams/Sequence-GespraechVerlassen.png
-	scale 65
+	scale 50
 
 \end_inset
 
@@ -4900,7 +5106,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename ExportedDiagrams/Sequence-NachrichtSenden.png
-	scale 65
+	scale 50
 
 \end_inset
 
@@ -5037,9 +5243,19 @@ name "chap:Implementierung"
 \end_layout
 
 \begin_layout Standard
-
-\noun on
-[Kapiteleinführung]
+Das Kapitel Implementierung beschäftigt sich zuerst mit der Wahl der geeigneten
+ Entwicklungsmethode für dieses Projekt.
+ Als Nächstes werden verschiedene Technologien vorgestellt, die innerhalb
+ des Projekts Anwendung finden und für das weitere Verständnis des Quellcodes
+ oder dieser Dokumentation notwendig sind.
+ Auch wird auf einzelne besondere Entwurfsmuster näher eingegangen, insbesondere
+ für die UI-Frameworks.
+ Auch wird ein theoretischer Überblick über asymmetrische und symmetrische
+ Kryptosysteme gegeben sowie wie diese in YAEM eingebunden werden können.
+ Abschliessend werden die einzelnen Visual Studio-Projekte als Teilkomponenten
+ des Projekts vorgestellt sowie während der Implementierungsphase aufgetretenen
+ Probleme beschrieben, ihre Auswirkungen auf Teile des Projekterfolgs erläutert
+ sowie eventuelle Lösungsvorschläge aufgezeigt.
 \end_layout
 
 \begin_layout Section
@@ -5259,6 +5475,13 @@ Nachteilig ist anzumerken, dass konsequent sämtlicher Code testdriven erstellt
 
 \begin_layout Section
 Verwendete Technologien
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Verwendete-Technologien"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -5282,6 +5505,13 @@ Die einzelnen Unterkapitel bieten einen losen Überblick über verschiedenste
 
 \begin_layout Subsection
 Managed Extensibility Framework
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Managed-Extensibility-Framework"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -5440,6 +5670,13 @@ name "fig:MEF-Struktur"
 
 \begin_layout Subsection
 Windows Communication Foundation
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Windows-Communication-Foundation"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -5494,6 +5731,13 @@ reference "sub:IMessagingService"
 
 \begin_layout Subsubsection
 Bindings
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Bindings"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -5505,6 +5749,13 @@ Bindings
 
 \begin_layout Subsubsection
 Callbacks über NetHttpDualBinding
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Callbacks-über-NetHttpDualBindin"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -5647,7 +5898,7 @@ key "Fowler2004"
  auf moderne UI-Entwicklungsplattformen wie WPF oder Silverlight ausgelegt
  bei denen es eine Rollentrennung zwischen einem UI-Entwickluer und einem
  Back-End-Entwickler gibt.
- Das View-mDoel von MVVM ist dafür verantwortlich, die Datenbojekte des
+ Das View-Model von MVVM ist dafür verantwortlich, die Datenbojekte des
  Modells derart blosszulegen, dass sie einfach verwaltet und benutzt werden
  können.
  
@@ -5730,8 +5981,10 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
-	filename Graphics/MVVM.gif
+	filename Graphics/MVVM.png
+	scale 60
 
 \end_inset
 
@@ -5771,6 +6024,13 @@ name "fig:Beispielimplementierung-von-MVVM"
 
 \begin_layout Subsubsection
 Silverlight
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Silverlight"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -5870,15 +6130,234 @@ Durch den Einsatz von Mock-Objekten kann man einzelne Softwarteile testen
 
 \begin_layout Section
 Kryptosysteme
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Kryptosysteme"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
+Ein Kryptosystem besteht aus einem Algorithmus der eine Eingabemenge parameterge
+steuert in eine Ausgabemenge transformiert.
+ Es dient zur Geheimhaltung von übertragenen und gespeicherten Informationen
+ gegenüber Dritten.
+ Geheimhaltung wird dabei durch Transformation der Nachricht erzielt, so
+ dass die transformierte Nachricht für Dritte keine konstruierbaren semantischen
+, statistischen oder strukturellen Korrelationen zum Original mehr aufweist
+ (nach 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Geiselmann2009"
 
-\noun on
-[AES, TripleDES und Rijndael erklären, symmetrische/asymmetrische Kryptosysteme
- erklären, erklären wieso im Moment nur symmetrische Kryptosysteme unterstützt
- werden, erklären, wie man asymmetrische Kryptosysteme unterstützen würde
- (welche Änderungen an ICryptoProvider wären nötig)]
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+Ein symmetrisches Kryptosystem ist ein Kryptosystem, bei welchem im Gegensatz
+ zu einem asymmetrischen Kryptosystem beide Teilnehmer den gleichen Schlüssel
+ verwenden.
+ 
+\end_layout
+
+\begin_layout Standard
+Ein asymmetrisches Kryptosystem (oder Public-Key-Kryptosystem) hingegen
+ ist ein kryptographisches Verfahren, bei dem die kommunizierenden Parteien
+ keinen gemeinsamen Schlüssel kennen müssen.
+ Ein Benutzer erzeugt hier ein Schlüsselpaar, das aus einem geheimen Teil
+ (privater Schlüssel) und einem nicht geheimen Teil (öffentlicher Schlüssel)
+ besteht.
+ Der öffentliche Schlüssel ermöglicht es jedem, Daten für den Inhaber des
+ privaten Schlüssels zu verschlüsseln, dessen digitale Signaturen zu prüfen
+ oder ihn zu authentifizieren.
+ Der private Schlüssel ermöglicht es seinem Inhaber, mit dem öffentlichen
+ Schlüssel verschlüsselte Daten zu entschlüsseln, digitale Signaturen zu
+ erzeugen oder sich zu authentisieren.
+\end_layout
+
+\begin_layout Subsection
+Symmetrische Kryptosysteme
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Symmetrische-Kryptosysteme"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Da der Fokus dieses Projekts nicht auf der Implementierung von Kryptosystemen
+ liegt werden im Moment nur symmetrische Kryptosysteme unterstützt, die
+ einfach zu handhaben sind, da zum Ent- und Verschlüsseln derselbe Schlüssel
+ benutzt wird.
+\end_layout
+
+\begin_layout Standard
+Man teilt die symmetrischen Verfahren in Blockchiffren-basierte Verfahren
+ und Stromchiffren auf.
+ Mit Stromchiffren wird der Klartext Zeichen für Zeichen verschlüsselt,
+ um den Geheimtext zu erhalten, bzw.
+ entschlüsselt, um den Klartext zu erhalten.
+ Eine Blockchiffre arbeitet mit einer festen Blockgröße und ver- bzw.
+ entschlüsselt mehrere Zeichen in einem Schritt.
+ Um damit Texte beliebiger Länge verschlüsseln zu können, sind Betriebmodi
+ festgelegt, die bestimmen, wie die Blockchiffre verwendet wird.
+\end_layout
+
+\begin_layout Standard
+Im Rahmen dieses Projekts werden drei Algorithmen mittels der Schnittstelle
+ ICryptoProvider (siehe 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:YAEM.Crypto"
+
+\end_inset
+
+) implementiert, die allesamt aus dem System.Security.Cryptography Namespace
+ des .NET Frameworks stammen und in den folgenden Unterkapiteln kurz beschrieben
+ werden.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Advanced Encryption Standard
+\end_layout
+
+\begin_layout Standard
+Der Advanced Encryption Standard (AES) ist ein symmetrisches Kryptosystem,
+ das als Nachfolger für DES und TripleDES im Oktober 2000 vom National Institute
+ of Standards and Technology (NIST) als Standard bekanntgegeben wurde.
+ 
+\end_layout
+
+\begin_layout Standard
+Der AES ist ist eine Blockchiffre, wobei sie auf einer Verflechtung von
+ Substitutions- und Permutationsvorgängen basiert, was bedeutet, dass eine
+ Reihe mathematischer Vorgänge miteinander verbunden werden um Daten höchstmögli
+ch zu modifizieren bzw.
+ zu verschlüsseln.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Rijndael
+\end_layout
+
+\begin_layout Standard
+Nach
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Shawnfa2006"
+
+\end_inset
+
+ ist der Rijndael Algorithmus identisch mit demjenigen des AES, allerdings
+ können bei Rijndael die Block- und Schlüsselgrössen unabhängig voneinander
+ aus 128, 160, 192, 224 oder 256 Bits gewählt werden.
+ AES legt die Blockgrösse immer auf 128 bits fest, die Schlüsselgrösse kann
+ hingegen entweder 128, 192 oder 256 Bits.
+\end_layout
+
+\begin_layout Subsubsection
+TripleDES
+\end_layout
+
+\begin_layout Standard
+Der Triple-DES Algorithmus ist ein Nachfolger des DES-Algorithmus und wurde
+ im Jahr 1976 als offizieller Standard der US-Regierung bestätigt.
+ Im Gegensatz zum DES mit seiner verwendeten Schlüssellänge von 56 Bits
+ (die heute als nicht ausreichend sicher betrachtet wird) kann die Schlüsselläng
+e durch Mehrfachfachverwendung des DES einfach vergrössert werden.
+\end_layout
+
+\begin_layout Standard
+Der DES verwendet eine Blockchiffre, die den Klartext in 64 Bit-Blöcke unterteil
+t und verschlüsselt.
+ Triple-DES verwendet drei 64 Bit Schlüssel, die dadurch eine gesamte Schlüssell
+äge von 192 Bit ergeben.
+ Dabei wird die erste Verschlüsselung mit dem zweiten Schlüssel verschlüsselt
+ und der resultierende Kryptotext erneut mit dem dritten Schlüssel verschlüsselt.
+\end_layout
+
+\begin_layout Subsection
+Unterstützung asymmetrischer Kryptosysteme
+\end_layout
+
+\begin_layout Standard
+Wie schon in Kapitel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Symmetrische-Kryptosysteme"
+
+\end_inset
+
+ erwähnt, unterstützt YAEM.Crypto im Moment nur symmetrische Kryptosysteme,
+ da die Schnittstelle ICryptoProvider darauf basiert, das derselbe Schlüssel
+ zum Ver- und Entschlüsseln der Nutzdaten verwendet wird.
+ 
+\end_layout
+
+\begin_layout Standard
+Auch bei asymmetrischen Verfahren ist der Austausch von Schlüsseln wichtig.
+ Muss man den öffentlichen Schlüssel doch zugänglich machen damit er zur
+ Verschlüsselung benutzt werden kann und den dazu passende private irgendwo
+ sicher verwahren um nicht das gesamte Konzept auszuhebeln.
+ Würde YAEM auch asymmetrische Kryptosysteme unterstützen müssen, so müsste
+ neben ICryptoProvider ein zweites Interface mit dem Namen IAsymmetricCryptoProv
+ider definiert werden, welche anstelle der Properties Key und InitialzationVecto
+r eine Möglichkeit besitzt den öffentlichen Schlüssel aus dem installierten
+ Zertifikat auf dem ausgeführten Rechner auszulesen
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Dazu findet sich ein Beispiel in der MSDN: 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://msdn.microsoft.com/en-us/library/system.security.cryptography.asymmetricalgori
+thm.aspx
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+.
+ Der private Schlüssel wird dabei in dem dafür vorgesehenen Container CspParamet
+ers
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Siehe 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://msdn.microsoft.com/en-us/library/system.security.cryptography.cspparameters.asp
+x
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ abgelegt, der ein Wrapper von Microsofts Cryptography API (CAPI) darstellt.
 \end_layout
 
 \begin_layout Section
@@ -6464,7 +6943,7 @@ reference "sec:Mockups"
 \end_inset
 
 ) und implementiert diese in einer WPF Applikation unter Berücksichtigung
- des MVVM-Musters (siehe 
+ des MVVM-Entwurfsmusters (siehe 
 \begin_inset CommandInset ref
 LatexCommand vref
 reference "sub:Model-View-ViewModel"
@@ -6475,7 +6954,38 @@ reference "sub:Model-View-ViewModel"
 \end_layout
 
 \begin_layout Standard
+Die Applikation startet mit dem Anzeigen des Verbindungdialogs (siehe Abbildung
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Verbindungsdialog-DesktopClient"
+
+\end_inset
+
+) bei welchem man den gewünschten Benutzernamen eingeben kann.
+ Nach Klick auf den 
+\begin_inset Quotes eld
+\end_inset
+
+Join
+\begin_inset Quotes erd
+\end_inset
+
+-Button wird der Dialog geschlossen und es öffnet sich der Gesprächsdialog
+ (siehe Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Gesprächsdialog-DesktopClient"
+
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -6496,6 +7006,13 @@ status open
 
 \begin_layout Plain Layout
 Verbindungsdialog DesktopClient
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Verbindungsdialog-DesktopClient"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -6509,7 +7026,29 @@ Verbindungsdialog DesktopClient
 \end_layout
 
 \begin_layout Standard
+Das MessagingViewModel, das an das MessagingWindow gebunden ist, implementiert
+ die Schnittstelle IServiceCallback (siehe 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:IServiceCallback"
+
+\end_inset
+
+), da das ViewModel die Webservices der Serverapplikation benutzen.
+ Bei erfolgreichem Beitreten des Gesprächs wird der Serverapplikation der
+ Callbackchannel der Clientapplikation mitgeteilt, so dass diese beim Eintreffen
+ neuer Nachrichten oder bei Veränderungen der angemeldeten Benutzer entsprechend
+ reagieren kann.
+\end_layout
+
+\begin_layout Standard
+Schliesst man das MessagingWindow, so wird der Benutzer vom Webserver abgemeldet
+ und der Callbackchannel wird geschlossen.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -6530,6 +7069,13 @@ status open
 
 \begin_layout Plain Layout
 Gesprächsdialog DesktopClient
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Gesprächsdialog-DesktopClient"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -6543,7 +7089,22 @@ Gesprächsdialog DesktopClient
 \end_layout
 
 \begin_layout Standard
+Wählt der Benutzer der Applikation eine Kryptosystem aus, für das noch kein
+ Schlüssel vorliegt, so wird der Schlüsselgenerierungsdialog (siehe Abbildung
+ 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "fig:Schlüsselgenerierungsdialog-Desk"
+
+\end_inset
+
+) geöffnet, der einen zufälligen generierten Schlüssel enthält.
+ 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -6564,6 +7125,13 @@ status open
 
 \begin_layout Plain Layout
 Schlüsselgenerierungsdialog DesktopClient
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Schlüsselgenerierungsdialog-Desk"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -6581,20 +7149,38 @@ YAEM.MobileClient
 \end_layout
 
 \begin_layout Standard
-Um eine Applikation für die Windows Phone 7 Plattform zu entwickeln steht
- entweder XNA oder Silverlight zur Verfügung.
- 
-\end_layout
+Zur Entwicklung des MobileClients der unter Windows Phone 7 verteilt werden
+ wird Silverlight (siehe 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:Silverlight"
 
-\begin_layout Standard
-Windows Phone 7 stellt Silverlight Applikationen nativ dar.
- Aus diesem Grund wurde Silverlight aus Entwicklungsplattform für den YAEM.Mobile
-Client gewählt.
- 
+\end_inset
+
+) benutzt.
+ Schnell hat sich gezeigt, dass Silverlight mit dem in der Konzeptphase
+ ausgewählten WsDualHttpBinding nicht kompatibel ist und aufgrund der fehlenden
+ DuplexClientBase (genaures siehe 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:Aufgetretene-Probleme"
+
+\end_inset
+
+) es nicht möglich ist einen funktionsfähigen MobileClient zu entwickeln.
+ Aus diesem Grund wird im Rahmen des Projekts auch kein MobileClient implementie
+rt.
 \end_layout
 
 \begin_layout Subsection
 Aufgetretene Probleme
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Aufgetretene-Probleme"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -6668,9 +7254,20 @@ name "chap:Test"
 \end_layout
 
 \begin_layout Standard
+Die Überprüfung und Verifikation des Softwareprodukts zählt zu den wichtigsten
+ Teilen der Softwareentwicklung.
+ Insbesondere da in den letzten Jahre neue Methoden und Technologien auf
+ den Markt gekommen sind, die diese diffizile und anspruchsvolle Arbeit
+ dem Entwickler abgeben wird in diesem Kapitel insbesondere ein Basiswissen
+ auf technischer Ebene vermittelt.
+\end_layout
 
-\noun on
-[Kapiteleinführung]
+\begin_layout Standard
+Unit-Tests als automatisierte Tests, die in Quellcode vom Softwareentwickler
+ geschrieben werden, werden als Erstes vorgestellt.
+ Anschliessend wird auf das Thema Akzeptanztest eingegangen, mit Hilfe deren
+ Anforderungen an ein System mithilfe des Systems selbst getestet werden
+ können.
 \end_layout
 
 \begin_layout Section
@@ -6685,11 +7282,30 @@ name "sec:Unit-Tests"
 \end_layout
 
 \begin_layout Standard
+Unit-Tests (auch Komponententests genannt) überprüfen, ob die von Entwicklern
+ geschriebenen Komponenten so arbeiten, wie diese es beabsichtigen.
+ Zur Qualitätssicherung eines Softwareprodukts wird eine sehr häufige Ausführung
+ der Unit-Tests angestrebt.
+ Das lässt sich nur erreichen, wenn die Tests vollständig automatisiert
+ vorliegen, sie also selbst ein Programm sind, dessen Ausführung nicht mehr
+ Aufwand als einen Knopfdruck erfordert.
+ Insbesondere in der testgetriebenen Entwicklung (siehe 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:Testgetriebene-Entwicklung"
 
-\noun on
-[Was sind automatisierte Unittests? Vorteile aufzeigen.
- Verbindung mit TDD aufzeigen.
- MSTEST einführen]
+\end_inset
+
+) werden Unit-Tests auch als Regressionstests nach Refactoring verwendet.
+ 
+\end_layout
+
+\begin_layout Standard
+Durch die Testgetriebene Entwicklung von YAEM werden alle implementierten
+ Komponenten schon vorgängig mit Unit-Tests abgedeckt.
+ Die Unit-Tests sind dabei in einem eigenen Visual Studio-Projekt innerhalb
+ der Solution untergebracht und werden nicht zusammen mit dem produktiven
+ Code deployed.
 \end_layout
 
 \begin_layout Subsection
@@ -6697,11 +7313,32 @@ Testabdeckung
 \end_layout
 
 \begin_layout Standard
-Die totale Testabdeckung beträgt 94.13%.
+Eine Kenngrösse zur Qualitätssicherung und zur Steigerung von Softwarequalität
+ stellt die Testabdeckung dar.
+ Die Testabdeckung bezeichnet die prozentuale Anzahl des produktiven Quellcodes,
+ der über einen automatisierten Unit-Test abgedeckt ist, im Vergleich zur
+ gesamten Anzahl des Quellcodes.
+ Insbesondere hift die Testabdeckung bei der Identifizierung von einzelnen
+ Bereichen im Quellcode die potentiell fehleranfällig (da ungetestet bzw.
+ ungenügend getestet) sind.
+\end_layout
+
+\begin_layout Standard
+Wie in Tabelle 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Testabdeckung"
+
+\end_inset
+
+ ersichtlich ist, beträgt die Testabdeckung der einzelnen Namespaces jeweils
+ mehr als 80%, die laut Aufgabenstellung gefordert sind.
+ Die totale Testabdeckung des Projekts YAEM beträgt 94.13%.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float table
+placement H
 wide false
 sideways false
 status open
@@ -7069,6 +7706,13 @@ YAEM.Contracts
 
 \begin_layout Plain Layout
 Testabdeckung
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Testabdeckung"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -7086,10 +7730,331 @@ Akzeptanztests
 \end_layout
 
 \begin_layout Standard
+Mithilfe von Akzeptanztest
+\begin_inset Foot
+status open
 
-\noun on
-[Was sind Akzeptanztests? Ausformulieren aufgrund der Anforderungen, Übersetzung
- in Code]
+\begin_layout Plain Layout
+auch Abnahmetests oder User Acceptance Tests (UAT)
+\end_layout
+
+\end_inset
+
+ geprüft, ob die Software die funktionalen Erwartungen und Anforderungen
+ im Gebrauch erfüllt.
+ Dabei werden Akzeptanztests als Black-Box-Tests gegen die einzelnen Use
+ Cases der funktionalen Anforderungen (siehe 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sec:Use-Case-Spezifikationen"
+
+\end_inset
+
+) geprüft, das heisst der Test hat keine Kentnisse über die innere Funktionsweis
+e des Systems und imitiert den Benutzer der Applikation.
+\end_layout
+
+\begin_layout Standard
+In diesem Projekt werden zur Entwicklung der Akzeptanztests Coded UI Tests
+ verwendet.
+ Coded UI Tests
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Mehr zu Coded UI Tests in der MSDN Library unter 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://msdn.microsoft.com/en-us/library/dd286681.aspx
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ sind auomatisierte Tests die auf der Benutzerfläche festgelegte Aktionen
+ als Skript ausführen lassen.
+ Ein Coded UI Test kann ausserdem auf einzelnen UI-Elementen Erwartungen
+ definieren (z.B.
+ nach Klick auf den 
+\begin_inset Quotes eld
+\end_inset
+
+Senden
+\begin_inset Quotes erd
+\end_inset
+
+-Button muss die Nachricht-Textbox leer sein).
+\end_layout
+
+\begin_layout Standard
+Die Anforderungen in den Use Cases UC1 bis UC4 aus den Use-Case-Spezifikationen
+ werden als Coded UI Tests ausformuliert und im Visual Studio-Projekt YAEM.Accept
+anceTests abgelegt.
+ Beim Ausführen eines der Coded UI Tests wird automatisch die Serverapplikation
+ sowie die Clientapplikation gestartet und der jeweilige Testfall wird als
+ Skript abgearbeitet.
+ Je nach Use Case sind unterschiedliche Eingaben sowie Erwartungen definiert.
+ Werden diese nicht erfüllt (z.B.
+ wird nach dem Senden einer Nachricht eines Benutzers bei einem anderen
+ Benutzer keine neue Nachricht eingegangen) so wird eine Exception geworfen
+ und der Test schlägt fehl.
+\end_layout
+
+\begin_layout Standard
+Die Ergebnisse der Akzeptanztests sind in Tabelle 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Akzeptantests"
+
+\end_inset
+
+ ersichtlich.
+ Alle Anforderungen sind somit erfüllt und die Akzeptanztests können als
+ bestanden betrachtet werden.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="4">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Bezeichner
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Use-Case
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Testklasse
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Testergebnis
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+UC1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Gespräch beitreten
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+UC1Tests
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+bestanden
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+UC2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Gespräch verlassen
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+UC2Tests
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+bestanden
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+UC3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nachricht senden
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+UC3Tests
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+bestanden
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+UC4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nachricht empfangen
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+UC4Tests
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+bestanden
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Akzeptantests
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Akzeptantests"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Chapter
@@ -7097,25 +8062,399 @@ Fazit
 \end_layout
 
 \begin_layout Standard
+Die Semesterarbeit stellt ein spannendes und lehrreiches Projekt dar, das
+ insbesondere als Vorbereitung für die Bachelorarbeit hilfreich ist.
+ Das sorgfältige Erfassen der Aufgabenstellung und der zu erwartenden Resultate
+ stellen dabei ein zentrales Element der Projektarbeit dar und es ist von
+ Vorteil genau abzugwägen, was genau in der Aufgabenstellung erfasst sein
+ soll und was geliefert werden soll.
+\end_layout
 
-\noun on
-[Auführliches Fazit erstellen, Probleme bei der Implemntierung aufzeigen,
- Zukunft von YAEM?]
+\begin_layout Standard
+Die Verwendung des Wassserfallmodells für dieses Projekt hat sich als ideal
+ herausgestellt da so nach jeder Phase die abzugebenden Dokumente und Resultate
+ fertiggestellt vorlagen und erst dann zur nächsten Phase vorgegangen werden
+ konnte.
+ Auch hat es sich bezahlt gemacht relativ viel Zeit in die Erarbeitung des
+ Konzepts zu investieren da dadurch bei Erreichen der Implementierungsphase
+ direkt mit der Entwicklung der einzlenen Komponenten begonnen werden konnte
+ und zwischen den Komponenten keine Inkonsistenzen entstanden sind.
+\end_layout
+
+\begin_layout Standard
+Gegenüber der Aufgabenstellung fehlen in der Implementierung bzw.
+ der Dokumentation der Semestararbeit der MobileClient (siehe dazu 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:Aufgetretene-Probleme"
+
+\end_inset
+
+) sowie der Vergleich der Funktionen und Performance mit Konkurrenzprodukten,
+ da YAEM sich noch im Prototypenstadium befindet und die verlangten 120
+ Stunden Aufwand schon überschritten waren.
+ Zudem wurden anstatt Caesar und Blowfish die Kryptosysteme AES und Rijndael
+ implementiert, wie im Kapitel Implementierung ausführlich beschrieben wurde
+ (siehe 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sec:Kryptosysteme"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Section
-Aufwand SOLL/IST Vergleich
+Aufwand Seminararbeit
+\end_layout
+
+\begin_layout Standard
+In Tabelle 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Geplanter/effektiver-Aufwand"
+
+\end_inset
+
+ wird der geplante Aufwand mit dem (ungefähren) effektiven Aufwand verglichen.
+ Laut Reglement der Seminararbeit (siehe 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Stern2010"
+
+\end_inset
+
+) sollte der Aufwand der Seminararbeit bei mindestens 120 Stunden pro Student
+ liegen.
+ Diese 120 Stunden wurden auf die sechs Phasen verteilt und es wurden die
+ effektiv investierten Stunden pro Phase gemessen.
+\end_layout
+
+\begin_layout Standard
+Wie sich herausgestellt hat, wurde die Planung der einzelnen Phasen viel
+ zu optimistisch erstellt.
+ Alleine schon für das Erarbeiten des Konzepts wurde mehr als fünf Mal so
+ viel Zeit gebraucht und total wurden die geplanten 120 Stunden um den Faktor
+ 2.8 überschritten.
+ Dieser Soll/Ist-Vergleich des investierten Aufwands zeigt insbesondere
+ auf, in welchen Phasen (zu) viel Zeit investiert wurde, namentlich in der
+ Design- und Implementierungsphase.
+ 
 \end_layout
 
 \begin_layout Standard
 
-\noun on
-[Tabelle SOLL/IST Aufwand pro Phase, aufzeigen wo viel mehr Zeit als geplant
- verwendet wurde]
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang english
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang english
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="3">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Phase
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Geplante Stunden
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Effektive Stunden
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Themenevaluation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Erfassen der Anforderungen
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+26
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Erarbeiten des Konzepts
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+103
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Implementierungs des Konzepts
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+40
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+153
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Überprüfen und Test des Konzepts
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+48
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Erarbeiten der Präsentation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+in Arbeit
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang english
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Gegenüberstellung geplanter/effektiver Aufwand
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Geplanter/effektiver-Aufwand"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
 Schlussfolgerungen
+\end_layout
+
+\begin_layout Standard
+Dieses Unterkapitel soll die Lehren aus der Semesterarbeit im Hinblick auf
+ die Bachelorarbeit ziehen.
+ Der wichtigste Punkt ist das Verhältnis zwischen geplantem und effektivem
+ Aufwand, das in dieser Semestearbeit aus dem Ruder gelaufen ist.
+ Es ist wichtig bereits zum Zeitpunkt des Erfassens der Aufgabenstellung
+ eine grobe Vorstellung des Aufwands der einzelnen Punkte sowie der zu erwartend
+en Resultate zu haben und bei allfällig aufgetretenen Problemen .
+\end_layout
+
+\begin_layout Standard
+Es ist fragwürdig ob soviel Zeit und Aufwand in die Erklärung verschiedener
+ Technologien im Kapitel Implementierung (siehe 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sec:Verwendete-Technologien"
+
+\end_inset
+
+) verwendet werden soll oder 
 \end_layout
 
 \begin_layout Standard
@@ -7125,12 +8464,8 @@ Schlussfolgerungen
  als 120h aufgewendet, Herzblut in Seminararbeit gesteckt]
 \end_layout
 
-\begin_layout Chapter
+\begin_layout Chapter*
 \start_of_appendix
-Anhang
-\end_layout
-
-\begin_layout Section*
 Akronyme
 \end_layout
 
@@ -7228,6 +8563,22 @@ XP Extreme Programming
 \begin_inset CommandInset nomencl_print
 LatexCommand printnomenclature
 set_width "auto"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FloatList figure
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FloatList table
 
 \end_inset
 

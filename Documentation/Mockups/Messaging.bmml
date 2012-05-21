@@ -7,7 +7,7 @@
         <dragger>false</dragger>
         <maximizeRestore>true</maximizeRestore>
         <minimize>true</minimize>
-        <text>Messaging%20Window</text>
+        <text>Discussion</text>
         <topheight>26</topheight>
       </controlProperties>
     </control>
