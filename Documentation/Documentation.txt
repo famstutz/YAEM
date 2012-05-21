@@ -1,1 +1,1 @@
-Die Dokumentation von YAEM ist unter https://github.com/famstutz/YAEM/blob/master/Documentation/YAEM.pdf herunterladbar.
+Die Dokumentation von YAEM ist unter https://github.com/famstutz/YAEM/blob/master/Documentation/YAEM.pdf?raw=true herunterladbar.
