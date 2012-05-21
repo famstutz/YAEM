@@ -5767,12 +5767,27 @@ name "sub:Windows-Communication-Foundation"
 \begin_layout Standard
 Zur Kommunikation zwischen den Clientapplikationen und der Serverapplikation
  wird die Windows Communication Foundation (kurz WCF) eingesetzt.
- WCF ist seit dem .NET Framework 3.0 ein Bestandteil des Frameworks und ist
- eine dienstorientierte Kommunikationsplattform für verteilte Anwendungen.
+ WCF ist seit dem .NET Framework 3.0 ein Bestandteil des .NET Frameworks und
+ ist eine dienstorientierte Kommunikationsplattform für verteilte Anwendungen.
 \end_layout
 
 \begin_layout Standard
-Durch WCF werden verschiedene Kommunikationstechnologeien wie DCOM, MSMQ
+Durch WCF werden verschiedene Kommunikationstechnologeien wie DCOM
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "DCOM"
+description "Das Distributed Component Object Model (kurz DCOM) ist ein objektorientiertes RPC-System, das von Microsoft entwickelt wurde, damit man mit COM die Möglichkeit hat, über das Netzwerk zu kommunizieren."
+
+\end_inset
+
+, MSMQ
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "MSMQ"
+description "MSMQ (oder Microsoft Message Queueing) ist die Implementierung einer Message Queue die von Microsoft entwickelt wurde und seit Windows NT 4 und Windows 95 Teil der Windowsplattform ist. MSMQ ist ein Nachrichtenprotokoll, das es Applikationen erlaubt mit verschiedenen Server bzw. Prozesse fehlergesichert zu kommunizieren."
+
+\end_inset
+
  oder Webservices unter einer einheitlichen Programmierschnittstelle zusammengef
 asst.
  WCF wird hauptsächlich zur Entwicklung von Serviceorientierten Architekturen
@@ -5828,12 +5843,12 @@ name "sub:Bindings"
 \begin_layout Standard
 
 \noun on
-[Verschiedene Bindings auflisten und vergleichen, Details zu WsHttpDualBinding
- auflisten, Vorteile und Nachteile]
+[Verschiedene Bindings auflisten und vergleichen, Details zu WSDualHttpBinding
+  auflisten, Vorteile und Nachteile]
 \end_layout
 
 \begin_layout Subsubsection
-Callbacks über NetHttpDualBinding
+Callbacks über WSDualHttpBinding 
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:Callbacks-über-NetHttpDualBindin"
@@ -5844,9 +5859,111 @@ name "sub:Callbacks-über-NetHttpDualBindin"
 \end_layout
 
 \begin_layout Standard
+Das WSDualHttpBinding definiert eine sichere und interoperable Bindung,
+ die für duplexfähige Service Contracts oder für die Kommunikation über
+ SOAP
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "SOAP"
+description "SOAP (ursprünglich \"Simple Object Access Protocol\") ist ein vom W3C standardisiertes Nachrichtenprotokoll. Darüber wird Kommunikation zwischen verteilten Anwendungen ermöglicht und standardisiert und Applikationen werden webfähig."
 
-\noun on
-[Delegates erklären, Mechanismsu von Callbacks über WsHttpDualBinding erklären]
+\end_inset
+
+-Vermittler geeignet ist
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Siehe MSDN Library 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://msdn.microsoft.com/en-us/library/ms731821.aspx
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+.
+ WSDualHttpBinding bietet dieselbe Unterstützung von Webservices wie WSHttpBindi
+ng, erlaubt es jedoch zusätzlich die Verwendung von Duplexchannels.
+ Das Binding macht es erforderlich, dass der Client einen öffentlichen URI
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "URI"
+description "Ein Uniform Resource Identifier (kurz URI) ist ein Identifikator und besteht aus einer Zeichenfolge, die zur Identifizierung einer abstrakten oder physischen Ressource dient."
+
+\end_inset
+
+ aufweist, der einen Callback für den Webservice bereitstellt.
+\end_layout
+
+\begin_layout Standard
+Wird ein Service Contract mit dem 
+\emph on
+ServiceContractAttribute.CallbackContract
+\emph default
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Siehe MSDN Library 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://msdn.microsoft.com/en-us/library/system.servicemodel.servicecontractattribute.
+callbackcontract.aspx
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ annotiert, so muss dieses von Webservicekonsumenten implementiert werden.
+ Dadurch stellt der Client einen öffentlichen URI zur Verfügung, der vom
+ Webservice aufgerufen werden kann.
+\end_layout
+
+\begin_layout Standard
+Die Serverapplikation kann so über den Aufruf der Methode 
+\emph on
+OperationContext.GetCallbackChannel<T>
+\emph default
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Siehe MSDN Library 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://msdn.microsoft.com/en-us/library/ms575542.aspx
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ einen Callback-Delegaten, über welchen die Serverapplikation direkt Nachrichten
+ an den registrierten Webservicekonsumenten versenden kann.
 \end_layout
 
 \begin_layout Subsection
@@ -7584,12 +7701,12 @@ System.ServiceModel
 \emph default
  Namespace besitzt und es dadurch nicht möglich ist über das 
 \emph on
-WsDualHttpBinding
+WSDualHttpBinding 
 \emph default
  von Silverlight eine Kommunikation zum WCF-Webservice aufzubauen.
  Dadurch, das 
 \emph on
-WsDualHttpBinding
+WSDualHttpBinding 
 \emph default
  die Grundlage der Bereitstellung der Webservices in der Serverapplikation
  ist, ist es im Moment nicht möglich einen Silverlight-Client zu schreiben
@@ -8879,7 +8996,7 @@ it realistisch sein.
 Auch wurde zuviel Zeit verwendet um allfällige Lösungen für Silverlight
  und 
 \emph on
-wsHttpDualBinding
+WSDualHttpBinding 
 \emph default
  zu finden, eine technische Schwierigkeit von welcher der Erfolg dieser
  Arbeit nicht abhängt, da die mobile Clientapplikation nur eine von mehreren
@@ -8933,6 +9050,11 @@ CAPI Cryptography API
 
 \begin_layout Labeling
 \labelwidthstring 00.00.0000
+DCOM Distributed Component Object Model
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
 DES Data Encryption Standard
 \end_layout
 
@@ -8958,6 +9080,11 @@ MSDN Microsoft Developer Network
 
 \begin_layout Labeling
 \labelwidthstring 00.00.0000
+MSMQ Microsoft Message Queuing
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
 MVVM Model View View Model
 \end_layout
 
@@ -8978,6 +9105,16 @@ SL Silverlight
 
 \begin_layout Labeling
 \labelwidthstring 00.00.0000
+SOA Service Oriented Architecture
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+SOAP Simple Object Access Protocol
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
 TDD Test Driven Development
 \end_layout
 
@@ -8989,6 +9126,11 @@ UC Use Case
 \begin_layout Labeling
 \labelwidthstring 00.00.0000
 UI User Interface
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+URI Uniform Resource Identifier
 \end_layout
 
 \begin_layout Labeling
@@ -9056,17 +9198,6 @@ set_width "auto"
 
 \begin_layout Standard
 \begin_inset FloatList table
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset bibtex
-LatexCommand bibtex
-bibfiles "YAEM"
-options "plainnat"
 
 \end_inset
 
