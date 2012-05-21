@@ -3735,7 +3735,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename ExportedDiagrams/ComponentModel.png
-	scale 65
+	scale 50
 
 \end_inset
 
@@ -3961,7 +3961,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename ExportedDiagrams/DomainModel.png
-	scale 65
+	scale 50
 
 \end_inset
 
@@ -4131,7 +4131,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename ExportedDiagrams/Class-IUserService.png
-	scale 65
+	scale 50
 
 \end_inset
 
@@ -4244,7 +4244,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename ExportedDiagrams/Class-IMessagingService.png
-	scale 65
+	scale 50
 
 \end_inset
 
@@ -4297,7 +4297,7 @@ description "Das Hypertext Transfer Protocol (kurz HTTP) ist ein Protokoll zur �
 
 \end_inset
 
- Callbacks (der Mechanismus wird detaillierter 
+ Callbacks (der Mechanismus wird detaillierter in Kapitel 
 \begin_inset CommandInset ref
 LatexCommand vref
 reference "sub:Callbacks-über-NetHttpDualBindin"
@@ -4347,7 +4347,7 @@ description "Eine Annotation bezeichnet ein Sprachelement im Quelltext, das zur 
 
 \end_inset
 
- so dass beim Abbonnieren des Webservices der generierte Serviceclient des
+ so dass beim Abonnieren des Webservices der generierte Serviceclient des
  Webservices gezwungen wird die Schnittstelle 
 \emph on
 IServiceCallback
@@ -4571,7 +4571,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename ExportedDiagrams/Class-IServiceCallback.png
-	scale 65
+	scale 50
 
 \end_inset
 
@@ -4715,7 +4715,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename ExportedDiagrams/Class-Crypto.png
-	scale 65
+	scale 50
 
 \end_inset
 
@@ -4838,7 +4838,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename ExportedDiagrams/Class-Server.png
-	scale 65
+	scale 50
 
 \end_inset
 
@@ -4963,28 +4963,37 @@ Gespräch beitreten
 \end_layout
 
 \begin_layout Standard
-Möchte ein Benutzer einem Gespräch beitreten so gibt er über das ConnectWindow
- (siehe 
-\noun on
-[Referenz]
-\noun default
-) seinen gewünschten Benutzernamen ein.
- Der Loop UserName in use stellt dar, dass der Benutzer solange einen Benutzerna
-men auswählen muss bis er einen Benutzernamen wählt, der noch nicht dem
- Gespräch beigetreten ist.
- Ist der Benutzername frei, so erstellt wird von der Serverapplikation in
- der SessionsStorage ein neues SessionTicket gelöst, das der Clientapplikation
- zurückgegeben wird.
+Möchte ein Benutzer einem Gespräch beitreten so gibt er über Gesprächsbeitrittdi
+alog seinen gewünschten Benutzernamen ein.
+ Die Schleife 
+\begin_inset Quotes eld
+\end_inset
+
+UserName in use
+\begin_inset Quotes erd
+\end_inset
+
+ stellt dar, dass der Benutzer solange einen Benutzernamen auswählen muss
+ bis er einen Benutzernamen wählt, der im Gespräch noch nicht vergeben ist.
+ Ist der Benutzername frei, so wird von der Serverapplikation in der Sessionverw
+altung ein neues Sessionticket gelöst, das der Clientapplikation zurückgegeben
+ wird.
  
 \end_layout
 
-\begin_layout Paragraph*
-Sequenzdiagramm
+\begin_layout Standard
+Das Sequenzdiagramm ist in Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Sequenzdiagramm-Gespräch-beitret"
+
+\end_inset
+
+ ersichtlich.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
-placement H
 wide false
 sideways false
 status open
@@ -4993,7 +5002,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename ExportedDiagrams/Sequence-GespraechBeitreten.png
-	scale 65
+	width 16cm
 
 \end_inset
 
@@ -5005,6 +5014,13 @@ status open
 
 \begin_layout Plain Layout
 Sequenzdiagramm Gespräch beitreten
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Sequenzdiagramm-Gespräch-beitret"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -5022,21 +5038,27 @@ Gespräch verlassen
 \end_layout
 
 \begin_layout Standard
-Möchte der Benutzer das Gespräch verlassen so initiiert er über das MessagingWin
-dow eine Anfrage an die Serverapplikation zum Verlassen des Gesprächs.
- In der SessionStorage wird dann das SessionTicket des Benutzers entfernt
+Möchte der Benutzer das Gespräch verlassen so initiiert er über den Gesprächsdia
+log eine Anfrage an die Serverapplikation zum Verlassen des Gesprächs.
+ In der Sessionverwaltung wird dann das Sessionticket des Benutzers entfernt
  und der Clientapplikation wird mitgeteilt, dass der Benutzer erfolgreich
  das Gespräch verlassen hat und keine Nachrichten mehr senden oder empfangen
  kann.
 \end_layout
 
-\begin_layout Paragraph*
-Sequenzdiagramm
+\begin_layout Standard
+Das Sequenzdiagramm hierzu ist unter Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Sequenzdiagramm-Gespräch-verlass"
+
+\end_inset
+
+ zu finden.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
-placement H
 wide false
 sideways false
 status open
@@ -5057,6 +5079,13 @@ status open
 
 \begin_layout Plain Layout
 Sequenzdiagramm Gespräch verlassen
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Sequenzdiagramm-Gespräch-verlass"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -5074,30 +5103,38 @@ Nachricht senden
 \end_layout
 
 \begin_layout Standard
-Möchte der Benutzer eine Nachricht vesenden so muss er, falls noch kein
+Möchte der Benutzer eine Nachricht versenden, so muss er, falls noch kein
  Initalisierungsvektor für den gewählten Kryptoalgorithmus gesetzt ist,
  zuerst einen Initialisierungsvektor setzen.
- Dasselbe gilt für den Schlüssel des gewählten Kryptoalgorithmus, ist er
- innerhalb des gesamten Gesprächs noch nie gesetzt worden, so muss der Schlüssel
- vom Benutzer gewählt werden.
+ Dasselbe gilt für den Schlüssel des ausgewählten Kryptosystems.
+ Ist dieser innerhalb des gesamten Gesprächs noch nie gesetzt worden, so
+ muss der Schlüssel vom Benutzer gewählt werden.
 \end_layout
 
 \begin_layout Standard
 Sind die beiden Bedingungen (Initialisierungsvektor und Schlüssel gesetzt)
- erfüllt, wird die Nachricht an den Webservice weitergegeben und falls die
- gewählten Empfänger ein gültiges SessionTicket bestitzen und beim Webservice
- einen Delegaten als Callback hinterlegt haben wird ihnen die Nachricht
- übermittelt.
- Der Benutzer erhält anscheinend eine Bestätigung des Nachrichtenversandes.
+ erfüllt, wird die Nachricht an den Webservice der Serverapplikation weitergegeb
+en.
+ Besitzen die ausgewählten Empfänger jeweils ein gültiges Sessionticket
+ und haben diese beim Webservice einen Delegaten als Callback, so wird ihnen
+ die Nachricht übermittelt.
+ Der Benutzer erhält anscheinend eine Bestätigung des Nachrichtenversandes
+ im Gesprächsprotokoll.
 \end_layout
 
-\begin_layout Paragraph*
-Sequenzdiagramm
+\begin_layout Standard
+Dieses Sequendiagramm ist in Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Sequenzdiagramm-Nachricht-senden"
+
+\end_inset
+
+ sichtbar.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
-placement H
 wide false
 sideways false
 status open
@@ -5106,7 +5143,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename ExportedDiagrams/Sequence-NachrichtSenden.png
-	scale 50
+	width 16cm
 
 \end_inset
 
@@ -5118,6 +5155,13 @@ status open
 
 \begin_layout Plain Layout
 Sequenzdiagramm Nachricht senden
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Sequenzdiagramm-Nachricht-senden"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -5168,37 +5212,43 @@ Verteilungsdiagramm
 \end_layout
 
 \begin_layout Standard
-Die Verteilungssicht in dieser Dokumentation beinhaltet nur ein Verteilungsdiagr
-amm das sehr rudimentär und ohne grosse Details aufgezeichnet wird.
+Die Verteilungssicht dieser Projektdokumentation enthält nur ein sehr rudimentär
+ und ohne grosse Details ausgearbeitetes Verteilungsdiagramm (siehe Abbildung
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Verteilungsdiagramm"
+
+\end_inset
+
+).
  Dies, da kein konkretes Verteilungsszenario der Applikation innerhalb des
  Projekts geplant wurde.
  Das Projekt beeinhaltet die Erarbeitung des Konzepts sowie die konkrete
- Implementierung der Applikation ohne jedoch konkrete Hardware bzw.
- vorzugeben auf welchen die einzelnen Applikationen laufen sollen.
+ Implementierung der Applikation ohne jedoch auf Verteilung des Systems
+ einzugehen.
  
 \end_layout
 
 \begin_layout Standard
 Generell können die einzelnen Clientapplikationen auf jeglicher Hardware
- laufen, benötigen jedoch jeweils das passende Betriebssystem bzw.
- im Fall des Silverlight-Clients einen Browser mit Silverlight Plugin.
+ laufen, benötigen jedoch jeweils das passende Betriebssystem beziehungsweise
+ im Fall des Silverlight-Clients einen Browser mit Silverlight-Plugin.
  Zwischen den Clientapplikationen und der Serverapplikation in Form des
  Servicehosts wird eine Netzwerkverbindung vorausgesetzt bei welcher die
- passenden Ports (siehe Binding 
-\noun on
-[Referenz]
-\noun default
+ passenden Ports (siehe Binding Kapitel 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:Bindings"
+
+\end_inset
+
 ) geöffnet und zugänglich sind.
  Auch ist eine Verteilung über das WWW denkbar.
 \end_layout
 
-\begin_layout Paragraph*
-Verteilungsdiagramm
-\end_layout
-
 \begin_layout Standard
 \begin_inset Float figure
-placement H
 wide false
 sideways false
 status open
@@ -5207,7 +5257,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename ExportedDiagrams/Deployment-Verteilungsdiagramm.png
-	scale 65
+	scale 50
 
 \end_inset
 
@@ -5219,6 +5269,13 @@ status open
 
 \begin_layout Plain Layout
 Verteilungsdiagramm
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Verteilungsdiagramm"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -5243,19 +5300,28 @@ name "chap:Implementierung"
 \end_layout
 
 \begin_layout Standard
-Das Kapitel Implementierung beschäftigt sich zuerst mit der Wahl der geeigneten
- Entwicklungsmethode für dieses Projekt.
+Das Kapitel Implementierung beschäftigt sich zunächst mit der Wahl der geeignete
+n Entwicklungsmethode für dieses Projekt.
  Als Nächstes werden verschiedene Technologien vorgestellt, die innerhalb
- des Projekts Anwendung finden und für das weitere Verständnis des Quellcodes
- oder dieser Dokumentation notwendig sind.
+ des Projekts Anwendung finden und deren Kenntniss für das weitere Verständnis
+ des Quellcodes oder dieser Dokumentation notwendig sind.
  Auch wird auf einzelne besondere Entwurfsmuster näher eingegangen, insbesondere
- für die UI-Frameworks.
- Auch wird ein theoretischer Überblick über asymmetrische und symmetrische
- Kryptosysteme gegeben sowie wie diese in YAEM eingebunden werden können.
- Abschliessend werden die einzelnen Visual Studio-Projekte als Teilkomponenten
- des Projekts vorgestellt sowie während der Implementierungsphase aufgetretenen
- Probleme beschrieben, ihre Auswirkungen auf Teile des Projekterfolgs erläutert
- sowie eventuelle Lösungsvorschläge aufgezeigt.
+ im Zusammenhang mit den UI-Frameworks.
+ 
+\end_layout
+
+\begin_layout Standard
+Anschliessend wird ein theoretischer Überblick über asymmetrische und symmetrisc
+he Kryptosysteme gegeben sowie aufgezeigt, wie diese in YAEM eingebunden
+ werden können.
+ 
+\end_layout
+
+\begin_layout Standard
+Am Ende des Kapitels werden die einzelnen Visual Studio-Projekte als Teilkompone
+nten des Projekts vorgestellt und es wird auf in der Implementierungsphase
+ aufgetretenen Probleme hingewiesen, sowie ihre Auswirkungen auf Teile des
+ Projekterfolgs erläutert.
 \end_layout
 
 \begin_layout Section
@@ -5263,7 +5329,7 @@ Entwicklungsmethoden
 \end_layout
 
 \begin_layout Standard
-Als pragmatischer Softwareentwickler versucht man den Blick auf das wesentliche
+Als pragmatischer Softwareentwickler versucht man den Blick auf das Wesentliche
  zu konzentrieren: Anforderungen in ein funktionierendes und warbares Programm
  zu überführen, das die Anwender begeistert (nach 
 \begin_inset CommandInset citation
@@ -5273,17 +5339,17 @@ key "Hunt1999"
 \end_inset
 
 ).
- Um dieses Ziel zu erreichen existieren eine breite Palette an Entwicklungsmetho
-den, die den Entwickler bei seiner (pragmatischen) Arbeitsweise unterstüzen.
+ Um dieses Ziel zu erreichen existiert eine breite Palette an Entwicklungsmethod
+en, die den Entwickler bei seiner (pragmatischen) Arbeitsweise unterstüzen.
  Insbesondere agile Entwicklungsmethoden wie Scrum oder Extreme Programming
- (XP) unterstützen ein Entwicklungsteam in der Konzentration auf die Implementie
-rung von Funktionalitäten in einem Softwareprodukt und helfen vor Ablenkungen
- wie der zunehmenden Spezialisierung und Technisierung.
+ (XP) unterstützen einen Entwickler oder ein Entwicklungsteam bei der Konzentrat
+ion auf die Implementierung von Funktionalitäten in einem Softwareprodukt
+ und beugen Ablenkungen vor.
 \end_layout
 
 \begin_layout Standard
 Für dieses Projekt wurde Test Driven Development (TDD) als Entwicklungsmethode
- gewählt da die iterative Entwicklung, die auf dem Erstellen des Unit Tests
+ gewählt, da die iterative Entwicklung, die auf dem Erstellen des Unit Tests
 \begin_inset Foot
 status open
 
@@ -5300,7 +5366,7 @@ reference "sec:Unit-Tests"
 
 \end_inset
 
- fundiert (genauer beschrieben in 
+ fundiert (genauer beschrieben in Kapitel 
 \begin_inset CommandInset ref
 LatexCommand vref
 reference "sub:Testgetriebene-Entwicklung"
@@ -5309,16 +5375,29 @@ reference "sub:Testgetriebene-Entwicklung"
 
 ) die Fokussierung auf die für den Benutzer relevanten Funktionalitäten
  ermöglicht.
- Studien wie 
+ 
+\end_layout
+
+\begin_layout Standard
+Studien wie 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Nagappan2008"
 
 \end_inset
 
- beweisen ausserdem dass mit Hilfe von TDD die allgemeine Qualität eines
- Softwareprodukts steigt da z.B.
- schon die Fehlerdichte (gemessen in Anzahl Fehler pro tausend Zeilen Code)
+ beweisen, dass mit Hilfe von TDD die allgemeine Qualität eines Softwareprodukts
+ steigt da z.B.
+ schon die Fehlerdichte
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+gemessen in Anzahl Fehler pro tausend Zeilen Code
+\end_layout
+
+\end_inset
+
  zwischen 40% und 90% relativ kleiner ist als bei Softwareprodukten, die
  nicht mit TDD entwickelt wurden.
  Es wurde zwar der initiale Entwicklungsaufwand zwischen 15% und 35% erhöht,
@@ -5338,8 +5417,8 @@ name "sub:Testgetriebene-Entwicklung"
 
 \begin_layout Standard
 Test Driven Development (kurz TDD, deutsch Testgetriebene Entwicklung) ist
- eine evolutionäre Entwicklungsmethode, die häufig zusammen mit agilen Methoden
- Anwendung findet.
+ eine evolutionäre Entwicklungsmethode, die häufig zusammen mit agilen Softwaree
+ntwicklungsmethoden Anwendung findet.
  Dabei werden Tests entsprechend den Anforderungen an eine Funktion erstellt
  und erst im Nachhinein der funktionale Code implementiert (gemäss 
 \begin_inset CommandInset citation
@@ -5352,25 +5431,28 @@ key "Bullinger2010"
 \end_layout
 
 \begin_layout Standard
-Die Tests werden meist innerhalb eines Unit-Test-Frameworks (siehe 
+Die Tests werden meist innerhalb eines Unit-Test-Frameworks (siehe Kapitel
+ 
 \begin_inset CommandInset ref
 LatexCommand vref
 reference "sec:Unit-Tests"
 
 \end_inset
 
-) implementiert und laufen gelassen.
+) implementiert und ausgeführt.
  Zu Beginn werden die Tests fehlschlagen, da noch gar kein Code implementiert
  worden ist.
- Ziel des Entwicklers ist es, den Code so lange zu verbessern, bis alle
- zugehörigen Tests bestanden werden.
+ Ziel des Entwicklers ist es, den Code so lange zu implementieren und verbessern
+, bis alle zugehörigen Tests bestanden werden und kein bisheriger Test fehlschlä
+gt.
 \end_layout
 
 \begin_layout Standard
 Kommen neue Anforderungen oder Funktionen hinzu, werden zuerst neue Tests
  implementiert und danach der Code erweitert.
- Danach werden alle Test erneut durchgeführt, solange bis wieder alle Tests
- bestanden werden.
+ Danach werden alle Tests erneut durchgeführt und es werden solange Anpassungen
+ an der bestehenden Codebasis duchgeführt, bis wieder alle Tests bestanden
+ werden.
  
 \end_layout
 
@@ -5383,7 +5465,7 @@ key "Fowler2012"
 
 \end_inset
 
-, siehe auch 
+, siehe Abbildung 
 \begin_inset CommandInset ref
 LatexCommand vref
 reference "fig:Schritte-in-TDD"
@@ -5395,15 +5477,15 @@ reference "fig:Schritte-in-TDD"
 
 \begin_layout Enumerate
 Einen Test schreiben für das nächste Stück von Funktionalität, das der Applikati
-on hinzugefügt werden soll
+on hinzugefügt werden soll.
 \end_layout
 
 \begin_layout Enumerate
-Funktionalen Code schreiben bis der Test erfüllt wird
+Funktionalen Code schreiben bis der Test erfüllt wird.
 \end_layout
 
 \begin_layout Enumerate
-Neuen und alten Code umgestalten um ihn besser zu strukturieren
+Neuen und alten Code umgestalten um ihn besser zu strukturieren.
 \end_layout
 
 \begin_layout Standard
@@ -5453,17 +5535,18 @@ name "fig:Schritte-in-TDD"
 
 \begin_layout Standard
 Durch die Anwendung von TDD wird der bestehende und neue Code fortlaufend
- optimiert und ist leicht zu ändern.
- Die enthaltenen Funktionen werden durch die Tests zugleich dokumentiert
- und Fehler werden früher entdeckt und sind durch Mini-Iterationen leichter
- lokalisierbar.
- Besonders in grossen Teams entsteht ein Qualitätsbewusstsein über das ganze
- Projekt hinweg, nicht nur bei einer kleinen Expertengruppe.
+ optimiert und er ist leicht zu ändern und zu warten da eventuelle Seiteneffekte
+ einer Codeanpassung schnell entdeckt werden.
+ Die enthaltenen Funktionen werden durch die Tests zugleich dokumentiert,
+ Fehler werden früher entdeckt und sind durch die durchgeführten Mini-Iteratione
+n leichter lokalisierbar.
+ Besonders in grossen Teams entsteht so ein Qualitätsbewusstsein über das
+ ganze Projekt hinweg.
 \end_layout
 
 \begin_layout Standard
-Nachteilig ist anzumerken, dass konsequent sämtlicher Code testdriven erstellt
- werden muss.
+Nachteilig ist anzumerken, dass konsequent sämtlicher Code testgetrieben
+ erstellt werden muss.
  Für Entwickler, die noch nie mit TDD in Berührung gekommen sind, ist es
  schwierig sich vorzustellen, wie etwas getestet werden soll, das noch nicht
  existiert.
@@ -5485,9 +5568,9 @@ name "sec:Verwendete-Technologien"
 \end_layout
 
 \begin_layout Standard
-Dieses Kapitel gibt einen Überblick über die in der Semesterarabeit verwendeten
+Dieses Kapitel gibt einen Überblick über die in der Semesterarbeit verwendeten
  Technologien und dient zum besseren Verständnis der einzelnen Teile des
- Softwareprodukts, die in einem späteren Kapitel (siehe 
+ Softwareprodukts, die in einem späteren Kapitel (siehe Kapitel 
 \begin_inset CommandInset ref
 LatexCommand vref
 reference "sec:Komponenten-im-Detail"
@@ -5499,8 +5582,8 @@ reference "sec:Komponenten-im-Detail"
 
 \begin_layout Standard
 Die einzelnen Unterkapitel bieten einen losen Überblick über verschiedenste
- Technologien und Produkte und erläutert wo und wieso die jeweilige Technologie
- im Softwareprodukt eingesetzt wird.
+ Technologien und Produkte und erläuteren in welcher Komponenten und warum
+ die jeweilige Technologie eingesetzt wird.
 \end_layout
 
 \begin_layout Subsection
@@ -5516,60 +5599,13 @@ name "sub:Managed-Extensibility-Framework"
 
 \begin_layout Standard
 Ein Ziel des Softwareproduktes YAEM war es, zur Laufzeit beliebige Kryptosysteme
- den Clientapplikationen zur Verfügung zu stellen die als Erweiterungen
- angebunden werden können.
+ den Clientapplikationen zur Verfügung zu stellen, die als Erweiterungen
+ in die Applikation eingebunden werden können.
  MEF bietet genau diese Funktionalität.
 \end_layout
 
 \begin_layout Standard
-Das Managed Extensibility Framework oder MEF ist eine Bibliothek für die
- Erstellung von leichten, erweiterbare Anwendungen.
- Es erlaubt Anwendungsentwicklern zu Erweiterungen zu Applikationen zu schreiben
-, die keinerlei Konfiguration benötigen.
- Ausserdem können Entwickler Erweiterungen leicht kapseln und somit fragile
- harte Abhängigkeiten zu vermeiden.
- MEF ermöglicht nicht nur Erweiterungen die innerhalb von Anwendungen wiederverw
-endet werden können, sondern auch über Anwendungen hinweg.
-\end_layout
-
-\begin_layout Standard
-MEF besteht aus einem Katalog (
-\emph on
-Catalog
-\emph default
-) und einem sogenannten Behälter (
-\emph on
-CompositionContainer
-\emph default
-).
- Ein Katalog ist verwantwortlich für das Entdecken der Erweiterungen und
- der Behälter koordiniert die Erstellung erfüllt die Abhängigkeiten.
- MEF-Erweiterungen sind Ersatzteile (
-\emph on
-ComposablePart
-\emph default
-) und ein Ersatzteil bietet ein oder mehrere Exporte, und kann auch von
- einem oder mehreren extern gelieferten Importe abhängen.
- Exporte und Import haben jeweils einen Vertrag, der als Schnittstelle zwischen
- Exporten und Importen dient.
- Ein Behälter interagiert mit Katalogen um Zugriff zu den Ersatzteilen zu
- erhalten.
- Der Behälter selbst behebt die Abhängigkeiten des Ersatzteils und stellt
- seine Exporte der Aussenwelt zur Verfügung.
- 
-\end_layout
-
-\begin_layout Standard
-Sämtliche Exporte und Importe werden über Annotationen gesteuert und über
- Reflection
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "Reflection"
-description "Reflection (zu deutsch Reflexion oder Introspektion) ermöglich einem programm dass es seine eigene Strukur kennt und diese gegebenenfalls modifizieren kann."
-
-\end_inset
-
- können zur Laufzeit diese Annotationen aus Assemblies gelesen werden
+Das Managed Extensibility Framework
 \begin_inset Foot
 status open
 
@@ -5590,26 +5626,74 @@ http://mef.codeplex.com/
 
 \end_inset
 
-.
+ oder MEF ist eine Bibliothek für die Erstellung von leichtgewichtigen,
+ erweiterbaren Anwendungen.
+ Es erlaubt Anwendungsentwicklern Erweiterungen zu Applikationen zu schreiben,
+ die keinerlei Konfiguration benötigen.
+ Ausserdem können Erweiterungen leicht gekapselt werden und es können somit
+ fragile, harte Abhängigkeiten vermieden werden.
+ MEF ermöglicht nicht nur Erweiterungen, die innerhalb von Anwendungen wiederver
+wendet werden können, sondern auch über Anwendungen hinweg.
+\end_layout
+
+\begin_layout Standard
+MEF besteht aus einem Katalog (
+\emph on
+Catalog
+\emph default
+) und einem sogenannten Behälter (
+\emph on
+CompositionContainer
+\emph default
+).
+ Ein Katalog ist verwantwortlich für das Entdecken der Erweiterungen und
+ der Behälter koordiniert die Instanziierung der in ihnen gelagerten Ersatzteile
+ und erfüllt deren Abhängigkeiten.
+ MEF-Erweiterungen sind Ersatzteile (
+\emph on
+ComposablePart
+\emph default
+), die ein oder mehrere Exporte bieten und von einem oder mehreren extern
+ gelieferten Importe abhängen können.
+ Exporte und Import haben jeweils einen Vertrag, der als Schnittstelle zwischen
+ Exporten und Importen dient.
+ Der Behälter interagiert mit Katalogen um Zugriff zu den Ersatzteilen zu
+ erhalten.
+ Er behebt die Abhängigkeiten des Ersatzteils und stellt seine Exporte der
+ Aussenwelt zur Verfügung.
  
 \end_layout
 
 \begin_layout Standard
-Abbildung 
+Sämtliche Exporte und Importe werden über Annotationen gesteuert und mittels
+ Reflection
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Reflection"
+description "Reflection (zu deutsch Reflexion oder Introspektion) ermöglich einem programm dass es seine eigene Strukur kennt und diese gegebenenfalls modifizieren kann."
+
+\end_inset
+
+ können zur Laufzeit diese Annotationen aus Assemblies gelesen werden.
+ 
+\end_layout
+
+\begin_layout Standard
+Die Abbildung 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:MEF-Struktur"
 
 \end_inset
 
- verdeutlich die Struktur von MEF.
- Dabei entspricht das Part jeweils einem Kryptosystem und wird in eine eigene
- Assembly kompiliert.
- Alle einzelnen Kryptosysteme implementieren dabei die Schnittstelle 
+ verdeutlich die interne Struktur von MEF.
+ Innerhalb von MEF entspricht ein Ersatzteil (Part) einem Kryptosystem,
+ das in einer eigenen Assembly residiert.
+ Alle Kryptosysteme implementieren dabei die Schnittstelle 
 \emph on
 ICryptoProvider
 \emph default
- (siehe 
+ (siehe Kapitel 
 \begin_inset CommandInset ref
 LatexCommand vref
 reference "sub:Kryptoalgorithmen"
@@ -5635,9 +5719,10 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename Graphics/MEFdiagram.png
-	scale 50
+	scale 40
 
 \end_inset
 
@@ -5786,14 +5871,22 @@ e und der Businesslogik.
 \end_layout
 
 \begin_layout Standard
-WPF bentutzt Extensible Markup Language (XAML), ein XML-Derivat, um verschiedene
- UI-Elemente zu definierten und miteienander zu verküpfen.
- WPF Applikationen sowohl als eigenständige Programme sowie innerhalb einer
- Website als eingebettetes Objekt verteilt werden.
+WPF bentutzt Extensible Markup Language (XAML)
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "XAML"
+description "Extensible Application Markup Language (XAML) ist eine von Microsoft entwickelte allgemeine Beschreibungssprache für die Oberflächengestaltung von Anwendungen sowie zur Definition von Workflows in WF."
+
+\end_inset
+
+, ein XML-Derivat, um verschiedene UI-Elemente zu definierten und miteinander
+ zu verküpfen.
+ WPF-Applikationen können sowohl als eigenständige Programme als auch innerhalb
+ einer Website als eingebettetes Objekt verteilt werden.
  WPF kombiniert UIs, 2D Grafiken, 3D Grafiken, Dokumente und Multimediaobjekte
- in einem einzigen Framework Diese Elemente können miteinander verknüpft
+ in einem einzigen Framework Diese Elemente können miteinander verbunden
  werden und unterschiedliche Zustände aufgrund der anzuzeigenden Daten annehmen.
- Abbildung 
+ Die Abbildung 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Hauptfunktionalitäten-von-WPF"
@@ -5814,6 +5907,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename Graphics/wpfMainFeatures.png
+	scale 80
 
 \end_inset
 
@@ -5854,18 +5948,26 @@ name "fig:Hauptfunktionalitäten-von-WPF"
 \begin_layout Standard
 Vor WPF wurden die meisten Desktopanwendungen für Windowsbasierte Systeme
  mit Windows Forms entwickelt.
- Dabei ist Windows Forms ein Wrapper für die Windows-API in Managed Code.
- WPF basiert nicht mehr auf der Windows-API sondern zeichnet die Benutzerflöäche
+ Dabei ist Windows Forms ein Wrapper für die Windows-API in Managed Code
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Managed Code"
+description "Programmcode, der im .NET Framework unter der .NET-Laufzeitumgebung abläuft, wird als Managed Code bezeichnet. Im Gegensatz dazu wird herkömmlicher Code als Unmanaged Code oder Classic Code bezeichnet. "
+
+\end_inset
+
+.
+ WPF basiert nicht mehr auf der Windows-API sondern zeichnet die Benutzerfläche
  selbst.
  Dadurch ist eine bessere Unterstüztung von Templates gegeben und auf längere
  Sicht eine erhöhte Portierbarkeit.
  Ausserdem ist WPF hardwarebeschleunigt, nutzt also den Prozessor der 3D-Grafikk
 arte, eine Ressource die insbesondere im normalen Alltagsgebrauch von Windows
- brachliegt.
+ brachliegt und Applikationen merkbar beschleunigt.
 \end_layout
 
 \begin_layout Standard
-WPF ist im Moment die Referenztechnologie zur Entwicklung von Windowsbasierten
+WPF ist im Moment die Referenztechnologie zur Entwicklung von windowsbasierten
  Clientapplikationen.
  Aus diesem Grund wird es für die YAEM Desktopapplikation als UI-Framework
  verwendet.
@@ -5895,10 +5997,10 @@ key "Fowler2004"
 
 ).
  MVVM basiert zum grössten Teil auf Model View Controller (MVC), und ist
- auf moderne UI-Entwicklungsplattformen wie WPF oder Silverlight ausgelegt
+ auf moderne UI-Entwicklungsplattformen wie WPF oder Silverlight ausgelegt,
  bei denen es eine Rollentrennung zwischen einem UI-Entwickluer und einem
  Back-End-Entwickler gibt.
- Das View-Model von MVVM ist dafür verantwortlich, die Datenbojekte des
+ Das View-Model von MVVM ist dafür verantwortlich, die Datenobjekte des
  Modells derart blosszulegen, dass sie einfach verwaltet und benutzt werden
  können.
  
@@ -5906,15 +6008,15 @@ key "Fowler2004"
 
 \begin_layout Standard
 MVVM wurde entworfen, um mittels der spezifischen Funktionen in WPF durch
- Entfernung praktisch alles Code-Behind von der View-Schicht eine bessere
- Trennung der View-Schicht vom Rest zu ermöglichen.
+ Entfernung praktisch allen Code-Behind Quellcode von der View-Schicht eine
+ bessere Trennung der View-Schicht vom Rest zu ermöglichen.
  Statt View-Code zu schreiben, kann ein Designer die XAML verwenden und
- Bindungen zum ViewModel erzeugen, die durch Anwendungsentwickler geschrieben
+ Bindungen zum View-Model erzeugen, die durch Anwendungsentwickler geschrieben
  und gewartet werden.
- Diese Rollentrennung erlaubt es Designern, eher einen Fokus auf die UX-Anforder
-ungen zu legen, als auf Programmierung oder Geschäftslogik, wodurch die
- Schichten einer Anwendung typischerweise in mehreren Arbeitsgruppen entwickelt
- werden können.
+ Diese Rollentrennung erlaubt es Designern, den Fokus auf die UX-Anforderungen
+ zu legen, als auf Programmierung oder Geschäftslogik, wodurch die Schichten
+ einer Anwendung typischerweise in mehreren Arbeitsgruppen entwickelt werden
+ können.
 \end_layout
 
 \begin_layout Standard
@@ -5947,31 +6049,32 @@ View: wie im klassischen MVC-Muster bezieht sich die View auf alle Elemente
 ViewModel: das ViewModel ist ein “Modell der View” was bedeutet, dass es
  eine Abstraktion der View ist, die auch der Datenbindung zwischen View
  und Model dient.
- Es könnte betrachtet werden als ein spezieller Aspekt eines Controllers
- (im MVC-Muster) für die Datenbindung und -konvertierung, der Information
+ Es könnte als ein spezieller Aspekt eines Controllers (im MVC-Muster) für
+ die Datenbindung und -konvertierung betrachtet werden, der Information
  vom Model zu solcher für die View konvertiert und Befehle von der View
  zum Model reicht.
- Das ViewModel legt öffentliche Properties, Befehle und Abstraktionen bloß.
- Das ViewModel kann mit einem konzeptionellen Zustand der Daten verglichen
+ Das ViewModel legt öffentliche Eigenschaften, Befehle und Abstraktionen
+ bloss.
+ Das View-Model kann mit einem konzeptionellen Zustand der Daten verglichen
  werden, im Gegensatz zum realen Zustand der Daten im Model.
 \end_layout
 
 \begin_layout Standard
-Abbildung 
+Die Abbildung 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Beispielimplementierung-von-MVVM"
 
 \end_inset
 
- zeigt eine beispielhafte Implementierung von 
+ zeigt eine beispielhafte Implementierung des MVVM-Musters von 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Smith2009"
 
 \end_inset
 
- des MVVM-Musters mit allen wichtigen Elementen.
+ mit allen wichtigen Elementen.
 \end_layout
 
 \begin_layout Standard
@@ -5995,7 +6098,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Beispielimplementierung von MVVM (aus 
+MVVM-Beispielimplementierung (aus 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Smith2009"
@@ -6036,9 +6139,10 @@ name "sub:Silverlight"
 \begin_layout Standard
 2007 vorgestellt ist Silverlight ein Applikationsframework zur Entwicklung
  von Rich Internet Applications (RIA).
- Silverlgiht Applikationen werden dabei innerhalb eines Browserplugins ausgeführ
+ Silverlight Applikationen werden dabei innerhalb eines Browserplugins ausgeführ
 t, das für für eine Vielzahl von Browsern und Betriebssystemen existiert.
- Silverlight benutzt ein ähnliches Grafiksysteme wie WPF (siehe 
+ Silverlight benutzt ein ähnliches Grafiksysteme wie WPF (siehe Kapitel
+ 
 \begin_inset CommandInset ref
 LatexCommand vref
 reference "sub:Windows-Presentation-Foundation"
@@ -6051,13 +6155,17 @@ reference "sub:Windows-Presentation-Foundation"
 \end_layout
 
 \begin_layout Standard
-Wie in WPF wird auch in Silverlight XAML als Beschreibungssprache von Benutzerob
-erflächen benutzt allerdings in einem verminderten Umfang.
+Wie in WPF wird auch in Silverlight XAML als Beschreibungssprache der Benutzerob
+erflächen benutzt allerdings in einem leicht verminderten Umfang.
  Da Silverlightapplikationen gleichzeitig im Browser und auf einem Winows
- Phone läuft wurde es als UI-Framework für die YAEM Mobile- und Web-Clientapplik
-ationen ausgewählt.
- Mit minimalem Aufwand können für zwei unterschiedliche Plattformen Anwendungen
- entwickelt werden.
+ Phone laufen können, wurde es als UI-Framework für die YAEM Mobileapplikation
+ ausgewählt mit Hinblick auf eine eventuelle Webapplikation.
+ 
+\end_layout
+
+\begin_layout Standard
+Dank Silverlight können mit minimsten Entwicklungsaufwand für zwei unterschiedli
+che Plattformen Anwendungen entwickelt werden.
 \end_layout
 
 \begin_layout Subsection
@@ -6065,7 +6173,8 @@ Mock-Objekte
 \end_layout
 
 \begin_layout Standard
-Bei Unit-Tests möchte man möglichst nur eine kleine Einheit isoliert testen.
+Bei Unit-Tests möchte man möglichst nur eine kleine Einheit eines Programms
+ isoliert testen.
  Meistens stehen jedoch Abhängikeiten zu anderen Einheiten diesem Vorhaben
  im Weg, die man für diesen Test ignorieren möchte.
  Soll die Interaktion eines Objektes mit seiner Umgebung überprüft werden,
@@ -6087,13 +6196,13 @@ Dummy
 \begin_inset Quotes erd
 \end_inset
 
--Objekte oder Attrappen genannt, einsetzen.
- Diese dienen als Platzhalter für echte Objekte und Abhängigkeiten.
+-Objekte oder Attrappen genannt, einsetzen, die als Platzhalter für echte
+ Objekte und Abhängigkeiten dienen.
  
 \end_layout
 
 \begin_layout Standard
-Mock-Objekte (in diesem Fall mittels des Frameworks Moq
+Mock-Objekte (in YAEM kommt das Framework Moq
 \begin_inset Foot
 status open
 
@@ -6114,8 +6223,8 @@ http://code.google.com/p/moq/
 
 \end_inset
 
-) implementieren Schnittstellen, über die das zu testende Objekt auf seine
- Umgebung zugreift.
+ zum Einsatz) implementieren Schnittstellen, über die das zu testende Objekt
+ auf seine Umgebung zugreift.
  Sie stellen sicher, dass die erwarteten Methodenaufrufe vollständig, mit
  den korrekten Parametern und in der erwarteten Reihenfolge durchgeführt
  werden.
@@ -6125,7 +6234,7 @@ http://code.google.com/p/moq/
 
 \begin_layout Standard
 Durch den Einsatz von Mock-Objekten kann man einzelne Softwarteile testen
- ohne dass diese die Aussmase von Integrationstests annehmen.
+ ohne dass diese die Ausmasse von Integrationstests annehmen.
 \end_layout
 
 \begin_layout Section
@@ -6168,7 +6277,7 @@ Ein symmetrisches Kryptosystem ist ein Kryptosystem, bei welchem im Gegensatz
 Ein asymmetrisches Kryptosystem (oder Public-Key-Kryptosystem) hingegen
  ist ein kryptographisches Verfahren, bei dem die kommunizierenden Parteien
  keinen gemeinsamen Schlüssel kennen müssen.
- Ein Benutzer erzeugt hier ein Schlüsselpaar, das aus einem geheimen Teil
+ Ein Benutzer erzeugt hierzu ein Schlüsselpaar, das aus einem geheimen Teil
  (privater Schlüssel) und einem nicht geheimen Teil (öffentlicher Schlüssel)
  besteht.
  Der öffentliche Schlüssel ermöglicht es jedem, Daten für den Inhaber des
@@ -6192,8 +6301,8 @@ name "sub:Symmetrische-Kryptosysteme"
 
 \begin_layout Standard
 Da der Fokus dieses Projekts nicht auf der Implementierung von Kryptosystemen
- liegt werden im Moment nur symmetrische Kryptosysteme unterstützt, die
- einfach zu handhaben sind, da zum Ent- und Verschlüsseln derselbe Schlüssel
+ liegt, werden im Moment nur symmetrische Kryptosysteme unterstützt, die
+ einfacher zu handhaben sind, da zum Ent- und Verschlüsseln derselbe Schlüssel
  benutzt wird.
 \end_layout
 
@@ -6201,9 +6310,9 @@ Da der Fokus dieses Projekts nicht auf der Implementierung von Kryptosystemen
 Man teilt die symmetrischen Verfahren in Blockchiffren-basierte Verfahren
  und Stromchiffren auf.
  Mit Stromchiffren wird der Klartext Zeichen für Zeichen verschlüsselt,
- um den Geheimtext zu erhalten, bzw.
- entschlüsselt, um den Klartext zu erhalten.
- Eine Blockchiffre arbeitet mit einer festen Blockgröße und ver- bzw.
+ um den Geheimtext zu erhalten, beziehungsweise entschlüsselt, um den Klartext
+ zu erhalten.
+ Eine Blockchiffre arbeitet mit einer festen Blockgröße und ver- beziehungsweise
  entschlüsselt mehrere Zeichen in einem Schritt.
  Um damit Texte beliebiger Länge verschlüsseln zu können, sind Betriebmodi
  festgelegt, die bestimmen, wie die Blockchiffre verwendet wird.
@@ -6211,16 +6320,23 @@ Man teilt die symmetrischen Verfahren in Blockchiffren-basierte Verfahren
 
 \begin_layout Standard
 Im Rahmen dieses Projekts werden drei Algorithmen mittels der Schnittstelle
- ICryptoProvider (siehe 
+ 
+\emph on
+ICryptoProvider
+\emph default
+ (siehe Kapitel 
 \begin_inset CommandInset ref
 LatexCommand vref
 reference "sub:YAEM.Crypto"
 
 \end_inset
 
-) implementiert, die allesamt aus dem System.Security.Cryptography Namespace
- des .NET Frameworks stammen und in den folgenden Unterkapiteln kurz beschrieben
- werden.
+) implementiert, die allesamt aus dem 
+\emph on
+System.Security.Cryptography
+\emph default
+ Namespace des .NET Frameworks stammen und deren Funktionsweisen in den folgenden
+ Unterkapiteln kurz beschrieben werden.
  
 \end_layout
 
@@ -6230,8 +6346,9 @@ Advanced Encryption Standard
 
 \begin_layout Standard
 Der Advanced Encryption Standard (AES) ist ein symmetrisches Kryptosystem,
- das als Nachfolger für DES und TripleDES im Oktober 2000 vom National Institute
- of Standards and Technology (NIST) als Standard bekanntgegeben wurde.
+ das als Nachfolger für DES und Triple-DES im Oktober 2000 vom National
+ Institute of Standards and Technology (NIST) als Standard bekanntgegeben
+ wurde.
  
 \end_layout
 
@@ -6239,8 +6356,7 @@ Der Advanced Encryption Standard (AES) ist ein symmetrisches Kryptosystem,
 Der AES ist ist eine Blockchiffre, wobei sie auf einer Verflechtung von
  Substitutions- und Permutationsvorgängen basiert, was bedeutet, dass eine
  Reihe mathematischer Vorgänge miteinander verbunden werden um Daten höchstmögli
-ch zu modifizieren bzw.
- zu verschlüsseln.
+ch zu modifizieren beziehungsweise zu verschlüsseln.
  
 \end_layout
 
@@ -6249,7 +6365,7 @@ Rijndael
 \end_layout
 
 \begin_layout Standard
-Nach
+Nach 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Shawnfa2006"
@@ -6260,25 +6376,26 @@ key "Shawnfa2006"
  können bei Rijndael die Block- und Schlüsselgrössen unabhängig voneinander
  aus 128, 160, 192, 224 oder 256 Bits gewählt werden.
  AES legt die Blockgrösse immer auf 128 bits fest, die Schlüsselgrösse kann
- hingegen entweder 128, 192 oder 256 Bits.
+ hingegen entweder 128, 192 oder 256 Bits bestehen.
 \end_layout
 
 \begin_layout Subsubsection
-TripleDES
+Triple-DES
 \end_layout
 
 \begin_layout Standard
-Der Triple-DES Algorithmus ist ein Nachfolger des DES-Algorithmus und wurde
- im Jahr 1976 als offizieller Standard der US-Regierung bestätigt.
- Im Gegensatz zum DES mit seiner verwendeten Schlüssellänge von 56 Bits
- (die heute als nicht ausreichend sicher betrachtet wird) kann die Schlüsselläng
-e durch Mehrfachfachverwendung des DES einfach vergrössert werden.
+Der Triple-DES (Data Encryption Standard) Algorithmus ist ein Nachfolger
+ des DES-Algorithmus und wurde im Jahr 1976 als offizieller Standard der
+ US-Regierung bestätigt.
+ Im Gegensatz zum DES mit seiner Schlüssellänge von 56 Bits (die heute als
+ nicht ausreichend sicher betrachtet wird) kann die Schlüssellänge durch
+ Mehrfachfachverwendung des DES einfach vergrössert werden.
 \end_layout
 
 \begin_layout Standard
 Der DES verwendet eine Blockchiffre, die den Klartext in 64 Bit-Blöcke unterteil
 t und verschlüsselt.
- Triple-DES verwendet drei 64 Bit Schlüssel, die dadurch eine gesamte Schlüssell
+ Triple-DES verwendet drei 64 Bit-Schlüssel, die dadurch eine gesamte Schlüssell
 äge von 192 Bit ergeben.
  Dabei wird die erste Verschlüsselung mit dem zweiten Schlüssel verschlüsselt
  und der resultierende Kryptotext erneut mit dem dritten Schlüssel verschlüsselt.
@@ -6297,21 +6414,43 @@ reference "sub:Symmetrische-Kryptosysteme"
 \end_inset
 
  erwähnt, unterstützt YAEM.Crypto im Moment nur symmetrische Kryptosysteme,
- da die Schnittstelle ICryptoProvider darauf basiert, das derselbe Schlüssel
- zum Ver- und Entschlüsseln der Nutzdaten verwendet wird.
+ da die Schnittstelle 
+\emph on
+ICryptoProvider
+\emph default
+ darauf basiert, das derselbe Schlüssel zum Ver- und Entschlüsseln der Nutzdaten
+ verwendet wird.
  
 \end_layout
 
 \begin_layout Standard
 Auch bei asymmetrischen Verfahren ist der Austausch von Schlüsseln wichtig.
  Muss man den öffentlichen Schlüssel doch zugänglich machen damit er zur
- Verschlüsselung benutzt werden kann und den dazu passende private irgendwo
- sicher verwahren um nicht das gesamte Konzept auszuhebeln.
- Würde YAEM auch asymmetrische Kryptosysteme unterstützen müssen, so müsste
- neben ICryptoProvider ein zweites Interface mit dem Namen IAsymmetricCryptoProv
-ider definiert werden, welche anstelle der Properties Key und InitialzationVecto
-r eine Möglichkeit besitzt den öffentlichen Schlüssel aus dem installierten
- Zertifikat auf dem ausgeführten Rechner auszulesen
+ Verschlüsselung benutzt werden kann und den dazu passende privaten Schlüssel
+ irgendwo sicher verwahren um nicht das gesamte Konzept auszuhebeln.
+ 
+\end_layout
+
+\begin_layout Standard
+Würde YAEM auch asymmetrische Kryptosysteme unterstützen müssen, so müsste
+ neben 
+\emph on
+ICryptoProvider
+\emph default
+ eine zweite Schnittstelle mit dem Namen 
+\emph on
+IAsymmetricCryptoProvider
+\emph default
+ definiert werden, welche anstelle der Properties 
+\emph on
+Key
+\emph default
+ und 
+\emph on
+InitializationVector
+\emph default
+ eine Möglichkeit besitzt den öffentlichen Schlüssel aus dem installierten
+ Zertifikat eiens Benutzers auszulesen
 \begin_inset Foot
 status open
 
@@ -6334,8 +6473,11 @@ thm.aspx
 \end_inset
 
 .
- Der private Schlüssel wird dabei in dem dafür vorgesehenen Container CspParamet
-ers
+ Der private Schlüssel wird dabei in dem dafür vorgesehenen Container 
+\emph on
+CspParameters
+\emph default
+
 \begin_inset Foot
 status open
 
@@ -6380,21 +6522,20 @@ n.
 \end_layout
 
 \begin_layout Standard
-Zur besseren Orientierung innerhalb des Systems wird auf die Abbildung 
+Zur besseren Orientierung innerhalb des Systems wird auf Abbildung 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Visual-Studio-Solution"
 
 \end_inset
 
- der Visual Studio-Solution verwiesen.
+ verwiesen, welche die Struktur Visual Studio-Solution darstellt.
  Die Namensgebung der Unterkapitel hält sich dabei an die Namespaces der
  Projekte.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
-placement H
 wide false
 sideways false
 status open
@@ -6403,6 +6544,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename Graphics/SolutionOverview.png
+	scale 80
 
 \end_inset
 
@@ -6445,9 +6587,19 @@ name "sub:YAEM.Domain"
 \end_layout
 
 \begin_layout Standard
-Die Assembly YAEM.Domain enthält alle Klassen, die über die Webservice Schnittste
-llen IUserService und IMessagingService übertragen werden (Inhalt des Namespaces
- siehe 
+Die Assembly 
+\emph on
+YAEM.Domain
+\emph default
+ enthält alle Klassen, die über die Webservice Schnittstellen 
+\emph on
+IUserService
+\emph default
+ und 
+\emph on
+IMessagingService
+\emph default
+ übertragen werden (Inhalt des Namespaces siehe Kapitel 
 \begin_inset CommandInset ref
 LatexCommand vref
 reference "sub:Domänenmodell"
@@ -6455,7 +6607,11 @@ reference "sub:Domänenmodell"
 \end_inset
 
 ).
- Alle Klassen sind mit [DataContract]
+ Alle Klassen sind mit 
+\emph on
+[DataContract]
+\emph default
+
 \begin_inset Foot
 status open
 
@@ -6478,19 +6634,45 @@ http://msdn.microsoft.com/en-us/library/ms733127.aspx
 
 \end_inset
 
- annotiert, da sie serialisiert über den WCF Webservice übertragen werden
+ annotiert, da sie serialisiert über den WCF-Webservice übertragen werden
  sollen.
- Die Objekte Message, Session und User leiten von ObjectBase ab, welches
- neben der Schlüsselverwaltung der einzelnen Instanzen auch die Schnittselle
- INotifyPropertyChanged implementiert, welche WPF und Silverlight Datenbindings
- über geänderte Daten benachrichtigt.
+ Die Objekte 
+\emph on
+Message
+\emph default
+, 
+\emph on
+Session
+\emph default
+ und 
+\emph on
+User
+\emph default
+ leiten von 
+\emph on
+ObjectBase
+\emph default
+ ab, welches neben der Schlüsselverwaltung der einzelnen Instanzen auch
+ die Schnittstelle 
+\emph on
+INotifyPropertyChanged
+\emph default
+ implementiert, welche WPF- und Silverlight-Datenbindings über geänderte
+ Daten benachrichtigt.
 \end_layout
 
 \begin_layout Standard
 Da dieser Namespace auch in Silverlight verfügbar sein soll, wird eine Kopie
- als Silverlight-Library erstellt, in welcher alle Klassen aus YAEM.Domain
+ als Silverlight-Bibliothek erstellt, in welcher alle Klassen aus 
+\emph on
+YAEM.Domain
+\emph default
  als Link im Projekt eingefügt sind und danach als eigenständige Assembly
- (hier YAEM.Domain.SL) kompiliert werden (siehe 
+ (hier 
+\emph on
+YAEM.Domain.SL
+\emph default
+) kompiliert werden (siehe 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Betz2008"
@@ -6505,12 +6687,12 @@ YAEM.Contracts
 \end_layout
 
 \begin_layout Standard
-Dieses Assembly enthält nur die ServiceContracts
+Dieses Assembly enthält nur die Service Contracts
 \begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-Ein ServiceContract beschreibt eine Schnittstelle oder Klasse die einen
+Ein Service Contract beschreibt eine Schnittstelle oder Klasse die einen
  Servicevertrag einer Applikation definiert.
  Siehe MSDN 
 \begin_inset Flex URL
@@ -6529,9 +6711,17 @@ aspx
 
 \end_inset
 
-IUserService und IMessagingService, die von der Serverapplikation implementiert
- als Webservice zur Verfügung gestellt werden (Details zu den einzelnen
- ServiceOperations sind in Kapitel 
+
+\emph on
+IUserService
+\emph default
+ und 
+\emph on
+IMessagingService
+\emph default
+, die von der Serverapplikation implementiert als Webservice zur Verfügung
+ gestellt werden (Details zu den einzelnen ServiceOperations sind in Kapitel
+ 
 \begin_inset CommandInset ref
 LatexCommand vref
 reference "sub:Service-Contracts"
@@ -6539,17 +6729,41 @@ reference "sub:Service-Contracts"
 \end_inset
 
  zu finden).
- Zusätzlich wird auch die ServiceContract IServiceCallback in diesem Namespace
- definiert, der von den Clientapplikationen implementiert werden muss, wenn
- sie die beiden Services IUserService und IMessagingService nutzen wollen,
- da diese mit [ServiceContract(CallbackContract = typeof(IServiceCallback))]
- annotiert sind, was den Webservice-Konsumenten dazu zwingt, den CallbackContrac
-t zu implementieren.
+ 
+\end_layout
+
+\begin_layout Standard
+Zusätzlich wird auch die Service Contract 
+\emph on
+IServiceCallback
+\emph default
+ in diesem Namespace definiert, der von den Clientapplikationen implementiert
+ werden muss, wenn sie die beiden Services 
+\emph on
+IUserService
+\emph default
+ und 
+\emph on
+IMessagingService
+\emph default
+ nutzen will, da diese mit 
+\emph on
+[ServiceContract(CallbackContract = typeof(IServiceCallback))]
+\emph default
+ annotiert sind, was den Webservice-Konsumenten dazu zwingt, den 
+\emph on
+CallbackContract
+\emph default
+ zu implementieren.
 \end_layout
 
 \begin_layout Standard
 Alle in den Schnittsellen übertragenen Datenobjekte sind entweder primitve
- Datentypen oder stammen aus YAEM.Domain (siehe 
+ Datentypen oder stammen aus 
+\emph on
+YAEM.Domain
+\emph default
+ (siehe Kapitel 
 \begin_inset CommandInset ref
 LatexCommand vref
 reference "sub:YAEM.Domain"
@@ -6564,18 +6778,48 @@ YAEM.Server
 \end_layout
 
 \begin_layout Standard
-Die YAEM.Server-Applikation dient als Servicehost der beiden Webservices
- IUserService und IMessagingService.
- Ein WCF Service kann entweder im Internet Information Server (IIS) gehosted
- werden oder als Selfhosting Applikation z.B.
+Die Applikation 
+\emph on
+YAEM.Server
+\emph default
+ dient als Servicehost der beiden Webservices 
+\emph on
+IUserService
+\emph default
+ und 
+\emph on
+IMessagingService
+\emph default
+.
+ Ein WCF-Webservice kann entweder im Internet Information Server
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Internet Information Service"
+description "Der Internet Information Services (IIS)  ist eine Serviceplattform über welche Dokumente und Dateien im Netzwerk zugänglich gemacht werden. Als Kommunikationsprotokolle kommen hierbei HTTP, HTTPS, FTP, SMTP, POP3, WebDAV und andere zum Einsatz. Über IIS können ASP- oder .NET-Applikationen (ASP.NET) ausgeführt werden und WCF Services gehosted werden."
+
+\end_inset
+
+ gehosted werden oder als Selfhost-Applikation z.B.
  innerhalb einer Konsolenanwendung.
- Da insbesondere der geringere Konfigurationsaufwand für Selfhosted Services
- spricht, wurde die IIS-hosted Lösung verworfen.
+ Da insbesondere der geringere Konfigurationsaufwand für Selfhosted-Services
+ spricht, wurde die IIS-hosted Lösung für die Serverapplikation verworfen.
 \end_layout
 
 \begin_layout Standard
-Die Konsoleanpplikation zeigt direkt ein Protokoll aller aufgerufenen Methoden
- der Webservices dar.
+Nach dem Start der Serverapplikation zeigt die Konsoleanpplikation ein Protokoll
+ aller aufgerufenen Methoden der Webservices dar (siehe Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Serverapplikation"
+
+\end_inset
+
+).
+ Wird das Konsolenfenster geschlossen, so terminiert sich 
+\emph on
+YAEM.Server
+\emph default
+ von selbst und benachrichtigt alle eventuell verbundenen Clients darüber.
 \end_layout
 
 \begin_layout Standard
@@ -6588,7 +6832,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename Graphics/Server.png
-	scale 80
+	scale 60
 
 \end_inset
 
@@ -6600,6 +6844,13 @@ status open
 
 \begin_layout Plain Layout
 Serverapplikation
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Serverapplikation"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -6625,20 +6876,39 @@ name "sub:YAEM.Crypto"
 
 \begin_layout Standard
 Die Infrastruktur für die Implementierungen der Kryptosysteme findet sich
- im Assembly YAEM.Crypto.
- Das Interface ICryptoProvider stellt dabei alle Funktionalitäten zur Verfügung,
- die ein symmetrisches Kryptosystem zur Ver- und Entschlüsselung von Byte-Arrays
- benötigt.
+ im Namespace 
+\emph on
+YAEM.Crypto
+\emph default
+.
+ Das Interface 
+\emph on
+ICryptoProvider
+\emph default
+ stellt dabei alle Funktionalitäten zur Verfügung, die ein symmetrisches
+ Kryptosystem zur Ver- und Entschlüsselung von Bytearrays benötigt.
 \end_layout
 
 \begin_layout Standard
-Zusätzlich zu ICryptoProvider enthält das Projekt auch noch das ExportAttribute
+Zusätzlich zu 
+\emph on
+ICryptoProvider
+\emph default
+ enthält das Projekt auch noch das 
+\emph on
+ExportAttribute
+\emph default
+
 \begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-ExportAttribute spezifiziert einen Typ, ein Property oder eine Methode die
- einen Export zur Verfügung stellen.
+
+\emph on
+ExportAttribute
+\emph default
+ spezifiziert einen Typ, ein Property oder eine Methode die einen Export
+ zur Verfügung stellen.
  Mehr Informationen in der MSDN unter 
 \begin_inset Flex URL
 status collapsed
@@ -6656,8 +6926,12 @@ bute.aspx
 
 \end_inset
 
- CryptoAlgorithmAttribute, das für MEF benötigt wird um zur Laufzeit die
- vorhanden Kryptoalgorithmen identifizieren zu können.
+ 
+\emph on
+CryptoAlgorithmAttribute
+\emph default
+, das von MEF benötigt wird um zur Laufzeit die installierten Kryptoalgorithmen
+ identifizieren zu können.
 \end_layout
 
 \begin_layout Subsubsection
@@ -6665,8 +6939,15 @@ YAEM.Crypto.Aes
 \end_layout
 
 \begin_layout Standard
-YAEM.Crypto.Aes stellt die Implementierung der Schnittstelle ICryptoProvider
- (siehe 
+
+\emph on
+YAEM.Crypto.Aes
+\emph default
+ stellt die Implementierung der Schnittstelle 
+\emph on
+ICryptoProvider
+\emph default
+ (siehe Kapitel 
 \begin_inset CommandInset ref
 LatexCommand vref
 reference "sub:YAEM.Crypto"
@@ -6674,13 +6955,28 @@ reference "sub:YAEM.Crypto"
 \end_inset
 
 ) mit dem Kryptosystem Advanced Encryption Standard (AES) zur Verfügung.
- Der AesCryptoProvider ist dabei mit [CryptoAlgorithm(Algorithm = CryptoAlgorith
-m.Aes)] annotiert, so dass beim Importieren der Assembly das Kryptosystem
- auch im UI identifiziert werden kann.
+ Der 
+\emph on
+AesCryptoProvider
+\emph default
+ ist dabei mit 
+\emph on
+[CryptoAlgorithm(Algorithm = CryptoAlgorithm.Aes)]
+\emph default
+ annotiert, so dass beim Importieren der Assembly das Kryptosystem auch
+ im UI identifiziert werden kann.
 \end_layout
 
 \begin_layout Standard
-Der AesCryptoProvider ist ein Wrapper für den AesCryptoServiceProvider
+Der 
+\emph on
+AesCryptoProvider
+\emph default
+ stellt dabei einen Wrapper für den 
+\emph on
+AesCryptoServiceProvider
+\emph default
+
 \begin_inset Foot
 status open
 
@@ -6702,7 +6998,11 @@ provider.aspx
 
 \end_inset
 
- aus dem Namespace System.Security.Cryptography 
+ aus dem Namespace 
+\emph on
+System.Security.Cryptography
+\emph default
+ 
 \begin_inset Foot
 status open
 
@@ -6724,9 +7024,13 @@ http://msdn.microsoft.com/en-us/library/system.security.cryptography.aspx
 
 \end_inset
 
-, also Microsofts Refrenzimplementierung von AES.
- Der AesCryptoServiceProvider implementiert den AES über die Cryptographic
- Application Programming Interfaces (CAPI).
+zur Verfügung, der Microsofts Refrenzimplementierung von AES darstellt.
+ Der 
+\emph on
+AesCryptoServiceProvider
+\emph default
+ implementiert den AES über die Cryptographic Application Programming Interfaces
+ (CAPI).
 \end_layout
 
 \begin_layout Subsubsection
@@ -6734,9 +7038,20 @@ YAEM.Crypto.Rijndael
 \end_layout
 
 \begin_layout Standard
-Analog der Implementierung des AES enthält der Namespace YAEM.Crypto.Rijndael
+Analog der Implementierung des AES enthält der Namespace 
+\emph on
+YAEM.Crypto.Rijndael
+\emph default
  die Implementierung des Rijndael Kryptosystems.
- Konkret ist der RijndaelCryptoProvider ein Wrapper von RijndaelManaged
+ Konkret ist der 
+\emph on
+RijndaelCryptoProvider
+\emph default
+ ein Wrapper von 
+\emph on
+RijndaelManaged
+\emph default
+
 \begin_inset Foot
 status open
 
@@ -6758,8 +7073,15 @@ http://msdn.microsoft.com/en-us/library/system.security.cryptography.rijndaelman
 \end_inset
 
  der den Rijndael Algorithmus implementiert.
- Zusätzlich ist der RijndaelCryptoProvider mit [CryptoAlgorithm(Algorithm
- = CryptoAlgorithm.Rijndael)] annotiert.
+ Zusätzlich ist der 
+\emph on
+RijndaelCryptoProvider
+\emph default
+ mit 
+\emph on
+[CryptoAlgorithm(Algorithm = CryptoAlgorithm.Rijndael)]
+\emph default
+ annotiert.
 \end_layout
 
 \begin_layout Subsubsection
@@ -6767,9 +7089,23 @@ YAEM.Crypto.TripleDES
 \end_layout
 
 \begin_layout Standard
-Der TripleDESCryptoProvider des YAEM.Crypto.TripleDES Namespaces implementiert
- auch ICryptoProvider und stellt einen Wrapper für TripleDESCryptoServiceProvide
-r
+Der 
+\emph on
+TripleDESCryptoProvider
+\emph default
+ des 
+\emph on
+YAEM.Crypto.TripleDES
+\emph default
+ Namespaces implementiert wiederum 
+\emph on
+ICryptoProvider
+\emph default
+ und stellt einen Wrapper für den 
+\emph on
+TripleDESCryptoServiceProvider
+\emph default
+
 \begin_inset Foot
 status open
 
@@ -6791,9 +7127,16 @@ erviceprovider.aspx
 
 \end_inset
 
- aus dem System.Security.Cryptography Namespace bereit.
- Er implementiert das symmetrische Kryptosystem TripleDES und ist mit [CryptoAlg
-orithm(Algorithm = CryptoAlgorithm.TripleDES)] annotiert.
+ aus dem 
+\emph on
+System.Security.Cryptography
+\emph default
+ Namespace bereit.
+ Er implementiert das symmetrische Kryptosystem TripleDES und ist mit 
+\emph on
+[CryptoAlgorithm(Algorithm = CryptoAlgorithm.TripleDES)]
+\emph default
+ annotiert.
 \end_layout
 
 \begin_layout Subsection
@@ -6801,12 +7144,17 @@ YAEM.TestClient
 \end_layout
 
 \begin_layout Standard
-Die erste entwickelte Clientapplikation, die nicht Teil der Aufgabenstellung
- war, ist eine in Windows Forms entwickelte Desktopapplikation für Windows-basie
-rte Systeme.
- Die Applikation zeigt zusätzliche Debug-Informationen an, die in den Clientappl
-ikationen für den Endnutzer nicht ersichtlich sind wie die Guids der Benutzer
- und Nachrichten sowie weitere Informationen zu den übertragenen Daten.
+Zu Beginn der Implementationsphase wurde der 
+\emph on
+YAEM.TestClient
+\emph default
+ entwickelt, der nicht Teil der Aufgabenstellung war.
+ Der Testclient ist eine in Windows Forms entwickelte Desktopapplikation
+ für windowsbasierte Systeme.
+ Die Applikation zeigt zusätzliche Debug-Informationen an, die in den weiteren
+ Clientapplikationenen für den Endnutzer nicht ersichtlich sind wie zum
+ Beispiel die GUIDs der Benutzer und Nachrichten sowie weitere Informationen
+ zu den übertragenen Daten.
  Der YAEM.TestClient hält sich somit auch nicht an die Mockups (siehe Kapitel
  
 \begin_inset CommandInset ref
@@ -6827,7 +7175,7 @@ reference "fig:GesprächsdialogTestClient"
 \end_inset
 
 ) enthält zusätzlich zum Gesprächsverlauf auf der rechten Seite des Dialogfenste
-rs die Möglichkeit dem Gespräch beizutreten sowie Anzeige der dem Gespräch
+rs die Möglichkeit dem Gespräch beizutreten sowie eine Anzeige der dem Gespräch
  beigetretenen Benutzer.
 \end_layout
 
@@ -6842,7 +7190,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename Graphics/TestClient-MainForm.png
-	scale 80
+	scale 60
 
 \end_inset
 
@@ -6898,7 +7246,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename Graphics/TestClient-GenerateKey.png
-	scale 80
+	scale 60
 
 \end_inset
 
@@ -6934,16 +7282,19 @@ YAEM.DesktopClient
 \end_layout
 
 \begin_layout Standard
-Der YAEM.DesktopClient hält sich hingegen an die Anforderungen der Mockups
- (siehe Kapitel 
+Der 
+\emph on
+YAEM.DesktopClient
+\emph default
+ hält sich hingegen an die Anforderungen der Mockups (siehe Kapitel 
 \begin_inset CommandInset ref
 LatexCommand vref
 reference "sec:Mockups"
 
 \end_inset
 
-) und implementiert diese in einer WPF Applikation unter Berücksichtigung
- des MVVM-Entwurfsmusters (siehe 
+) und implementiert diese in einer WPF-Applikation unter Berücksichtigung
+ des MVVM-Entwurfsmusters (siehe Kapitel 
 \begin_inset CommandInset ref
 LatexCommand vref
 reference "sub:Model-View-ViewModel"
@@ -6985,7 +7336,6 @@ reference "fig:Gesprächsdialog-DesktopClient"
 
 \begin_layout Standard
 \begin_inset Float figure
-placement H
 wide false
 sideways false
 status open
@@ -6994,7 +7344,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename Graphics/DesktopClient-Connect.png
-	scale 80
+	scale 60
 
 \end_inset
 
@@ -7026,29 +7376,43 @@ name "fig:Verbindungsdialog-DesktopClient"
 \end_layout
 
 \begin_layout Standard
-Das MessagingViewModel, das an das MessagingWindow gebunden ist, implementiert
- die Schnittstelle IServiceCallback (siehe 
+Das 
+\emph on
+MessagingViewModel
+\emph default
+, das an das 
+\emph on
+MessagingWindow
+\emph default
+ gebunden ist, implementiert die Schnittstelle 
+\emph on
+IServiceCallback
+\emph default
+ (siehe Kapitel 
 \begin_inset CommandInset ref
 LatexCommand vref
 reference "sub:IServiceCallback"
 
 \end_inset
 
-), da das ViewModel die Webservices der Serverapplikation benutzen.
+), da das View-Model die Webservices der Serverapplikation benutzet.
  Bei erfolgreichem Beitreten des Gesprächs wird der Serverapplikation der
  Callbackchannel der Clientapplikation mitgeteilt, so dass diese beim Eintreffen
- neuer Nachrichten oder bei Veränderungen der angemeldeten Benutzer entsprechend
- reagieren kann.
+ neuer Nachrichten oder beim Hinzukommen oder Verlassen der angemeldeten
+ Benutzer entsprechend reagieren kann.
 \end_layout
 
 \begin_layout Standard
-Schliesst man das MessagingWindow, so wird der Benutzer vom Webserver abgemeldet
- und der Callbackchannel wird geschlossen.
+Schliesst man das 
+\emph on
+MessagingWindow
+\emph default
+, so wird der Benutzer vom Server abgemeldet und der Callbackchannel wird
+ geschlossen.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
-placement H
 wide false
 sideways false
 status open
@@ -7104,7 +7468,6 @@ reference "fig:Schlüsselgenerierungsdialog-Desk"
 
 \begin_layout Standard
 \begin_inset Float figure
-placement H
 wide false
 sideways false
 status open
@@ -7113,7 +7476,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename Graphics/DesktopClient-GenerateKey.png
-	scale 80
+	scale 60
 
 \end_inset
 
@@ -7149,8 +7512,12 @@ YAEM.MobileClient
 \end_layout
 
 \begin_layout Standard
-Zur Entwicklung des MobileClients der unter Windows Phone 7 verteilt werden
- wird Silverlight (siehe 
+Zur Entwicklung des 
+\emph on
+YAEM.MobileClient
+\emph default
+, der unter Windows Phone 7 verteilt werden soll, wird Silverlight (siehe
+ Kapitel 
 \begin_inset CommandInset ref
 LatexCommand vref
 reference "sub:Silverlight"
@@ -7159,17 +7526,24 @@ reference "sub:Silverlight"
 
 ) benutzt.
  Schnell hat sich gezeigt, dass Silverlight mit dem in der Konzeptphase
- ausgewählten WsDualHttpBinding nicht kompatibel ist und aufgrund der fehlenden
- DuplexClientBase (genaures siehe 
+ ausgewählten 
+\emph on
+WsDualHttpBinding
+\emph default
+ nicht kompatibel ist und aufgrund der fehlenden 
+\emph on
+DuplexClientBase
+\emph default
+ (genaures siehe Kapitel 
 \begin_inset CommandInset ref
 LatexCommand vref
 reference "sub:Aufgetretene-Probleme"
 
 \end_inset
 
-) es nicht möglich ist einen funktionsfähigen MobileClient zu entwickeln.
- Aus diesem Grund wird im Rahmen des Projekts auch kein MobileClient implementie
-rt.
+) es nicht möglich ist, eine funktionsfähige mobile Applikation zu entwickeln.
+ Aus diesem Grund wird im Rahmen des Projekts auch kein mobiler Client implement
+iert.
 \end_layout
 
 \begin_layout Subsection
@@ -7184,28 +7558,47 @@ name "sub:Aufgetretene-Probleme"
 \end_layout
 
 \begin_layout Standard
-Einer der ersten Schritte bei Applikationen, die Webservices konsumieren,
- ist das Hinzufügen der Servicerefenzen auf die Webservices im Visual Studio-Pro
-jekt.
- Dadurch werden die im WSDL spezifizierten Datentypen als Code generiert
- sowie das Binding auf den Webservice in der konsumierenden Applikation
- hinzugefügt.
+Einer der ersten Schritte beim Erstellen von Applikationen, die Webservices
+ konsumieren, ist das Hinzufügen der Servicerefenzen auf die Webservices
+ im Visual Studio-Projekt.
+ Dadurch werden die im WSDL
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "WSDL"
+description "Die Web Services Description Language (WSDL) ist eine plattform-, programmiersprachen- und protokollunabhängige Beschreibungssprache für Netzwerkdienste (Webservices) zum Austausch von Nachrichten auf Basis von XML."
+
+\end_inset
+
+ spezifizierten Datentypen als Programmcode generiert sowie das Binding
+ auf den Webservice in der konsumierenden Applikation hinzugefügt.
 \end_layout
 
 \begin_layout Standard
-Es hat sich schnell gezeigt, dass Silverlight keine DuplexClientBase im
- System.ServiceModel Namespace besitzt und es dadurch nicht möglich ist über
- das WsDualHttpBinding von Silverlight eine Kommunikation zum WCF Webservice
- aufzubauen.
- Dadurch, das WsDualHttpBinding die Grundlage der Bereitstellung der Webservices
- in der Serverapplikation ist, ist es im Moment nicht möglich einen Silverlight-
-Client zu schreiben
+Es hat sich schnell gezeigt, dass Silverlight keine 
+\emph on
+DuplexClientBase
+\emph default
+ im 
+\emph on
+System.ServiceModel
+\emph default
+ Namespace besitzt und es dadurch nicht möglich ist über das 
+\emph on
+WsDualHttpBinding
+\emph default
+ von Silverlight eine Kommunikation zum WCF-Webservice aufzubauen.
+ Dadurch, das 
+\emph on
+WsDualHttpBinding
+\emph default
+ die Grundlage der Bereitstellung der Webservices in der Serverapplikation
+ ist, ist es im Moment nicht möglich einen Silverlight-Client zu schreiben
 \begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-Die genauen Unterschiede zwischen dem Silverlight und WCF Stack finden sich
- in der MSDN unter 
+Die genauen Unterschiede zwischen dem Silverlight- und WCF-Stack finden
+ sich in der MSDN unter 
 \begin_inset Flex URL
 status collapsed
 
@@ -7226,19 +7619,37 @@ http://msdn.microsoft.com/en-us/library/cc896571(VS.95).aspx
 \end_layout
 
 \begin_layout Standard
-Möchte man trotzdem einen zweikanaligen Webservice im Zusammenspiel mit
- WCF entwickeln, so müsste man entweder auf das PollingDuplexHttpBinding
- oder NetTcpBinding auswechen.
- PollingDuplexHttpBinding ist exklusiv für Silverlight 5 verfügbar und ermöglich
-t es dem konsumierenden Client in Silverlight in regelmässigen Zeitabständen
- beim Webservice nachzufragen, ob ein Callback existiert, für das eine Aktion
- in der Silverlightapplikation ausgeführt werden müsste.
- Da PollingDuplexHttpBinding im Moment jedoch nicht für WPF verfügbar ist,
- ist auch dieses Binding für das Projekt unbrauchbar.
- Die einzige wirkliche Alternative stellt das NetTcpBinding dar, das allerdings
- nicht über HTTP Daten austauscht sondern über TCP.
+Möchte man trotzdem einen zweikanaligen Webservice zusammen mit WCF entwickeln,
+ so müsste man entweder auf das 
+\emph on
+PollingDuplexHttpBinding
+\emph default
+ oder 
+\emph on
+NetTcpBinding
+\emph default
+ auswechen.
+ 
+\emph on
+PollingDuplexHttpBinding
+\emph default
+ ist exklusiv für Silverlight 5 verfügbar und ermöglicht es dem konsumierenden
+ Client in Silverlight in regelmässigen Zeitabständen beim Webservice nachzufrag
+en, ob ein Callback existiert, für das eine Aktion in der konsumierenden
+ Applikation ausgeführt werden müsste.
+ Da 
+\emph on
+PollingDuplexHttpBinding
+\emph default
+ im Moment jedoch nicht für WPF verfügbar ist, ist auch dieses Binding für
+ das Projekt unbrauchbar.
+ Die einzige wirkliche Alternative stellt das 
+\emph on
+NetTcpBinding
+\emph default
+ dar, das allerdings nicht über HTTP Daten austauscht sondern über TCP.
  Dadurch ginge der grosse Vorteil der Interopabilität verloren, da über
- TCP serialisierte Daten übertragen würden.
+ TCP nur komplett serialisierte Daten übertragen würden.
  
 \end_layout
 
@@ -7257,9 +7668,9 @@ name "chap:Test"
 Die Überprüfung und Verifikation des Softwareprodukts zählt zu den wichtigsten
  Teilen der Softwareentwicklung.
  Insbesondere da in den letzten Jahre neue Methoden und Technologien auf
- den Markt gekommen sind, die diese diffizile und anspruchsvolle Arbeit
- dem Entwickler abgeben wird in diesem Kapitel insbesondere ein Basiswissen
- auf technischer Ebene vermittelt.
+ den Markt gekommen sind, die dem Softwareentwickler helfen, diese anspruchsvoll
+e Arbeit zu erledigen wird in diesem Kapitel ein Basiswissen auf technischer
+ Ebene vermittelt.
 \end_layout
 
 \begin_layout Standard
@@ -7289,7 +7700,7 @@ Unit-Tests (auch Komponententests genannt) überprüfen, ob die von Entwicklern
  Das lässt sich nur erreichen, wenn die Tests vollständig automatisiert
  vorliegen, sie also selbst ein Programm sind, dessen Ausführung nicht mehr
  Aufwand als einen Knopfdruck erfordert.
- Insbesondere in der testgetriebenen Entwicklung (siehe 
+ Insbesondere in der testgetriebenen Entwicklung (siehe Kapitel 
 \begin_inset CommandInset ref
 LatexCommand vref
 reference "sub:Testgetriebene-Entwicklung"
@@ -7301,11 +7712,11 @@ reference "sub:Testgetriebene-Entwicklung"
 \end_layout
 
 \begin_layout Standard
-Durch die Testgetriebene Entwicklung von YAEM werden alle implementierten
+Durch die testgetriebene Entwicklung von YAEM werden alle implementierten
  Komponenten schon vorgängig mit Unit-Tests abgedeckt.
  Die Unit-Tests sind dabei in einem eigenen Visual Studio-Projekt innerhalb
  der Solution untergebracht und werden nicht zusammen mit dem produktiven
- Code deployed.
+ Code verteilt.
 \end_layout
 
 \begin_layout Subsection
@@ -7313,14 +7724,14 @@ Testabdeckung
 \end_layout
 
 \begin_layout Standard
-Eine Kenngrösse zur Qualitätssicherung und zur Steigerung von Softwarequalität
+Eine Kenngrösse zur Qualitätssicherung und zur Steigerung der Softwarequalität
  stellt die Testabdeckung dar.
  Die Testabdeckung bezeichnet die prozentuale Anzahl des produktiven Quellcodes,
- der über einen automatisierten Unit-Test abgedeckt ist, im Vergleich zur
- gesamten Anzahl des Quellcodes.
+ der über automatisierte Unit-Test abgedeckt ist, im Vergleich zur gesamten
+ Anzahl des Quellcodes.
  Insbesondere hift die Testabdeckung bei der Identifizierung von einzelnen
- Bereichen im Quellcode die potentiell fehleranfällig (da ungetestet bzw.
- ungenügend getestet) sind.
+ Bereichen im Quellcode die potentiell fehleranfällig (da ungetestet beziehungsw
+eise ungenügend getestet) sind.
 \end_layout
 
 \begin_layout Standard
@@ -7338,7 +7749,6 @@ reference "tab:Testabdeckung"
 
 \begin_layout Standard
 \begin_inset Float table
-placement H
 wide false
 sideways false
 status open
@@ -7740,10 +8150,18 @@ auch Abnahmetests oder User Acceptance Tests (UAT)
 
 \end_inset
 
- geprüft, ob die Software die funktionalen Erwartungen und Anforderungen
+ wird geprüft, ob die Software die funktionalen Erwartungen und Anforderungen
  im Gebrauch erfüllt.
- Dabei werden Akzeptanztests als Black-Box-Tests gegen die einzelnen Use
- Cases der funktionalen Anforderungen (siehe 
+ Dabei werden Akzeptanztests als Black-Box-Tests
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "Black-Box-Test"
+description "Ein Black-Box-Test bezeichnet einen Test ohne Kenntnisse über die innere Funktionsweise des zu testenden Systems. Er beschränkt sich auf funktionsorientiertes Testen, d. h. für die Ermittlung der Testfälle werden nur die Anforderungen, aber nicht die Implementierung des Testobjekts herangezogen. Die genaue Beschaffenheit des Programms wird nicht betrachtet, sondern vielmehr als Black Box behandelt. Nur nach außen sichtbares Verhalten fliesst in den Test ein."
+
+\end_inset
+
+ gegen die einzelnen Use-Cases der funktionalen Anforderungen (siehe Kapitel
+ 
 \begin_inset CommandInset ref
 LatexCommand vref
 reference "sec:Use-Case-Spezifikationen"
@@ -7755,14 +8173,14 @@ e des Systems und imitiert den Benutzer der Applikation.
 \end_layout
 
 \begin_layout Standard
-In diesem Projekt werden zur Entwicklung der Akzeptanztests Coded UI Tests
+In diesem Projekt werden zur Entwicklung der Akzeptanztests Coded UI-Tests
  verwendet.
- Coded UI Tests
+ Coded UI-Tests
 \begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-Mehr zu Coded UI Tests in der MSDN Library unter 
+Mehr zu Coded UI-Tests in der MSDN Library unter 
 \begin_inset Flex URL
 status collapsed
 
@@ -7778,9 +8196,9 @@ http://msdn.microsoft.com/en-us/library/dd286681.aspx
 
 \end_inset
 
- sind auomatisierte Tests die auf der Benutzerfläche festgelegte Aktionen
+ sind automatisierte Tests die auf der Benutzerfläche festgelegte Aktionen
  als Skript ausführen lassen.
- Ein Coded UI Test kann ausserdem auf einzelnen UI-Elementen Erwartungen
+ Ein Coded UI-Test kann ausserdem auf einzelnen UI-Elementen Erwartungen
  definieren (z.B.
  nach Klick auf den 
 \begin_inset Quotes eld
@@ -7794,17 +8212,19 @@ Senden
 \end_layout
 
 \begin_layout Standard
-Die Anforderungen in den Use Cases UC1 bis UC4 aus den Use-Case-Spezifikationen
- werden als Coded UI Tests ausformuliert und im Visual Studio-Projekt YAEM.Accept
-anceTests abgelegt.
- Beim Ausführen eines der Coded UI Tests wird automatisch die Serverapplikation
+Die Anforderungen in den Use-Cases UC1 bis UC4 aus den Use-Case-Spezifikationen
+ werden als Coded UI-Tests ausformuliert und im Visual Studio-Projekt 
+\emph on
+YAEM.AcceptanceTests
+\emph default
+ abgelegt.
+ Beim Ausführen eines der Coded UI-Tests wird automatisch die Serverapplikation
  sowie die Clientapplikation gestartet und der jeweilige Testfall wird als
  Skript abgearbeitet.
- Je nach Use Case sind unterschiedliche Eingaben sowie Erwartungen definiert.
+ Je nach Use-Case sind unterschiedliche Eingaben sowie Erwartungen definiert.
  Werden diese nicht erfüllt (z.B.
  wird nach dem Senden einer Nachricht eines Benutzers bei einem anderen
- Benutzer keine neue Nachricht eingegangen) so wird eine Exception geworfen
- und der Test schlägt fehl.
+ Benutzer keine neue Nachricht angezeigt) so wird schlägt der Test fehl.
 \end_layout
 
 \begin_layout Standard
@@ -7822,7 +8242,6 @@ reference "tab:Akzeptantests"
 
 \begin_layout Standard
 \begin_inset Float table
-placement H
 wide false
 sideways false
 status open
@@ -8066,36 +8485,39 @@ Die Semesterarbeit stellt ein spannendes und lehrreiches Projekt dar, das
  insbesondere als Vorbereitung für die Bachelorarbeit hilfreich ist.
  Das sorgfältige Erfassen der Aufgabenstellung und der zu erwartenden Resultate
  stellen dabei ein zentrales Element der Projektarbeit dar und es ist von
- Vorteil genau abzugwägen, was genau in der Aufgabenstellung erfasst sein
- soll und was geliefert werden soll.
+ Vorteil genau abzuwägen, was genau in der Aufgabenstellung erfasst sein
+ soll und was am Ende des Projekts in welcher Qualität abgeliefert werden
+ soll.
 \end_layout
 
 \begin_layout Standard
 Die Verwendung des Wassserfallmodells für dieses Projekt hat sich als ideal
- herausgestellt da so nach jeder Phase die abzugebenden Dokumente und Resultate
- fertiggestellt vorlagen und erst dann zur nächsten Phase vorgegangen werden
- konnte.
- Auch hat es sich bezahlt gemacht relativ viel Zeit in die Erarbeitung des
- Konzepts zu investieren da dadurch bei Erreichen der Implementierungsphase
- direkt mit der Entwicklung der einzlenen Komponenten begonnen werden konnte
- und zwischen den Komponenten keine Inkonsistenzen entstanden sind.
+ herausgestellt, da so nach jeder Phase die abzugebenden Dokumente und Resultate
+ fertiggestellt vorlagen und erst danach zur nächsten Phase vorgegangen
+ werden konnte.
+ Auch hat es sich bezahlt gemacht, relativ viel Zeit in die Erarbeitung
+ des Konzepts zu investieren, da dadurch bei Erreichen der Implementierungsphase
+ direkt mit der Entwicklung der einzelnen Komponenten begonnen werden konnte
+ und zwischen den Komponenten keine Inkonsistenzen entstanden sind die Erst
+ in der Verifikationsphase bemerkt wurden.
 \end_layout
 
 \begin_layout Standard
-Gegenüber der Aufgabenstellung fehlen in der Implementierung bzw.
- der Dokumentation der Semestararbeit der MobileClient (siehe dazu 
+Gegenüber der Aufgabenstellung fehlen in der Implementierung beziehungsweise
+ der Dokumentation der Semestararbeit die mobile Clientapplikation (Gründe
+ siehe dazu Kapitel 
 \begin_inset CommandInset ref
 LatexCommand vref
 reference "sub:Aufgetretene-Probleme"
 
 \end_inset
 
-) sowie der Vergleich der Funktionen und Performance mit Konkurrenzprodukten,
- da YAEM sich noch im Prototypenstadium befindet und die verlangten 120
- Stunden Aufwand schon überschritten waren.
+) sowie der Vergleich der Funktionen und Performance mit Konkurrenzprodukten.
+ Da YAEM sich noch im Prototypenstadium befindet und die verlangten 120
+ Stunden Aufwand schon überschritten worden sind, wurde darauf verzichtet.
  Zudem wurden anstatt Caesar und Blowfish die Kryptosysteme AES und Rijndael
  implementiert, wie im Kapitel Implementierung ausführlich beschrieben wurde
- (siehe 
+ (siehe Kapitel 
 \begin_inset CommandInset ref
 LatexCommand vref
 reference "sec:Kryptosysteme"
@@ -8117,7 +8539,8 @@ reference "tab:Geplanter/effektiver-Aufwand"
 
 \end_inset
 
- wird der geplante Aufwand mit dem (ungefähren) effektiven Aufwand verglichen.
+ aufgezeigt, wird der geplante Aufwand mit dem (ungefähren) effektiven Aufwand
+ verglichen um die ursprünglichen Schätzungen zu überprüfen.
  Laut Reglement der Seminararbeit (siehe 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -8132,11 +8555,11 @@ key "Stern2010"
 \end_layout
 
 \begin_layout Standard
-Wie sich herausgestellt hat, wurde die Planung der einzelnen Phasen viel
- zu optimistisch erstellt.
+Wie sich herausgestellt hat, wurde die Planung der einzelnen Phasen zu optimisti
+sch erstellt.
  Alleine schon für das Erarbeiten des Konzepts wurde mehr als fünf Mal so
- viel Zeit gebraucht und total wurden die geplanten 120 Stunden um den Faktor
- 2.8 überschritten.
+ viel Zeit gebraucht wie geplant und total wurden die geplanten 120 Stunden
+ um den Faktor 2.8 überschritten.
  Dieser Soll/Ist-Vergleich des investierten Aufwands zeigt insbesondere
  auf, in welchen Phasen (zu) viel Zeit investiert wurde, namentlich in der
  Design- und Implementierungsphase.
@@ -8438,15 +8861,33 @@ Schlussfolgerungen
 \begin_layout Standard
 Dieses Unterkapitel soll die Lehren aus der Semesterarbeit im Hinblick auf
  die Bachelorarbeit ziehen.
- Der wichtigste Punkt ist das Verhältnis zwischen geplantem und effektivem
- Aufwand, das in dieser Semestearbeit aus dem Ruder gelaufen ist.
- Es ist wichtig bereits zum Zeitpunkt des Erfassens der Aufgabenstellung
- eine grobe Vorstellung des Aufwands der einzelnen Punkte sowie der zu erwartend
-en Resultate zu haben und bei allfällig aufgetretenen Problemen .
+ 
 \end_layout
 
 \begin_layout Standard
-Es ist fragwürdig ob soviel Zeit und Aufwand in die Erklärung verschiedener
+Die wichtigste Lehre ist, dass eine realistische Aufwandsschätzung von Beginn
+ der Arbeit zwingend ist.
+ Das Verhältnis zwischen geplantem und effektivem Aufwand, das in dieser
+ Semestearbeit aus dem Ruder gelaufen ist, muss insbesondere in der Bachelorarbe
+it realistisch sein.
+ Bereits zum Zeitpunkt des Erfassens der Aufgabenstellung sollte eine grobe
+ Vorstellung des Aufwands der einzelnen Punkte sowie der zu erwartenden
+ Resultate vorhanden sein.
+\end_layout
+
+\begin_layout Standard
+Auch wurde zuviel Zeit verwendet um allfällige Lösungen für Silverlight
+ und 
+\emph on
+wsHttpDualBinding
+\emph default
+ zu finden, eine technische Schwierigkeit von welcher der Erfolg dieser
+ Arbeit nicht abhängt, da die mobile Clientapplikation nur eine von mehreren
+ Applikationen darstellt.
+\end_layout
+
+\begin_layout Standard
+Es ist auch fragwürdig ob soviel Zeit und Aufwand in die Erklärung verschiedener
  Technologien im Kapitel Implementierung (siehe 
 \begin_inset CommandInset ref
 LatexCommand vref
@@ -8454,14 +8895,20 @@ reference "sec:Verwendete-Technologien"
 
 \end_inset
 
-) verwendet werden soll oder 
+) verwendet werden soll oder ob mehr Verweise auf Fachliteratur gemacht
+ werden soll.
+ Dieser Aufwand soll in der Bachelorarbeit von Anfang an eingeplant und
+ in der Aufgabenstellung bzw.
+ den erwarteten Resultate festgehalten werden oder es soll nur reduziert
+ auf die verwendeten Technologien eingegangen werden.
 \end_layout
 
 \begin_layout Standard
-
-\noun on
-[Zu viel Zeit für Silverlight/HttpDualBinding verwendet, generell viel mehr
- als 120h aufgewendet, Herzblut in Seminararbeit gesteckt]
+Im Allgemeinen hat mir diese Semesterarbeit viel Spass gemacht und ich habe
+ Herzblut hineingesteckt.
+ Im Hinblick auf die Bachelorarbeit konnte ich viel profitieren und hoffe,
+ nicht mehr in dieselben Fallen zu treten, in die ich im Verlauf dieser
+ Semesterarbeit getreten bin.
 \end_layout
 
 \begin_layout Chapter*
@@ -8471,7 +8918,22 @@ Akronyme
 
 \begin_layout Labeling
 \labelwidthstring 00.00.0000
+AES Advanced Encryption Standard
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
 API Application Programming Interface
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+CAPI Cryptography API
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+DES Data Encryption Standard
 \end_layout
 
 \begin_layout Labeling
@@ -8497,6 +8959,11 @@ MSDN Microsoft Developer Network
 \begin_layout Labeling
 \labelwidthstring 00.00.0000
 MVVM Model View View Model
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+NIST National Institute of Standards and Technology
 \end_layout
 
 \begin_layout Labeling
@@ -8531,6 +8998,11 @@ WCF Windows Communication Foundation
 
 \begin_layout Labeling
 \labelwidthstring 00.00.0000
+WSDL Web Services Description Language
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
 WPF Windows Presentation Foundation
 \end_layout
 
@@ -8541,12 +9013,7 @@ WWW World Wide Web
 
 \begin_layout Labeling
 \labelwidthstring 00.00.0000
-YAEM Yet Another Encrypted Messenger
-\end_layout
-
-\begin_layout Labeling
-\labelwidthstring 00.00.0000
-ZHAW Zürcher Hochschule für Angewandte Wissenschaften
+XAML Extensible Application Markup Language
 \end_layout
 
 \begin_layout Labeling
@@ -8557,6 +9024,16 @@ XML Extensible Markup Language
 \begin_layout Labeling
 \labelwidthstring 00.00.0000
 XP Extreme Programming
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+YAEM Yet Another Encrypted Messenger
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+ZHAW Zürcher Hochschule für Angewandte Wissenschaften
 \end_layout
 
 \begin_layout Standard
